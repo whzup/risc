@@ -40,7 +40,7 @@
 % ---------------
 \begin{document}
 \section*{Specification}
-This document specifies the requirements for the design of the 16 bit computer.
+This document specifies the specifications for the design of a 16 bit computer.
 
 
 \subsection*{Requirement Definitions}
@@ -198,6 +198,13 @@ general layout:\par
     \end{longtable}
 \end{center}
 \subsection*{CPU Overview}
+The CPU has the following subcomponents:
+\begin{itemize}
+    \item Instruction Register (IR)
+    \item Flag Register (FR)
+    \item Carry-Look-Ahead-Adder (CLAA)
+    \item etc.
+\end{itemize}
 \begin{circuitikz}
     \draw (1,1) node[dff] {};
 \end{circuitikz}
