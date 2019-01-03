@@ -1,0 +1,7 @@
+v 4
+file "C:\Users\Aaron\Documents\GitHub\risc-computer\" ".\vhdl\alu\cla_adder.vhd" "eb925df45676ba1cde9515254b4e1160b5069384" "20181230213234.293":
+  entity cla_adder at 2( 27) + 0 on 4;
+  architecture behaviour of cla_adder at 16( 349) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc-computer\" ".\tests\cla_adder_tb.vhd" "1440b5330e99598090aa75295888324dc33d93ff" "20181230213234.293":
+  entity cla_adder_tb at 1( 0) + 0 on 4;
+  architecture behaviour of cla_adder_tb at 7( 92) + 0 on 4;
