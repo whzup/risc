@@ -1,21 +1,22 @@
 from migen import Module, Signal, If
 
 
+# TODO: Add tristate buffer
 class Register(Module):
     def __init__(self):
-        self.reg_i_en = Signal()
-        self.reg_in = Signal(16)
-        self.reg_o_en = Signal()
-        self.reg_out = Signal(16)
+        self.i_reg = Signal(16)
+        self.i_reg_ie = Signal()
+        self.i_reg_oe = Signal()
+        self.o_reg = Signal(16)
 
         ###
         self._reg = Signal(16)
-        self.sync += If(self.reg_in == 1 and self.reg_out != 1,
-                            self._reg.eq(self.reg_in)
+        self.sync += If(self.i_reg == 1 and self.o_reg != 1,
+                            self._reg.eq(self.i_reg)
                         ).Else(
                             self._reg.eq(self._reg)
                      )
 
-        self.sync += If(self.reg_o_en == 1 and self.reg_i_en != 1,
-                            self.reg_out.eq(self._reg)
+        self.sync += If(self.i_reg_oe == 1 and self.i_reg_ie != 1,
+                            self.o_reg.eq(self._reg)
                         )
