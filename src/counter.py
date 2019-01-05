@@ -6,4 +6,4 @@ class Counter(Module):
         self.i_ce = Signal()
         self.o_count = Signal(16)
 
-        self.sync += If(self.ce, self.count.eq(self.count + 1))
+        self.sync += If(self.i_ce, self.o_count.eq(self.o_count + 1))

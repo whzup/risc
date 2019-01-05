@@ -5,7 +5,7 @@ from register import Register
 dut = Register()
 
 
-def testbench():
+def reg_tb():
     yield dut.reg_i_en.eq(1)
     yield dut.reg_in.eq(0x01)
     yield
@@ -15,4 +15,4 @@ def testbench():
     yield
     assert (yield dut.reg_out) == 0x01
 
-run_simulation(dut, testbench(), vcd_name="register.vcd")
+run_simulation(dut, reg_tb(), vcd_name="register.vcd")
