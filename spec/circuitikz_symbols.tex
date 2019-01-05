@@ -83,3 +83,34 @@
 \pgftext[right,at={\pgfpoint{.55cm}{.6cm}}]{\scriptsize $Q$}
 \pgftext[right,at={\pgfpoint{.55cm}{-.6cm}}]{\scriptsize $\overline{Q}$}
 }}
+
+% ---------------
+% MUX
+% ---------------
+\pgfpoint{-.2cm}{-.625cm}
+\pgfgetlastxy{\xl}{\yl}
+\pgfpoint{-.2cm}{.625cm}
+\pgfgetlastxy{\xu}{\yu}
+\pgfpoint{-.1cm}{.9cm}
+\pgfgetlastxy{\xo}{\yo}
+\pgfpoint{.1cm}{-.9cm}
+\pgfgetlastxy{\xt}{\yt}
+\pgfpoint{.2cm}{0cm}
+\pgfgetlastxy{\xout}{\yout}
+
+\pgfdeclareshape{mux}{
+    \anchor{center}{\pgfpointorigin}
+
+    \savedanchor\pinl{\pgfpoint{\xl}{\yl}}
+    \anchor{l}{\pinl}
+    \savedanchor\pinu{\pgfpoint{\xu}{\yu}}
+    \anchor{u}{\pinu}
+    \savedanchor\pino{\pgfpoint{\xo}{\yo}}
+    \anchor{o}{\pino}
+    \savedanchor\pint{\pgfpoint{\xt}{\yt}}
+    \anchor{t}{\pint}
+    \savedanchor\pinout{\pgfpoint{\xout}{\yout}}
+    \anchor{out}{\pinout}
+
+    \foregroundpath{
+        \pgfsetlinewidth{0.05cm}
