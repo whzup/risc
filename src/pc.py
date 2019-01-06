@@ -24,14 +24,14 @@ class PC(Module):
         counter = Instance("Counter",
                            i_master_clk=ClockSignal(),
                            i_master_rst=ResetSignal(),
-                           i_i_ce = self.ce,
+                           i_i_ce = self.i_ce,
                            o_o_count = self.count
                            )
 
-        self.special += counter, reg
-        
+        self.submodules += counter
+
         '''
         Logic
         '''
-        self.comb += self.sel.eq(self.ce & self.je)
-        self.sync += self.o_count.eq(Mux(self.sel, self.j, self.count))
+        self.comb += self.sel.eq(self.i_ce & self.i_je)
+        self.sync += self.o_count.eq(Mux(self.sel, self.i_j, self.count))
