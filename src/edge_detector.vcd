@@ -1,0 +1,33 @@
+$var wire 1 ! i_sig $end
+$var wire 1 " o_sig $end
+$var wire 1 # prev $end
+$var wire 1 $ sys_clk $end
+$dumpvars
+$end
+#0
+0!
+0"
+0#
+0$
+#5
+1!
+1$
+#10
+0$
+#15
+1"
+1#
+1$
+#20
+0$
+#25
+0"
+1$
+#30
+0$
+#35
+1$
+0!
+0"
+0#
+0$
