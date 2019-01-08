@@ -16,13 +16,17 @@ dut = CLAAdder()
 
 
 def stimulate():
-    in1 = Signal(16)
-    in2 = Signal(16)
-    in1 = 0x02
-    in2 = 0x03
-
-    yield dut.op1.eq(in1)
-    yield dut.op2.eq(in2)
+    yield dut.op1.eq(0x01)
+    yield dut.op2.eq(0x01)
+    yield
+    yield
+    yield dut.op1.eq(0x03)
+    yield dut.op2.eq(0x05)
+    yield
+    yield
+    yield dut.op1.eq(0x08)
+    yield dut.op2.eq(0x10)
+    yield
     yield
 
 
