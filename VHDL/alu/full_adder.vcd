@@ -1,0 +1,89 @@
+$date
+  Wed Jan 09 09:43:40 2019
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 1 ! opa_tb $end
+$var reg 1 " opb_tb $end
+$var reg 1 # c_tb $end
+$var reg 1 $ e_tb $end
+$var reg 1 % g_tb $end
+$var reg 1 & p_tb $end
+$scope module dut $end
+$var reg 1 ' opai $end
+$var reg 1 ( opbi $end
+$var reg 1 ) ci $end
+$var reg 1 * eo $end
+$var reg 1 + go $end
+$var reg 1 , po $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+0%
+0&
+0'
+0(
+0)
+0*
+0+
+0,
+#1000000
+1"
+1$
+1&
+1(
+1*
+1,
+#2000000
+1!
+0"
+1'
+0(
+#3000000
+1"
+0$
+1%
+1(
+0*
+1+
+#4000000
+0!
+0"
+1#
+1$
+0%
+0&
+0'
+0(
+1)
+1*
+0+
+0,
+#5000000
+1"
+0$
+1&
+1(
+0*
+1,
+#6000000
+1!
+0"
+1'
+0(
+#7000000
+1"
+1$
+1%
+1(
+1*
+1+
+#8000000
