@@ -5,3 +5,6 @@ file "C:\Users\Aaron\Documents\GitHub\risc-computer\" ".\vhdl\alu\cla_adder.vhd"
 file "C:\Users\Aaron\Documents\GitHub\risc-computer\" ".\tests\cla_adder_tb.vhd" "1440b5330e99598090aa75295888324dc33d93ff" "20181230213234.293":
   entity cla_adder_tb at 1( 0) + 0 on 4;
   architecture behaviour of cla_adder_tb at 7( 92) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/full_adder.vhd" "58538dc8e24f1d2689100165875185d9c1de31fe" "20190109150941.065":
+  entity full_adder at 1( 0) + 0 on 13;
+  architecture behav of full_adder at 16( 252) + 0 on 14;

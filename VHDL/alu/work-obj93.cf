@@ -1,7 +1,0 @@
-v 4
-file . ".\full_adder.vhd" "58538dc8e24f1d2689100165875185d9c1de31fe" "20190108205009.052":
-  entity full_adder at 1( 0) + 0 on 11;
-  architecture behav of full_adder at 16( 252) + 0 on 12;
-file . "full_adder_tb.vhd" "b0638bcb26a5ec06117f1e1d6b495725485aa48d" "20190109094858.624":
-  entity full_adder_tb at 1( 0) + 0 on 35;
-  architecture behavior of full_adder_tb at 7( 94) + 0 on 36;
