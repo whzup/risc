@@ -1,15 +1,25 @@
 VHDL_VER    = 08
 GHDL        = ghdl
-WORK        = ./work
-SOURCE      = ./src
-TESTS       = ./tests
-GHDLFLAGS	= --std=$(VHDL_VER) --workdir=$(WORK)
+WORK        = work
+SOURCE      = src/*.vhd src/*/*.vhd
+SIM			= sim
+TESTS       = tests/${TESTBENCH}.vhd
+GHDLFLAGS	= --std=$(VHDL_VER) --workdir=$(SIM) --work=$(WORK)
 
-test: $(SOURCE)/alu/full_adder.o $(TESTS)/%.o $(SOURCE)/% $(TESTS)/%
-	$(GHDL) -r $(GHDLFLAGS) $(TESTS)/% --vcd=%.vcd
+.PHONY: clean
 
-%: %.o
-	$(GHDL) -e $(GHDLFLAGS) $@
+all: compile
 
-%.o: %.vhd
-	$(GHDL) -a $(GHDLFLAGS) $<
+compile:
+ifeq ($(strip $(TESTBENCH)),)
+	@echo "TESTBENCH not set."
+	@exit 2
+endif
+
+	$(GHDL) -i $(GHDLFLAGS) $(TESTS) $(SOURCE)
+	$(GHDL) -m $(GHDLFLAGS) $(TESTBENCH)
+	@mv $(TESTBENCH) sim/$(TESTBENCH)
+
+clean:
+	echo "Cleaning up ..."
+	$(GHDL) --clean --workdir=$(SIM)

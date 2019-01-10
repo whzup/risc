@@ -1,3 +1,8 @@
+------------------------------------------------------------
+-- A simple full adder
+-- Author: Aaron Moser
+-- Date: 10.01.2019
+------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -13,7 +18,7 @@ entity full_adder is
     );
 end;
 
-architecture behav of full_adder is
+architecture behavior of full_adder is
 begin
     eo <= opai xor opbi xor ci;
     go <= opai and opbi;

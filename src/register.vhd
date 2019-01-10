@@ -4,6 +4,8 @@ use ieee.std_logic_1164.all;
 entity reg is
     port
     (
+    clk : std_logic;
+    rstn : std_logic;
     regi : std_logic_vector(15 downto 0);
     iei : std_logic;
     oei : std_logic;
@@ -21,3 +23,13 @@ begin
         end if;
     end process;
 
+    sync : process(all)
+    begin
+        if (rstn = '0') then
+            reg <= (others => '0');
+        elsif (rising_edge(clk) = '1') then
+            rego <= reg;
+        end if;
+    end process;
+
+end architecture;
