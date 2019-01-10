@@ -47,18 +47,31 @@ architecture behaviour of claa_4bit is
     signal c_vec: std_logic_vector(3 downto 0);
 begin
     -- Instantiate the components
-    gen_adder:
-    for i in 0 to 3 generate
-        adder : full_adder port map
-        (
-        opai => opai(i),
-        opbi => opbi(i),
-        ci   => c_vec(i),
-        eo   => e_vec(i),
-        go   => g_vec(i),
-        po   => p_vec(i)
-        );
-    end generate;
+    gen_adder : for i in 0 to 3 generate
+        lsb_adder : if i=0 generate
+            A0 : full_adder port map
+            (
+            opai => opai(i),
+            opbi => opbi(i),
+            ci   => ci,
+            eo   => e_vec(i),
+            go   => g_vec(i),
+            po   => p_vec(i)
+            );
+        end generate lsb_adder;
+
+        adder : if i>0 generate
+            AX : full_adder port map
+                (
+                opai => opai(i),
+                opbi => opbi(i),
+                ci   => c_vec(i-1),
+                eo   => e_vec(i),
+                go   => g_vec(i),
+                po   => p_vec(i)
+                );
+        end generate adder;
+    end generate gen_adder;
 
     lcu_inst : lcu port map
     (
