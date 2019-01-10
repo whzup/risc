@@ -1,7 +1,7 @@
 -----------------------------------------------------------
 -- An LCU (lookahead-carry unit) which determines the carries
 -- based on generation and propagation calculations
--- Author: whzup
+-- Author: Aaron Moser
 -- Date: 10.01.2019
 -----------------------------------------------------------
 library ieee;
