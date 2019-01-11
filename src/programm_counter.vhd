@@ -5,6 +5,7 @@
 -----------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity programm_counter is
     port
@@ -19,16 +20,16 @@ end entity;
 
 architecture behaviour of programm_counter is
     signal sel : std_logic;
-    signal count, next_count : std_logic_vector(15 downto 0);
+    signal count, next_count : unsigned(15 downto 0);
 begin
-    count : process(all)
+    counter : process(all)
     begin
         -- TODO decide a fitting priority.
         sel <= cei and jei;
         if jei = '1' and cei = '0' then
-            next_count <= ji;
+            next_count <= unsigned(ji);
         elsif cei = '1' then
-            counto <= count;
+            counto <= std_logic_vector(count);
             count <= next_count;
             next_count <= count + 1;
         end if;

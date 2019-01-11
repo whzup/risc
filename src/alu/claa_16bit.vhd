@@ -52,10 +52,10 @@ begin
         lsb_claa : if i=0 generate
             A0 : claa_4bit port map
                 (
-                opai => opai(4*i+3 downto 4*i),
-                opbi => opbi(4*i+3 downto 4*i),
+                opai => opai(3 downto 0),
+                opbi => opbi(3 downto 0),
                 ci   => ci,
-                eo   => e_vec(4*i+3 downto 4*i),
+                eo   => e_vec(3 downto 0),
                 go   => g_vec(i),
                 po   => p_vec(i)
                 );

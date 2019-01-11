@@ -1,0 +1,1164 @@
+$date
+  Fri Jan 11 22:55:03 2019
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 16 ! opa_tb[15:0] $end
+$var reg 16 " opb_tb[15:0] $end
+$var reg 16 # eo_tb[15:0] $end
+$var reg 1 $ ci_tb $end
+$var reg 1 % po_tb $end
+$var reg 1 & go_tb $end
+$var reg 1 ' co_tb $end
+$scope module dut $end
+$var reg 16 ( opai[15:0] $end
+$var reg 16 ) opbi[15:0] $end
+$var reg 1 * ci $end
+$var reg 16 + eo[15:0] $end
+$var reg 1 , po $end
+$var reg 1 - go $end
+$var reg 1 . co $end
+$var reg 16 / e_vec[15:0] $end
+$var reg 4 0 p_vec[3:0] $end
+$var reg 4 1 g_vec[3:0] $end
+$var reg 4 2 c_vec[3:0] $end
+$scope module gen_claa(0) $end
+$scope module lsb_claa $end
+$scope module a0 $end
+$var reg 4 3 opai[3:0] $end
+$var reg 4 4 opbi[3:0] $end
+$var reg 1 5 ci $end
+$var reg 4 6 eo[3:0] $end
+$var reg 1 7 po $end
+$var reg 1 8 go $end
+$var reg 1 9 co $end
+$var reg 4 : e_vec[3:0] $end
+$var reg 4 ; p_vec[3:0] $end
+$var reg 4 < g_vec[3:0] $end
+$var reg 4 = c_vec[3:0] $end
+$scope module gen_adder(0) $end
+$scope module lsb_adder $end
+$scope module a0 $end
+$var reg 1 > opai $end
+$var reg 1 ? opbi $end
+$var reg 1 @ ci $end
+$var reg 1 A eo $end
+$var reg 1 B go $end
+$var reg 1 C po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(1) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 D opai $end
+$var reg 1 E opbi $end
+$var reg 1 F ci $end
+$var reg 1 G eo $end
+$var reg 1 H go $end
+$var reg 1 I po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(2) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 J opai $end
+$var reg 1 K opbi $end
+$var reg 1 L ci $end
+$var reg 1 M eo $end
+$var reg 1 N go $end
+$var reg 1 O po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(3) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 P opai $end
+$var reg 1 Q opbi $end
+$var reg 1 R ci $end
+$var reg 1 S eo $end
+$var reg 1 T go $end
+$var reg 1 U po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module lcu_inst $end
+$var reg 1 V ci $end
+$var reg 4 W pi[3:0] $end
+$var reg 4 X gi[3:0] $end
+$var reg 4 Y co[3:0] $end
+$var reg 1 Z pgo $end
+$var reg 1 [ ggo $end
+$var reg 1 \ pg $end
+$var reg 1 ] gg $end
+$var reg 4 ^ c_vec[3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_claa(1) $end
+$scope module claa $end
+$scope module ax $end
+$var reg 4 _ opai[3:0] $end
+$var reg 4 ` opbi[3:0] $end
+$var reg 1 a ci $end
+$var reg 4 b eo[3:0] $end
+$var reg 1 c po $end
+$var reg 1 d go $end
+$var reg 1 e co $end
+$var reg 4 f e_vec[3:0] $end
+$var reg 4 g p_vec[3:0] $end
+$var reg 4 h g_vec[3:0] $end
+$var reg 4 i c_vec[3:0] $end
+$scope module gen_adder(0) $end
+$scope module lsb_adder $end
+$scope module a0 $end
+$var reg 1 j opai $end
+$var reg 1 k opbi $end
+$var reg 1 l ci $end
+$var reg 1 m eo $end
+$var reg 1 n go $end
+$var reg 1 o po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(1) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 p opai $end
+$var reg 1 q opbi $end
+$var reg 1 r ci $end
+$var reg 1 s eo $end
+$var reg 1 t go $end
+$var reg 1 u po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(2) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 v opai $end
+$var reg 1 w opbi $end
+$var reg 1 x ci $end
+$var reg 1 y eo $end
+$var reg 1 z go $end
+$var reg 1 { po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(3) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 | opai $end
+$var reg 1 } opbi $end
+$var reg 1 !" ci $end
+$var reg 1 "" eo $end
+$var reg 1 #" go $end
+$var reg 1 $" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module lcu_inst $end
+$var reg 1 %" ci $end
+$var reg 4 &" pi[3:0] $end
+$var reg 4 '" gi[3:0] $end
+$var reg 4 (" co[3:0] $end
+$var reg 1 )" pgo $end
+$var reg 1 *" ggo $end
+$var reg 1 +" pg $end
+$var reg 1 ," gg $end
+$var reg 4 -" c_vec[3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_claa(2) $end
+$scope module claa $end
+$scope module ax $end
+$var reg 4 ." opai[3:0] $end
+$var reg 4 /" opbi[3:0] $end
+$var reg 1 0" ci $end
+$var reg 4 1" eo[3:0] $end
+$var reg 1 2" po $end
+$var reg 1 3" go $end
+$var reg 1 4" co $end
+$var reg 4 5" e_vec[3:0] $end
+$var reg 4 6" p_vec[3:0] $end
+$var reg 4 7" g_vec[3:0] $end
+$var reg 4 8" c_vec[3:0] $end
+$scope module gen_adder(0) $end
+$scope module lsb_adder $end
+$scope module a0 $end
+$var reg 1 9" opai $end
+$var reg 1 :" opbi $end
+$var reg 1 ;" ci $end
+$var reg 1 <" eo $end
+$var reg 1 =" go $end
+$var reg 1 >" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(1) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 ?" opai $end
+$var reg 1 @" opbi $end
+$var reg 1 A" ci $end
+$var reg 1 B" eo $end
+$var reg 1 C" go $end
+$var reg 1 D" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(2) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 E" opai $end
+$var reg 1 F" opbi $end
+$var reg 1 G" ci $end
+$var reg 1 H" eo $end
+$var reg 1 I" go $end
+$var reg 1 J" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(3) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 K" opai $end
+$var reg 1 L" opbi $end
+$var reg 1 M" ci $end
+$var reg 1 N" eo $end
+$var reg 1 O" go $end
+$var reg 1 P" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module lcu_inst $end
+$var reg 1 Q" ci $end
+$var reg 4 R" pi[3:0] $end
+$var reg 4 S" gi[3:0] $end
+$var reg 4 T" co[3:0] $end
+$var reg 1 U" pgo $end
+$var reg 1 V" ggo $end
+$var reg 1 W" pg $end
+$var reg 1 X" gg $end
+$var reg 4 Y" c_vec[3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_claa(3) $end
+$scope module claa $end
+$scope module ax $end
+$var reg 4 Z" opai[3:0] $end
+$var reg 4 [" opbi[3:0] $end
+$var reg 1 \" ci $end
+$var reg 4 ]" eo[3:0] $end
+$var reg 1 ^" po $end
+$var reg 1 _" go $end
+$var reg 1 `" co $end
+$var reg 4 a" e_vec[3:0] $end
+$var reg 4 b" p_vec[3:0] $end
+$var reg 4 c" g_vec[3:0] $end
+$var reg 4 d" c_vec[3:0] $end
+$scope module gen_adder(0) $end
+$scope module lsb_adder $end
+$scope module a0 $end
+$var reg 1 e" opai $end
+$var reg 1 f" opbi $end
+$var reg 1 g" ci $end
+$var reg 1 h" eo $end
+$var reg 1 i" go $end
+$var reg 1 j" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(1) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 k" opai $end
+$var reg 1 l" opbi $end
+$var reg 1 m" ci $end
+$var reg 1 n" eo $end
+$var reg 1 o" go $end
+$var reg 1 p" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(2) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 q" opai $end
+$var reg 1 r" opbi $end
+$var reg 1 s" ci $end
+$var reg 1 t" eo $end
+$var reg 1 u" go $end
+$var reg 1 v" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module gen_adder(3) $end
+$scope module adder $end
+$scope module ax $end
+$var reg 1 w" opai $end
+$var reg 1 x" opbi $end
+$var reg 1 y" ci $end
+$var reg 1 z" eo $end
+$var reg 1 {" go $end
+$var reg 1 |" po $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module lcu_inst $end
+$var reg 1 }" ci $end
+$var reg 4 !# pi[3:0] $end
+$var reg 4 "# gi[3:0] $end
+$var reg 4 ## co[3:0] $end
+$var reg 1 $# pgo $end
+$var reg 1 %# ggo $end
+$var reg 1 &# pg $end
+$var reg 1 '# gg $end
+$var reg 4 (# c_vec[3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module lcu_inst $end
+$var reg 1 )# ci $end
+$var reg 4 *# pi[3:0] $end
+$var reg 4 +# gi[3:0] $end
+$var reg 4 ,# co[3:0] $end
+$var reg 1 -# pgo $end
+$var reg 1 .# ggo $end
+$var reg 1 /# pg $end
+$var reg 1 0# gg $end
+$var reg 4 1# c_vec[3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0000000000000000 !
+b0000000000000000 "
+b0000000000000000 #
+0$
+0%
+0&
+0'
+b0000000000000000 (
+b0000000000000000 )
+0*
+b0000000000000000 +
+0,
+0-
+0.
+b0000000000000000 /
+b0000 0
+b0000 1
+b0000 2
+b0000 3
+b0000 4
+05
+b0000 6
+07
+08
+09
+b0000 :
+b0000 ;
+b0000 <
+b0000 =
+0>
+0?
+0@
+0A
+0B
+0C
+0D
+0E
+0F
+0G
+0H
+0I
+0J
+0K
+0L
+0M
+0N
+0O
+0P
+0Q
+0R
+0S
+0T
+0U
+0V
+b0000 W
+b0000 X
+b0000 Y
+0Z
+0[
+0\
+0]
+b0000 ^
+b0000 _
+b0000 `
+0a
+b0000 b
+0c
+0d
+0e
+b0000 f
+b0000 g
+b0000 h
+b0000 i
+0j
+0k
+0l
+0m
+0n
+0o
+0p
+0q
+0r
+0s
+0t
+0u
+0v
+0w
+0x
+0y
+0z
+0{
+0|
+0}
+0!"
+0""
+0#"
+0$"
+0%"
+b0000 &"
+b0000 '"
+b0000 ("
+0)"
+0*"
+0+"
+0,"
+b0000 -"
+b0000 ."
+b0000 /"
+00"
+b0000 1"
+02"
+03"
+04"
+b0000 5"
+b0000 6"
+b0000 7"
+b0000 8"
+09"
+0:"
+0;"
+0<"
+0="
+0>"
+0?"
+0@"
+0A"
+0B"
+0C"
+0D"
+0E"
+0F"
+0G"
+0H"
+0I"
+0J"
+0K"
+0L"
+0M"
+0N"
+0O"
+0P"
+0Q"
+b0000 R"
+b0000 S"
+b0000 T"
+0U"
+0V"
+0W"
+0X"
+b0000 Y"
+b0000 Z"
+b0000 ["
+0\"
+b0000 ]"
+0^"
+0_"
+0`"
+b0000 a"
+b0000 b"
+b0000 c"
+b0000 d"
+0e"
+0f"
+0g"
+0h"
+0i"
+0j"
+0k"
+0l"
+0m"
+0n"
+0o"
+0p"
+0q"
+0r"
+0s"
+0t"
+0u"
+0v"
+0w"
+0x"
+0y"
+0z"
+0{"
+0|"
+0}"
+b0000 !#
+b0000 "#
+b0000 ##
+0$#
+0%#
+0&#
+0'#
+b0000 (#
+0)#
+b0000 *#
+b0000 +#
+b0000 ,#
+0-#
+0.#
+0/#
+00#
+b0000 1#
+#5000000
+b0000000000000001 !
+b0000000000000001 "
+b0000000000000010 #
+b0000000000000001 (
+b0000000000000001 )
+b0000000000000010 +
+b0000000000000010 /
+b0001 3
+b0001 4
+b0010 6
+b0010 :
+b0001 ;
+b0001 <
+b0001 =
+1>
+1?
+1B
+1C
+1F
+1G
+b0001 W
+b0001 X
+b0001 Y
+b0001 ^
+#10000000
+b0000000000000011 #
+1$
+1*
+b0000000000000011 +
+b0000000000000011 /
+15
+b0011 6
+b0011 :
+1@
+1A
+1V
+1)#
+#15000000
+b1111111111111100 !
+b0000000000000011 "
+b1111111111111111 #
+0$
+1%
+b1111111111111100 (
+b0000000000000011 )
+0*
+b1111111111111111 +
+1,
+b1111111111111111 /
+b1111 0
+b1100 3
+b0011 4
+05
+b1111 6
+17
+09
+b1111 :
+b1111 ;
+b0000 <
+b0000 =
+0>
+0@
+0B
+1E
+0F
+1G
+1I
+1J
+0L
+1M
+1O
+1P
+0R
+1S
+1U
+0V
+b1111 W
+b0000 X
+b0000 Y
+1Z
+1\
+b0000 ^
+b1111 _
+b1111 b
+1c
+b1111 f
+b1111 g
+1j
+1m
+1o
+1p
+1s
+1u
+1v
+1y
+1{
+1|
+1""
+1$"
+b1111 &"
+1)"
+1+"
+b1111 ."
+b1111 1"
+12"
+b1111 5"
+b1111 6"
+19"
+1<"
+1>"
+1?"
+1B"
+1D"
+1E"
+1H"
+1J"
+1K"
+1N"
+1P"
+b1111 R"
+1U"
+1W"
+b1111 Z"
+b1111 ]"
+1^"
+b1111 a"
+b1111 b"
+1e"
+1h"
+1j"
+1k"
+1n"
+1p"
+1q"
+1t"
+1v"
+1w"
+1z"
+1|"
+b1111 !#
+1$#
+1&#
+0)#
+b1111 *#
+1-#
+1/#
+#20000000
+b1010101010101010 !
+b0101010101010101 "
+b0000000000000000 #
+1$
+1'
+b1010101010101010 (
+b0101010101010101 )
+1*
+b0000000000000000 +
+1.
+b0000000000000000 /
+b1111 2
+b1010 3
+b0101 4
+15
+b0000 6
+19
+b0000 :
+b1111 =
+1@
+0A
+1D
+0E
+1F
+0G
+0J
+1K
+1L
+0M
+1R
+0S
+1V
+b1111 Y
+b1111 ^
+b1010 _
+b0101 `
+1a
+b0000 b
+1e
+b0000 f
+b1111 i
+0j
+1k
+1l
+0m
+1r
+0s
+0v
+1w
+1x
+0y
+1!"
+0""
+1%"
+b1111 ("
+b1111 -"
+b1010 ."
+b0101 /"
+10"
+b0000 1"
+14"
+b0000 5"
+b1111 8"
+09"
+1:"
+1;"
+0<"
+1A"
+0B"
+0E"
+1F"
+1G"
+0H"
+1M"
+0N"
+1Q"
+b1111 T"
+b1111 Y"
+b1010 Z"
+b0101 ["
+1\"
+b0000 ]"
+1`"
+b0000 a"
+b1111 d"
+0e"
+1f"
+1g"
+0h"
+1m"
+0n"
+0q"
+1r"
+1s"
+0t"
+1y"
+0z"
+1}"
+b1111 ##
+b1111 (#
+1)#
+b1111 ,#
+b1111 1#
+#25000000
+b0001000010001011 !
+b0100001000000100 "
+b0101001010010000 #
+0%
+0'
+b0001000010001011 (
+b0100001000000100 )
+b0101001010010000 +
+0,
+0.
+b0101001010010000 /
+b0001 0
+b0001 2
+b1011 3
+b0100 4
+1>
+0?
+b1000 _
+b0000 `
+b1001 b
+0c
+0e
+b1001 f
+b1000 g
+b0000 i
+0k
+1m
+0o
+0p
+0r
+0s
+0u
+0w
+0x
+0y
+0{
+0!"
+1""
+b1000 &"
+b0000 ("
+0)"
+0+"
+b0000 -"
+b0000 ."
+b0010 /"
+00"
+b0010 1"
+02"
+04"
+b0010 5"
+b0010 6"
+b0000 8"
+0:"
+0;"
+0<"
+0>"
+0?"
+1@"
+0A"
+1B"
+0F"
+0G"
+0H"
+0J"
+0K"
+0M"
+0N"
+0P"
+0Q"
+b0010 R"
+b0000 T"
+0U"
+0W"
+b0000 Y"
+b0001 Z"
+b0100 ["
+0\"
+b0101 ]"
+0^"
+0`"
+b0101 a"
+b0101 b"
+b0000 d"
+1e"
+0f"
+0g"
+1h"
+0k"
+0m"
+0n"
+0p"
+0s"
+1t"
+0w"
+0y"
+0z"
+0|"
+0}"
+b0101 !#
+b0000 ##
+0$#
+0&#
+b0000 (#
+b0001 *#
+b0001 ,#
+0-#
+0/#
+b0001 1#
+#30000000
+b0101001010001111 #
+0$
+0*
+b0101001010001111 +
+b0101001010001111 /
+b0000 2
+05
+b1111 6
+09
+b1111 :
+b0000 =
+0@
+1A
+0F
+1G
+0L
+1M
+0R
+1S
+0V
+b0000 Y
+b0000 ^
+0a
+b1000 b
+b1000 f
+0l
+0m
+0%"
+0)#
+b0000 ,#
+b0000 1#
+#35000000
+b0000100110010000 !
+b1100000000000011 "
+b1100100110010011 #
+b0000100110010000 (
+b1100000000000011 )
+b1100100110010011 +
+b1100100110010011 /
+b0000 0
+b0000 3
+b0011 4
+b0011 6
+07
+b0011 :
+b0011 ;
+0>
+1?
+0D
+1E
+0K
+0M
+0O
+0P
+0S
+0U
+b0011 W
+0Z
+0\
+b1001 _
+b1001 b
+b1001 f
+b1001 g
+1j
+1m
+1o
+b1001 &"
+b1001 ."
+b0000 /"
+b1001 1"
+b1001 5"
+b1001 6"
+19"
+1<"
+1>"
+0@"
+0B"
+0D"
+1K"
+1N"
+1P"
+b1001 R"
+b0000 Z"
+b1100 ["
+b1100 ]"
+b1100 a"
+b1100 b"
+0e"
+0h"
+0j"
+1x"
+1z"
+1|"
+b1100 !#
+b0000 *#
+#40000000
+b0000000000001111 !
+b0000000000001111 "
+b0000000000011110 #
+b0000000000001111 (
+b0000000000001111 )
+b0000000000011110 +
+b0000000000011110 /
+b0001 0
+b0001 1
+b0001 2
+b1111 3
+b1111 4
+b1110 6
+17
+18
+19
+b1110 :
+b1111 ;
+b1111 <
+b1111 =
+1>
+0A
+1B
+1D
+1F
+1G
+1H
+1J
+1K
+1L
+1M
+1N
+1O
+1P
+1Q
+1R
+1S
+1T
+1U
+b1111 W
+b1111 X
+b1111 Y
+1Z
+1[
+1\
+1]
+b1111 ^
+b0000 _
+1a
+b0001 b
+b0001 f
+b0000 g
+0j
+1l
+1m
+0o
+0|
+0""
+0$"
+1%"
+b0000 &"
+b0000 ."
+b0000 1"
+b0000 5"
+b0000 6"
+09"
+0<"
+0>"
+0K"
+0N"
+0P"
+b0000 R"
+b0000 ["
+b0000 ]"
+b0000 a"
+b0000 b"
+0r"
+0t"
+0v"
+0x"
+0z"
+0|"
+b0000 !#
+b0001 *#
+b0001 +#
+b0001 ,#
+b0001 1#
+#45000000
+b0000000011111111 !
+b0000000011111111 "
+b0000000111111111 #
+1$
+b0000000011111111 (
+b0000000011111111 )
+1*
+b0000000111111111 +
+b0000000111111111 /
+b0011 0
+b0011 1
+b0011 2
+15
+b1111 6
+b1111 :
+1@
+1A
+1V
+b1111 _
+b1111 `
+b1111 b
+1c
+1d
+1e
+b1111 f
+b1111 g
+b1111 h
+b1111 i
+1j
+1k
+1n
+1o
+1p
+1q
+1r
+1s
+1t
+1u
+1v
+1w
+1x
+1y
+1z
+1{
+1|
+1}
+1!"
+1""
+1#"
+1$"
+b1111 &"
+b1111 '"
+b1111 ("
+1)"
+1*"
+1+"
+1,"
+b1111 -"
+10"
+b0001 1"
+b0001 5"
+1;"
+1<"
+1Q"
+1)#
+b0011 *#
+b0011 +#
+b0011 ,#
+b0011 1#
+#50000000
