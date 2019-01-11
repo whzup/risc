@@ -4,12 +4,12 @@ use ieee.std_logic_1164.all;
 entity reg is
     port
     (
-    clk : std_logic;
-    rstn : std_logic;
-    regi : std_logic_vector(15 downto 0);
-    iei : std_logic;
-    oei : std_logic;
-    rego : std_logic_vector(15 downto 0)
+    clk:  in std_logic;
+    rstn: in std_logic;
+    regi: in std_logic_vector(15 downto 0);
+    iei:  in std_logic;
+    oei:  in std_logic;
+    rego: out std_logic_vector(15 downto 0)
     );
 end;
 
@@ -27,7 +27,7 @@ begin
     begin
         if (rstn = '0') then
             reg <= (others => '0');
-        elsif (rising_edge(clk) = '1') then
+        elsif rising_edge(clk) then
             rego <= reg;
         end if;
     end process;
