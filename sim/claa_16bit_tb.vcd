@@ -1,5 +1,5 @@
 $date
-  Fri Jan 11 22:55:03 2019
+  Sat Jan 12 09:51:12 2019
 $end
 $version
   GHDL v0
@@ -15,13 +15,13 @@ $var reg 1 % po_tb $end
 $var reg 1 & go_tb $end
 $var reg 1 ' co_tb $end
 $scope module dut $end
-$var reg 16 ( opai[15:0] $end
-$var reg 16 ) opbi[15:0] $end
-$var reg 1 * ci $end
-$var reg 16 + eo[15:0] $end
-$var reg 1 , po $end
-$var reg 1 - go $end
-$var reg 1 . co $end
+$var reg 16 ( i_opa[15:0] $end
+$var reg 16 ) i_opb[15:0] $end
+$var reg 1 * i_c $end
+$var reg 16 + o_e[15:0] $end
+$var reg 1 , o_p $end
+$var reg 1 - o_g $end
+$var reg 1 . o_c $end
 $var reg 16 / e_vec[15:0] $end
 $var reg 4 0 p_vec[3:0] $end
 $var reg 4 1 g_vec[3:0] $end
@@ -29,13 +29,13 @@ $var reg 4 2 c_vec[3:0] $end
 $scope module gen_claa(0) $end
 $scope module lsb_claa $end
 $scope module a0 $end
-$var reg 4 3 opai[3:0] $end
-$var reg 4 4 opbi[3:0] $end
-$var reg 1 5 ci $end
-$var reg 4 6 eo[3:0] $end
-$var reg 1 7 po $end
-$var reg 1 8 go $end
-$var reg 1 9 co $end
+$var reg 4 3 i_opa[3:0] $end
+$var reg 4 4 i_opb[3:0] $end
+$var reg 1 5 i_c $end
+$var reg 4 6 o_e[3:0] $end
+$var reg 1 7 o_p $end
+$var reg 1 8 o_g $end
+$var reg 1 9 o_c $end
 $var reg 4 : e_vec[3:0] $end
 $var reg 4 ; p_vec[3:0] $end
 $var reg 4 < g_vec[3:0] $end
@@ -43,58 +43,58 @@ $var reg 4 = c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 > opai $end
-$var reg 1 ? opbi $end
-$var reg 1 @ ci $end
-$var reg 1 A eo $end
-$var reg 1 B go $end
-$var reg 1 C po $end
+$var reg 1 > i_opa $end
+$var reg 1 ? i_opb $end
+$var reg 1 @ i_c $end
+$var reg 1 A o_e $end
+$var reg 1 B o_g $end
+$var reg 1 C o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 D opai $end
-$var reg 1 E opbi $end
-$var reg 1 F ci $end
-$var reg 1 G eo $end
-$var reg 1 H go $end
-$var reg 1 I po $end
+$var reg 1 D i_opa $end
+$var reg 1 E i_opb $end
+$var reg 1 F i_c $end
+$var reg 1 G o_e $end
+$var reg 1 H o_g $end
+$var reg 1 I o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 J opai $end
-$var reg 1 K opbi $end
-$var reg 1 L ci $end
-$var reg 1 M eo $end
-$var reg 1 N go $end
-$var reg 1 O po $end
+$var reg 1 J i_opa $end
+$var reg 1 K i_opb $end
+$var reg 1 L i_c $end
+$var reg 1 M o_e $end
+$var reg 1 N o_g $end
+$var reg 1 O o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 P opai $end
-$var reg 1 Q opbi $end
-$var reg 1 R ci $end
-$var reg 1 S eo $end
-$var reg 1 T go $end
-$var reg 1 U po $end
+$var reg 1 P i_opa $end
+$var reg 1 Q i_opb $end
+$var reg 1 R i_c $end
+$var reg 1 S o_e $end
+$var reg 1 T o_g $end
+$var reg 1 U o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 V ci $end
-$var reg 4 W pi[3:0] $end
-$var reg 4 X gi[3:0] $end
-$var reg 4 Y co[3:0] $end
-$var reg 1 Z pgo $end
-$var reg 1 [ ggo $end
+$var reg 1 V i_c $end
+$var reg 4 W i_p[3:0] $end
+$var reg 4 X i_g[3:0] $end
+$var reg 4 Y o_c[3:0] $end
+$var reg 1 Z o_pg $end
+$var reg 1 [ o_gg $end
 $var reg 1 \ pg $end
 $var reg 1 ] gg $end
 $var reg 4 ^ c_vec[3:0] $end
@@ -105,13 +105,13 @@ $upscope $end
 $scope module gen_claa(1) $end
 $scope module claa $end
 $scope module ax $end
-$var reg 4 _ opai[3:0] $end
-$var reg 4 ` opbi[3:0] $end
-$var reg 1 a ci $end
-$var reg 4 b eo[3:0] $end
-$var reg 1 c po $end
-$var reg 1 d go $end
-$var reg 1 e co $end
+$var reg 4 _ i_opa[3:0] $end
+$var reg 4 ` i_opb[3:0] $end
+$var reg 1 a i_c $end
+$var reg 4 b o_e[3:0] $end
+$var reg 1 c o_p $end
+$var reg 1 d o_g $end
+$var reg 1 e o_c $end
 $var reg 4 f e_vec[3:0] $end
 $var reg 4 g p_vec[3:0] $end
 $var reg 4 h g_vec[3:0] $end
@@ -119,58 +119,58 @@ $var reg 4 i c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 j opai $end
-$var reg 1 k opbi $end
-$var reg 1 l ci $end
-$var reg 1 m eo $end
-$var reg 1 n go $end
-$var reg 1 o po $end
+$var reg 1 j i_opa $end
+$var reg 1 k i_opb $end
+$var reg 1 l i_c $end
+$var reg 1 m o_e $end
+$var reg 1 n o_g $end
+$var reg 1 o o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 p opai $end
-$var reg 1 q opbi $end
-$var reg 1 r ci $end
-$var reg 1 s eo $end
-$var reg 1 t go $end
-$var reg 1 u po $end
+$var reg 1 p i_opa $end
+$var reg 1 q i_opb $end
+$var reg 1 r i_c $end
+$var reg 1 s o_e $end
+$var reg 1 t o_g $end
+$var reg 1 u o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 v opai $end
-$var reg 1 w opbi $end
-$var reg 1 x ci $end
-$var reg 1 y eo $end
-$var reg 1 z go $end
-$var reg 1 { po $end
+$var reg 1 v i_opa $end
+$var reg 1 w i_opb $end
+$var reg 1 x i_c $end
+$var reg 1 y o_e $end
+$var reg 1 z o_g $end
+$var reg 1 { o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 | opai $end
-$var reg 1 } opbi $end
-$var reg 1 !" ci $end
-$var reg 1 "" eo $end
-$var reg 1 #" go $end
-$var reg 1 $" po $end
+$var reg 1 | i_opa $end
+$var reg 1 } i_opb $end
+$var reg 1 !" i_c $end
+$var reg 1 "" o_e $end
+$var reg 1 #" o_g $end
+$var reg 1 $" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 %" ci $end
-$var reg 4 &" pi[3:0] $end
-$var reg 4 '" gi[3:0] $end
-$var reg 4 (" co[3:0] $end
-$var reg 1 )" pgo $end
-$var reg 1 *" ggo $end
+$var reg 1 %" i_c $end
+$var reg 4 &" i_p[3:0] $end
+$var reg 4 '" i_g[3:0] $end
+$var reg 4 (" o_c[3:0] $end
+$var reg 1 )" o_pg $end
+$var reg 1 *" o_gg $end
 $var reg 1 +" pg $end
 $var reg 1 ," gg $end
 $var reg 4 -" c_vec[3:0] $end
@@ -181,13 +181,13 @@ $upscope $end
 $scope module gen_claa(2) $end
 $scope module claa $end
 $scope module ax $end
-$var reg 4 ." opai[3:0] $end
-$var reg 4 /" opbi[3:0] $end
-$var reg 1 0" ci $end
-$var reg 4 1" eo[3:0] $end
-$var reg 1 2" po $end
-$var reg 1 3" go $end
-$var reg 1 4" co $end
+$var reg 4 ." i_opa[3:0] $end
+$var reg 4 /" i_opb[3:0] $end
+$var reg 1 0" i_c $end
+$var reg 4 1" o_e[3:0] $end
+$var reg 1 2" o_p $end
+$var reg 1 3" o_g $end
+$var reg 1 4" o_c $end
 $var reg 4 5" e_vec[3:0] $end
 $var reg 4 6" p_vec[3:0] $end
 $var reg 4 7" g_vec[3:0] $end
@@ -195,58 +195,58 @@ $var reg 4 8" c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 9" opai $end
-$var reg 1 :" opbi $end
-$var reg 1 ;" ci $end
-$var reg 1 <" eo $end
-$var reg 1 =" go $end
-$var reg 1 >" po $end
+$var reg 1 9" i_opa $end
+$var reg 1 :" i_opb $end
+$var reg 1 ;" i_c $end
+$var reg 1 <" o_e $end
+$var reg 1 =" o_g $end
+$var reg 1 >" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 ?" opai $end
-$var reg 1 @" opbi $end
-$var reg 1 A" ci $end
-$var reg 1 B" eo $end
-$var reg 1 C" go $end
-$var reg 1 D" po $end
+$var reg 1 ?" i_opa $end
+$var reg 1 @" i_opb $end
+$var reg 1 A" i_c $end
+$var reg 1 B" o_e $end
+$var reg 1 C" o_g $end
+$var reg 1 D" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 E" opai $end
-$var reg 1 F" opbi $end
-$var reg 1 G" ci $end
-$var reg 1 H" eo $end
-$var reg 1 I" go $end
-$var reg 1 J" po $end
+$var reg 1 E" i_opa $end
+$var reg 1 F" i_opb $end
+$var reg 1 G" i_c $end
+$var reg 1 H" o_e $end
+$var reg 1 I" o_g $end
+$var reg 1 J" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 K" opai $end
-$var reg 1 L" opbi $end
-$var reg 1 M" ci $end
-$var reg 1 N" eo $end
-$var reg 1 O" go $end
-$var reg 1 P" po $end
+$var reg 1 K" i_opa $end
+$var reg 1 L" i_opb $end
+$var reg 1 M" i_c $end
+$var reg 1 N" o_e $end
+$var reg 1 O" o_g $end
+$var reg 1 P" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 Q" ci $end
-$var reg 4 R" pi[3:0] $end
-$var reg 4 S" gi[3:0] $end
-$var reg 4 T" co[3:0] $end
-$var reg 1 U" pgo $end
-$var reg 1 V" ggo $end
+$var reg 1 Q" i_c $end
+$var reg 4 R" i_p[3:0] $end
+$var reg 4 S" i_g[3:0] $end
+$var reg 4 T" o_c[3:0] $end
+$var reg 1 U" o_pg $end
+$var reg 1 V" o_gg $end
 $var reg 1 W" pg $end
 $var reg 1 X" gg $end
 $var reg 4 Y" c_vec[3:0] $end
@@ -257,13 +257,13 @@ $upscope $end
 $scope module gen_claa(3) $end
 $scope module claa $end
 $scope module ax $end
-$var reg 4 Z" opai[3:0] $end
-$var reg 4 [" opbi[3:0] $end
-$var reg 1 \" ci $end
-$var reg 4 ]" eo[3:0] $end
-$var reg 1 ^" po $end
-$var reg 1 _" go $end
-$var reg 1 `" co $end
+$var reg 4 Z" i_opa[3:0] $end
+$var reg 4 [" i_opb[3:0] $end
+$var reg 1 \" i_c $end
+$var reg 4 ]" o_e[3:0] $end
+$var reg 1 ^" o_p $end
+$var reg 1 _" o_g $end
+$var reg 1 `" o_c $end
 $var reg 4 a" e_vec[3:0] $end
 $var reg 4 b" p_vec[3:0] $end
 $var reg 4 c" g_vec[3:0] $end
@@ -271,58 +271,58 @@ $var reg 4 d" c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 e" opai $end
-$var reg 1 f" opbi $end
-$var reg 1 g" ci $end
-$var reg 1 h" eo $end
-$var reg 1 i" go $end
-$var reg 1 j" po $end
+$var reg 1 e" i_opa $end
+$var reg 1 f" i_opb $end
+$var reg 1 g" i_c $end
+$var reg 1 h" o_e $end
+$var reg 1 i" o_g $end
+$var reg 1 j" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 k" opai $end
-$var reg 1 l" opbi $end
-$var reg 1 m" ci $end
-$var reg 1 n" eo $end
-$var reg 1 o" go $end
-$var reg 1 p" po $end
+$var reg 1 k" i_opa $end
+$var reg 1 l" i_opb $end
+$var reg 1 m" i_c $end
+$var reg 1 n" o_e $end
+$var reg 1 o" o_g $end
+$var reg 1 p" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 q" opai $end
-$var reg 1 r" opbi $end
-$var reg 1 s" ci $end
-$var reg 1 t" eo $end
-$var reg 1 u" go $end
-$var reg 1 v" po $end
+$var reg 1 q" i_opa $end
+$var reg 1 r" i_opb $end
+$var reg 1 s" i_c $end
+$var reg 1 t" o_e $end
+$var reg 1 u" o_g $end
+$var reg 1 v" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 w" opai $end
-$var reg 1 x" opbi $end
-$var reg 1 y" ci $end
-$var reg 1 z" eo $end
-$var reg 1 {" go $end
-$var reg 1 |" po $end
+$var reg 1 w" i_opa $end
+$var reg 1 x" i_opb $end
+$var reg 1 y" i_c $end
+$var reg 1 z" o_e $end
+$var reg 1 {" o_g $end
+$var reg 1 |" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 }" ci $end
-$var reg 4 !# pi[3:0] $end
-$var reg 4 "# gi[3:0] $end
-$var reg 4 ## co[3:0] $end
-$var reg 1 $# pgo $end
-$var reg 1 %# ggo $end
+$var reg 1 }" i_c $end
+$var reg 4 !# i_p[3:0] $end
+$var reg 4 "# i_g[3:0] $end
+$var reg 4 ## o_c[3:0] $end
+$var reg 1 $# o_pg $end
+$var reg 1 %# o_gg $end
 $var reg 1 &# pg $end
 $var reg 1 '# gg $end
 $var reg 4 (# c_vec[3:0] $end
@@ -331,12 +331,12 @@ $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 )# ci $end
-$var reg 4 *# pi[3:0] $end
-$var reg 4 +# gi[3:0] $end
-$var reg 4 ,# co[3:0] $end
-$var reg 1 -# pgo $end
-$var reg 1 .# ggo $end
+$var reg 1 )# i_c $end
+$var reg 4 *# i_p[3:0] $end
+$var reg 4 +# i_g[3:0] $end
+$var reg 4 ,# o_c[3:0] $end
+$var reg 1 -# o_pg $end
+$var reg 1 .# o_gg $end
 $var reg 1 /# pg $end
 $var reg 1 0# gg $end
 $var reg 4 1# c_vec[3:0] $end

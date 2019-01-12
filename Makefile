@@ -33,4 +33,4 @@ ifeq ($(strip $(TESTBENCH)),)
 endif
 	$(GHDL) -i $(GHDLFLAGS) $(TESTS) $(FILES)
 	$(GHDL) -m $(GHDLFLAGS) $(TESTBENCH)_tb
-	@mv $(TESTBENCH)_tb.vcd sim/$(TESTBENCH)_tb.vcd
+	$(GHDL) -r $(GHDLFLAGS) $(TESTBENCH)_tb  --vcd=sim/$(TESTBENCH)_tb.vcd
