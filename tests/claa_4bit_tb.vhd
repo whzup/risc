@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity claa_4bit_tb is
 end claa_4bit_tb;
 
-architecture behavior of claa_4bit_tb is
+architecture behaviour of claa_4bit_tb is
     component claa_4bit is
         port
         (

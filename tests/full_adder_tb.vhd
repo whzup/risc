@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity full_adder_tb is
 end full_adder_tb;
 
-architecture behavior of full_adder_tb is
+architecture behaviour of full_adder_tb is
     component full_adder is
         port
         (
@@ -62,4 +62,4 @@ begin
         assert false report "Full adder testbench finished" severity note;
         wait;
     end process;
-end;
+end architecture;
