@@ -9,13 +9,13 @@ use ieee.std_logic_1164.all;
 entity claa_4bit is
     port
     (
-    opai : in std_logic_vector(3 downto 0);
-    opbi : in std_logic_vector(3 downto 0);
-    ci : in std_logic;
-    eo : out std_logic_vector(3 downto 0);
-    po : out std_logic;
-    go : out std_logic;
-    co : out std_logic
+    i_opa : in std_logic_vector(3 downto 0);
+    i_opb : in std_logic_vector(3 downto 0);
+    i_c : in std_logic;
+    o_e : out std_logic_vector(3 downto 0);
+    o_p : out std_logic;
+    o_g : out std_logic;
+    o_c : out std_logic
     );
 end entity;
 
@@ -24,18 +24,18 @@ architecture behaviour of claa_4bit is
     component full_adder
         port
         (
-        opai, opbi, ci: in std_logic;
-        eo,   go,   po: out std_logic
+        i_opa, i_opb, i_c: in std_logic;
+        o_e,   o_g,   o_p: out std_logic
         );
     end component;
 
     component lcu
         port
         (
-        ci:       in std_logic;
-        pi, gi:   in std_logic_vector(3 downto 0);
-        co:       out std_logic_vector(3 downto 0);
-        pgo, ggo: out std_logic
+        i_c:       in std_logic;
+        i_p, i_g:   in std_logic_vector(3 downto 0);
+        o_c:       out std_logic_vector(3 downto 0);
+        o_pg, o_gg: out std_logic
         );
     end component;
 
@@ -50,38 +50,38 @@ begin
         lsb_adder : if i=0 generate
             A0 : full_adder port map
             (
-            opai => opai(i),
-            opbi => opbi(i),
-            ci   => ci,
-            eo   => e_vec(i),
-            go   => g_vec(i),
-            po   => p_vec(i)
+            i_opa => i_opa(i),
+            i_opb => i_opb(i),
+            i_c   => i_c,
+            o_e   => e_vec(i),
+            o_g   => g_vec(i),
+            o_p   => p_vec(i)
             );
         end generate lsb_adder;
 
         adder : if i>0 generate
             AX : full_adder port map
                 (
-                opai => opai(i),
-                opbi => opbi(i),
-                ci   => c_vec(i-1),
-                eo   => e_vec(i),
-                go   => g_vec(i),
-                po   => p_vec(i)
+                i_opa => i_opa(i),
+                i_opb => i_opb(i),
+                i_c   => c_vec(i-1),
+                o_e   => e_vec(i),
+                o_g   => g_vec(i),
+                o_p   => p_vec(i)
                 );
         end generate adder;
     end generate gen_adder;
 
     lcu_inst : lcu port map
     (
-    ci  => ci,
-    pi  => p_vec,
-    gi  => g_vec,
-    co  => c_vec,
-    pgo => po,
-    ggo => go
+    i_c  => i_c,
+    i_p  => p_vec,
+    i_g  => g_vec,
+    o_c  => c_vec,
+    o_pg => o_p,
+    o_gg => o_g
     );
 
-    eo <= e_vec;
-    co <= c_vec(3);
+    o_e <= e_vec;
+    o_c <= c_vec(3);
 end architecture behaviour;

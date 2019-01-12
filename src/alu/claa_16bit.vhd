@@ -9,13 +9,13 @@ use ieee.std_logic_1164.all;
 entity claa_16bit is
     port
     (
-    opai: in std_logic_vector(15 downto 0);
-    opbi: in std_logic_vector(15 downto 0);
-    ci:   in std_logic;
-    eo:   out std_logic_vector(15 downto 0);
-    po:   out std_logic;
-    go:   out std_logic;
-    co:   out std_logic
+    i_opa: in std_logic_vector(15 downto 0);
+    i_opb: in std_logic_vector(15 downto 0);
+    i_c:   in std_logic;
+    o_e:   out std_logic_vector(15 downto 0);
+    o_p:   out std_logic;
+    o_g:   out std_logic;
+    o_c:   out std_logic
     );
 end entity;
 
@@ -24,20 +24,20 @@ architecture behaviour of claa_16bit is
     component claa_4bit
         port
         (
-        opai, opbi: in std_logic_vector(3 downto 0);
-        ci:         in std_logic;
-        eo:         out std_logic_vector(3 downto 0);
-        po, go, co: out std_logic
+        i_opa, i_opb:  in std_logic_vector(3 downto 0);
+        i_c:           in std_logic;
+        o_e:           out std_logic_vector(3 downto 0);
+        o_p, o_g, o_c: out std_logic
         );
     end component;
 
     component lcu
         port
         (
-        ci:       in std_logic;
-        pi, gi:   in std_logic_vector(3 downto 0);
-        co:       out std_logic_vector(3 downto 0);
-        pgo, ggo: out std_logic
+        i_c:        in std_logic;
+        i_p, i_g:   in std_logic_vector(3 downto 0);
+        o_c:        out std_logic_vector(3 downto 0);
+        o_pg, o_gg: out std_logic
         );
     end component;
 
@@ -52,38 +52,38 @@ begin
         lsb_claa : if i=0 generate
             A0 : claa_4bit port map
                 (
-                opai => opai(3 downto 0),
-                opbi => opbi(3 downto 0),
-                ci   => ci,
-                eo   => e_vec(3 downto 0),
-                go   => g_vec(i),
-                po   => p_vec(i)
+                i_opa => i_opa(3 downto 0),
+                i_opb => i_opb(3 downto 0),
+                i_c   => i_c,
+                o_e   => e_vec(3 downto 0),
+                o_g   => g_vec(i),
+                o_p   => p_vec(i)
                 );
         end generate lsb_claa;
 
         claa : if i>0 generate
             AX : claa_4bit port map
                 (
-                opai => opai(4*i+3 downto 4*i),
-                opbi => opbi(4*i+3 downto 4*i),
-                ci   => c_vec(i-1),
-                eo   => e_vec(4*i+3 downto 4*i),
-                go   => g_vec(i),
-                po   => p_vec(i)
+                i_opa => i_opa(4*i+3 downto 4*i),
+                i_opb => i_opb(4*i+3 downto 4*i),
+                i_c   => c_vec(i-1),
+                o_e   => e_vec(4*i+3 downto 4*i),
+                o_g   => g_vec(i),
+                o_p   => p_vec(i)
                 );
         end generate claa;
     end generate gen_claa;
 
     lcu_inst : lcu port map
     (
-    ci  => ci,
-    pi  => p_vec,
-    gi  => g_vec,
-    co  => c_vec,
-    pgo => po,
-    ggo => go
+    i_c  => i_c,
+    i_p  => p_vec,
+    i_g  => g_vec,
+    o_c  => c_vec,
+    o_pg => o_p,
+    o_gg => o_g
     );
 
-    eo <= e_vec;
-    co <= c_vec(3);
+    o_e <= e_vec;
+    o_c <= c_vec(3);
 end architecture behaviour;

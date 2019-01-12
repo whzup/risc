@@ -8,12 +8,12 @@ architecture behavior of full_adder_tb is
     component full_adder is
         port
         (
-        opai : in  std_logic;
-        opbi : in  std_logic;
-        ci : in  std_logic;
-        eo : out std_logic;
-        go : out std_logic;
-        po : out std_logic
+        i_opa: in  std_logic;
+        i_opb: in  std_logic;
+        i_c:   in  std_logic;
+        o_e:   out std_logic;
+        o_g:   out std_logic;
+        o_p:   out std_logic
         );
     end component;
 
@@ -22,12 +22,12 @@ architecture behavior of full_adder_tb is
 begin
     dut : full_adder port map
     (
-    opai => opa_tb,
-    opbi => opb_tb,
-    ci => c_tb,
-    eo => e_tb,
-    go => g_tb,
-    po => p_tb
+    i_opa => opa_tb,
+    i_opb => opb_tb,
+    i_c   => c_tb,
+    o_e   => e_tb,
+    o_g   => g_tb,
+    o_p   => p_tb
     );
 
     stim_proc : process
@@ -51,7 +51,7 @@ begin
         for i in patterns'range loop
             opa_tb <= patterns(i).a;
             opb_tb <= patterns(i).b;
-            c_tb <= patterns(i).c;
+            c_tb   <= patterns(i).c;
 
             wait for 1 ns;
             assert e_tb = patterns(i).e report "bad sum value" severity error;

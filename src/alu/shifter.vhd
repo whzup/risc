@@ -5,30 +5,30 @@ use ieee.numeric_std.all;
 entity shifter is
     port
     (
-    opi:   in std_logic_vector(15 downto 0);
-    si:    in std_logic_vector(3 downto 0);
-    ctrli: in std_logic; -- 1 right shift 0 left shift
-    ro:    out std_logic_vector(15 downto 0);
-    co:    out std_logic
+    i_op:   in std_logic_vector(15 downto 0);
+    i_s:    in std_logic_vector(3 downto 0);
+    i_ctrl: in std_logic; -- 1 right shift 0 left shift
+    o_r:    out std_logic_vector(15 downto 0);
+    o_c:    out std_logic
     );
 end entity;
 
 architecture behaviour of shifter is
-    signal shift : unsigned(3 downto 0);
-    signal carry : std_logic;
+    signal shift: unsigned(3 downto 0);
+    signal carry: std_logic;
 begin
 
-    comb : process(ctrli)
+    shift_proc : process(i_ctrl)
     begin
-        if ctrli='0' then
-            carry <= opi(15);
-            shift <= shift_left(unsigned(opi), to_integer(unsigned(si)));
+        if i_ctrl='0' then
+            carry <= i_op(15);
+            shift <= shift_left(unsigned(i_op), to_integer(unsigned(i_s)));
         else
-            carry <= opi(0);
-            shift <= shift_right(unsigned(opi), to_integer(unsigned(si)));
+            carry <= i_op(0);
+            shift <= shift_right(unsigned(i_op), to_integer(unsigned(i_s)));
         end if;
     end process;
 
-    ro <= std_logic_vector(shift);
-    co <= carry;
+    o_r <= std_logic_vector(shift);
+    o_c <= carry;
 end architecture;

@@ -8,10 +8,10 @@ architecture behavior of claa_16bit_tb is
     component claa_16bit is
         port
         (
-        opai, opbi:   in std_logic_vector(15 downto 0);
-        ci:           in std_logic;
-        eo:           out std_logic_vector(15 downto 0);
-        po,   go, co: out std_logic
+        i_opa, i_opb:    in std_logic_vector(15 downto 0);
+        i_c:             in std_logic;
+        o_e:             out std_logic_vector(15 downto 0);
+        o_p,   o_g, o_c: out std_logic
         );
     end component;
 
@@ -21,21 +21,21 @@ architecture behavior of claa_16bit_tb is
 begin
     dut : claa_16bit port map
     (
-    opai => opa_tb,
-    opbi => opb_tb,
-    ci => ci_tb,
-    eo => eo_tb,
-    po => po_tb,
-    go => go_tb,
-    co => co_tb
+    i_opa => opa_tb,
+    i_opb => opb_tb,
+    i_c   => ci_tb,
+    o_e   => eo_tb,
+    o_p   => po_tb,
+    o_g   => go_tb,
+    o_c   => co_tb
     );
 
     stim_proc : process
     type pattern_type is record
-        a, b:       std_logic_vector(15 downto 0);
-        ci:         std_logic;
-        eo:         std_logic_vector(15 downto 0);
-        po, go, co: std_logic;
+        a, b:     std_logic_vector(15 downto 0);
+        c:        std_logic;
+        e:        std_logic_vector(15 downto 0);
+        p, g, oc: std_logic;
     end record;
 
     type pattern_array is array(natural range <>) of pattern_type;
@@ -55,13 +55,13 @@ begin
         for i in patterns'range loop
             opa_tb <= patterns(i).a;
             opb_tb <= patterns(i).b;
-            ci_tb <= patterns(i).ci;
+            ci_tb  <= patterns(i).c;
 
             wait for 5 ns;
-            assert eo_tb = patterns(i).eo report "bad sum value" severity error;
-            assert po_tb = patterns(i).po report "bad prop value" severity error;
-            assert go_tb = patterns(i).go report "bad gen value" severity error;
-            assert co_tb = patterns(i).co report "bad carry value" severity error;
+            assert eo_tb = patterns(i).e report "bad sum value" severity error;
+            assert po_tb = patterns(i).p report "bad prop value" severity error;
+            assert go_tb = patterns(i).g report "bad gen value" severity error;
+            assert co_tb = patterns(i).oc report "bad carry value" severity error;
         end loop;
         
         assert false report "CLAA testbench finished" severity note;

@@ -10,11 +10,11 @@ use ieee.numeric_std.all;
 entity programm_counter is
     port
     (
-    rstn: in std_logic;
-    cei:  in std_logic;
-    jei:  in std_logic;
-    ji:   in std_logic_vector(15 downto 0);
-    counto : out std_logic_vector(15 downto 0)
+    i_n_rst: in std_logic;
+    i_ce:    in std_logic;
+    i_je:    in std_logic;
+    i_j:     in std_logic_vector(15 downto 0);
+    o_count: out std_logic_vector(15 downto 0)
     );
 end entity;
 
@@ -22,14 +22,14 @@ architecture behaviour of programm_counter is
     signal sel : std_logic;
     signal count, next_count : unsigned(15 downto 0);
 begin
-    counter : process(all)
+    counter_proc : process(all)
     begin
         -- TODO decide a fitting priority.
-        sel <= cei and jei;
-        if jei = '1' and cei = '0' then
-            next_count <= unsigned(ji);
-        elsif cei = '1' then
-            counto <= std_logic_vector(count);
+        sel <= i_ce and i_je;
+        if i_je = '1' and i_ce = '0' then
+            next_count <= unsigned(i_j);
+        elsif i_ce = '1' then
+            o_count <= std_logic_vector(count);
             count <= next_count;
             next_count <= count + 1;
         end if;

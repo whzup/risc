@@ -9,18 +9,18 @@ use ieee.std_logic_1164.all;
 entity full_adder is
     port
     (
-    opai : in std_logic;
-    opbi : in std_logic;
-    ci : in std_logic;
-    eo : out std_logic;
-    go : out std_logic;
-    po : out std_logic
+    i_opa: in std_logic;
+    i_opb: in std_logic;
+    i_c:   in std_logic;
+    o_e:   out std_logic;
+    o_g:   out std_logic;
+    o_p:   out std_logic
     );
 end;
 
-architecture behavior of full_adder is
+architecture behaviour of full_adder is
 begin
-    eo <= opai xor opbi xor ci;
-    go <= opai and opbi;
-    po <= opai or opbi;
+    o_e <= i_opa xor i_opb xor i_c;
+    o_g <= i_opa and i_opb;
+    o_p <= i_opa or i_opb;
 end;

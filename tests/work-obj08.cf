@@ -1,4 +1,0 @@
-v 4
-file "C:\Users\Aaron\Documents\GitHub\risc\tests\" ".\claa_16bit_tb.vhd" "823191c9b5fb9817bb35bc56cf9383f11602f759" "20190111212316.545":
-  entity claa_16bit_tb at 1( 0) + 0 on 11;
-  architecture behavior of claa_16bit_tb at 7( 94) + 0 on 12;
