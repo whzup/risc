@@ -1,11 +1,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity full_adder_tb is
-end full_adder_tb;
+entity cl_full_adder_tb is
+end entity;
 
-architecture behaviour of full_adder_tb is
-    component full_adder is
+architecture behaviour of cl_full_adder_tb is
+    component cl_full_adder is
         port
         (
         i_opa: in  std_logic;
@@ -20,7 +20,7 @@ architecture behaviour of full_adder_tb is
     signal opa_tb, opb_tb, c_tb, e_tb, g_tb, p_tb: std_logic;
 
 begin
-    dut : full_adder port map
+    dut : cl_full_adder port map
     (
     i_opa => opa_tb,
     i_opb => opb_tb,
@@ -59,7 +59,7 @@ begin
             assert p_tb = patterns(i).p report "bad prop value" severity error;
         end loop;
 
-        assert false report "Full adder testbench finished" severity note;
+        assert false report "CL full adder testbench finished" severity note;
         wait;
     end process;
 end architecture;
