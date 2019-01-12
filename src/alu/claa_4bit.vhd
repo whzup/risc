@@ -21,7 +21,7 @@ end entity;
 
 architecture behaviour of claa_4bit is
     -- Components
-    component full_adder
+    component cl_full_adder
         port
         (
         i_opa, i_opb, i_c: in std_logic;
@@ -48,7 +48,7 @@ begin
     -- Instantiate the components
     gen_adder : for i in 0 to 3 generate
         lsb_adder : if i=0 generate
-            A0 : full_adder port map
+            A0 : cl_full_adder port map
             (
             i_opa => i_opa(i),
             i_opb => i_opb(i),
@@ -60,7 +60,7 @@ begin
         end generate lsb_adder;
 
         adder : if i>0 generate
-            AX : full_adder port map
+            AX : cl_full_adder port map
                 (
                 i_opa => i_opa(i),
                 i_opb => i_opb(i),

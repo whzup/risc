@@ -1,12 +1,12 @@
 ------------------------------------------------------------
--- A simple full adder
+-- A simple carry lookahead full adder
 -- Author: Aaron Moser
 -- Date: 10.01.2019
 ------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity full_adder is
+entity cl_full_adder is
     port
     (
     i_opa: in std_logic;
@@ -18,7 +18,7 @@ entity full_adder is
     );
 end;
 
-architecture behaviour of full_adder is
+architecture behaviour of cl_full_adder is
 begin
     o_e <= i_opa xor i_opb xor i_c;
     o_g <= i_opa and i_opb;
