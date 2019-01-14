@@ -11,13 +11,13 @@ architecture behaviour of shifter_tb is
         i_op:   in std_logic_vector(15 downto 0);
         i_s:    in std_logic_vector(3 downto 0);
         o_r:    out std_logic_vector(15 downto 0);
-        o_c:    out std_logic
+        o_overflow:    out std_logic
         );
     end component;
 
     signal op_tb, r_tb:   std_logic_vector(15 downto 0);
     signal s_tb:          std_logic_vector(3 downto 0);
-    signal c_tb: std_logic;
+    signal v_tb: std_logic;
 
 begin
     dut : shifter port map
@@ -25,7 +25,7 @@ begin
     i_op => op_tb,
     i_s => s_tb,
     o_r => r_tb,
-    o_c => c_tb
+    o_overflow => v_tb
     );
 
     stim_proc : process
@@ -40,11 +40,9 @@ begin
     constant patterns : pattern_array :=
     (("0000000000000001", "0001", "0000000000000010", '0'),
      ("0000000000000001", "1111", "1000000000000000", '0'),
-     ("0000000000000001", "0001", "0000000000000000", '1'),
      ("0101010101010101", "0001", "1010101010101010", '0'),
      ("0000000000000001", "0011", "0000000000001000", '0'),
-     ("0000000000000001", "0101", "0000000000000000", '1'),
-     ("0000000010000000", "0011", "0000000000010000", '0'));
+     ("0000000010000000", "0011", "0000010000000000", '0'));
 
     begin
         for i in patterns'range loop
@@ -52,7 +50,7 @@ begin
             s_tb <= patterns(i).s;
              wait for 1 ns;
              assert r_tb = patterns(i).r report "bad result" severity error;
-             assert c_tb = patterns(i).c report "bad carry value" severity error;
+             assert v_tb = patterns(i).c report "bad overflow value" severity error;
          end loop;
 
          assert false report "Shifter testbench finished" severity note;

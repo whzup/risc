@@ -1,56 +1,59 @@
 v 4
-file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/cs_full_adder_tb.vhd" "83c511c9db0abf0d261eac29e4ad61ec68c712eb" "20190114070739.363":
-  entity cs_full_adder_tb at 1( 0) + 0 on 1439;
-  architecture behaviour of cs_full_adder_tb at 7( 100) + 0 on 1440;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/cs_full_adder.vhd" "d287296ceaea30b2d5e2622c72611fcf3c63a585" "20190114070739.494":
-  entity cs_full_adder at 6( 204) + 0 on 4;
-  architecture behaviour of cs_full_adder at 20( 440) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/lu.vhd" "7bf9d91f045ccb4d0ae549f4ea997b7156fe3816" "20190114070739.495":
-  entity lu at 7( 247) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/cl_full_adder.vhd" "c65eaed32ff85aac556b97e9d79a7af0bbef29cd" "20190114070739.493":
-  entity cl_full_adder at 6( 209) + 0 on 4;
-  architecture behaviour of cl_full_adder at 21( 472) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/claa_16bit_tb.vhd" "aedd33562ab2367b68cd76c288d819ac5cf6da50" "20190114070739.362":
-  entity claa_16bit_tb at 1( 0) + 0 on 1435;
-  architecture behaviour of claa_16bit_tb at 7( 87) + 0 on 1436;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/programm_counter.vhd" "c171f3edd8bbe65d1432d2be3ca98d0385e593d0" "20190114070739.493":
-  entity programm_counter at 6( 194) + 0 on 4;
-  architecture behaviour of programm_counter at 21( 516) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/full_adder_tb.vhd" "52efd6a403bd0067921f446fb25057b78aa4d122" "20190112130306.301":
-  entity full_adder_tb at 1( 0) + 0 on 1204;
-  architecture behaviour of full_adder_tb at 7( 94) + 0 on 1205;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/claa_4bit_tb.vhd" "22443b09be35ca3c5984c78534dfda53f374adc0" "20190114070739.362":
-  entity claa_4bit_tb at 1( 0) + 0 on 1437;
-  architecture behaviour of claa_4bit_tb at 7( 86) + 0 on 1438;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/shifter.vhd" "a0388401172700114fb8253c4b8000ca8c7664b8" "20190114070739.707":
-  entity mux at 1( 0) + 0 on 1443;
-  architecture behaviour of mux at 15( 239) + 0 on 1444;
-  entity shifter at 21( 379) + 0 on 1445;
-  architecture behaviour of shifter at 36( 737) + 0 on 1446;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/lcu.vhd" "2a17cb7aa5fcafac14b91e325365631421b43acd" "20190114070739.495":
-  entity lcu at 7( 283) + 0 on 4;
-  architecture behaviour of lcu at 22( 587) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc-computer\" ".\tests\cla_adder_tb.vhd" "1440b5330e99598090aa75295888324dc33d93ff" "20181230213234.293":
-  entity cla_adder_tb at 1( 0) + 0 on 4;
-  architecture behaviour of cla_adder_tb at 7( 92) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/cs_half_adder.vhd" "8a9ea0c267c920d3a21b5d3b88e619e2e29104ef" "20190114202511.019":
+  entity cs_full_adder at 8( 270) + 0 on 4;
+  architecture behaviour of cs_full_adder at 21( 480) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/wt_multiplier.vhd" "319fda8a8fbb604a28055a641c3ff62ecb69adf8" "20190114202511.012":
+  entity wt_multiplier at 8( 267) + 0 on 4;
+  architecture behaviour of wt_multiplier at 20( 515) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/cl_full_adder_tb.vhd" "394075e2f17100acdbb9d524f606d639f1cddbb1" "20190114202510.898":
+  entity cl_full_adder_tb at 1( 0) + 0 on 1628;
+  architecture behaviour of cl_full_adder_tb at 7( 90) + 0 on 1629;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/shifter_tb.vhd" "e5328d0d793777c9f61910414d90b29d69293d7d" "20190114202510.899":
+  entity shifter_tb at 1( 0) + 0 on 1630;
+  architecture behaviour of shifter_tb at 7( 88) + 0 on 1631;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/claa_16bit.vhd" "51c702f62b712aff74a0c8eb9a58cead26212eae" "20190114202511.005":
+  entity claa_16bit at 9( 376) + 0 on 4;
+  architecture behaviour of claa_16bit at 25( 730) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/register.vhd" "0807563ef270ab36d6a21094f5d9c012b87dca3d" "20190114202511.004":
+  entity reg at 8( 244) + 0 on 4;
+  architecture behaviour of reg at 23( 547) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/clock_divider.vhd" "f0385a763ef6588d7f79435344ae511545da6c8e" "20190114202511.005":
+  entity clock_divider at 8( 272) + 0 on 4;
+  architecture behaviour of clock_divider at 26( 581) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/claa_4bit.vhd" "314c9e1a40bb7041678b9ab3cf60067436aaacb9" "20190114202511.012":
+  entity claa_4bit at 9( 370) + 0 on 4;
+  architecture behaviour of claa_4bit at 25( 717) + 0 on 4;
 file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/full_adder.vhd" "65a198f0f7920fb9a027e62867e5ba6f7dbb7eed" "20190112093816.340":
   entity full_adder at 6( 193) + 0 on 4;
   architecture behaviour of full_adder at 21( 453) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/claa_4bit.vhd" "e618971a7578d4ba3718cde543cfadbba440d68f" "20190114070739.494":
-  entity claa_4bit at 6( 209) + 0 on 4;
-  architecture behaviour of claa_4bit at 22( 556) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/clock_divider.vhd" "358dafc6820a60f78143d63121b917e46e72d850" "20190114070739.492":
-  entity clock_divider at 2( 18) + 0 on 4;
-  architecture behaviour of clock_divider at 20( 327) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/register.vhd" "267208c9b781ec77864716683a9a17c78896ec51" "20190114070739.493":
-  entity reg at 1( 0) + 0 on 4;
-  architecture behaviour of reg at 16( 303) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/claa_16bit.vhd" "4f95e885d4b17874791bd29b730cde4cd0695ef3" "20190114070739.494":
-  entity claa_16bit at 6( 210) + 0 on 4;
-  architecture behaviour of claa_16bit at 22( 564) + 0 on 4;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/shifter_tb.vhd" "999ea98ca82af686b57e37d7bb76ba486e3c312c" "20190114070739.364":
-  entity shifter_tb at 1( 0) + 0 on 1441;
-  architecture behaviour of shifter_tb at 7( 88) + 0 on 1442;
-file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/cl_full_adder_tb.vhd" "394075e2f17100acdbb9d524f606d639f1cddbb1" "20190114070739.361":
-  entity cl_full_adder_tb at 1( 0) + 0 on 1433;
-  architecture behaviour of cl_full_adder_tb at 7( 90) + 0 on 1434;
+file "C:\Users\Aaron\Documents\GitHub\risc-computer\" ".\tests\cla_adder_tb.vhd" "1440b5330e99598090aa75295888324dc33d93ff" "20181230213234.293":
+  entity cla_adder_tb at 1( 0) + 0 on 4;
+  architecture behaviour of cla_adder_tb at 7( 92) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/lcu.vhd" "5990dbcae671e5bdc74f0ac6f58e74a1f240484e" "20190114202511.020":
+  entity lcu at 9( 361) + 0 on 4;
+  architecture behaviour of lcu at 24( 665) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/shifter.vhd" "75d1c293802c90abc95ff7977e2f9339b8cd285a" "20190114202511.189":
+  entity mux at 10( 416) + 0 on 1634;
+  architecture behaviour of mux at 25( 697) + 0 on 1635;
+  entity shifter at 31( 837) + 0 on 1636;
+  architecture behaviour of shifter at 45( 1154) + 0 on 1637;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/claa_4bit_tb.vhd" "22443b09be35ca3c5984c78534dfda53f374adc0" "20190114202510.897":
+  entity claa_4bit_tb at 1( 0) + 0 on 1624;
+  architecture behaviour of claa_4bit_tb at 7( 86) + 0 on 1625;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/full_adder_tb.vhd" "52efd6a403bd0067921f446fb25057b78aa4d122" "20190112130306.301":
+  entity full_adder_tb at 1( 0) + 0 on 1204;
+  architecture behaviour of full_adder_tb at 7( 94) + 0 on 1205;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/programm_counter.vhd" "c797d1d2b621b71b13ffbde62f3961e026e2f50c" "20190114202511.005":
+  entity programm_counter at 8( 256) + 0 on 4;
+  architecture behaviour of programm_counter at 23( 578) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/claa_16bit_tb.vhd" "aedd33562ab2367b68cd76c288d819ac5cf6da50" "20190114202510.898":
+  entity claa_16bit_tb at 1( 0) + 0 on 1626;
+  architecture behaviour of claa_16bit_tb at 7( 87) + 0 on 1627;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/cl_full_adder.vhd" "1e63d69cf9175d90c95e967eee5a805fc044c4d9" "20190114202511.006":
+  entity cl_full_adder at 8( 280) + 0 on 4;
+  architecture behaviour of cl_full_adder at 23( 598) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "src/alu/lu.vhd" "7bf9d91f045ccb4d0ae549f4ea997b7156fe3816" "20190114202511.020":
+  entity lu at 7( 247) + 0 on 4;
+file "C:\Users\Aaron\Documents\GitHub\risc\" "tests/cs_full_adder_tb.vhd" "83c511c9db0abf0d261eac29e4ad61ec68c712eb" "20190114202510.899":
+  entity cs_full_adder_tb at 1( 0) + 0 on 1632;
+  architecture behaviour of cs_full_adder_tb at 7( 100) + 0 on 1633;
