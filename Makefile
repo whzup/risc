@@ -1,3 +1,12 @@
+# -------------
+# Usage: 
+# The command `make TESTBENCH=entity` will create
+# a .vcd file for the declared `entity` in the 
+# `sim` folder.
+# -------------
+
+
+# GHDL
 VHDL_VER    = 08
 GHDL        = ghdl
 GHDLFLAGS	= --std=$(VHDL_VER) --workdir=$(WORK)
