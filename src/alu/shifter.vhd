@@ -1,7 +1,17 @@
+------------------------------------------------------------
+-- Title:       Barrel Shifter
+-- Description: A barrel shifter which is able to shift by a variable amount.
+--              It consists of four layers of multiplexers, one for each bit
+--              in the shifting value i_s.
+-- Author:      Aaron Moser
+-- Date:        14.01.2019
+------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- Utility entity for the barrel shfiter
 entity mux is
     port
     (
@@ -54,6 +64,7 @@ architecture behaviour of shifter is
     signal s_l3: std_logic_vector(15 downto 0);
 begin
 
+    -- Generate Multiplexer layers
     gen_layer0_mux : for i in 0 to 15 generate
         mux_lower8 : if i <= 7 generate
             L8 : mux port map

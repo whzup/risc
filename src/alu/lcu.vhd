@@ -1,9 +1,11 @@
 -----------------------------------------------------------
--- An LCU (lookahead-carry unit) which determines the carries
--- based on generation and propagation calculations
--- Author: Aaron Moser
--- Date: 10.01.2019
+-- Title:       Lookahead Carry Unit
+-- Description: An LCU (lookahead-carry unit) which determines the carries
+--              based on generation and propagation calculations
+-- Author:      Aaron Moser
+-- Date:        10.01.2019
 -----------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

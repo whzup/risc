@@ -1,8 +1,11 @@
 ------------------------------------------------------------
--- A 16-bit CLA adder (carry lookahead)
--- Author: Aaron Moser
--- Date: 10.01.2019
+-- Title:       16-bit Carry Lookahead Adder
+-- Description: The adder is comprised of four 4-bit CLA adders and one
+--              LCU (lookahead carry unit) which calculates the carries.
+-- Author:      Aaron Moser
+-- Date:        10.01.2019
 ------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

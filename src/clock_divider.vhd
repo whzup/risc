@@ -1,4 +1,10 @@
--- Clock divider
+------------------------------------------------------------
+-- Title:       Clock Divider
+-- Description: A simple clock divider for later testing
+-- Author:      Aaron Moser
+-- Date:        14.01.2019
+------------------------------------------------------------
+
 library ieee;
 
 use ieee.std_logic_1164.all;

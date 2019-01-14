@@ -1,8 +1,10 @@
 ------------------------------------------------------------
--- A simple carry lookahead full adder
--- Author: Aaron Moser
--- Date: 10.01.2019
+-- Title:       Carry Lookahead Full Adder
+-- Description: A simple carry lookahead full adder
+-- Author:      Aaron Moser
+-- Date:        10.01.2019
 ------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -12,9 +14,9 @@ entity cl_full_adder is
     i_opa: in std_logic;
     i_opb: in std_logic;
     i_c:   in std_logic;
-    o_e:   out std_logic;
-    o_g:   out std_logic;
-    o_p:   out std_logic
+    o_e:   out std_logic; -- sum value
+    o_g:   out std_logic; -- generation value
+    o_p:   out std_logic  -- propagation value
     );
 end;
 

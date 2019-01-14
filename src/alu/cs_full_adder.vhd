@@ -1,8 +1,10 @@
 ------------------------------------------------------------
--- A simple carry save full adder
--- Author: Aaron Moser
--- Date: 12.01.2019
+-- Title:       Carry Save Full Adder
+-- Description: A simple carry save full adder / 3:2 compressor
+-- Author:      Aaron Moser
+-- Date:        12.01.2019
 ------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

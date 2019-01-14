@@ -1,3 +1,10 @@
+------------------------------------------------------------
+-- Title:       Register
+-- Description: A simple register
+-- Author:      Aaron Moser
+-- Date:        10.01.2019
+------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
