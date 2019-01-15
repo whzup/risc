@@ -1,5 +1,5 @@
 $date
-  Mon Jan 14 21:25:11 2019
+  Sat Jan 19 22:16:30 2019
 $end
 $version
   GHDL v0
@@ -10,657 +10,168 @@ $end
 $var reg 16 ! op_tb[15:0] $end
 $var reg 16 " r_tb[15:0] $end
 $var reg 4 # s_tb[3:0] $end
-$var reg 1 $ v_tb $end
+$var reg 1 $ f_tb $end
+$var reg 1 % dir_tb $end
+$var reg 1 & rot_tb $end
+$var reg 1 ' ar_tb $end
+$var reg 1 ( z_tb $end
 $scope module dut $end
-$var reg 16 % i_op[15:0] $end
-$var reg 4 & i_s[3:0] $end
-$var reg 16 ' o_r[15:0] $end
-$var reg 1 ( o_overflow $end
-$var reg 16 ) shift[15:0] $end
-$var reg 1 * carry $end
-$var reg 16 + s_l0[15:0] $end
-$var reg 16 , s_l1[15:0] $end
-$var reg 16 - s_l2[15:0] $end
-$var reg 16 . s_l3[15:0] $end
-$scope module gen_layer0_mux(0) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 / i_sig0 $end
-$var reg 1 0 i_sig1 $end
-$var reg 1 1 i_sel $end
-$var reg 1 2 o_sig $end
+$var reg 16 ) i_op[15:0] $end
+$var reg 4 * i_s[3:0] $end
+$var reg 1 + i_dir $end
+$var reg 1 , i_rot $end
+$var reg 1 - i_ar $end
+$var reg 16 . o_r[15:0] $end
+$var reg 1 / o_f $end
+$var reg 1 0 o_z $end
+$var reg 16 1 rev_0[15:0] $end
+$var reg 8 2 rev_0_8[7:0] $end
+$var reg 4 3 rev_0_4[3:0] $end
+$var reg 2 4 rev_0_2[1:0] $end
+$var reg 16 5 rev_1[15:0] $end
+$var reg 16 6 rot_0[15:0] $end
+$var reg 16 7 rot_1[15:0] $end
+$var reg 16 8 rot_2[15:0] $end
+$var reg 16 9 rot_3[15:0] $end
+$var reg 16 : s_l0[15:0] $end
+$var reg 16 ; s_l1[15:0] $end
+$var reg 16 < s_l2[15:0] $end
+$var reg 16 = s_l3[15:0] $end
+$var reg 1 > s $end
+$var reg 2 ? s_2[1:0] $end
+$var reg 4 @ s_4[3:0] $end
+$var reg 8 A s_8[7:0] $end
+$var reg 1 B sl $end
+$var reg 1 C sr $end
+$var reg 8 D of_mux_out0[7:0] $end
+$var reg 4 E of_mux_out1[3:0] $end
+$var reg 2 F of_mux_out2[1:0] $end
+$var reg 1 G of_mux_out3 $end
+$var reg 8 H xor_out0[7:0] $end
+$var reg 4 I xor_out1[3:0] $end
+$var reg 2 J xor_out2[1:0] $end
+$var reg 1 K xor_out3 $end
+$var reg 1 L of_tmp0 $end
+$var reg 1 M of_tmp1 $end
+$var reg 1 N of_tmp2 $end
+$var reg 1 O of_tmp3 $end
+$scope module rev0_mux $end
+$var reg 16 P i_sig0[15:0] $end
+$var reg 16 Q i_sig1[15:0] $end
+$var reg 1 R i_sel $end
+$var reg 16 S o_sig[15:0] $end
+$upscope $end
+$scope module arith_mux $end
+$var reg 1 T i_sig0[0:0] $end
+$var reg 1 U i_sig1[0:0] $end
+$var reg 1 V i_sel $end
+$var reg 1 W o_sig[0:0] $end
+$upscope $end
+$scope module rot_l0_mux $end
+$var reg 8 X i_sig0[7:0] $end
+$var reg 8 Y i_sig1[7:0] $end
+$var reg 1 Z i_sel $end
+$var reg 8 [ o_sig[7:0] $end
+$upscope $end
+$scope module mux_8shift $end
+$var reg 16 \ i_sig0[15:0] $end
+$var reg 16 ] i_sig1[15:0] $end
+$var reg 1 ^ i_sel $end
+$var reg 16 _ o_sig[15:0] $end
+$upscope $end
+$scope module rot_l1_mux $end
+$var reg 4 ` i_sig0[3:0] $end
+$var reg 4 a i_sig1[3:0] $end
+$var reg 1 b i_sel $end
+$var reg 4 c o_sig[3:0] $end
+$upscope $end
+$scope module mux_4shift $end
+$var reg 16 d i_sig0[15:0] $end
+$var reg 16 e i_sig1[15:0] $end
+$var reg 1 f i_sel $end
+$var reg 16 g o_sig[15:0] $end
+$upscope $end
+$scope module rot_l2_mux $end
+$var reg 2 h i_sig0[1:0] $end
+$var reg 2 i i_sig1[1:0] $end
+$var reg 1 j i_sel $end
+$var reg 2 k o_sig[1:0] $end
+$upscope $end
+$scope module mux_2shift $end
+$var reg 16 l i_sig0[15:0] $end
+$var reg 16 m i_sig1[15:0] $end
+$var reg 1 n i_sel $end
+$var reg 16 o o_sig[15:0] $end
+$upscope $end
+$scope module rot_l3_mux $end
+$var reg 1 p i_sig0[0:0] $end
+$var reg 1 q i_sig1[0:0] $end
+$var reg 1 r i_sel $end
+$var reg 1 s o_sig[0:0] $end
+$upscope $end
+$scope module mux_1shift $end
+$var reg 16 t i_sig0[15:0] $end
+$var reg 16 u i_sig1[15:0] $end
+$var reg 1 v i_sel $end
+$var reg 16 w o_sig[15:0] $end
+$upscope $end
+$scope module rev1_mux $end
+$var reg 16 x i_sig0[15:0] $end
+$var reg 16 y i_sig1[15:0] $end
+$var reg 1 z i_sel $end
+$var reg 16 { o_sig[15:0] $end
 $upscope $end
+$scope module of0_mux $end
+$var reg 8 | i_sig0[7:0] $end
+$var reg 8 } i_sig1[7:0] $end
+$var reg 1 !" i_sel $end
+$var reg 8 "" o_sig[7:0] $end
 $upscope $end
+$scope module of1_mux $end
+$var reg 4 #" i_sig0[3:0] $end
+$var reg 4 $" i_sig1[3:0] $end
+$var reg 1 %" i_sel $end
+$var reg 4 &" o_sig[3:0] $end
 $upscope $end
-$scope module gen_layer0_mux(1) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 3 i_sig0 $end
-$var reg 1 4 i_sig1 $end
-$var reg 1 5 i_sel $end
-$var reg 1 6 o_sig $end
+$scope module of2_mux $end
+$var reg 2 '" i_sig0[1:0] $end
+$var reg 2 (" i_sig1[1:0] $end
+$var reg 1 )" i_sel $end
+$var reg 2 *" o_sig[1:0] $end
 $upscope $end
+$scope module of3_mux $end
+$var reg 1 +" i_sig0[0:0] $end
+$var reg 1 ," i_sig1[0:0] $end
+$var reg 1 -" i_sel $end
+$var reg 1 ." o_sig[0:0] $end
 $upscope $end
+$scope module xor_0(0) $end
 $upscope $end
-$scope module gen_layer0_mux(2) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 7 i_sig0 $end
-$var reg 1 8 i_sig1 $end
-$var reg 1 9 i_sel $end
-$var reg 1 : o_sig $end
+$scope module xor_0(1) $end
 $upscope $end
+$scope module xor_0(2) $end
 $upscope $end
+$scope module xor_0(3) $end
 $upscope $end
-$scope module gen_layer0_mux(3) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 ; i_sig0 $end
-$var reg 1 < i_sig1 $end
-$var reg 1 = i_sel $end
-$var reg 1 > o_sig $end
+$scope module xor_0(4) $end
 $upscope $end
+$scope module xor_0(5) $end
 $upscope $end
+$scope module xor_0(6) $end
 $upscope $end
-$scope module gen_layer0_mux(4) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 ? i_sig0 $end
-$var reg 1 @ i_sig1 $end
-$var reg 1 A i_sel $end
-$var reg 1 B o_sig $end
+$scope module xor_0(7) $end
 $upscope $end
+$scope module xor_1(0) $end
 $upscope $end
+$scope module xor_1(1) $end
 $upscope $end
-$scope module gen_layer0_mux(5) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 C i_sig0 $end
-$var reg 1 D i_sig1 $end
-$var reg 1 E i_sel $end
-$var reg 1 F o_sig $end
+$scope module xor_1(2) $end
 $upscope $end
+$scope module xor_1(3) $end
 $upscope $end
+$scope module xor_2(0) $end
 $upscope $end
-$scope module gen_layer0_mux(6) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 G i_sig0 $end
-$var reg 1 H i_sig1 $end
-$var reg 1 I i_sel $end
-$var reg 1 J o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(7) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 K i_sig0 $end
-$var reg 1 L i_sig1 $end
-$var reg 1 M i_sel $end
-$var reg 1 N o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(8) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 O i_sig0 $end
-$var reg 1 P i_sig1 $end
-$var reg 1 Q i_sel $end
-$var reg 1 R o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(9) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 S i_sig0 $end
-$var reg 1 T i_sig1 $end
-$var reg 1 U i_sel $end
-$var reg 1 V o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(10) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 W i_sig0 $end
-$var reg 1 X i_sig1 $end
-$var reg 1 Y i_sel $end
-$var reg 1 Z o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(11) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 [ i_sig0 $end
-$var reg 1 \ i_sig1 $end
-$var reg 1 ] i_sel $end
-$var reg 1 ^ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(12) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 _ i_sig0 $end
-$var reg 1 ` i_sig1 $end
-$var reg 1 a i_sel $end
-$var reg 1 b o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(13) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 c i_sig0 $end
-$var reg 1 d i_sig1 $end
-$var reg 1 e i_sel $end
-$var reg 1 f o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(14) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 g i_sig0 $end
-$var reg 1 h i_sig1 $end
-$var reg 1 i i_sel $end
-$var reg 1 j o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(15) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 k i_sig0 $end
-$var reg 1 l i_sig1 $end
-$var reg 1 m i_sel $end
-$var reg 1 n o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(0) $end
-$scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 o i_sig0 $end
-$var reg 1 p i_sig1 $end
-$var reg 1 q i_sel $end
-$var reg 1 r o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(1) $end
-$scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 s i_sig0 $end
-$var reg 1 t i_sig1 $end
-$var reg 1 u i_sel $end
-$var reg 1 v o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(2) $end
-$scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 w i_sig0 $end
-$var reg 1 x i_sig1 $end
-$var reg 1 y i_sel $end
-$var reg 1 z o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(3) $end
-$scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 { i_sig0 $end
-$var reg 1 | i_sig1 $end
-$var reg 1 } i_sel $end
-$var reg 1 !" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(4) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 "" i_sig0 $end
-$var reg 1 #" i_sig1 $end
-$var reg 1 $" i_sel $end
-$var reg 1 %" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(5) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 &" i_sig0 $end
-$var reg 1 '" i_sig1 $end
-$var reg 1 (" i_sel $end
-$var reg 1 )" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(6) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 *" i_sig0 $end
-$var reg 1 +" i_sig1 $end
-$var reg 1 ," i_sel $end
-$var reg 1 -" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(7) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 ." i_sig0 $end
-$var reg 1 /" i_sig1 $end
-$var reg 1 0" i_sel $end
-$var reg 1 1" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(8) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 2" i_sig0 $end
-$var reg 1 3" i_sig1 $end
-$var reg 1 4" i_sel $end
-$var reg 1 5" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(9) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 6" i_sig0 $end
-$var reg 1 7" i_sig1 $end
-$var reg 1 8" i_sel $end
-$var reg 1 9" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(10) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 :" i_sig0 $end
-$var reg 1 ;" i_sig1 $end
-$var reg 1 <" i_sel $end
-$var reg 1 =" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(11) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 >" i_sig0 $end
-$var reg 1 ?" i_sig1 $end
-$var reg 1 @" i_sel $end
-$var reg 1 A" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(12) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 B" i_sig0 $end
-$var reg 1 C" i_sig1 $end
-$var reg 1 D" i_sel $end
-$var reg 1 E" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(13) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 F" i_sig0 $end
-$var reg 1 G" i_sig1 $end
-$var reg 1 H" i_sel $end
-$var reg 1 I" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(14) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 J" i_sig0 $end
-$var reg 1 K" i_sig1 $end
-$var reg 1 L" i_sel $end
-$var reg 1 M" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(15) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 N" i_sig0 $end
-$var reg 1 O" i_sig1 $end
-$var reg 1 P" i_sel $end
-$var reg 1 Q" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(0) $end
-$scope module mux_lower2 $end
-$scope module l2 $end
-$var reg 1 R" i_sig0 $end
-$var reg 1 S" i_sig1 $end
-$var reg 1 T" i_sel $end
-$var reg 1 U" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(1) $end
-$scope module mux_lower2 $end
-$scope module l2 $end
-$var reg 1 V" i_sig0 $end
-$var reg 1 W" i_sig1 $end
-$var reg 1 X" i_sel $end
-$var reg 1 Y" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(2) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 Z" i_sig0 $end
-$var reg 1 [" i_sig1 $end
-$var reg 1 \" i_sel $end
-$var reg 1 ]" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(3) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 ^" i_sig0 $end
-$var reg 1 _" i_sig1 $end
-$var reg 1 `" i_sel $end
-$var reg 1 a" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(4) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 b" i_sig0 $end
-$var reg 1 c" i_sig1 $end
-$var reg 1 d" i_sel $end
-$var reg 1 e" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(5) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 f" i_sig0 $end
-$var reg 1 g" i_sig1 $end
-$var reg 1 h" i_sel $end
-$var reg 1 i" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(6) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 j" i_sig0 $end
-$var reg 1 k" i_sig1 $end
-$var reg 1 l" i_sel $end
-$var reg 1 m" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(7) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 n" i_sig0 $end
-$var reg 1 o" i_sig1 $end
-$var reg 1 p" i_sel $end
-$var reg 1 q" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(8) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 r" i_sig0 $end
-$var reg 1 s" i_sig1 $end
-$var reg 1 t" i_sel $end
-$var reg 1 u" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(9) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 v" i_sig0 $end
-$var reg 1 w" i_sig1 $end
-$var reg 1 x" i_sel $end
-$var reg 1 y" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(10) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 z" i_sig0 $end
-$var reg 1 {" i_sig1 $end
-$var reg 1 |" i_sel $end
-$var reg 1 }" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(11) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 !# i_sig0 $end
-$var reg 1 "# i_sig1 $end
-$var reg 1 ## i_sel $end
-$var reg 1 $# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(12) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 %# i_sig0 $end
-$var reg 1 &# i_sig1 $end
-$var reg 1 '# i_sel $end
-$var reg 1 (# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(13) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 )# i_sig0 $end
-$var reg 1 *# i_sig1 $end
-$var reg 1 +# i_sel $end
-$var reg 1 ,# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(14) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 -# i_sig0 $end
-$var reg 1 .# i_sig1 $end
-$var reg 1 /# i_sel $end
-$var reg 1 0# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(15) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 1# i_sig0 $end
-$var reg 1 2# i_sig1 $end
-$var reg 1 3# i_sel $end
-$var reg 1 4# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(0) $end
-$scope module mux_lower1 $end
-$scope module l1 $end
-$var reg 1 5# i_sig0 $end
-$var reg 1 6# i_sig1 $end
-$var reg 1 7# i_sel $end
-$var reg 1 8# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(1) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 9# i_sig0 $end
-$var reg 1 :# i_sig1 $end
-$var reg 1 ;# i_sel $end
-$var reg 1 <# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(2) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 =# i_sig0 $end
-$var reg 1 ># i_sig1 $end
-$var reg 1 ?# i_sel $end
-$var reg 1 @# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(3) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 A# i_sig0 $end
-$var reg 1 B# i_sig1 $end
-$var reg 1 C# i_sel $end
-$var reg 1 D# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(4) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 E# i_sig0 $end
-$var reg 1 F# i_sig1 $end
-$var reg 1 G# i_sel $end
-$var reg 1 H# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(5) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 I# i_sig0 $end
-$var reg 1 J# i_sig1 $end
-$var reg 1 K# i_sel $end
-$var reg 1 L# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(6) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 M# i_sig0 $end
-$var reg 1 N# i_sig1 $end
-$var reg 1 O# i_sel $end
-$var reg 1 P# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(7) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 Q# i_sig0 $end
-$var reg 1 R# i_sig1 $end
-$var reg 1 S# i_sel $end
-$var reg 1 T# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(8) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 U# i_sig0 $end
-$var reg 1 V# i_sig1 $end
-$var reg 1 W# i_sel $end
-$var reg 1 X# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(9) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 Y# i_sig0 $end
-$var reg 1 Z# i_sig1 $end
-$var reg 1 [# i_sel $end
-$var reg 1 \# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(10) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 ]# i_sig0 $end
-$var reg 1 ^# i_sig1 $end
-$var reg 1 _# i_sel $end
-$var reg 1 `# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(11) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 a# i_sig0 $end
-$var reg 1 b# i_sig1 $end
-$var reg 1 c# i_sel $end
-$var reg 1 d# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(12) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 e# i_sig0 $end
-$var reg 1 f# i_sig1 $end
-$var reg 1 g# i_sel $end
-$var reg 1 h# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(13) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 i# i_sig0 $end
-$var reg 1 j# i_sig1 $end
-$var reg 1 k# i_sel $end
-$var reg 1 l# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(14) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 m# i_sig0 $end
-$var reg 1 n# i_sig1 $end
-$var reg 1 o# i_sel $end
-$var reg 1 p# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(15) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 q# i_sig0 $end
-$var reg 1 r# i_sig1 $end
-$var reg 1 s# i_sel $end
-$var reg 1 t# o_sig $end
-$upscope $end
-$upscope $end
+$scope module xor_2(1) $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -669,638 +180,1297 @@ b0000000000000001 !
 b0000000000000010 "
 b0001 #
 0$
-b0000000000000001 %
-b0001 &
-b0000000000000010 '
+1%
+0&
+0'
 0(
-bUUUUUUUUUUUUUUUU )
-U*
-b0000000000000001 +
-b0000000000000001 ,
-b0000000000000001 -
+b0000000000000001 )
+b0001 *
+1+
+0,
+0-
 b0000000000000010 .
-1/
+0/
 00
-01
-12
-03
-04
-05
-06
-07
-08
-09
-0:
-0;
-0<
-0=
+b1000000000000000 1
+b00000000 2
+b0000 3
+b00 4
+b0000000000000010 5
+b0000000010000000 6
+b0000100000000000 7
+b0010000000000000 8
+b0100000000000000 9
+b1000000000000000 :
+b1000000000000000 ;
+b1000000000000000 <
+b0100000000000000 =
 0>
-0?
-0@
-0A
+b00 ?
+b0000 @
+b00000000 A
 0B
 0C
-0D
-0E
-0F
+b00000000 D
+b0000 E
+b00 F
 0G
-0H
-0I
-0J
+b00000000 H
+b0000 I
+b00 J
 0K
 0L
 0M
 0N
 0O
-1P
-0Q
-0R
-0S
-0T
-0U
+b0000000000000001 P
+b1000000000000000 Q
+1R
+b1000000000000000 S
+b0 T
+b1 U
 0V
-0W
-0X
-0Y
+b0 W
+b00000000 X
+b00000000 Y
 0Z
-0[
-0\
-0]
+b00000000 [
+b1000000000000000 \
+b0000000010000000 ]
 0^
-0_
-0`
-0a
+b1000000000000000 _
+b0000 `
+b0000 a
 0b
-0c
-0d
-0e
+b0000 c
+b1000000000000000 d
+b0000100000000000 e
 0f
-0g
-0h
-0i
+b1000000000000000 g
+b00 h
+b00 i
 0j
-0k
-0l
-0m
+b00 k
+b1000000000000000 l
+b0010000000000000 m
 0n
-1o
-0p
-0q
-1r
-0s
-0t
-0u
-0v
-0w
-0x
-0y
-0z
-0{
-0|
-0}
+b1000000000000000 o
+b0 p
+b0 q
+0r
+b0 s
+b1000000000000000 t
+b0100000000000000 u
+1v
+b0100000000000000 w
+b0100000000000000 x
+b0000000000000010 y
+1z
+b0000000000000010 {
+b00000000 |
+b00000000 }
 0!"
-0""
-1#"
-0$"
+b00000000 ""
+b0000 #"
+b0000 $"
 0%"
-0&"
-0'"
-0("
+b0000 &"
+b00 '"
+b00 ("
 0)"
-0*"
-0+"
-0,"
-0-"
-0."
-0/"
-00"
-01"
-02"
-03"
-04"
-05"
-06"
-07"
-08"
-09"
-0:"
-0;"
-0<"
-0="
-0>"
-0?"
-0@"
-0A"
-0B"
-0C"
-0D"
-0E"
-0F"
-0G"
-0H"
-0I"
-0J"
-0K"
-0L"
-0M"
-0N"
-0O"
-0P"
-0Q"
-1R"
-0S"
-0T"
-1U"
-0V"
-0W"
-0X"
-0Y"
-0Z"
-1["
-0\"
-0]"
-0^"
-0_"
-0`"
-0a"
-0b"
-0c"
-0d"
-0e"
-0f"
-0g"
-0h"
-0i"
-0j"
-0k"
-0l"
-0m"
-0n"
-0o"
-0p"
-0q"
-0r"
-0s"
-0t"
-0u"
-0v"
-0w"
-0x"
-0y"
-0z"
-0{"
-0|"
-0}"
-0!#
-0"#
-0##
-0$#
-0%#
-0&#
-0'#
-0(#
-0)#
-0*#
-0+#
-0,#
-0-#
-0.#
-0/#
-00#
-01#
-02#
-03#
-04#
-15#
-06#
-17#
-08#
-09#
-1:#
-1;#
-1<#
-0=#
-0>#
-1?#
-0@#
-0A#
-0B#
-1C#
-0D#
-0E#
-0F#
-1G#
-0H#
-0I#
-0J#
-1K#
-0L#
-0M#
-0N#
-1O#
-0P#
-0Q#
-0R#
-1S#
-0T#
-0U#
-0V#
-1W#
-0X#
-0Y#
-0Z#
-1[#
-0\#
-0]#
-0^#
-1_#
-0`#
-0a#
-0b#
-1c#
-0d#
-0e#
-0f#
-1g#
-0h#
-0i#
-0j#
-1k#
-0l#
-0m#
-0n#
-1o#
-0p#
-0q#
-0r#
-1s#
-0t#
+b00 *"
+b0 +"
+b0 ,"
+1-"
+b0 ."
 #1000000
 b1000000000000000 "
 b1111 #
-b1111 &
-b1000000000000000 '
-b0000000100000000 +
-b0001000000000000 ,
-b0100000000000000 -
+b1111 *
 b1000000000000000 .
-11
-02
-15
-19
-1=
-1A
-1E
-1I
-1M
-1Q
-1R
-1U
-1Y
-1]
-1a
-1e
-1i
-1m
-0o
-1q
-0r
-1u
-1y
-1}
-0#"
-1$"
-0%"
-1("
-1,"
-10"
-12"
-14"
-18"
-1<"
-1@"
-1C"
-1D"
-1E"
-1H"
-1L"
-1P"
-0R"
-1T"
-0U"
-1X"
-0["
-1\"
-0]"
-1`"
-0b"
-1d"
-1h"
-0k"
-1l"
-0m"
-1p"
-1t"
-1x"
-1|"
-1##
-1%#
-1'#
-1+#
-1.#
-1/#
-10#
-13#
-05#
-0:#
-0<#
-0=#
-0B#
-0D#
-0M#
-0R#
-0T#
-1m#
-1r#
-1t#
+b1000000000000000 5
+b0000000000001000 7
+b0000000000000010 8
+b0000000000000001 9
+b0000000010000000 :
+b0000000000001000 ;
+b0000000000000010 <
+b0000000000000001 =
+1G
+1K
+1O
+1^
+b0000000010000000 _
+b0000000010000000 d
+b0000000000001000 e
+1f
+b0000000000001000 g
+b0000000000001000 l
+b0000000000000010 m
+1n
+b0000000000000010 o
+b0000000000000010 t
+b0000000000000001 u
+b0000000000000001 w
+b0000000000000001 x
+b1000000000000000 y
+b1000000000000000 {
+1!"
+1%"
+1)"
+b1 ,"
+b1 ."
 #2000000
 b0101010101010101 !
 b1010101010101010 "
 b0001 #
-b0101010101010101 %
-b0001 &
-b1010101010101010 '
-b0101010101010101 +
-b0101010101010101 ,
-b0101010101010101 -
+b0101010101010101 )
+b0001 *
 b1010101010101010 .
-01
-12
-05
-17
-09
-1:
-0=
-1?
-0A
-1B
-0E
+b1010101010101010 1
+b1010101010101010 5
+b0000000010101010 6
+b0000101010101010 7
+b0010101010101010 8
+b0101010101010101 9
+b1010101010101010 :
+b1010101010101010 ;
+b1010101010101010 <
+b0101010101010101 =
 1G
-0I
-1J
-0M
+1K
 1O
-0Q
-0U
-1W
-1X
-0Y
-1Z
-0]
-1_
-1`
-0a
-1b
-0e
-1g
-1h
-0i
-1j
-0m
-1o
-0q
-1r
-0u
-1w
-0y
-1z
-0}
-1""
-1#"
-0$"
-1%"
-0("
-1*"
-1+"
-0,"
-1-"
-00"
-13"
-04"
-15"
-08"
-1:"
-1;"
-0<"
-1="
-0@"
-1B"
-0D"
-1E"
-0H"
-1J"
-1K"
-0L"
-1M"
-0P"
-1R"
-0T"
-1U"
-0X"
-1Z"
-1["
-0\"
-1]"
-0`"
-1b"
-1c"
-0d"
-1e"
-0h"
-1j"
-1k"
-0l"
-1m"
-0p"
-1r"
-1s"
-0t"
-1u"
-0x"
-1z"
-1{"
-0|"
-1}"
-0##
-1%#
-1&#
-0'#
-1(#
-0+#
-1-#
-1.#
-0/#
-10#
-03#
-15#
-1:#
-1<#
-1=#
-1B#
-1D#
-1E#
-1J#
-1L#
-1M#
-1R#
-1T#
-1U#
-1Z#
-1\#
-1]#
-1b#
-1d#
-1e#
-1j#
-1l#
-1m#
-1r#
-1t#
+b0101010101010101 P
+b1010101010101010 Q
+b1010101010101010 S
+b10101010 Y
+b1010101010101010 \
+b0000000010101010 ]
+0^
+b1010101010101010 _
+b1010 a
+b1010101010101010 d
+b0000101010101010 e
+0f
+b1010101010101010 g
+b10 i
+b1010101010101010 l
+b0010101010101010 m
+0n
+b1010101010101010 o
+b1010101010101010 t
+b0101010101010101 u
+b0101010101010101 w
+b0101010101010101 x
+b1010101010101010 y
+b1010101010101010 {
+b01010101 }
+0!"
+b0101 $"
+0%"
+b01 ("
+0)"
+b1 ,"
+b1 ."
 #3000000
+b1010101010101000 "
+b0011 #
+b0011 *
+b1010101010101000 .
+b1010101010101000 5
+b0001010101010101 9
+b0010101010101010 <
+b0001010101010101 =
+b01 F
+b01 J
+1N
+1n
+b0010101010101010 o
+b0010101010101010 t
+b0001010101010101 u
+b0001010101010101 w
+b0001010101010101 x
+b1010101010101000 y
+b1010101010101000 {
+1)"
+b01 *"
+#4000000
+b0000000100000001 !
+b0010000000100000 "
+b0101 #
+b0000000100000001 )
+b0101 *
+b0010000000100000 .
+b1000000010000000 1
+b0010000000100000 5
+b0000000010000000 6
+b0000100000001000 7
+b0000001000000010 8
+b0000010000000100 9
+b1000000010000000 :
+b0000100000001000 ;
+b0000100000001000 <
+b0000010000000100 =
+b0000 E
+b00 F
+0G
+b0000 I
+b00 J
+0K
+0M
+0N
+0O
+b0000000100000001 P
+b1000000010000000 Q
+b1000000010000000 S
+b10000000 Y
+b1000000010000000 \
+b0000000010000000 ]
+b1000000010000000 _
+b0000 a
+b1000000010000000 d
+b0000100000001000 e
+1f
+b0000100000001000 g
+b00 i
+b0000100000001000 l
+b0000001000000010 m
+0n
+b0000100000001000 o
+b0000100000001000 t
+b0000010000000100 u
+b0000010000000100 w
+b0000010000000100 x
+b0010000000100000 y
+b0010000000100000 {
+b01000000 }
+b0000 $"
+1%"
+b0000 &"
+b00 ("
+0)"
+b00 *"
+b0 ,"
+b0 ."
+#5000000
 b0000000000000001 !
 b0000000000001000 "
 b0011 #
-b0000000000000001 %
-b0011 &
-b0000000000001000 '
-b0000000000000001 +
-b0000000000000001 ,
-b0000000000000100 -
+1&
+b0000000000000001 )
+b0011 *
+1,
 b0000000000001000 .
-07
-0:
-0?
-0B
+b1000000000000000 1
+b0000000000001000 5
+b0000000010000000 6
+b0000100000000000 7
+b0010000000000000 8
+b0001000000000000 9
+b1000000000000000 :
+b1000000000000000 ;
+b0010000000000000 <
+b0001000000000000 =
 0G
-0J
+0K
 0O
-0R
-0W
-0X
-0Z
-0_
-0`
-0b
-0g
-0h
-0j
-0w
-0z
-0""
+b0000000000000001 P
+b1000000000000000 Q
+b1000000000000000 S
+b00000000 Y
+1Z
+b00000000 [
+b1000000000000000 \
+b0000000010000000 ]
+b1000000000000000 _
+1b
+b1000000000000000 d
+b0000100000000000 e
+0f
+b1000000000000000 g
+1j
+b1000000000000000 l
+b0010000000000000 m
+1n
+b0010000000000000 o
+1r
+b0010000000000000 t
+b0001000000000000 u
+b0001000000000000 w
+b0001000000000000 x
+b0000000000001000 y
+b0000000000001000 {
+b00000000 }
 0%"
-0*"
-0+"
-0-"
-02"
-03"
-05"
-0:"
-0;"
-0="
-0B"
-0C"
-0E"
-0J"
-0K"
-0M"
-1T"
-0U"
-1X"
-0Z"
-1\"
-1`"
-0b"
-0c"
-1d"
-0e"
-1h"
-0j"
-0k"
-1l"
-0m"
-1p"
-0r"
-0s"
-1t"
-0u"
-1x"
-0z"
-0{"
-1|"
-0}"
-1##
-0%#
-0&#
-1'#
-0(#
-1+#
-0-#
-0.#
-1/#
-00#
-13#
-05#
-0:#
-0<#
-0E#
-0J#
-0L#
-0M#
-0R#
-0T#
-0U#
-0Z#
-0\#
-0]#
-0b#
-0d#
-0e#
-0j#
-0l#
-0m#
-0r#
-0t#
-#4000000
-b0000000010000000 !
-b0000010000000000 "
-b0000000010000000 %
-b0000010000000000 '
-b0000000010000000 +
-b0000000010000000 ,
-b0000001000000000 -
-b0000010000000000 .
-0/
-02
+1)"
+b0 ,"
+b0 ."
+#6000000
+b0001001010010001 !
+b1000100010010100 "
+b1011 #
+b0001001010010001 )
+b1011 *
+b1000100010010100 .
+b1000100101001000 1
+b1000100010010100 5
+b0100100010001001 6
+b1001010010001000 7
+b0101001000100010 8
+b0010100100010001 9
+b0100100010001001 :
+b0100100010001001 ;
+b0101001000100010 <
+b0010100100010001 =
+b10100100 D
+1G
+b10100100 H
 1K
+1L
+1O
+b0001001010010001 P
+b1000100101001000 Q
+b1000100101001000 S
+b01001000 Y
+b01001000 [
+b1000100101001000 \
+b0100100010001001 ]
+1^
+b0100100010001001 _
+b1001 a
+b1001 c
+b0100100010001001 d
+b1001010010001000 e
+b0100100010001001 g
+b01 i
+b01 k
+b0100100010001001 l
+b0101001000100010 m
+b0101001000100010 o
+b0101001000100010 t
+b0010100100010001 u
+b0010100100010001 w
+b0010100100010001 x
+b1000100010010100 y
+b1000100010010100 {
+b10100100 }
+1!"
+b10100100 ""
+b0100 $"
+b1 ,"
+b1 ."
+#7000000
+b1110000000000001 !
+b0000000011110000 "
+b0111 #
+b1110000000000001 )
+b0111 *
+b0000000011110000 .
+b1000000000000111 1
+b11111111 2
+b1111 3
+b11 4
+b0000000011110000 5
+b0000011110000000 6
+b0111100000000000 7
+b0001111000000000 8
+b0000111100000000 9
+b1000000000000111 :
+b0111100000000000 ;
+b0001111000000000 <
+b0000111100000000 =
+b11111111 D
+b0011 E
+b00 F
+0G
+b00000000 H
+b1100 I
+b11 J
+0L
+1M
 1N
-0P
-1l
-0o
+b1110000000000001 P
+b1000000000000111 Q
+b1000000000000111 S
+b00000111 Y
+b00000111 [
+b1000000000000111 \
+b0000011110000000 ]
+0^
+b1000000000000111 _
+b0111 a
+b0111 c
+b1000000000000111 d
+b0111100000000000 e
+1f
+b0111100000000000 g
+b00 i
+b00 k
+b0111100000000000 l
+b0001111000000000 m
+b0001111000000000 o
+b0 q
+b0 s
+b0001111000000000 t
+b0000111100000000 u
+b0000111100000000 w
+b0000111100000000 x
+b0000000011110000 y
+b0000000011110000 {
+b11111111 |
+b00000011 }
+0!"
+b11111111 ""
+b1111 #"
+b0011 $"
+1%"
+b0011 &"
+b11 '"
+b00 ("
+b00 *"
+b1 +"
+b0 ,"
+b0 ."
+#8000000
+b0000000000000001 !
+b0000000000001000 "
+b0011 #
+b0000000000000001 )
+b0011 *
+b0000000000001000 .
+b1000000000000000 1
+b00000000 2
+b0000 3
+b00 4
+b0000000000001000 5
+b0000000010000000 6
+b0000100000000000 7
+b0010000000000000 8
+b0001000000000000 9
+b1000000000000000 :
+b1000000000000000 ;
+b0010000000000000 <
+b0001000000000000 =
+b00000000 D
+b0000 E
+b00 F
+b00000000 H
+b0000 I
+b00 J
+0K
+0L
+0M
+0N
+0O
+b0000000000000001 P
+b1000000000000000 Q
+b1000000000000000 S
+b00000000 Y
+b00000000 [
+b1000000000000000 \
+b0000000010000000 ]
+b1000000000000000 _
+b0000 a
+b0000 c
+b1000000000000000 d
+b0000100000000000 e
+0f
+b1000000000000000 g
+b00 i
+b00 k
+b1000000000000000 l
+b0010000000000000 m
+b0010000000000000 o
+b0 q
+b0 s
+b0010000000000000 t
+b0001000000000000 u
+b0001000000000000 w
+b0001000000000000 x
+b0000000000001000 y
+b0000000000001000 {
+b00000000 |
+b00000000 }
+b00000000 ""
+b0000 #"
+b0000 $"
+0%"
+b0000 &"
+b00 '"
+b00 ("
+b00 *"
+b0 +"
+#9000000
+b0000000000000010 "
+b0001 #
+0&
+1'
+b0001 *
+0,
+1-
+b0000000000000010 .
+b0000000000000010 5
+b0100000000000000 9
+b1000000000000000 <
+b0100000000000000 =
+1B
+0Z
+0b
+0j
+0n
+b1000000000000000 o
 0r
-0#"
-1."
-11"
-1?"
-0R"
-0["
-0]"
-1n"
-1w"
-1y"
-0=#
-0B#
-0D#
-1Y#
-1^#
-1`#
-#5000000
+b1000000000000000 t
+b0100000000000000 u
+b0100000000000000 w
+b0100000000000000 x
+b0000000000000010 y
+b0000000000000010 {
+0)"
+#10000000
+b1000000000000000 "
+b1111 #
+1$
+b1111 *
+b1000000000000000 .
+1/
+b1000000000000000 5
+b0000000000001000 7
+b0000000000000010 8
+b0000000000000001 9
+b0000000010000000 :
+b0000000000001000 ;
+b0000000000000010 <
+b0000000000000001 =
+1G
+1K
+1O
+1^
+b0000000010000000 _
+b0000000010000000 d
+b0000000000001000 e
+1f
+b0000000000001000 g
+b0000000000001000 l
+b0000000000000010 m
+1n
+b0000000000000010 o
+b0000000000000010 t
+b0000000000000001 u
+b0000000000000001 w
+b0000000000000001 x
+b1000000000000000 y
+b1000000000000000 {
+1!"
+1%"
+1)"
+b1 ,"
+b1 ."
+#11000000
+b0000000000000011 !
+b0000000000000011 )
+b1100000000000000 1
+b0000000011000000 6
+b0000000000001100 7
+b0000000000000011 8
+b0000000011000000 :
+b0000000000001100 ;
+b0000000000000011 <
+b10 F
+b10 J
+1N
+b0000000000000011 P
+b1100000000000000 Q
+b1100000000000000 S
+b1100000000000000 \
+b0000000011000000 ]
+b0000000011000000 _
+b0000000011000000 d
+b0000000000001100 e
+b0000000000001100 g
+b0000000000001100 l
+b0000000000000011 m
+b0000000000000011 o
+b1 q
+b0000000000000011 t
+b10 ("
+b10 *"
+#12000000
+b0101010101010101 !
+b1010101010101010 "
+b0001 #
+1$
+b0101010101010101 )
+b0001 *
+b1010101010101010 .
+1/
+b1010101010101010 1
+b1010101010101010 5
+b0000000010101010 6
+b0000101010101010 7
+b0010101010101010 8
+b0101010101010101 9
+b1010101010101010 :
+b1010101010101010 ;
+b1010101010101010 <
+b0101010101010101 =
+b00 F
+1G
+b00 J
+1K
+0N
+1O
+b0101010101010101 P
+b1010101010101010 Q
+b1010101010101010 S
+b10101010 Y
+b1010101010101010 \
+b0000000010101010 ]
+0^
+b1010101010101010 _
+b1010 a
+b1010101010101010 d
+b0000101010101010 e
+0f
+b1010101010101010 g
+b10 i
+b1010101010101010 l
+b0010101010101010 m
+0n
+b1010101010101010 o
+b0 q
+b1010101010101010 t
+b0101010101010101 u
+b0101010101010101 w
+b0101010101010101 x
+b1010101010101010 y
+b1010101010101010 {
+b01010101 }
+0!"
+b0101 $"
+0%"
+b01 ("
+0)"
+b00 *"
+b1 ,"
+b1 ."
+#13000000
+b1010101010101000 "
+b0011 #
+b0011 *
+b1010101010101000 .
+b1010101010101000 5
+b0001010101010101 9
+b0010101010101010 <
+b0001010101010101 =
+b01 F
+b01 J
+1N
+1n
+b0010101010101010 o
+b0010101010101010 t
+b0001010101010101 u
+b0001010101010101 w
+b0001010101010101 x
+b1010101010101000 y
+b1010101010101000 {
+1)"
+b01 *"
+#14000000
+b0000000100000001 !
+b0010000000100000 "
+b0101 #
+0$
+b0000000100000001 )
+b0101 *
+b0010000000100000 .
+0/
+b1000000010000000 1
+b0010000000100000 5
+b0000000010000000 6
+b0000100000001000 7
+b0000001000000010 8
+b0000010000000100 9
+b1000000010000000 :
+b0000100000001000 ;
+b0000100000001000 <
+b0000010000000100 =
+b0000 E
+b00 F
+0G
+b0000 I
+b00 J
+0K
+0M
+0N
+0O
+b0000000100000001 P
+b1000000010000000 Q
+b1000000010000000 S
+b10000000 Y
+b1000000010000000 \
+b0000000010000000 ]
+b1000000010000000 _
+b0000 a
+b1000000010000000 d
+b0000100000001000 e
+1f
+b0000100000001000 g
+b00 i
+b0000100000001000 l
+b0000001000000010 m
+0n
+b0000100000001000 o
+b0000100000001000 t
+b0000010000000100 u
+b0000010000000100 w
+b0000010000000100 x
+b0010000000100000 y
+b0010000000100000 {
+b01000000 }
+b0000 $"
+1%"
+b0000 &"
+b00 ("
+0)"
+b00 *"
+b0 ,"
+b0 ."
+#15000000
+b0000000000000001 !
+b0000000000000000 "
+b0001 #
+0%
+0'
+1(
+b0000000000000001 )
+b0001 *
+0+
+0-
+b0000000000000000 .
+10
+b0000000000000001 1
+b11111111 2
+b1111 3
+b11 4
+b0000000000000000 5
+b0000000000000000 6
+b0000000000000000 7
+b0000000000000000 8
+b0000000000000000 9
+b0000000000000001 :
+b0000000000000001 ;
+b0000000000000001 <
+b0000000000000000 =
+0B
+b11111111 D
+b1111 E
+b11 F
+b00000000 H
+b0000 I
+b00 J
+1K
+0L
+0M
+0N
+1O
+b0000000000000001 P
+b1000000000000000 Q
+0R
+b0000000000000001 S
+b0 U
+b00000001 Y
+b0000000000000001 \
+b0000000000000000 ]
+b0000000000000001 _
+b0001 a
+b0000000000000001 d
+b0000000000000000 e
+0f
+b0000000000000001 g
+b01 i
+b0000000000000001 l
+b0000000000000000 m
+b0000000000000001 o
+b1 q
+b0000000000000001 t
+b0000000000000000 u
+b0000000000000000 w
+b0000000000000000 x
+b0000000000000000 y
+0z
+b0000000000000000 {
+b11111111 |
+b00000000 }
+b11111111 ""
+b1111 #"
+0%"
+b1111 &"
+b11 '"
+b11 *"
+b1 +"
+#16000000
+b0101010101010101 !
+b0010101010101010 "
+0(
+b0101010101010101 )
+b0010101010101010 .
+00
+b0101010101010101 1
+b0010101010101010 5
+b0000000001010101 6
+b0000010101010101 7
+b0001010101010101 8
+b0010101010101010 9
+b0101010101010101 :
+b0101010101010101 ;
+b0101010101010101 <
+b0010101010101010 =
+b0101010101010101 P
+b1010101010101010 Q
+b0101010101010101 S
+b01010101 Y
+b0101010101010101 \
+b0000000001010101 ]
+b0101010101010101 _
+b0101 a
+b0101010101010101 d
+b0000010101010101 e
+b0101010101010101 g
+b0101010101010101 l
+b0001010101010101 m
+b0101010101010101 o
+b0101010101010101 t
+b0010101010101010 u
+b0010101010101010 w
+b0010101010101010 x
+b0101010101010100 y
+b0010101010101010 {
+b10101010 }
+b1010 $"
+b10 ("
+#17000000
+b1111111111111111 !
+b1111111111111111 "
+b1111 #
+1&
+b1111111111111111 )
+b1111 *
+1,
+b1111111111111111 .
+b1111111111111111 1
+b1111111111111111 5
+b1111111111111111 6
+b1111111111111111 7
+b1111111111111111 8
+b1111111111111111 9
+b1111111111111111 :
+b1111111111111111 ;
+b1111111111111111 <
+b1111111111111111 =
+b11111111 D
+b1111 E
+b11 F
+1G
+b00000000 H
+b0000 I
+b00 J
+0L
+0M
+0N
+b1111111111111111 P
+b1111111111111111 Q
+b1111111111111111 S
+b1 U
+b11111111 Y
+1Z
+b11111111 [
+b1111111111111111 \
+b1111111111111111 ]
+1^
+b1111111111111111 _
+b1111 a
+1b
+b1111 c
+b1111111111111111 d
+b1111111111111111 e
+1f
+b1111111111111111 g
+b11 i
+1j
+b11 k
+b1111111111111111 l
+b1111111111111111 m
+1n
+b1111111111111111 o
+1r
+b1 s
+b1111111111111111 t
+b1111111111111111 u
+b1111111111111111 w
+b1111111111111111 x
+b1111111111111111 y
+b1111111111111111 {
+b11111111 }
+1!"
+b11111111 ""
+b1111 $"
+1%"
+b1111 &"
+b11 ("
+1)"
+b11 *"
+b1 ,"
+b1 ."
+#18000000
+b0000000000000001 !
+b0010000000000000 "
+b0011 #
+b0000000000000001 )
+b0011 *
+b0010000000000000 .
+b0000000000000001 1
+b0010000000000000 5
+b0000000100000000 6
+b0001000000000000 7
+b0100000000000000 8
+b0010000000000000 9
+b0000000000000001 :
+b0000000000000001 ;
+b0100000000000000 <
+b0010000000000000 =
+b00 F
+0G
+b11 J
+1N
+b0000000000000001 P
+b1000000000000000 Q
+b0000000000000001 S
+b0 U
+b00000001 Y
+b00000001 [
+b0000000000000001 \
+b0000000100000000 ]
+0^
+b0000000000000001 _
+b0001 a
+b0001 c
+b0000000000000001 d
+b0001000000000000 e
+0f
+b0000000000000001 g
+b01 i
+b01 k
+b0000000000000001 l
+b0100000000000000 m
+b0100000000000000 o
+b0 q
+b0 s
+b0100000000000000 t
+b0010000000000000 u
+b0010000000000000 w
+b0010000000000000 x
+b0000000000000100 y
+b0010000000000000 {
+b00000000 }
+0!"
+b0000 $"
+0%"
+b00 ("
+b00 *"
+b0 ,"
+b0 ."
+#19000000
+b0001000000000001 !
+b0001000100000000 "
+b0100 #
+b0001000000000001 )
+b0100 *
+b0001000100000000 .
+b0001000000000001 1
+b0001000100000000 5
+b0000000100010000 6
+b0001000100000000 7
+b0000010001000000 8
+b0000100010000000 9
+b0001000000000001 :
+b0001000100000000 ;
+b0001000100000000 <
+b0001000100000000 =
+b0000 E
+b11 F
+1G
+b1111 I
+b00 J
+1M
+0N
+b0001000000000001 P
+b1000000000001000 Q
+b0001000000000001 S
+b0001000000000001 \
+b0000000100010000 ]
+b0001000000000001 _
+b0001000000000001 d
+b0001000100000000 e
+1f
+b0001000100000000 g
+b00 i
+b00 k
+b0001000100000000 l
+b0000010001000000 m
+0n
+b0001000100000000 o
+b0 q
+b0 s
+b0001000100000000 t
+b0000100010000000 u
+0v
+b0001000100000000 w
+b0001000100000000 x
+b0000000010001000 y
+b0001000100000000 {
+1%"
+b0000 &"
+0)"
+b11 *"
+0-"
+b1 ."
+#20000000
+b0001001010010001 !
+b0101001000100010 "
+b1011 #
+b0001001010010001 )
+b1011 *
+b0101001000100010 .
+b0001001010010001 1
+b0101001000100010 5
+b1001000100010010 6
+b0010100100010001 7
+b1010010001000100 8
+b0101001000100010 9
+b1001000100010010 :
+b1001000100010010 ;
+b1010010001000100 <
+b0101001000100010 =
+b01001000 D
+b1111 E
+b01 F
+0G
+b10110111 H
+b0000 I
+b10 J
+1L
+0M
+1N
+b0001001010010001 P
+b1000100101001000 Q
+b0001001010010001 S
+b10010001 Y
+b10010001 [
+b0001001010010001 \
+b1001000100010010 ]
+1^
+b1001000100010010 _
+b0010 a
+b0010 c
+b1001000100010010 d
+b0010100100010001 e
+0f
+b1001000100010010 g
+b10 i
+b10 k
+b1001000100010010 l
+b1010010001000100 m
+1n
+b1010010001000100 o
+b1010010001000100 t
+b0101001000100010 u
+1v
+b0101001000100010 w
+b0101001000100010 x
+b0100010001001010 y
+b0101001000100010 {
+b01001000 }
+1!"
+b01001000 ""
+b1001 $"
+0%"
+b1111 &"
+b01 ("
+1)"
+b01 *"
+1-"
+b0 ."
+#21000000
+b1000000000000001 !
+b1111000000000000 "
+b0011 #
+0&
+1'
+b1000000000000001 )
+b0011 *
+0,
+1-
+b1111000000000000 .
+b1000000000000001 1
+b1111000000000000 5
+b1111111110000000 6
+b1111100000000000 7
+b1110000000000000 8
+b1111000000000000 9
+b1000000000000001 :
+b1000000000000001 ;
+b1110000000000000 <
+b1111000000000000 =
+1>
+b11 ?
+b1111 @
+b11111111 A
+1C
+b11111111 D
+b00 F
+b00000000 H
+b11 J
+0L
+b1000000000000001 P
+b1000000000000001 Q
+b1000000000000001 S
+b1 U
+1V
+b1 W
+b11111111 X
+b00000001 Y
+0Z
+b11111111 [
+b1000000000000001 \
+b1111111110000000 ]
+0^
+b1000000000000001 _
+b1111 `
+b0001 a
+0b
+b1111 c
+b1000000000000001 d
+b1111100000000000 e
+b1000000000000001 g
+b11 h
+b01 i
+0j
+b11 k
+b1000000000000001 l
+b1110000000000000 m
+b1110000000000000 o
+b1 p
+0r
+b1 s
+b1110000000000000 t
+b1111000000000000 u
+b1111000000000000 w
+b1111000000000000 x
+b0000000000001111 y
+b1111000000000000 {
+b00000000 }
+0!"
+b11111111 ""
+b0000 $"
+b00 ("
+b00 *"
+#22000000
+b0000000000000001 !
+b0000000000000000 "
+b0001 #
+1(
+b0000000000000001 )
+b0001 *
+b0000000000000000 .
+10
+b0000000000000001 1
+b0000000000000000 5
+b0000000000000000 6
+b0000000000000000 7
+b0000000000000000 8
+b0000000000000000 9
+b0000000000000001 :
+b0000000000000001 ;
+b0000000000000001 <
+b0000000000000000 =
+0>
+b00 ?
+b0000 @
+b00000000 A
+b11 F
+b00 J
+0N
+b0000000000000001 P
+b1000000000000000 Q
+b0000000000000001 S
+b0 U
+b0 W
+b00000000 X
+b00000000 [
+b0000000000000001 \
+b0000000000000000 ]
+b0000000000000001 _
+b0000 `
+b0000 c
+b0000000000000001 d
+b0000000000000000 e
+b0000000000000001 g
+b00 h
+b00 k
+b0000000000000001 l
+b0000000000000000 m
+0n
+b0000000000000001 o
+b0 p
+b1 q
+b0 s
+b0000000000000001 t
+b0000000000000000 u
+b0000000000000000 w
+b0000000000000000 x
+b0000000000000000 y
+b0000000000000000 {
+0)"
+b11 *"
+#23000000
+b0101010101010101 !
+b0010101010101010 "
+0(
+b0101010101010101 )
+b0010101010101010 .
+00
+b0101010101010101 1
+b0010101010101010 5
+b0000000001010101 6
+b0000010101010101 7
+b0001010101010101 8
+b0010101010101010 9
+b0101010101010101 :
+b0101010101010101 ;
+b0101010101010101 <
+b0010101010101010 =
+b0101010101010101 P
+b1010101010101010 Q
+b0101010101010101 S
+b01010101 Y
+b0101010101010101 \
+b0000000001010101 ]
+b0101010101010101 _
+b0101 a
+b0101010101010101 d
+b0000010101010101 e
+b0101010101010101 g
+b0101010101010101 l
+b0001010101010101 m
+b0101010101010101 o
+b0101010101010101 t
+b0010101010101010 u
+b0010101010101010 w
+b0010101010101010 x
+b0101010101010100 y
+b0010101010101010 {
+b10101010 }
+b1010 $"
+b10 ("
+#24000000

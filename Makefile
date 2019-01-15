@@ -41,5 +41,5 @@ ifeq ($(strip $(TESTBENCH)),)
 	@exit 2
 endif
 	$(GHDL) -i $(GHDLFLAGS) $(TESTS) $(FILES)
-	$(GHDL) -m $(GHDLFLAGS) $(TESTBENCH)_tb
+	$(GHDL) -m $(GHDLFLAGS) -g $(TESTBENCH)_tb
 	$(GHDL) -r $(GHDLFLAGS) $(TESTBENCH)_tb --vcd=sim/$(TESTBENCH)_tb.vcd
