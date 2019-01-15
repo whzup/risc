@@ -154,8 +154,8 @@ general layout:\par
                                                     the register \texttt{Rnnn}.\\
                                                     \hline
         &&\\
-        \boxchar{0000 0} & PUSH      & \texttt{TODO}\\
-        \boxchar{0000 1} & POP       & \texttt{TODO}\\
+        \boxchar{0000 00ps xxxx xxxx} & PUSH      & Push the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p} on the stack\\
+        \boxchar{0000 10ps xxxx xxxx} & POP       & Pop values from the stack in the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p}.\\
         &&\\
         \boxchar{1000 001m mmnn nddd} & ADD       & Add the values of the registers
                                                     \texttt{Rmmm} and \texttt{Rnnn} and
@@ -197,20 +197,13 @@ general layout:\par
                                                     \hline
     \end{longtable}
 \end{center}
-\subsection*{CPU Overview}
-The CPU has the following subcomponents:
+\subsection*{ALU}
+The ALU consists of the following components:
 \begin{itemize}
-    \item Instruction Register (IR)
-    \item Flag Register (FR)
-    \item Carry-Look-Ahead-Adder (CLAA)
-    \item etc.
+    \item carry lookahead adder (CLAA)
+    \item barrel shifter
+    \item wallace tree multiplier
+    \item logic unit
+    \item flag register
 \end{itemize}
-\begin{circuitikz}
-    \draw (1,1) node[dff] {};
-\end{circuitikz}
 \end{document}
-
-
-
-
-
