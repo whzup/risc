@@ -28,6 +28,7 @@ begin
              i_sig1 when i_sel='1';
 end architecture;
 
+-- Shifter
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -37,8 +38,10 @@ entity shifter is
     (
     i_op:  in std_logic_vector(15 downto 0);
     i_s:   in std_logic_vector(3 downto 0);
-    i_dir: in std_logic;
-    o_r:   out std_logic_vector(15 downto 0);
+    i_dir: in std_logic; -- direction
+    i_rot: in std_logic; -- rotate
+    i_ar:  in std_logic; -- arithmetic shift
+    o_r:   out std_logic_vector(15 downto 0); -- result
     o_f:   out std_logic; -- overflow flag
     o_z:   out std_logic  -- zero flag
     );
@@ -61,14 +64,15 @@ architecture behaviour of shifter is
     -- shifting layer signals
     signal rev_0: std_logic_vector(15 downto 0);
     signal rev_1: std_logic_vector(15 downto 0);
+    signal rot_0: std_logic_vector(15 downto 0);
     signal s_l0: std_logic_vector(15 downto 0);
     signal s_l1: std_logic_vector(15 downto 0);
     signal s_l2: std_logic_vector(15 downto 0);
     signal s_l3: std_logic_vector(15 downto 0);
+    signal s : std_logic;
 begin
 
     -- Generate Multiplexer layers
-
     gen_rev0_mux : for i in 0 to 15 generate
         -- Reverse the bit order for a right shift
         rev0_mux : mux port map
@@ -79,6 +83,30 @@ begin
         o_sig => rev_0(i)
         );
     end generate;
+
+    arith_mux : mux port map
+        (
+        i_sig1 => '0',
+        i_sig0 => rev_0(15),
+        i_sel => i_ar,
+        o_sig => s
+        );
+
+    gen_rot_layer0 : for i in 0 to 7 generate
+        ROT : mux port map
+        (
+        i_sig0 => s,
+        i_sig1 => rev_0(i+8),
+        i_sel => i_rot,
+        o_sig => rot_0(i+8)
+        );
+
+    rot_layer0_proc : process(all)
+    begin
+        for i in 0 to 8 loop
+            rot_0(i) <= rev_0(i);
+        end loop;
+    end process;
 
     gen_layer0_mux : for i in 0 to 15 generate
         mux_lower8 : if i <= 7 generate
@@ -101,6 +129,22 @@ begin
         end generate;
     end generate;
 
+    gen_rot_layer1 : for i in 0 to 3 generate
+        ROT : mux port map
+        (
+        i_sig0 => s,
+        i_sig1 => rev_0(i+12),
+        i_sel => i_rot,
+        o_sig => rot_0(i+12)
+        );
+
+    rot_layer1_proc : process(all)
+    begin
+        for i in 0 to 12 loop
+            rot_0(i) <= rev_0(i);
+        end loop;
+    end process;
+
     gen_layer1_mux : for i in 0 to 15 generate
         mux_lower4 : if i <= 3 generate
             L4 : mux port map
@@ -122,6 +166,22 @@ begin
         end generate;
     end generate;
 
+    gen_rot_layer2 : for i in 0 to 1 generate
+        ROT : mux port map
+        (
+        i_sig0 => s,
+        i_sig1 => rev_0(i+13),
+        i_sel => i_rot,
+        o_sig => rot_0(i+13)
+        );
+
+    rot_layer2_proc : process(all)
+    begin
+        for i in 0 to 13 loop
+            rot_0(i) <= rev_0(i);
+        end loop;
+    end process;
+
     gen_layer2_mux : for i in 0 to 15 generate
         mux_lower2 : if i <= 1 generate
             L2 : mux port map
@@ -142,6 +202,22 @@ begin
             );
         end generate;
     end generate;
+
+    gen_rot_layer3 : for i in 0 to 1 generate
+        ROT : mux port map
+        (
+        i_sig0 => s,
+        i_sig1 => rev_0(i+14),
+        i_sel => i_rot,
+        o_sig => rot_0(i+14)
+        );
+
+    rot_layer3_proc : process(all)
+    begin
+        for i in 0 to 14 loop
+            rot_0(i) <= rev_0(i);
+        end loop;
+    end process;
      
     gen_layer3_mux : for i in 0 to 15 generate
         mux_lower1 : if i = 0 generate
