@@ -299,7 +299,7 @@ begin
         o_sig(0) => rot_3(15)
         );
 
-        rot_3(15) <= s_l2(15);
+    rot_3(14 downto 0) <= s_l2(14 downto 0);
      
         -- 1-bit shift
     mux_lower1 : mux
