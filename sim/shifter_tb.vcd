@@ -1,5 +1,5 @@
 $date
-  Wed Jan 16 13:43:50 2019
+  Wed Jan 16 16:41:59 2019
 $end
 $version
   GHDL v0
@@ -27,1182 +27,154 @@ $var reg 1 0 o_z $end
 $var reg 16 1 shift[15:0] $end
 $var reg 1 2 carry $end
 $var reg 16 3 rev_0[15:0] $end
-$var reg 16 4 rev_1[15:0] $end
-$var reg 16 5 rot_0[15:0] $end
-$var reg 16 6 rot_1[15:0] $end
-$var reg 16 7 rot_2[15:0] $end
-$var reg 16 8 rot_3[15:0] $end
-$var reg 16 9 s_l0[15:0] $end
-$var reg 16 : s_l1[15:0] $end
-$var reg 16 ; s_l2[15:0] $end
-$var reg 16 < s_l3[15:0] $end
-$var reg 1 = s $end
-$var reg 1 > s_tmp $end
-$var reg 1 ? sl $end
-$var reg 1 @ sr $end
-$var reg 8 A of_mux_out0[7:0] $end
-$var reg 4 B of_mux_out1[3:0] $end
-$var reg 2 C of_mux_out2[1:0] $end
-$var reg 1 D of_mux_out3 $end
-$scope module gen_rev0_mux(0) $end
+$var reg 8 4 rev_0_8[7:0] $end
+$var reg 4 5 rev_0_4[3:0] $end
+$var reg 2 6 rev_0_2[1:0] $end
+$var reg 16 7 rev_1[15:0] $end
+$var reg 16 8 rot_0[15:0] $end
+$var reg 16 9 rot_1[15:0] $end
+$var reg 16 : rot_2[15:0] $end
+$var reg 16 ; rot_3[15:0] $end
+$var reg 16 < s_l0[15:0] $end
+$var reg 16 = s_l1[15:0] $end
+$var reg 16 > s_l2[15:0] $end
+$var reg 16 ? s_l3[15:0] $end
+$var reg 1 @ s $end
+$var reg 2 A s_2[1:0] $end
+$var reg 4 B s_4[3:0] $end
+$var reg 8 C s_8[7:0] $end
+$var reg 1 D s_tmp $end
+$var reg 1 E sl $end
+$var reg 1 F sr $end
+$var reg 8 G of_mux_out0[7:0] $end
+$var reg 4 H of_mux_out1[3:0] $end
+$var reg 2 I of_mux_out2[1:0] $end
+$var reg 1 J of_mux_out3 $end
 $scope module rev0_mux $end
-$var reg 1 E i_sig0 $end
-$var reg 1 F i_sig1 $end
-$var reg 1 G i_sel $end
-$var reg 1 H o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(1) $end
-$scope module rev0_mux $end
-$var reg 1 I i_sig0 $end
-$var reg 1 J i_sig1 $end
-$var reg 1 K i_sel $end
-$var reg 1 L o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(2) $end
-$scope module rev0_mux $end
-$var reg 1 M i_sig0 $end
-$var reg 1 N i_sig1 $end
-$var reg 1 O i_sel $end
-$var reg 1 P o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(3) $end
-$scope module rev0_mux $end
-$var reg 1 Q i_sig0 $end
-$var reg 1 R i_sig1 $end
-$var reg 1 S i_sel $end
-$var reg 1 T o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(4) $end
-$scope module rev0_mux $end
-$var reg 1 U i_sig0 $end
-$var reg 1 V i_sig1 $end
-$var reg 1 W i_sel $end
-$var reg 1 X o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(5) $end
-$scope module rev0_mux $end
-$var reg 1 Y i_sig0 $end
-$var reg 1 Z i_sig1 $end
-$var reg 1 [ i_sel $end
-$var reg 1 \ o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(6) $end
-$scope module rev0_mux $end
-$var reg 1 ] i_sig0 $end
-$var reg 1 ^ i_sig1 $end
-$var reg 1 _ i_sel $end
-$var reg 1 ` o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(7) $end
-$scope module rev0_mux $end
-$var reg 1 a i_sig0 $end
-$var reg 1 b i_sig1 $end
-$var reg 1 c i_sel $end
-$var reg 1 d o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(8) $end
-$scope module rev0_mux $end
-$var reg 1 e i_sig0 $end
-$var reg 1 f i_sig1 $end
-$var reg 1 g i_sel $end
-$var reg 1 h o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(9) $end
-$scope module rev0_mux $end
-$var reg 1 i i_sig0 $end
-$var reg 1 j i_sig1 $end
-$var reg 1 k i_sel $end
-$var reg 1 l o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(10) $end
-$scope module rev0_mux $end
-$var reg 1 m i_sig0 $end
-$var reg 1 n i_sig1 $end
-$var reg 1 o i_sel $end
-$var reg 1 p o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(11) $end
-$scope module rev0_mux $end
-$var reg 1 q i_sig0 $end
-$var reg 1 r i_sig1 $end
-$var reg 1 s i_sel $end
-$var reg 1 t o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(12) $end
-$scope module rev0_mux $end
-$var reg 1 u i_sig0 $end
-$var reg 1 v i_sig1 $end
-$var reg 1 w i_sel $end
-$var reg 1 x o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(13) $end
-$scope module rev0_mux $end
-$var reg 1 y i_sig0 $end
-$var reg 1 z i_sig1 $end
-$var reg 1 { i_sel $end
-$var reg 1 | o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(14) $end
-$scope module rev0_mux $end
-$var reg 1 } i_sig0 $end
-$var reg 1 !" i_sig1 $end
-$var reg 1 "" i_sel $end
-$var reg 1 #" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev0_mux(15) $end
-$scope module rev0_mux $end
-$var reg 1 $" i_sig0 $end
-$var reg 1 %" i_sig1 $end
-$var reg 1 &" i_sel $end
-$var reg 1 '" o_sig $end
-$upscope $end
+$var reg 16 K i_sig0[15:0] $end
+$var reg 16 L i_sig1[15:0] $end
+$var reg 1 M i_sel $end
+$var reg 16 N o_sig[15:0] $end
 $upscope $end
 $scope module arith_mux $end
-$var reg 1 (" i_sig0 $end
-$var reg 1 )" i_sig1 $end
-$var reg 1 *" i_sel $end
-$var reg 1 +" o_sig $end
+$var reg 1 O i_sig0[0:0] $end
+$var reg 1 P i_sig1[0:0] $end
+$var reg 1 Q i_sel $end
+$var reg 1 R o_sig[0:0] $end
 $upscope $end
-$scope module gen_rot_layer0(0) $end
-$scope module rot $end
-$var reg 1 ," i_sig0 $end
-$var reg 1 -" i_sig1 $end
-$var reg 1 ." i_sel $end
-$var reg 1 /" o_sig $end
+$scope module rot_l0_mux $end
+$var reg 8 S i_sig0[7:0] $end
+$var reg 8 T i_sig1[7:0] $end
+$var reg 1 U i_sel $end
+$var reg 8 V o_sig[7:0] $end
 $upscope $end
-$upscope $end
-$scope module gen_rot_layer0(1) $end
-$scope module rot $end
-$var reg 1 0" i_sig0 $end
-$var reg 1 1" i_sig1 $end
-$var reg 1 2" i_sel $end
-$var reg 1 3" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer0(2) $end
-$scope module rot $end
-$var reg 1 4" i_sig0 $end
-$var reg 1 5" i_sig1 $end
-$var reg 1 6" i_sel $end
-$var reg 1 7" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer0(3) $end
-$scope module rot $end
-$var reg 1 8" i_sig0 $end
-$var reg 1 9" i_sig1 $end
-$var reg 1 :" i_sel $end
-$var reg 1 ;" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer0(4) $end
-$scope module rot $end
-$var reg 1 <" i_sig0 $end
-$var reg 1 =" i_sig1 $end
-$var reg 1 >" i_sel $end
-$var reg 1 ?" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer0(5) $end
-$scope module rot $end
-$var reg 1 @" i_sig0 $end
-$var reg 1 A" i_sig1 $end
-$var reg 1 B" i_sel $end
-$var reg 1 C" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer0(6) $end
-$scope module rot $end
-$var reg 1 D" i_sig0 $end
-$var reg 1 E" i_sig1 $end
-$var reg 1 F" i_sel $end
-$var reg 1 G" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer0(7) $end
-$scope module rot $end
-$var reg 1 H" i_sig0 $end
-$var reg 1 I" i_sig1 $end
-$var reg 1 J" i_sel $end
-$var reg 1 K" o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(0) $end
 $scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 L" i_sig0 $end
-$var reg 1 M" i_sig1 $end
-$var reg 1 N" i_sel $end
-$var reg 1 O" o_sig $end
+$var reg 8 W i_sig0[7:0] $end
+$var reg 8 X i_sig1[7:0] $end
+$var reg 1 Y i_sel $end
+$var reg 8 Z o_sig[7:0] $end
 $upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(1) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 P" i_sig0 $end
-$var reg 1 Q" i_sig1 $end
-$var reg 1 R" i_sel $end
-$var reg 1 S" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(2) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 T" i_sig0 $end
-$var reg 1 U" i_sig1 $end
-$var reg 1 V" i_sel $end
-$var reg 1 W" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(3) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 X" i_sig0 $end
-$var reg 1 Y" i_sig1 $end
-$var reg 1 Z" i_sel $end
-$var reg 1 [" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(4) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 \" i_sig0 $end
-$var reg 1 ]" i_sig1 $end
-$var reg 1 ^" i_sel $end
-$var reg 1 _" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(5) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 `" i_sig0 $end
-$var reg 1 a" i_sig1 $end
-$var reg 1 b" i_sel $end
-$var reg 1 c" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(6) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 d" i_sig0 $end
-$var reg 1 e" i_sig1 $end
-$var reg 1 f" i_sel $end
-$var reg 1 g" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(7) $end
-$scope module mux_lower8 $end
-$scope module l8 $end
-$var reg 1 h" i_sig0 $end
-$var reg 1 i" i_sig1 $end
-$var reg 1 j" i_sel $end
-$var reg 1 k" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(8) $end
 $scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 l" i_sig0 $end
-$var reg 1 m" i_sig1 $end
-$var reg 1 n" i_sel $end
-$var reg 1 o" o_sig $end
+$var reg 8 [ i_sig0[7:0] $end
+$var reg 8 \ i_sig1[7:0] $end
+$var reg 1 ] i_sel $end
+$var reg 8 ^ o_sig[7:0] $end
 $upscope $end
+$scope module rot_l1_mux $end
+$var reg 4 _ i_sig0[3:0] $end
+$var reg 4 ` i_sig1[3:0] $end
+$var reg 1 a i_sel $end
+$var reg 4 b o_sig[3:0] $end
 $upscope $end
-$upscope $end
-$scope module gen_layer0_mux(9) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 p" i_sig0 $end
-$var reg 1 q" i_sig1 $end
-$var reg 1 r" i_sel $end
-$var reg 1 s" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(10) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 t" i_sig0 $end
-$var reg 1 u" i_sig1 $end
-$var reg 1 v" i_sel $end
-$var reg 1 w" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(11) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 x" i_sig0 $end
-$var reg 1 y" i_sig1 $end
-$var reg 1 z" i_sel $end
-$var reg 1 {" o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(12) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 |" i_sig0 $end
-$var reg 1 }" i_sig1 $end
-$var reg 1 !# i_sel $end
-$var reg 1 "# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(13) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 ## i_sig0 $end
-$var reg 1 $# i_sig1 $end
-$var reg 1 %# i_sel $end
-$var reg 1 &# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(14) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 '# i_sig0 $end
-$var reg 1 (# i_sig1 $end
-$var reg 1 )# i_sel $end
-$var reg 1 *# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer0_mux(15) $end
-$scope module mux_upper8 $end
-$scope module u8 $end
-$var reg 1 +# i_sig0 $end
-$var reg 1 ,# i_sig1 $end
-$var reg 1 -# i_sel $end
-$var reg 1 .# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer1(0) $end
-$scope module rot $end
-$var reg 1 /# i_sig0 $end
-$var reg 1 0# i_sig1 $end
-$var reg 1 1# i_sel $end
-$var reg 1 2# o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer1(1) $end
-$scope module rot $end
-$var reg 1 3# i_sig0 $end
-$var reg 1 4# i_sig1 $end
-$var reg 1 5# i_sel $end
-$var reg 1 6# o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer1(2) $end
-$scope module rot $end
-$var reg 1 7# i_sig0 $end
-$var reg 1 8# i_sig1 $end
-$var reg 1 9# i_sel $end
-$var reg 1 :# o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer1(3) $end
-$scope module rot $end
-$var reg 1 ;# i_sig0 $end
-$var reg 1 <# i_sig1 $end
-$var reg 1 =# i_sel $end
-$var reg 1 ># o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(0) $end
 $scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 ?# i_sig0 $end
-$var reg 1 @# i_sig1 $end
-$var reg 1 A# i_sel $end
-$var reg 1 B# o_sig $end
+$var reg 4 c i_sig0[3:0] $end
+$var reg 4 d i_sig1[3:0] $end
+$var reg 1 e i_sel $end
+$var reg 4 f o_sig[3:0] $end
 $upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(1) $end
-$scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 C# i_sig0 $end
-$var reg 1 D# i_sig1 $end
-$var reg 1 E# i_sel $end
-$var reg 1 F# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(2) $end
-$scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 G# i_sig0 $end
-$var reg 1 H# i_sig1 $end
-$var reg 1 I# i_sel $end
-$var reg 1 J# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(3) $end
-$scope module mux_lower4 $end
-$scope module l4 $end
-$var reg 1 K# i_sig0 $end
-$var reg 1 L# i_sig1 $end
-$var reg 1 M# i_sel $end
-$var reg 1 N# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(4) $end
 $scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 O# i_sig0 $end
-$var reg 1 P# i_sig1 $end
-$var reg 1 Q# i_sel $end
-$var reg 1 R# o_sig $end
+$var reg 12 g i_sig0[11:0] $end
+$var reg 12 h i_sig1[11:0] $end
+$var reg 1 i i_sel $end
+$var reg 12 j o_sig[11:0] $end
 $upscope $end
+$scope module rot_l2_mux $end
+$var reg 2 k i_sig0[1:0] $end
+$var reg 2 l i_sig1[1:0] $end
+$var reg 1 m i_sel $end
+$var reg 2 n o_sig[1:0] $end
 $upscope $end
-$upscope $end
-$scope module gen_layer1_mux(5) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 S# i_sig0 $end
-$var reg 1 T# i_sig1 $end
-$var reg 1 U# i_sel $end
-$var reg 1 V# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(6) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 W# i_sig0 $end
-$var reg 1 X# i_sig1 $end
-$var reg 1 Y# i_sel $end
-$var reg 1 Z# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(7) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 [# i_sig0 $end
-$var reg 1 \# i_sig1 $end
-$var reg 1 ]# i_sel $end
-$var reg 1 ^# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(8) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 _# i_sig0 $end
-$var reg 1 `# i_sig1 $end
-$var reg 1 a# i_sel $end
-$var reg 1 b# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(9) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 c# i_sig0 $end
-$var reg 1 d# i_sig1 $end
-$var reg 1 e# i_sel $end
-$var reg 1 f# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(10) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 g# i_sig0 $end
-$var reg 1 h# i_sig1 $end
-$var reg 1 i# i_sel $end
-$var reg 1 j# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(11) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 k# i_sig0 $end
-$var reg 1 l# i_sig1 $end
-$var reg 1 m# i_sel $end
-$var reg 1 n# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(12) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 o# i_sig0 $end
-$var reg 1 p# i_sig1 $end
-$var reg 1 q# i_sel $end
-$var reg 1 r# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(13) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 s# i_sig0 $end
-$var reg 1 t# i_sig1 $end
-$var reg 1 u# i_sel $end
-$var reg 1 v# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(14) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 w# i_sig0 $end
-$var reg 1 x# i_sig1 $end
-$var reg 1 y# i_sel $end
-$var reg 1 z# o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer1_mux(15) $end
-$scope module mux_upper12 $end
-$scope module u12 $end
-$var reg 1 {# i_sig0 $end
-$var reg 1 |# i_sig1 $end
-$var reg 1 }# i_sel $end
-$var reg 1 !$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer2(0) $end
-$scope module rot $end
-$var reg 1 "$ i_sig0 $end
-$var reg 1 #$ i_sig1 $end
-$var reg 1 $$ i_sel $end
-$var reg 1 %$ o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer2(1) $end
-$scope module rot $end
-$var reg 1 &$ i_sig0 $end
-$var reg 1 '$ i_sig1 $end
-$var reg 1 ($ i_sel $end
-$var reg 1 )$ o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(0) $end
 $scope module mux_lower2 $end
-$scope module l2 $end
-$var reg 1 *$ i_sig0 $end
-$var reg 1 +$ i_sig1 $end
-$var reg 1 ,$ i_sel $end
-$var reg 1 -$ o_sig $end
+$var reg 2 o i_sig0[1:0] $end
+$var reg 2 p i_sig1[1:0] $end
+$var reg 1 q i_sel $end
+$var reg 2 r o_sig[1:0] $end
 $upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(1) $end
-$scope module mux_lower2 $end
-$scope module l2 $end
-$var reg 1 .$ i_sig0 $end
-$var reg 1 /$ i_sig1 $end
-$var reg 1 0$ i_sel $end
-$var reg 1 1$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(2) $end
 $scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 2$ i_sig0 $end
-$var reg 1 3$ i_sig1 $end
-$var reg 1 4$ i_sel $end
-$var reg 1 5$ o_sig $end
+$var reg 14 s i_sig0[13:0] $end
+$var reg 14 t i_sig1[13:0] $end
+$var reg 1 u i_sel $end
+$var reg 14 v o_sig[13:0] $end
 $upscope $end
+$scope module rot_l3_mux $end
+$var reg 1 w i_sig0[0:0] $end
+$var reg 1 x i_sig1[0:0] $end
+$var reg 1 y i_sel $end
+$var reg 1 z o_sig[0:0] $end
 $upscope $end
-$upscope $end
-$scope module gen_layer2_mux(3) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 6$ i_sig0 $end
-$var reg 1 7$ i_sig1 $end
-$var reg 1 8$ i_sel $end
-$var reg 1 9$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(4) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 :$ i_sig0 $end
-$var reg 1 ;$ i_sig1 $end
-$var reg 1 <$ i_sel $end
-$var reg 1 =$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(5) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 >$ i_sig0 $end
-$var reg 1 ?$ i_sig1 $end
-$var reg 1 @$ i_sel $end
-$var reg 1 A$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(6) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 B$ i_sig0 $end
-$var reg 1 C$ i_sig1 $end
-$var reg 1 D$ i_sel $end
-$var reg 1 E$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(7) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 F$ i_sig0 $end
-$var reg 1 G$ i_sig1 $end
-$var reg 1 H$ i_sel $end
-$var reg 1 I$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(8) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 J$ i_sig0 $end
-$var reg 1 K$ i_sig1 $end
-$var reg 1 L$ i_sel $end
-$var reg 1 M$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(9) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 N$ i_sig0 $end
-$var reg 1 O$ i_sig1 $end
-$var reg 1 P$ i_sel $end
-$var reg 1 Q$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(10) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 R$ i_sig0 $end
-$var reg 1 S$ i_sig1 $end
-$var reg 1 T$ i_sel $end
-$var reg 1 U$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(11) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 V$ i_sig0 $end
-$var reg 1 W$ i_sig1 $end
-$var reg 1 X$ i_sel $end
-$var reg 1 Y$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(12) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 Z$ i_sig0 $end
-$var reg 1 [$ i_sig1 $end
-$var reg 1 \$ i_sel $end
-$var reg 1 ]$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(13) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 ^$ i_sig0 $end
-$var reg 1 _$ i_sig1 $end
-$var reg 1 `$ i_sel $end
-$var reg 1 a$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(14) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 b$ i_sig0 $end
-$var reg 1 c$ i_sig1 $end
-$var reg 1 d$ i_sel $end
-$var reg 1 e$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer2_mux(15) $end
-$scope module mux_upper14 $end
-$scope module u14 $end
-$var reg 1 f$ i_sig0 $end
-$var reg 1 g$ i_sig1 $end
-$var reg 1 h$ i_sel $end
-$var reg 1 i$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer3(0) $end
-$scope module rot $end
-$var reg 1 j$ i_sig0 $end
-$var reg 1 k$ i_sig1 $end
-$var reg 1 l$ i_sel $end
-$var reg 1 m$ o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rot_layer3(1) $end
-$scope module rot $end
-$var reg 1 n$ i_sig0 $end
-$var reg 1 o$ i_sig1 $end
-$var reg 1 p$ i_sel $end
-$var reg 1 q$ o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(0) $end
 $scope module mux_lower1 $end
-$scope module l1 $end
-$var reg 1 r$ i_sig0 $end
-$var reg 1 s$ i_sig1 $end
-$var reg 1 t$ i_sel $end
-$var reg 1 u$ o_sig $end
+$var reg 1 { i_sig0[0:0] $end
+$var reg 1 | i_sig1[0:0] $end
+$var reg 1 } i_sel $end
+$var reg 1 !" o_sig[0:0] $end
 $upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(1) $end
 $scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 v$ i_sig0 $end
-$var reg 1 w$ i_sig1 $end
-$var reg 1 x$ i_sel $end
-$var reg 1 y$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(2) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 z$ i_sig0 $end
-$var reg 1 {$ i_sig1 $end
-$var reg 1 |$ i_sel $end
-$var reg 1 }$ o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(3) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 !% i_sig0 $end
-$var reg 1 "% i_sig1 $end
-$var reg 1 #% i_sel $end
-$var reg 1 $% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(4) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 %% i_sig0 $end
-$var reg 1 &% i_sig1 $end
-$var reg 1 '% i_sel $end
-$var reg 1 (% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(5) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 )% i_sig0 $end
-$var reg 1 *% i_sig1 $end
-$var reg 1 +% i_sel $end
-$var reg 1 ,% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(6) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 -% i_sig0 $end
-$var reg 1 .% i_sig1 $end
-$var reg 1 /% i_sel $end
-$var reg 1 0% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(7) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 1% i_sig0 $end
-$var reg 1 2% i_sig1 $end
-$var reg 1 3% i_sel $end
-$var reg 1 4% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(8) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 5% i_sig0 $end
-$var reg 1 6% i_sig1 $end
-$var reg 1 7% i_sel $end
-$var reg 1 8% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(9) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 9% i_sig0 $end
-$var reg 1 :% i_sig1 $end
-$var reg 1 ;% i_sel $end
-$var reg 1 <% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(10) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 =% i_sig0 $end
-$var reg 1 >% i_sig1 $end
-$var reg 1 ?% i_sel $end
-$var reg 1 @% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(11) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 A% i_sig0 $end
-$var reg 1 B% i_sig1 $end
-$var reg 1 C% i_sel $end
-$var reg 1 D% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(12) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 E% i_sig0 $end
-$var reg 1 F% i_sig1 $end
-$var reg 1 G% i_sel $end
-$var reg 1 H% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(13) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 I% i_sig0 $end
-$var reg 1 J% i_sig1 $end
-$var reg 1 K% i_sel $end
-$var reg 1 L% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(14) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 M% i_sig0 $end
-$var reg 1 N% i_sig1 $end
-$var reg 1 O% i_sel $end
-$var reg 1 P% o_sig $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module gen_layer3_mux(15) $end
-$scope module mux_upper15 $end
-$scope module u15 $end
-$var reg 1 Q% i_sig0 $end
-$var reg 1 R% i_sig1 $end
-$var reg 1 S% i_sel $end
-$var reg 1 T% o_sig $end
-$upscope $end
-$upscope $end
+$var reg 15 "" i_sig0[14:0] $end
+$var reg 15 #" i_sig1[14:0] $end
+$var reg 1 $" i_sel $end
+$var reg 15 %" o_sig[14:0] $end
 $upscope $end
 $scope module sla_mux $end
-$var reg 1 U% i_sig0 $end
-$var reg 1 V% i_sig1 $end
-$var reg 1 W% i_sel $end
-$var reg 1 X% o_sig $end
+$var reg 1 &" i_sig0[0:0] $end
+$var reg 1 '" i_sig1[0:0] $end
+$var reg 1 (" i_sel $end
+$var reg 1 )" o_sig[0:0] $end
 $upscope $end
-$scope module gen_rev1_mux(0) $end
 $scope module rev1_mux $end
-$var reg 1 Y% i_sig0 $end
-$var reg 1 Z% i_sig1 $end
-$var reg 1 [% i_sel $end
-$var reg 1 \% o_sig $end
+$var reg 16 *" i_sig0[15:0] $end
+$var reg 16 +" i_sig1[15:0] $end
+$var reg 1 ," i_sel $end
+$var reg 16 -" o_sig[15:0] $end
 $upscope $end
+$scope module of0_mux $end
+$var reg 8 ." i_sig0[7:0] $end
+$var reg 8 /" i_sig1[7:0] $end
+$var reg 1 0" i_sel $end
+$var reg 8 1" o_sig[7:0] $end
 $upscope $end
-$scope module gen_rev1_mux(1) $end
-$scope module rev1_mux $end
-$var reg 1 ]% i_sig0 $end
-$var reg 1 ^% i_sig1 $end
-$var reg 1 _% i_sel $end
-$var reg 1 `% o_sig $end
+$scope module of1_mux $end
+$var reg 4 2" i_sig0[3:0] $end
+$var reg 4 3" i_sig1[3:0] $end
+$var reg 1 4" i_sel $end
+$var reg 4 5" o_sig[3:0] $end
 $upscope $end
+$scope module of2_mux $end
+$var reg 2 6" i_sig0[1:0] $end
+$var reg 2 7" i_sig1[1:0] $end
+$var reg 1 8" i_sel $end
+$var reg 2 9" o_sig[1:0] $end
 $upscope $end
-$scope module gen_rev1_mux(2) $end
-$scope module rev1_mux $end
-$var reg 1 a% i_sig0 $end
-$var reg 1 b% i_sig1 $end
-$var reg 1 c% i_sel $end
-$var reg 1 d% o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(3) $end
-$scope module rev1_mux $end
-$var reg 1 e% i_sig0 $end
-$var reg 1 f% i_sig1 $end
-$var reg 1 g% i_sel $end
-$var reg 1 h% o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(4) $end
-$scope module rev1_mux $end
-$var reg 1 i% i_sig0 $end
-$var reg 1 j% i_sig1 $end
-$var reg 1 k% i_sel $end
-$var reg 1 l% o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(5) $end
-$scope module rev1_mux $end
-$var reg 1 m% i_sig0 $end
-$var reg 1 n% i_sig1 $end
-$var reg 1 o% i_sel $end
-$var reg 1 p% o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(6) $end
-$scope module rev1_mux $end
-$var reg 1 q% i_sig0 $end
-$var reg 1 r% i_sig1 $end
-$var reg 1 s% i_sel $end
-$var reg 1 t% o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(7) $end
-$scope module rev1_mux $end
-$var reg 1 u% i_sig0 $end
-$var reg 1 v% i_sig1 $end
-$var reg 1 w% i_sel $end
-$var reg 1 x% o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(8) $end
-$scope module rev1_mux $end
-$var reg 1 y% i_sig0 $end
-$var reg 1 z% i_sig1 $end
-$var reg 1 {% i_sel $end
-$var reg 1 |% o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(9) $end
-$scope module rev1_mux $end
-$var reg 1 }% i_sig0 $end
-$var reg 1 !& i_sig1 $end
-$var reg 1 "& i_sel $end
-$var reg 1 #& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(10) $end
-$scope module rev1_mux $end
-$var reg 1 $& i_sig0 $end
-$var reg 1 %& i_sig1 $end
-$var reg 1 && i_sel $end
-$var reg 1 '& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(11) $end
-$scope module rev1_mux $end
-$var reg 1 (& i_sig0 $end
-$var reg 1 )& i_sig1 $end
-$var reg 1 *& i_sel $end
-$var reg 1 +& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(12) $end
-$scope module rev1_mux $end
-$var reg 1 ,& i_sig0 $end
-$var reg 1 -& i_sig1 $end
-$var reg 1 .& i_sel $end
-$var reg 1 /& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(13) $end
-$scope module rev1_mux $end
-$var reg 1 0& i_sig0 $end
-$var reg 1 1& i_sig1 $end
-$var reg 1 2& i_sel $end
-$var reg 1 3& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(14) $end
-$scope module rev1_mux $end
-$var reg 1 4& i_sig0 $end
-$var reg 1 5& i_sig1 $end
-$var reg 1 6& i_sel $end
-$var reg 1 7& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_rev1_mux(15) $end
-$scope module rev1_mux $end
-$var reg 1 8& i_sig0 $end
-$var reg 1 9& i_sig1 $end
-$var reg 1 :& i_sel $end
-$var reg 1 ;& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(0) $end
-$scope module of_mux $end
-$var reg 1 <& i_sig0 $end
-$var reg 1 =& i_sig1 $end
-$var reg 1 >& i_sel $end
-$var reg 1 ?& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(1) $end
-$scope module of_mux $end
-$var reg 1 @& i_sig0 $end
-$var reg 1 A& i_sig1 $end
-$var reg 1 B& i_sel $end
-$var reg 1 C& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(2) $end
-$scope module of_mux $end
-$var reg 1 D& i_sig0 $end
-$var reg 1 E& i_sig1 $end
-$var reg 1 F& i_sel $end
-$var reg 1 G& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(3) $end
-$scope module of_mux $end
-$var reg 1 H& i_sig0 $end
-$var reg 1 I& i_sig1 $end
-$var reg 1 J& i_sel $end
-$var reg 1 K& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(4) $end
-$scope module of_mux $end
-$var reg 1 L& i_sig0 $end
-$var reg 1 M& i_sig1 $end
-$var reg 1 N& i_sel $end
-$var reg 1 O& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(5) $end
-$scope module of_mux $end
-$var reg 1 P& i_sig0 $end
-$var reg 1 Q& i_sig1 $end
-$var reg 1 R& i_sel $end
-$var reg 1 S& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(6) $end
-$scope module of_mux $end
-$var reg 1 T& i_sig0 $end
-$var reg 1 U& i_sig1 $end
-$var reg 1 V& i_sel $end
-$var reg 1 W& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow0_mux(7) $end
-$scope module of_mux $end
-$var reg 1 X& i_sig0 $end
-$var reg 1 Y& i_sig1 $end
-$var reg 1 Z& i_sel $end
-$var reg 1 [& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow1_mux(0) $end
-$scope module of_mux $end
-$var reg 1 \& i_sig0 $end
-$var reg 1 ]& i_sig1 $end
-$var reg 1 ^& i_sel $end
-$var reg 1 _& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow1_mux(1) $end
-$scope module of_mux $end
-$var reg 1 `& i_sig0 $end
-$var reg 1 a& i_sig1 $end
-$var reg 1 b& i_sel $end
-$var reg 1 c& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow1_mux(2) $end
-$scope module of_mux $end
-$var reg 1 d& i_sig0 $end
-$var reg 1 e& i_sig1 $end
-$var reg 1 f& i_sel $end
-$var reg 1 g& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow1_mux(3) $end
-$scope module of_mux $end
-$var reg 1 h& i_sig0 $end
-$var reg 1 i& i_sig1 $end
-$var reg 1 j& i_sel $end
-$var reg 1 k& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow2_mux(0) $end
-$scope module of_mux $end
-$var reg 1 l& i_sig0 $end
-$var reg 1 m& i_sig1 $end
-$var reg 1 n& i_sel $end
-$var reg 1 o& o_sig $end
-$upscope $end
-$upscope $end
-$scope module gen_overflow2_mux(1) $end
-$scope module of_mux $end
-$var reg 1 p& i_sig0 $end
-$var reg 1 q& i_sig1 $end
-$var reg 1 r& i_sel $end
-$var reg 1 s& o_sig $end
-$upscope $end
-$upscope $end
-$scope module overflow3_mux $end
-$var reg 1 t& i_sig0 $end
-$var reg 1 u& i_sig1 $end
-$var reg 1 v& i_sel $end
-$var reg 1 w& o_sig $end
+$scope module of3_mux $end
+$var reg 1 :" i_sig0[0:0] $end
+$var reg 1 ;" i_sig1[0:0] $end
+$var reg 1 <" i_sel $end
+$var reg 1 =" o_sig[0:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 b0000000000000001 !
-bUUUUUU0000000010 "
+bUUUUUUUUUUUUUUU0 "
 b0001 #
 0$
 0%
@@ -1214,2650 +186,572 @@ b0001 *
 0+
 0,
 0-
-bUUUUUU0000000010 .
+bUUUUUUUUUUUUUUU0 .
 0/
 00
 bUUUUUUUUUUUUUUUU 1
 U2
 b0000000000000001 3
-bUUUUUU0000000010 4
-bUUUUUUU000000001 5
-bUUUUUUU000000001 6
-bUUUUUUU000000001 7
-bUUUUUUU000000001 8
-bUUUUUUU000000001 9
-bUUUUUUU000000001 :
-bUUUUUUU000000001 ;
-bUUUUUU0000000010 <
-0=
-0>
-0?
+b11111111 4
+b1111 5
+b11 6
+bUUUUUUUUUUUUUUU0 7
+b0000000000000001 8
+b0000000000000001 9
+b0000000000000001 :
+b0UUUUUUUUUUUUUUU ;
+b0000000000000001 <
+b0000000000000001 =
+b0000000000000001 >
+bUUUUUUUUUUUUUUU0 ?
 0@
-b11111111 A
-b1111 B
-b11 C
+b00 A
+b0000 B
+b00000000 C
 0D
-1E
+0E
 0F
-0G
-1H
-0I
+b11111111 G
+b1111 H
+b11 I
 0J
-0K
-0L
+b0000000000000001 K
+b1000000000000000 L
 0M
-0N
-0O
-0P
+b0000000000000001 N
+b0 O
+b0 P
 0Q
-0R
-0S
-0T
+b0 R
+b00000000 S
+b00000000 T
 0U
-0V
-0W
-0X
+b00000000 V
+b00000001 W
+b00000000 X
 0Y
-0Z
-0[
-0\
+b00000001 Z
+b00000000 [
+b00000001 \
 0]
-0^
-0_
-0`
+b00000000 ^
+b0000 _
+b0000 `
 0a
-0b
-0c
-0d
+b0000 b
+b0001 c
+b0000 d
 0e
-0f
-0g
-0h
+b0001 f
+b000000000000 g
+b000000000001 h
 0i
-0j
-0k
-0l
+b000000000000 j
+b00 k
+b00 l
 0m
-0n
-0o
-0p
+b00 n
+b01 o
+b00 p
 0q
-0r
-0s
-0t
+b01 r
+b00000000000000 s
+b00000000000001 t
 0u
-0v
-0w
-0x
+b00000000000000 v
+b0 w
+b0 x
 0y
-0z
-0{
-0|
-0}
-0!"
-0""
-0#"
-0$"
-1%"
-0&"
-0'"
+b0 z
+bU {
+b0 |
+1}
+b0 !"
+b0UUUUUUUUUUUUUU ""
+bUUUUUUUUUUUUUUU #"
+1$"
+bUUUUUUUUUUUUUUU %"
+b0 &"
+b1 '"
 0("
-0)"
-0*"
-0+"
+b0 )"
+bUUUUUUUUUUUUUUU0 *"
+b0UUUUUUUUUUUUUUU +"
 0,"
-0-"
-0."
-0/"
+bUUUUUUUUUUUUUUU0 -"
+b11111111 ."
+b00000000 /"
 00"
-01"
-02"
-03"
+b11111111 1"
+b1111 2"
+b0000 3"
 04"
-05"
-06"
-07"
+b1111 5"
+b11 6"
+b00 7"
 08"
-09"
-0:"
-0;"
-0<"
-0="
-0>"
-0?"
-0@"
-0A"
-0B"
-0C"
-0D"
-0E"
-0F"
-0G"
-0H"
-0I"
-0J"
-0K"
-1L"
-0M"
-0N"
-1O"
-0P"
-0Q"
-0R"
-0S"
-0T"
-0U"
-0V"
-0W"
-0X"
-0Y"
-0Z"
-0["
-0\"
-0]"
-0^"
-0_"
-0`"
-0a"
-0b"
-0c"
-0d"
-0e"
-0f"
-0g"
-0h"
-0i"
-0j"
-0k"
-0l"
-1m"
-0n"
-0o"
-Up"
-0q"
-0r"
-Us"
-Ut"
-0u"
-0v"
-Uw"
-Ux"
-0y"
-0z"
-U{"
-U|"
-0}"
-0!#
-U"#
-U##
-0$#
-0%#
-U&#
-U'#
-0(#
-0)#
-U*#
-U+#
-0,#
-0-#
-U.#
-0/#
-U0#
-01#
-02#
-03#
-U4#
-05#
-06#
-07#
-U8#
-09#
-0:#
-0;#
-U<#
-0=#
-0>#
-1?#
-0@#
-0A#
-1B#
-0C#
-0D#
-0E#
-0F#
-0G#
-0H#
-0I#
-0J#
-0K#
-0L#
-0M#
-0N#
-0O#
-1P#
-0Q#
-0R#
-0S#
-0T#
-0U#
-0V#
-0W#
-0X#
-0Y#
-0Z#
-0[#
-0\#
-0]#
-0^#
-0_#
-0`#
-0a#
-0b#
-Uc#
-0d#
-0e#
-Uf#
-Ug#
-0h#
-0i#
-Uj#
-Uk#
-0l#
-0m#
-Un#
-Uo#
-0p#
-0q#
-Ur#
-Us#
-Ut#
-0u#
-Uv#
-Uw#
-Ux#
-0y#
-Uz#
-U{#
-U|#
-0}#
-U!$
-0"$
-U#$
-0$$
-0%$
-0&$
-U'$
-0($
-0)$
-1*$
-0+$
-0,$
-1-$
-0.$
-0/$
-00$
-01$
-02$
-13$
-04$
-05$
-06$
-07$
-08$
-09$
-0:$
-0;$
-0<$
-0=$
-0>$
-0?$
-0@$
-0A$
-0B$
-0C$
-0D$
-0E$
-0F$
-0G$
-0H$
-0I$
-0J$
-0K$
-0L$
-0M$
-UN$
-0O$
-0P$
-UQ$
-UR$
-0S$
-0T$
-UU$
-UV$
-UW$
-0X$
-UY$
-UZ$
-U[$
-0\$
-U]$
-U^$
-U_$
-0`$
-Ua$
-Ub$
-Uc$
-0d$
-Ue$
-Uf$
-Ug$
-0h$
-Ui$
-0j$
-Uk$
-0l$
-0m$
-0n$
-Uo$
-0p$
-0q$
-1r$
-0s$
-1t$
-0u$
-0v$
-1w$
-1x$
-1y$
-0z$
-0{$
-1|$
-0}$
-0!%
-0"%
-1#%
-0$%
-0%%
-0&%
-1'%
-0(%
-0)%
-0*%
-1+%
-0,%
-0-%
-0.%
-1/%
-00%
-01%
-02%
-13%
-04%
-05%
-06%
-17%
-08%
-U9%
-0:%
-1;%
-0<%
-U=%
-U>%
-1?%
-U@%
-UA%
-UB%
-1C%
-UD%
-UE%
-UF%
-1G%
-UH%
-UI%
-UJ%
-1K%
-UL%
-UM%
-UN%
-1O%
-UP%
-UQ%
-UR%
-1S%
-UT%
-0U%
-1V%
-0W%
-0X%
-0Y%
-UZ%
-0[%
-0\%
-1]%
-U^%
-0_%
-1`%
-0a%
-Ub%
-0c%
-0d%
-0e%
-Uf%
-0g%
-0h%
-0i%
-Uj%
-0k%
-0l%
-0m%
-Un%
-0o%
-0p%
-0q%
-0r%
-0s%
-0t%
-0u%
-0v%
-0w%
-0x%
-0y%
-0z%
-0{%
-0|%
-0}%
-0!&
-0"&
-0#&
-U$&
-0%&
-0&&
-U'&
-U(&
-0)&
-0*&
-U+&
-U,&
-0-&
-0.&
-U/&
-U0&
-01&
-02&
-U3&
-U4&
-15&
-06&
-U7&
-U8&
-09&
-0:&
-U;&
-1<&
-0=&
-0>&
-1?&
-1@&
-0A&
-0B&
-1C&
-1D&
-0E&
-0F&
-1G&
-1H&
-0I&
-0J&
-1K&
-1L&
-0M&
-0N&
-1O&
-1P&
-0Q&
-0R&
-1S&
-1T&
-0U&
-0V&
-1W&
-1X&
-0Y&
-0Z&
-1[&
-1\&
-0]&
-0^&
-1_&
-1`&
-0a&
-0b&
-1c&
-1d&
-0e&
-0f&
-1g&
-1h&
-0i&
-0j&
-1k&
-1l&
-0m&
-0n&
-1o&
-1p&
-0q&
-0r&
-1s&
-1t&
-0u&
-1v&
-0w&
+b11 9"
+b1 :"
+b0 ;"
+1<"
+b0 ="
 #1000000
-bX000000000000000 "
 b1111 #
 b1111 *
-bX000000000000000 .
-bX000000000000000 4
-bUUU0000100000000 6
-bUU01000000000000 7
-bUX00000000000000 8
 b0000000100000000 9
 b0001000000000000 :
-b0100000000000000 ;
-bX000000000000000 <
-b00000000 A
-b0000 B
-b00 C
-1N"
-0O"
-1R"
-1V"
-1Z"
-1^"
-1b"
-1f"
-1j"
-1n"
-1o"
-1r"
-0s"
-1v"
-0w"
-1z"
-0{"
-1!#
-0"#
-1%#
-0&#
-1)#
-0*#
-1-#
-0.#
-00#
-02#
-04#
-08#
-0<#
-0?#
-1A#
-0B#
-1E#
-1I#
-1M#
-0P#
-1Q#
-0R#
-1U#
-1Y#
-1]#
-1_#
-1a#
-0c#
-1e#
-0f#
-0g#
-1i#
-0j#
-0k#
-1m#
-0n#
-0o#
-1p#
-1q#
-1r#
-0t#
-1u#
-0v#
-0x#
-1y#
-0z#
-0|#
-1}#
-0!$
-0#$
-0%$
-0'$
-0*$
-1,$
-0-$
-10$
-03$
-14$
-05$
-18$
-0:$
-1<$
-1@$
-0C$
-1D$
-0E$
-1H$
-1L$
-0N$
-1P$
-0Q$
-0R$
-1T$
-0U$
-0V$
-0W$
-1X$
-0Y$
-1Z$
-0[$
-1\$
-0]$
-0^$
-0_$
-1`$
-0a$
-1c$
-1d$
-1e$
-0g$
-1h$
-0i$
-1k$
-0m$
-0o$
-0r$
-0w$
-0y$
-0z$
-0"%
-0$%
-0-%
-02%
-04%
-09%
-0=%
-0>%
-0@%
-0A%
-0B%
-0D%
-0E%
-0F%
-0H%
-0I%
-0J%
-0L%
-XM%
-0N%
-0P%
-XR%
-XT%
-XZ%
-0]%
-0^%
-0`%
-0b%
-0e%
-0f%
-0h%
-0j%
-0n%
-0u%
-0x%
-0z%
-0$&
-0'&
-0(&
-0+&
-0,&
-0-&
-0/&
-00&
-03&
-04&
-05&
-07&
-X8&
-X;&
-1>&
-0?&
-1B&
-0C&
-1F&
-0G&
-1J&
-0K&
-1N&
-0O&
-1R&
-0S&
-1V&
-0W&
-1Z&
-0[&
-1^&
-0_&
-1b&
-0c&
-1f&
-0g&
-1j&
-0k&
-1n&
-0o&
-1r&
-0s&
+b0000000100000000 <
+b0001000000000000 =
+b0100000000000000 >
+b00000000 G
+b0000 H
+b00 I
+1Y
+b00000000 Z
+1]
+b00000001 ^
+b0000 c
+1e
+b0000 f
+b000000010000 g
+b000100000000 h
+1i
+b000100000000 j
+b00 o
+1q
+b00 r
+b00010000000000 s
+b01000000000000 t
+1u
+b01000000000000 v
+10"
+b00000000 1"
+14"
+b0000 5"
+18"
+b00 9"
 #2000000
 b0101010101010101 !
-bUUUUUUX010101010 "
 b0001 #
 b0101010101010101 )
 b0001 *
-bUUUUUUX010101010 .
 b0101010101010101 3
-bUUUUUUX010101010 4
-bUUUUUUUX01010101 5
-bUUUUUUUX01010101 6
-bUUUUUUUX01010101 7
-bUUUUUUUX01010101 8
-bUUUUUUUX01010101 9
-bUUUUUUUX01010101 :
-bUUUUUUUX01010101 ;
-bUUUUUUX010101010 <
-b11111111 A
-b1111 B
-b11 C
-1J
-1M
-1P
-1R
-1U
-1X
-1Z
-1]
-1`
-1b
-1e
-1h
-1j
-1m
-1p
-1r
-1u
-1x
-1z
-1}
-1#"
-1-"
-0/"
-15"
-1="
-1E"
-0N"
-1O"
-0R"
-1T"
-0V"
-1W"
-0Z"
-1\"
-0^"
-1_"
-0b"
-1d"
-0f"
-1g"
-0j"
-Xl"
-0n"
-Xo"
-0r"
-Us"
-1u"
-0v"
-Uw"
-0z"
-U{"
-1}"
-0!#
-U"#
-0%#
-U&#
-1(#
-0)#
-U*#
-0-#
-U.#
-U0#
-02#
-U4#
-U8#
-U<#
-1?#
-0A#
-1B#
-0E#
-1G#
-0I#
-1J#
-0M#
-1O#
-1P#
-0Q#
-1R#
-0U#
-1W#
-1X#
-0Y#
-1Z#
-0]#
-X_#
-1`#
-0a#
-Xb#
-Uc#
-0e#
-Uf#
-Ug#
-1h#
-0i#
-Uj#
-Uk#
-0m#
-Un#
-Uo#
-Xp#
-0q#
-Ur#
-Ut#
-0u#
-Uv#
-Ux#
-0y#
-Uz#
-U|#
-0}#
-U!$
-U#$
-0%$
-U'$
-1*$
-0,$
-1-$
-00$
-12$
-13$
-04$
-15$
-08$
-1:$
-1;$
-0<$
-1=$
-0@$
-1B$
-1C$
-0D$
-1E$
-0H$
-XJ$
-1K$
-0L$
-XM$
-UN$
-0P$
-UQ$
-UR$
-XS$
-0T$
-UU$
-UV$
-UW$
-0X$
-UY$
-UZ$
-U[$
-0\$
-U]$
-U^$
-U_$
-0`$
-Ua$
-Uc$
-0d$
-Ue$
-Ug$
-0h$
-Ui$
-Uk$
-0m$
-Uo$
-1r$
-1w$
-1y$
-1z$
-1"%
-1$%
-1%%
-1*%
-1,%
-1-%
-12%
-14%
-X5%
-U9%
-X:%
-X<%
-U=%
-U>%
-U@%
-UA%
-UB%
-UD%
-UE%
-UF%
-UH%
-UI%
-UJ%
-UL%
-UM%
-UN%
-UP%
-UR%
-UT%
-UZ%
-1]%
-U^%
-1`%
-Ub%
-1e%
-Uf%
-1h%
-Uj%
-1m%
-Un%
-1p%
-Xr%
-1u%
-1x%
-1z%
-X}%
-X#&
-U$&
-1%&
-U'&
-U(&
-U+&
-U,&
-1-&
-U/&
-U0&
-U3&
-U4&
-15&
-U7&
-U8&
-U;&
-0>&
-1?&
-1A&
-0B&
-1C&
-0F&
-1G&
-1I&
-0J&
-1K&
-0N&
-1O&
-1Q&
-0R&
-1S&
-0V&
-1W&
-1Y&
-0Z&
-1[&
-0^&
-1_&
-1a&
-0b&
-1c&
-0f&
-1g&
-1i&
-0j&
-1k&
-0n&
-1o&
-1q&
-0r&
-1s&
+b0000000001010101 8
+b0000000001010101 9
+b0000000001010101 :
+b0000000001010101 <
+b0000000001010101 =
+b0000000001010101 >
+b11111111 G
+b1111 H
+b11 I
+b0101010101010101 K
+b1010101010101010 L
+b0101010101010101 N
+b01010101 T
+b01010101 W
+0Y
+b01010101 Z
+b01010101 \
+0]
+b00000000 ^
+b0101 c
+0e
+b0101 f
+b000000000101 g
+b000001010101 h
+0i
+b000000000101 j
+b01 o
+0q
+b01 r
+b00000000010101 s
+b00000001010101 t
+0u
+b00000000010101 v
+b10101010 /"
+00"
+b11111111 1"
+b1010 3"
+04"
+b1111 5"
+b10 7"
+08"
+b11 9"
 #3000000
 b0000000100000001 !
-bUUX0000000100000 "
 b0101 #
 b0000000100000001 )
 b0101 *
-bUUX0000000100000 .
 b0000000100000001 3
-bUUX0000000100000 4
-bUUUUUUUX00000001 5
-bUUUUUUUX00000001 6
-bUUUX000000010000 7
-bUUUX000000010000 8
-bUUUUUUUX00000001 9
-bUUUX000000010000 :
-bUUUX000000010000 ;
-bUUX0000000100000 <
-b0000 B
-0J
-0M
-0P
-0R
-0U
-0X
-0Z
-0]
-0`
-0j
-0m
-0p
-0r
-0u
-0x
-0z
-0}
-0#"
-0/"
-05"
-0="
-0E"
-0T"
-0W"
-0\"
-0_"
-0d"
-0g"
-0u"
-0}"
-0(#
-1A#
-0B#
-1E#
-0G#
-1I#
-0J#
-1M#
-0O#
-1Q#
-1U#
-0W#
-0X#
-1Y#
-0Z#
-1]#
-0`#
-1a#
-0b#
-1e#
-0f#
-0h#
-1i#
-0j#
-1m#
-0n#
-1q#
-Xr#
-1u#
-1y#
-1}#
-0*$
-0-$
-02$
-03$
-05$
-0;$
-0B$
-0E$
-0J$
-0K$
-0M$
-0N$
-0Q$
-0R$
-0S$
-0U$
-0V$
-0W$
-0Y$
-XZ$
-0[$
-X]$
-0_$
-Xc$
-0r$
-0w$
-0y$
-0z$
-0"%
-0$%
-0-%
-02%
-04%
-05%
-09%
-0:%
-0<%
-0=%
-0>%
-0@%
-0A%
-0B%
-0D%
-XE%
-0F%
-0H%
-XJ%
-XL%
-0]%
-0`%
-Xb%
-0e%
-0f%
-0h%
-0j%
-0n%
-0r%
-0u%
-0x%
-0z%
-0}%
-0#&
-0$&
-0'&
-0(&
-0+&
-0,&
-0-&
-0/&
-X0&
-X3&
-05&
-0A&
-0I&
-0Q&
-1^&
-0_&
-0a&
-1b&
-0c&
-1f&
-0g&
-0i&
-1j&
-0k&
-0q&
+b0000000000000001 8
+b0000000000000001 9
+b0000000000010000 :
+b0000000000000001 <
+b0000000000010000 =
+b0000000000010000 >
+b0000 H
+b0000000100000001 K
+b1000000010000000 L
+b0000000100000001 N
+b00000001 T
+b00000001 W
+b00000001 Z
+b00000001 \
+b0001 c
+1e
+b0000 f
+b000000000000 g
+b000000000001 h
+1i
+b000000000001 j
+b00 o
+b00 r
+b00000000000100 s
+b00000000010000 t
+b00000000000100 v
+b10000000 /"
+b0000 3"
+14"
+b0000 5"
+b00 7"
 #4000000
 b0000000000000001 !
-bUUUU000000001000 "
 b0011 #
 1&
 b0000000000000001 )
 b0011 *
 1,
-bUUUU000000001000 .
 b0000000000000001 3
-bUUUU000000001000 4
-bUUUUUUU000000001 5
-bUUUUUUU000000001 6
-bUUUUUUU000000001 7
-bUUUUU00000000100 8
-bUUUUUUU000000001 9
-bUUUUUUU000000001 :
-bUUUUU00000000100 ;
-bUUUU000000001000 <
-b1111 B
-b00 C
-0b
+b0000000000000001 8
+b0000000000000001 9
+b0000000000000001 :
+b0000000000000001 <
+b0000000000000001 =
+b0000000000000100 >
+b1111 H
+b00 I
+b0000000000000001 K
+b1000000000000000 L
+b0000000000000001 N
+b00000000 T
+1U
+b00000000 V
+b00000000 [
+b00000000 ^
+1a
 0e
-0h
-0-"
-1."
-0/"
-12"
-16"
-1:"
-1>"
-1B"
-1F"
-1J"
-0l"
-0o"
-11#
-U2#
-15#
-U6#
-19#
-U:#
-1=#
-U>#
-0A#
-1B#
-0E#
-0I#
-0M#
-0Q#
-0R#
-0U#
-0Y#
-0]#
-0_#
-0a#
-0b#
-0e#
-Uf#
-0i#
-Uj#
-0m#
-Un#
-0p#
-0q#
-Ur#
-0u#
-0y#
-0}#
-1$$
-U%$
-1($
-U)$
-1*$
-1,$
-10$
-13$
-14$
-15$
-18$
-0:$
-1<$
-0=$
-1@$
-0C$
-1D$
-0E$
-1H$
-0J$
-1L$
-UN$
-1P$
-UR$
-0S$
-1T$
-0U$
-UV$
-UW$
-1X$
-UY$
-UZ$
-U[$
-1\$
-U]$
-U_$
-1`$
-Ua$
-Uc$
-1d$
-Ue$
-1h$
-Uk$
-1l$
-Um$
-1p$
-Uq$
-1z$
-1"%
-1$%
-0%%
-0*%
-0,%
-0-%
-02%
-04%
-0=%
-UA%
-0B%
-0D%
-UE%
-UF%
-UH%
-UI%
-UJ%
-UL%
-UM%
-UN%
-UP%
-UR%
-UT%
-UZ%
-U^%
-Ub%
-1e%
-Uf%
-1h%
-0j%
-0m%
-0p%
-0u%
-0x%
-0z%
-0%&
-0(&
-0+&
-U,&
-1-&
-U/&
-U0&
-U3&
-U4&
-U7&
-U8&
-U;&
-0Y&
-0^&
-1_&
-0b&
-1c&
-0f&
-1g&
-0j&
-1k&
-1n&
-0o&
-1r&
-0s&
+b0001 f
+b000000000000 g
+b000000000001 h
+0i
+b000000000000 j
+1m
+b01 o
+1q
+b00000000000000 s
+b00000000000001 t
+1u
+b00000000000001 v
+1y
+b00000000 /"
+04"
+b1111 5"
+18"
+b00 9"
 #5000000
 b0001001010010001 !
-b1000100000000000 "
 b1011 #
 b0001001010010001 )
 b1011 *
-b1000100000000000 .
 b0001001010010001 3
-b1000100000000000 4
-bUUUUUUU010010001 5
-bUUU1000100000000 6
-bUUU1000100000000 7
-bU100010000000000 8
+b0001001010010001 8
 b1001000100000000 9
-bUUU1000100000000 :
-bU100010000000000 ;
-b1000100000000000 <
-b01001000 A
-1R
-1U
-1X
-1^
-1a
-1d
-1f
-1i
-1l
-1r
-1u
-1x
-11"
-13"
-1="
-1?"
-1N"
-0O"
-1R"
-1V"
-1Z"
-1\"
-1^"
-1b"
-1f"
-1h"
-1j"
-1n"
-1o"
-1r"
-0s"
-1v"
-0w"
-1z"
-0{"
-1}"
-1!#
-1"#
-1%#
-0&#
-1)#
-0*#
-1,#
-1-#
-1.#
-10#
-12#
-04#
-06#
-08#
-0:#
-1<#
-1>#
-0?#
-0B#
-0P#
-1_#
-1b#
-0c#
-0f#
-0g#
-0j#
-0k#
-0n#
-1o#
-1p#
-1r#
-0t#
-0x#
-0|#
-0*$
-03$
-05$
-1J$
-0N$
-0R$
-1S$
-1U$
-0V$
-0W$
-0Y$
-1Z$
-0[$
-0]$
-0_$
-0a$
-1c$
-1e$
-1k$
-1m$
-0z$
-0"%
-0$%
-1=%
-0A%
-1B%
-1D%
-0E%
-0F%
-0H%
-0I%
-0J%
-0L%
-1M%
-0N%
-0P%
-1R%
-1T%
-1Z%
-0^%
-0b%
-0e%
-0f%
-0h%
-1j%
-1(&
-1+&
-0,&
-0-&
-0/&
-00&
-03&
-04&
-07&
-18&
-1;&
-1>&
-0?&
-1B&
-0C&
-1F&
-0G&
-1I&
-1J&
-1K&
-1N&
-0O&
-1R&
-0S&
-1U&
-1V&
-1W&
-1Z&
-0[&
+b1001000100000000 :
+b1001000100000000 <
+b1001000100000000 =
+b0100010000000000 >
+b01001000 G
+b0001001010010001 K
+b1000100101001000 L
+b0001001010010001 N
+b00010010 T
+b00010010 V
+b10010001 W
+1Y
+b00000000 Z
+b00010010 [
+b10010001 \
+1]
+b10010001 ^
+b1001 `
+b1001 b
+b0000 c
+b0000 f
+b100100010000 g
+b000100000000 h
+b100100010000 j
+b10 l
+b10 n
+b00 o
+b10010001000000 s
+b01000100000000 t
+b01000100000000 v
+b01001000 /"
+10"
+b01001000 1"
 #6000000
 b1110000000000001 !
-b0000000010000000 "
 b0111 #
 b1110000000000001 )
 b0111 *
-b0000000010000000 .
 b1110000000000001 3
-b0000000010000000 4
-bUUUUUUU000000001 5
-bUUUUUUU000000001 6
-bUUU0000000010000 7
-bU000000001000000 8
-bUUUUUUU000000001 9
-bUUU0000000010000 :
-bU000000001000000 ;
-b0000000010000000 <
-1=
-b11111111 A
-b0000 B
-1F
-1J
-1N
-0R
-0U
-0X
-0^
-0a
-0d
-0f
-0i
-0l
-0r
-0u
-0x
-1y
-1|
-1}
-1#"
-1$"
-1'"
-1("
-1+"
-1,"
-10"
-01"
-03"
+b1110000000000001 8
+b1110000000000001 9
+b0000000000010000 :
+b0UUUUUUUUUUUUUUU ;
+b1110000000000001 <
+b0000000000010000 =
+b0000000001000000 >
+1@
+b11 A
+b1111 B
+b11111111 C
+b11111111 G
+b0000 H
+b1110000000000001 K
+b1000000000000111 L
+b1110000000000001 N
+b1 O
+b1 R
+b11111111 S
+b11100000 T
+b11100000 V
+b00000001 W
+0Y
+b00000001 Z
+b11100000 [
+b00000001 \
+0]
+b11100000 ^
+b1111 _
+b1110 `
+b1110 b
+b0001 c
+1e
+b111000000000 g
+b000000000001 h
+1i
+b000000000001 j
+b11 k
+b00 l
+b00 n
+b00000000000100 s
+b00000000010000 t
+b00000000010000 v
+b1 w
+b0 x
+b0 z
+b0UUUUUUUUUUUUUU ""
+b00000000 /"
+00"
+b11111111 1"
+b0000 3"
 14"
-18"
-1<"
-0="
-0?"
-1@"
-1A"
-1C"
-1D"
-1E"
-1G"
-1H"
-1I"
-1K"
-0N"
-1O"
-0R"
-0V"
-0Z"
-0\"
-0^"
-0_"
-0b"
-0f"
-0h"
-0j"
-0k"
-0n"
-0o"
-0r"
-Us"
-0v"
-Uw"
-0z"
-U{"
-0}"
-0!#
-U"#
-0%#
-U&#
-0)#
-U*#
-0,#
-0-#
-U.#
-1/#
-U0#
-U2#
-13#
-U4#
-U6#
-17#
-U8#
-U:#
-1;#
-U<#
-U>#
-1?#
-1A#
-1E#
-1I#
-1M#
-0O#
-1P#
-1Q#
-1R#
-1U#
-1Y#
-0[#
-1]#
-0_#
-0`#
-1a#
-0b#
-Uc#
-1e#
-Ug#
-1i#
-Uk#
-0l#
-1m#
-0n#
-Uo#
-0p#
-1q#
-0r#
-Ut#
-1u#
-Uv#
-Ux#
-1y#
-Uz#
-U|#
-1}#
-U!$
-1"$
-U#$
-U%$
-1&$
-U'$
-U)$
-1:$
-1C$
-1E$
-0J$
-0S$
-0U$
-0V$
-0Z$
-U^$
-0_$
-0a$
-0c$
-0e$
-Ug$
-Ui$
-1j$
-0k$
-0m$
-1n$
-Uo$
-Uq$
-1-%
-12%
-14%
-0=%
-0B%
-0D%
-0I%
-0M%
-0N%
-0P%
-0R%
-0T%
-0Z%
-0^%
-0j%
-1u%
-1x%
-1z%
-0(&
-0+&
-04&
-07&
-08&
-0;&
-0>&
-1?&
-0B&
-1C&
-0F&
-1G&
-0I&
-0J&
-0N&
-1O&
-0R&
-1S&
-0U&
-0V&
-0Z&
-1[&
-1^&
-0_&
-1b&
-0c&
-1f&
-0g&
-0i&
-1j&
-0k&
+b0000 5"
 #7000000
 b0000000000000001 !
-bUUUU000000001000 "
 b0011 #
 b0000000000000001 )
 b0011 *
-bUUUU000000001000 .
 b0000000000000001 3
-bUUUU000000001000 4
-bUUUUUUU000000001 7
-bUUUUU00000000100 8
-bUUUUUUU000000001 :
-bUUUUU00000000100 ;
-bUUUU000000001000 <
-0=
-b1111 B
-0F
-0J
-0N
-0y
-0|
-0}
-0#"
-0$"
-0'"
-0("
-0+"
-0,"
-00"
+b0000000000000001 8
+b0000000000000001 9
+b0000000000000001 :
+b0UUUUUUUUUUUUUUU ;
+b0000000000000001 <
+b0000000000000001 =
+b0000000000000100 >
+0@
+b00 A
+b0000 B
+b00000000 C
+b1111 H
+b0000000000000001 K
+b1000000000000000 L
+b0000000000000001 N
+b0 O
+b0 R
+b00000000 S
+b00000000 T
+b00000000 V
+b00000000 [
+b00000000 ^
+b0000 _
+b0000 `
+b0000 b
+0e
+b0001 f
+b000000000000 g
+0i
+b000000000000 j
+b00 k
+b00 l
+b00 n
+b01 o
+b00000000000000 s
+b00000000000001 t
+b00000000000001 v
+b0 w
+b0 x
+b0 z
+b0UUUUUUUUUUUUUU ""
 04"
-08"
-0<"
-0@"
-0A"
-0C"
-0D"
-0E"
-0G"
-0H"
-0I"
-0K"
-0/#
-03#
-07#
-0;#
-0A#
-1B#
-0E#
-0I#
-0M#
-0Q#
-0R#
-0U#
-0Y#
-0]#
-0a#
-0e#
-Uf#
-0i#
-Uj#
-0m#
-Un#
-0q#
-Ur#
-0u#
-0y#
-0}#
-0"$
-0&$
-1*$
-13$
-15$
-0:$
-0C$
-0E$
-UN$
-UR$
-UV$
-UW$
-UY$
-UZ$
-U[$
-U]$
-U_$
-Ua$
-Uc$
-Ue$
-0j$
-Uk$
-Um$
-0n$
-1z$
-1"%
-1$%
-0-%
-02%
-04%
-UA%
-UE%
-UF%
-UH%
-UI%
-UJ%
-UL%
-UM%
-UN%
-UP%
-UR%
-UT%
-UZ%
-U^%
-Ub%
-1e%
-Uf%
-1h%
-0u%
-0x%
-0z%
-U,&
-1-&
-U/&
-U0&
-U3&
-U4&
-U7&
-U8&
-U;&
-0^&
-1_&
-0b&
-1c&
-0f&
-1g&
-0j&
-1k&
+b1111 5"
 #8000000
-bUUUUUU0000000010 "
 b0001 #
 0&
 1'
 b0001 *
 0,
 1-
-bUUUUUU0000000010 .
-bUUUUUU0000000010 4
-bUUUUUUU000000001 8
-bUUUUUUU000000001 ;
-bUUUUUU0000000010 <
-1@
-b11 C
-1*"
-0."
-02"
-06"
-0:"
-0>"
-0B"
-0F"
-0J"
-01#
-02#
-05#
-06#
-09#
-0:#
-0=#
-0>#
-0$$
-0%$
-0($
-0)$
-0,$
-1-$
-00$
-04$
-05$
-08$
-0<$
-0@$
-0D$
-0H$
-0L$
-0P$
-UQ$
-0T$
-UU$
-0X$
-0\$
-0`$
-0d$
-0h$
-0l$
-0m$
-0p$
-0q$
-1r$
-1w$
-1y$
-0z$
-0"%
-0$%
-U9%
-U=%
-U>%
-U@%
-UB%
-UD%
-1]%
-1`%
-0e%
-0h%
-Uj%
-Un%
-U$&
-U'&
-U(&
-U+&
-0-&
-15&
-0n&
-1o&
-0r&
-1s&
+b0000000000000001 >
+1F
+b11 I
+1Q
+0U
+0a
+0m
+0q
+b01 r
+0u
+b00000000000000 v
+0y
+08"
+b11 9"
 #9000000
-bX000000000000000 "
 b1111 #
 b1111 *
-bX000000000000000 .
-bX000000000000000 4
-bUUU0000100000000 6
-bUU01000000000000 7
-bUX00000000000000 8
 b0000000100000000 9
 b0001000000000000 :
-b0100000000000000 ;
-bX000000000000000 <
-b00000000 A
-b0000 B
-b00 C
-1N"
-0O"
-1R"
-1V"
-1Z"
-1^"
-1b"
-1f"
-1j"
-1n"
-1o"
-1r"
-0s"
-1v"
-0w"
-1z"
-0{"
-1!#
-0"#
-1%#
-0&#
-1)#
-0*#
-1-#
-0.#
-00#
-02#
-04#
-08#
-0<#
-0?#
-1A#
-0B#
-1E#
-1I#
-1M#
-0P#
-1Q#
-0R#
-1U#
-1Y#
-1]#
-1_#
-1a#
-0c#
-1e#
-0f#
-0g#
-1i#
-0j#
-0k#
-1m#
-0n#
-0o#
-1p#
-1q#
-1r#
-0t#
-1u#
-0v#
-0x#
-1y#
-0z#
-0|#
-1}#
-0!$
-0#$
-0%$
-0'$
-0*$
-1,$
-0-$
-10$
-03$
-14$
-05$
-18$
-0:$
-1<$
-1@$
-0C$
-1D$
-0E$
-1H$
-1L$
-0N$
-1P$
-0Q$
-0R$
-1T$
-0U$
-0V$
-0W$
-1X$
-0Y$
-1Z$
-0[$
-1\$
-0]$
-0^$
-0_$
-1`$
-0a$
-1c$
-1d$
-1e$
-0g$
-1h$
-0i$
-1k$
-0m$
-0o$
-0r$
-0w$
-0y$
-0z$
-0"%
-0$%
-0-%
-02%
-04%
-09%
-0=%
-0>%
-0@%
-0A%
-0B%
-0D%
-0E%
-0F%
-0H%
-0I%
-0J%
-0L%
-XM%
-0N%
-0P%
-XR%
-XT%
-XZ%
-0]%
-0^%
-0`%
-0b%
-0e%
-0f%
-0h%
-0j%
-0n%
-0u%
-0x%
-0z%
-0$&
-0'&
-0(&
-0+&
-0,&
-0-&
-0/&
-00&
-03&
-04&
-05&
-07&
-X8&
-X;&
-1>&
-0?&
-1B&
-0C&
-1F&
-0G&
-1J&
-0K&
-1N&
-0O&
-1R&
-0S&
-1V&
-0W&
-1Z&
-0[&
-1^&
-0_&
-1b&
-0c&
-1f&
-0g&
-1j&
-0k&
-1n&
-0o&
-1r&
-0s&
+b0000000100000000 <
+b0001000000000000 =
+b0100000000000000 >
+b00000000 G
+b0000 H
+b00 I
+1Y
+b00000000 Z
+1]
+b00000001 ^
+b0000 c
+1e
+b0000 f
+b000000010000 g
+b000100000000 h
+1i
+b000100000000 j
+b00 o
+1q
+b00 r
+b00010000000000 s
+b01000000000000 t
+1u
+b01000000000000 v
+10"
+b00000000 1"
+14"
+b0000 5"
+18"
+b00 9"
 #10000000
 b0101010101010101 !
-bUUUUUUX010101010 "
 b0001 #
 b0101010101010101 )
 b0001 *
-bUUUUUUX010101010 .
 b0101010101010101 3
-bUUUUUUX010101010 4
-bUUUUUUUX01010101 5
-bUUUUUUUX01010101 6
-bUUUUUUUX01010101 7
-bUUUUUUUX01010101 8
-bUUUUUUUX01010101 9
-bUUUUUUUX01010101 :
-bUUUUUUUX01010101 ;
-bUUUUUUX010101010 <
-b11111111 A
-b1111 B
-b11 C
-1J
-1M
-1P
-1R
-1U
-1X
-1Z
-1]
-1`
-1b
-1e
-1h
-1j
-1m
-1p
-1r
-1u
-1x
-1z
-1}
-1#"
-1-"
-0/"
-15"
-1="
-1E"
-0N"
-1O"
-0R"
-1T"
-0V"
-1W"
-0Z"
-1\"
-0^"
-1_"
-0b"
-1d"
-0f"
-1g"
-0j"
-Xl"
-0n"
-Xo"
-0r"
-Us"
-1u"
-0v"
-Uw"
-0z"
-U{"
-1}"
-0!#
-U"#
-0%#
-U&#
-1(#
-0)#
-U*#
-0-#
-U.#
-U0#
-02#
-U4#
-U8#
-U<#
-1?#
-0A#
-1B#
-0E#
-1G#
-0I#
-1J#
-0M#
-1O#
-1P#
-0Q#
-1R#
-0U#
-1W#
-1X#
-0Y#
-1Z#
-0]#
-X_#
-1`#
-0a#
-Xb#
-Uc#
-0e#
-Uf#
-Ug#
-1h#
-0i#
-Uj#
-Uk#
-0m#
-Un#
-Uo#
-Xp#
-0q#
-Ur#
-Ut#
-0u#
-Uv#
-Ux#
-0y#
-Uz#
-U|#
-0}#
-U!$
-U#$
-0%$
-U'$
-1*$
-0,$
-1-$
-00$
-12$
-13$
-04$
-15$
-08$
-1:$
-1;$
-0<$
-1=$
-0@$
-1B$
-1C$
-0D$
-1E$
-0H$
-XJ$
-1K$
-0L$
-XM$
-UN$
-0P$
-UQ$
-UR$
-XS$
-0T$
-UU$
-UV$
-UW$
-0X$
-UY$
-UZ$
-U[$
-0\$
-U]$
-U^$
-U_$
-0`$
-Ua$
-Uc$
-0d$
-Ue$
-Ug$
-0h$
-Ui$
-Uk$
-0m$
-Uo$
-1r$
-1w$
-1y$
-1z$
-1"%
-1$%
-1%%
-1*%
-1,%
-1-%
-12%
-14%
-X5%
-U9%
-X:%
-X<%
-U=%
-U>%
-U@%
-UA%
-UB%
-UD%
-UE%
-UF%
-UH%
-UI%
-UJ%
-UL%
-UM%
-UN%
-UP%
-UR%
-UT%
-UZ%
-1]%
-U^%
-1`%
-Ub%
-1e%
-Uf%
-1h%
-Uj%
-1m%
-Un%
-1p%
-Xr%
-1u%
-1x%
-1z%
-X}%
-X#&
-U$&
-1%&
-U'&
-U(&
-U+&
-U,&
-1-&
-U/&
-U0&
-U3&
-U4&
-15&
-U7&
-U8&
-U;&
-0>&
-1?&
-1A&
-0B&
-1C&
-0F&
-1G&
-1I&
-0J&
-1K&
-0N&
-1O&
-1Q&
-0R&
-1S&
-0V&
-1W&
-1Y&
-0Z&
-1[&
-0^&
-1_&
-1a&
-0b&
-1c&
-0f&
-1g&
-1i&
-0j&
-1k&
-0n&
-1o&
-1q&
-0r&
-1s&
+b0000000001010101 8
+b0000000001010101 9
+b0000000001010101 :
+b0000000001010101 <
+b0000000001010101 =
+b0000000001010101 >
+b11111111 G
+b1111 H
+b11 I
+b0101010101010101 K
+b1010101010101010 L
+b0101010101010101 N
+b01010101 T
+b01010101 W
+0Y
+b01010101 Z
+b01010101 \
+0]
+b00000000 ^
+b0101 c
+0e
+b0101 f
+b000000000101 g
+b000001010101 h
+0i
+b000000000101 j
+b01 o
+0q
+b01 r
+b00000000010101 s
+b00000001010101 t
+0u
+b00000000010101 v
+b10101010 /"
+00"
+b11111111 1"
+b1010 3"
+04"
+b1111 5"
+b10 7"
+08"
+b11 9"
 #11000000
 b0000000100000001 !
-bUUX0000000100000 "
 b0101 #
 b0000000100000001 )
 b0101 *
-bUUX0000000100000 .
 b0000000100000001 3
-bUUX0000000100000 4
-bUUUUUUUX00000001 5
-bUUUUUUUX00000001 6
-bUUUX000000010000 7
-bUUUX000000010000 8
-bUUUUUUUX00000001 9
-bUUUX000000010000 :
-bUUUX000000010000 ;
-bUUX0000000100000 <
-b0000 B
-0J
-0M
-0P
-0R
-0U
-0X
-0Z
-0]
-0`
-0j
-0m
-0p
-0r
-0u
-0x
-0z
-0}
-0#"
-0/"
-05"
-0="
-0E"
-0T"
-0W"
-0\"
-0_"
-0d"
-0g"
-0u"
-0}"
-0(#
-1A#
-0B#
-1E#
-0G#
-1I#
-0J#
-1M#
-0O#
-1Q#
-1U#
-0W#
-0X#
-1Y#
-0Z#
-1]#
-0`#
-1a#
-0b#
-1e#
-0f#
-0h#
-1i#
-0j#
-1m#
-0n#
-1q#
-Xr#
-1u#
-1y#
-1}#
-0*$
-0-$
-02$
-03$
-05$
-0;$
-0B$
-0E$
-0J$
-0K$
-0M$
-0N$
-0Q$
-0R$
-0S$
-0U$
-0V$
-0W$
-0Y$
-XZ$
-0[$
-X]$
-0_$
-Xc$
-0r$
-0w$
-0y$
-0z$
-0"%
-0$%
-0-%
-02%
-04%
-05%
-09%
-0:%
-0<%
-0=%
-0>%
-0@%
-0A%
-0B%
-0D%
-XE%
-0F%
-0H%
-XJ%
-XL%
-0]%
-0`%
-Xb%
-0e%
-0f%
-0h%
-0j%
-0n%
-0r%
-0u%
-0x%
-0z%
-0}%
-0#&
-0$&
-0'&
-0(&
-0+&
-0,&
-0-&
-0/&
-X0&
-X3&
-05&
-0A&
-0I&
-0Q&
-1^&
-0_&
-0a&
-1b&
-0c&
-1f&
-0g&
-0i&
-1j&
-0k&
-0q&
+b0000000000000001 8
+b0000000000000001 9
+b0000000000010000 :
+b0000000000000001 <
+b0000000000010000 =
+b0000000000010000 >
+b0000 H
+b0000000100000001 K
+b1000000010000000 L
+b0000000100000001 N
+b00000001 T
+b00000001 W
+b00000001 Z
+b00000001 \
+b0001 c
+1e
+b0000 f
+b000000000000 g
+b000000000001 h
+1i
+b000000000001 j
+b00 o
+b00 r
+b00000000000100 s
+b00000000010000 t
+b00000000000100 v
+b10000000 /"
+b0000 3"
+14"
+b0000 5"
+b00 7"
 #12000000
 b0000000000000001 !
-b000000000XUUUUUU "
+b0UUUUUUUUUUUUUUU "
 b0001 #
 1%
 0'
@@ -3865,1196 +759,274 @@ b0000000000000001 )
 b0001 *
 1+
 0-
-b000000000XUUUUUU .
+b0UUUUUUUUUUUUUUU .
 b1000000000000000 3
-b000000000XUUUUUU 4
-bUUUUUUUX00000000 5
-bUUUUUUUX00000000 6
-bUUUUUUUX00000000 7
-bUUUUUUUX00000000 8
-bUUUUUUUX00000000 9
-bUUUUUUUX00000000 :
-bUUUUUUUX00000000 ;
-bUUUUUUX000000000 <
-1=
-0@
-b00000000 A
-b0000 B
-b00 C
-1G
-0H
-1K
-1O
-1S
-1W
-1[
-1_
-0b
-1c
+b00000000 4
+b0000 5
+b00 6
+b0UUUUUUUUUUUUUUU 7
+b1111111100000000 8
+b1111111100000000 9
+b1111111100000000 :
+b1UUUUUUUUUUUUUUU ;
+b1111111100000000 <
+b1111111100000000 =
+b1111111100000000 >
+1@
+b11 A
+b1111 B
+b11111111 C
+0F
+b00000000 G
+b0000 H
+b00 I
+b0000000000000001 K
+b1000000000000000 L
+1M
+b1000000000000000 N
+b1 O
+0Q
+b1 R
+b11111111 S
+b10000000 T
+b11111111 V
+b00000000 W
+b00000000 Z
+b11111111 [
+b11111111 ^
+b1111 _
+b1111 `
+b1111 b
+b0000 c
 0e
-1g
-0h
-1k
-1o
-1s
-1w
-1{
-1""
-1&"
-1'"
-1("
-0*"
-1+"
+b0000 f
+b111111110000 g
+b111100000000 h
+0i
+b111111110000 j
+b11 k
+b11 l
+b11 n
+b00 o
+b00 r
+b11111111000000 s
+b11111100000000 t
+b11111111000000 v
+b1 w
+b1 x
+b1 z
+b1UUUUUUUUUUUUUU ""
+b0 '"
 1,"
-0-"
-1/"
-10"
-13"
-14"
-17"
-18"
-1;"
-1<"
-1?"
-1@"
-1C"
-1D"
-1G"
-1H"
-1I"
-1K"
-0L"
-0O"
-Xl"
-Xo"
-1/#
-12#
-13#
-16#
-17#
-1:#
-1;#
-1>#
-0?#
-0A#
-0B#
-0E#
-0I#
-0M#
-0P#
-0Q#
-0R#
-0U#
-0Y#
-0]#
-X_#
-0a#
-Xb#
-0e#
-Uf#
-0i#
-Uj#
-0m#
-Un#
-Xp#
-0q#
-Ur#
-0u#
-0y#
-0}#
-1"$
-1%$
-1&$
-1)$
-0*$
-0-$
-03$
-0:$
-0=$
-0C$
-XJ$
-XM$
-UN$
-UQ$
-UR$
-XS$
-UU$
-UV$
-UW$
-UY$
-UZ$
-U[$
-U]$
-U_$
-Uc$
-1j$
-1m$
-1n$
-1q$
-0r$
-0w$
-0y$
-0%%
-0*%
-0,%
-X5%
-U9%
-X:%
-X<%
-U=%
-U>%
-U@%
-UA%
-UB%
-UD%
-UE%
-UF%
-UH%
-UJ%
-UL%
-0V%
-1[%
-U\%
-0]%
-1_%
-U`%
-Ub%
-1c%
-Ud%
-Uf%
-1g%
-Uh%
-Uj%
-1k%
-Ul%
-0m%
-Un%
-1o%
-Up%
-Xr%
-1s%
-Xt%
-1w%
-1{%
-X}%
-1"&
-U$&
-0%&
-1&&
-0'&
-U(&
-1*&
-U,&
-1.&
-U0&
-12&
-03&
-05&
-16&
-07&
-1:&
-0;&
-0<&
-0?&
-0@&
-0C&
-0D&
-0G&
-0H&
-0K&
-0L&
-0O&
-0P&
-0S&
-0T&
-0W&
-0X&
-0Y&
-0[&
-0\&
-0^&
-0_&
-0`&
-0b&
-0c&
-0d&
-0f&
-0g&
-0h&
-0j&
-0k&
-0l&
-0o&
-0p&
-0s&
-0t&
+b0UUUUUUUUUUUUUUU -"
+b00000000 ."
+b00000000 /"
+b00000000 1"
+b0000 2"
+04"
+b0000 5"
+b00 6"
+b00 9"
+b0 :"
 #13000000
 b0101010101010101 !
-b001010101XUUUUUU "
 b0101010101010101 )
-b001010101XUUUUUU .
 b1010101010101010 3
-b001010101XUUUUUU 4
-bUUUUUUUX10101010 5
-bUUUUUUUX10101010 6
-bUUUUUUUX10101010 7
-bUUUUUUUX10101010 8
-bUUUUUUUX10101010 9
-bUUUUUUUX10101010 :
-bUUUUUUUX10101010 ;
-bUUUUUUX101010100 <
-1D
+b1111111110101010 8
+b1111111110101010 9
+b1111111110101010 :
+b1111111110101010 <
+b1111111110101010 =
+b1111111110101010 >
 1J
-1L
-1M
-1R
-1T
-1U
-1Z
-1\
-1]
-1b
-1d
-1e
-1j
-1l
-1m
-1r
-1t
-1u
-1z
-1|
-1}
-1/"
-11"
-19"
-1A"
-1P"
-1S"
-1X"
-1["
-1`"
-1c"
-1h"
-1k"
-1u"
-1}"
-1(#
-1C#
-1F#
-1K#
-1N#
-1S#
-1T#
-1V#
-1[#
-1\#
-1^#
-1d#
-1l#
-1.$
-11$
-16$
-17$
-19$
-1>$
-1?$
-1A$
-1F$
-1G$
-1I$
-1O$
-1v$
-1{$
-1}$
-1!%
-1&%
-1(%
-1)%
-1.%
-10%
-11%
-16%
-18%
-1a%
-1i%
-1q%
-1v%
-1x%
-1y%
-1!&
-1#&
-1)&
-1+&
-11&
-13&
-1=&
-1E&
-1M&
-1U&
-1]&
-1e&
-1m&
-1u&
-1w&
+b0101010101010101 K
+b1010101010101010 L
+b1010101010101010 N
+b10101010 T
+b10101010 W
+b10101010 Z
+b01010101 \
+b1010 c
+b1010 f
+b111111111010 g
+b111110101010 h
+b111111111010 j
+b10 o
+b10 r
+b11111111101010 s
+b11111110101010 t
+b11111111101010 v
+b01010101 /"
+b0101 3"
+b01 7"
+b1 ;"
+b1 ="
 #14000000
 b1111111111111111 !
-b0000000000000001 "
 b1111 #
 1&
 b1111111111111111 )
 b1111 *
 1,
-b0000000000000001 .
 b1111111111111111 3
-b0000000000000001 4
-bUUUUUUU111111111 5
-bUUU1111100000000 6
-bUU11000000000000 7
-bU100000000000000 8
+b11111111 4
+b1111 5
+b11 6
+b1111111111111111 8
 b1111111100000000 9
 b1111000000000000 :
-b1100000000000000 ;
-b1000000000000000 <
-b11111111 A
-b0000 B
-b00 C
-0D
-1F
-1H
-1I
-1N
-1P
-1Q
-1V
-1X
+b1111111100000000 <
+b1111000000000000 =
+b1100000000000000 >
+b11111111 G
+b0000 H
+b00 I
+0J
+b1111111111111111 K
+b1111111111111111 L
+b1111111111111111 N
+b11111111 T
+1U
+b11111111 V
+b11111111 W
 1Y
-1^
-1`
+b00000000 Z
+b11111111 [
+b11111111 \
+1]
 1a
-1f
-1h
+b0000 c
+1e
+b0000 f
+b111111110000 g
+b111100000000 h
 1i
-1n
-1p
+b111100000000 j
+1m
+b00 o
 1q
-1v
-1x
+b00 r
+b11110000000000 s
+b11000000000000 t
+1u
+b11000000000000 v
 1y
-1!"
-1#"
-1$"
-1-"
-1."
-1/"
-12"
-15"
-16"
-17"
-1:"
-1="
-1>"
-1?"
-1B"
-1E"
-1F"
-1G"
-1J"
-1L"
-1N"
-1R"
-0S"
-1T"
-1V"
-1Z"
-0["
-1\"
-1^"
-1b"
-0c"
-1d"
-1f"
-1j"
-0k"
-1l"
-1n"
-1o"
-1q"
-1r"
-1s"
-1v"
-1w"
-1y"
-1z"
-1{"
-1!#
-1"#
-1$#
-1%#
-1&#
-1)#
-1*#
-1,#
-1-#
-1.#
-10#
-11#
-12#
-14#
-15#
-16#
-18#
-19#
-1:#
-1<#
-1=#
-1>#
-1A#
-0C#
-1E#
-0F#
-1I#
-0K#
-1M#
-0N#
-1Q#
-0S#
-0T#
-1U#
-0V#
-1Y#
-0[#
-0\#
-1]#
-0^#
-1_#
-1a#
-0b#
-1c#
-0d#
-1e#
-0f#
-1g#
-1i#
-0j#
-1k#
-0l#
-1m#
-0n#
-1o#
-1p#
-1q#
-1r#
-1t#
-1u#
-1v#
-1x#
-1y#
-1z#
-1|#
-1}#
-1!$
-1#$
-1$$
-1%$
-1'$
-1($
-1)$
-1,$
-0.$
-10$
-01$
-14$
-06$
-07$
-18$
-09$
-1<$
-0>$
-0?$
-1@$
-0A$
-1D$
-0F$
-0G$
-1H$
-0I$
-0J$
-1L$
-0M$
-0N$
-0O$
-1P$
-0Q$
-0R$
-0S$
-1T$
-0U$
-0V$
-0W$
-1X$
-0Y$
-1Z$
-0[$
-1\$
-0]$
-1^$
-0_$
-1`$
-0a$
-1c$
-1d$
-1e$
-1g$
-1h$
-1i$
-1k$
-1l$
-1m$
-1o$
-1p$
-1q$
-0v$
-0{$
-0}$
-0!%
-0&%
-0(%
-0)%
-0.%
-00%
-01%
-05%
-06%
-08%
-09%
-0:%
-0<%
-0=%
-0>%
-0@%
-0A%
-0B%
-0D%
-0E%
-0F%
-0H%
-0I%
-0J%
-0L%
-1M%
-0N%
-0P%
-1R%
-1T%
-1V%
-1Z%
-1\%
-0^%
-0`%
-0a%
-0b%
-0d%
-0f%
-0h%
-0i%
-0j%
-0l%
-0n%
-0p%
-0q%
-0r%
-0t%
-0v%
-0x%
-0y%
-0}%
-0!&
-0#&
-0$&
-0(&
-0)&
-0+&
-0,&
-00&
-01&
-03&
-04&
-18&
-1<&
-1>&
-1?&
-1@&
-1A&
-1B&
-1C&
-1D&
-1F&
-1G&
-1H&
-1I&
-1J&
-1K&
-1L&
-1N&
-1O&
-1P&
-1Q&
-1R&
-1S&
-1T&
-1V&
-1W&
-1X&
-1Y&
-1Z&
-1[&
-1\&
-0]&
-1^&
-0_&
-1`&
-1b&
-1d&
-0e&
-1f&
-0g&
-1h&
-1j&
-1l&
-0m&
-1n&
-0o&
-1p&
-1r&
-1t&
-0u&
-0w&
+b1 '"
+b11111111 ."
+b11111111 /"
+10"
+b11111111 1"
+b1111 2"
+b0000 3"
+14"
+b0000 5"
+b11 6"
+b00 7"
+18"
+b00 9"
+b1 :"
+b0 ;"
+b0 ="
 #15000000
 b0000000000000001 !
-b000000000000UUUU "
 b0011 #
 b0000000000000001 )
 b0011 *
-b000000000000UUUU .
 b1000000000000000 3
-b000000000000UUUU 4
-bUUUUUUU000000000 5
-bUUUUUUU000000000 6
-bUUUUUUU000000000 7
-bUUUUU00000000000 8
-bUUUUUUU000000000 9
-bUUUUUUU000000000 :
-bUUUUU00000000000 ;
-bUUUU000000000000 <
-b00000000 A
-b0000 B
-b00 C
-0F
-0H
-0I
-0J
-0L
-0M
-0N
-0P
-0Q
-0R
-0T
-0U
-0V
-0X
+b00000000 4
+b0000 5
+b00 6
+b1000000000000000 8
+b1000000000000000 9
+b1000000000000000 :
+b0UUUUUUUUUUUUUUU ;
+b1000000000000000 <
+b1000000000000000 =
+b0000000000000000 >
+b00000000 G
+b0000 H
+b00 I
+b0000000000000001 K
+b1000000000000000 L
+b1000000000000000 N
+b10000000 T
+b10000000 V
+b00000000 W
 0Y
-0Z
-0\
+b00000000 Z
+b10000000 [
+b00000001 \
 0]
-0^
-0`
-0a
-0b
-0d
+b10000000 ^
+b1000 `
+b1000 b
+b0000 c
 0e
-0f
-0h
+b0000 f
+b100000000000 g
+b000000000000 h
 0i
-0j
-0l
-0m
-0n
-0p
-0q
-0r
-0t
-0u
-0v
-0x
-0y
-0z
-0|
-0}
-0!"
-0#"
-0$"
-0-"
-0/"
-01"
-03"
-05"
-07"
-09"
-0;"
-0="
-0?"
-0A"
-0C"
-0E"
-0G"
-0L"
-0N"
-0O"
-0P"
-0R"
-0S"
-0T"
-0V"
-0W"
-0X"
-0Z"
-0["
-0\"
-0^"
-0_"
-0`"
-0b"
-0c"
-0d"
-0f"
-0g"
-0h"
-0j"
-0k"
-0l"
-0n"
-0o"
-0q"
-0r"
-Us"
-0u"
-0v"
-Uw"
-0y"
-0z"
-U{"
-0}"
-0!#
-U"#
-0$#
-0%#
-U&#
-0(#
-0)#
-U*#
-0,#
-0-#
-U.#
-U0#
-U2#
-U4#
-U6#
-U8#
-U:#
-U<#
-U>#
-0?#
-0A#
-0B#
-0C#
-0E#
-0F#
-0G#
-0I#
-0J#
-0K#
-0M#
-0N#
-0O#
-0P#
-0Q#
-0R#
-0S#
-0T#
-0U#
-0V#
-0W#
-0X#
-0Y#
-0Z#
-0[#
-0\#
-0]#
-0^#
-0_#
-0`#
-0a#
-0b#
-Uc#
-0d#
-0e#
-Uf#
-Ug#
-0h#
-0i#
-Uj#
-Uk#
-0l#
-0m#
-Un#
-Uo#
-0p#
-0q#
-Ur#
-Ut#
-0u#
-Uv#
-Ux#
-0y#
-Uz#
-U|#
-0}#
-U!$
-U#$
-U%$
-U'$
-U)$
-0*$
-0.$
-02$
-03$
-05$
-06$
-07$
-09$
-0:$
-0;$
-0=$
-0>$
-0?$
-0A$
-0B$
-0C$
-0E$
-0F$
-0G$
-0I$
-0J$
-0K$
-0M$
-UN$
-0O$
-0Q$
-UR$
-0S$
-0U$
-UV$
-UW$
-UY$
-UZ$
-U[$
-U]$
-U^$
-U_$
-Ua$
-Uc$
-Ue$
-Ug$
-Ui$
-Uk$
-Um$
-Uo$
-Uq$
-0z$
-0!%
-0"%
-0$%
-0%%
-0&%
-0(%
-0)%
-0*%
-0,%
-0-%
-0.%
-00%
-01%
-02%
-04%
-05%
-06%
-08%
-09%
-0:%
-0<%
-0=%
-0>%
-0@%
-UA%
-0B%
-0D%
-UE%
-UF%
-UH%
-UI%
-UJ%
-UL%
-UM%
-UN%
-UP%
-UR%
-UT%
-0V%
-UZ%
-U\%
-U^%
-U`%
-Ub%
-Ud%
-0e%
-Uf%
-Uh%
-0i%
-0j%
-0l%
-0m%
-0n%
-0p%
-0q%
-0r%
-0t%
-0u%
-0v%
-0x%
-0y%
-0z%
-0|%
-0}%
-0!&
-0#&
-0$&
-0%&
-0'&
-0(&
-0)&
-0+&
-U,&
-0-&
-0/&
-U0&
-U4&
-U8&
-0<&
-0=&
-0>&
-0?&
-0@&
-0A&
-0B&
-0C&
-0D&
-0E&
-0F&
-0G&
-0H&
-0I&
-0J&
-0K&
-0L&
-0M&
-0N&
-0O&
-0P&
-0Q&
-0R&
-0S&
-0T&
-0U&
-0V&
-0W&
-0X&
-0Y&
-0Z&
-0[&
-0\&
-0]&
-0^&
-0_&
-0`&
-0a&
-0b&
-0c&
-0d&
-0e&
-0f&
-0g&
-0h&
-0i&
-0j&
-0k&
-0l&
-0m&
-0o&
-0p&
-0q&
-0s&
-0t&
+b100000000000 j
+b10 l
+b10 n
+b00 o
+b10000000000000 s
+b00000000000000 t
+b00000000000000 v
+b0 x
+b0 z
+b0UUUUUUUUUUUUUU ""
+b0 '"
+b00000000 ."
+b00000000 /"
+00"
+b00000000 1"
+b0000 2"
+b0000 3"
+04"
+b0000 5"
+b00 6"
+b00 7"
+b00 9"
+b0 :"
 #16000000
 b0001001010010001 !
-b0000000000010001 "
 b1011 #
 b0001001010010001 )
 b1011 *
-b0000000000010001 .
 b1000100101001000 3
-b0000000000010001 4
-bUUUUUUU101001000 5
-bUUU1000100000000 6
-bUUU1000100000000 7
-bU100010000000000 8
+b1000100101001000 8
 b1001000100000000 9
-bUUU1000100000000 :
-bU100010000000000 ;
-b1000100000000000 <
-b10100100 A
-1R
-1T
-1U
-1^
-1`
-1a
-1f
-1h
-1i
-1r
-1t
-1u
-1-"
-1/"
-19"
-1;"
-1N"
-1R"
-1V"
-1X"
-1Z"
-1^"
-1b"
-1d"
-1f"
-1j"
-1l"
-1n"
-1o"
-1r"
-0s"
-1v"
-0w"
-1z"
-0{"
-1}"
-1!#
-1"#
-1%#
-0&#
-1)#
-0*#
-1,#
-1-#
-1.#
-10#
-12#
-04#
-06#
-08#
-0:#
-1<#
-1>#
-1_#
-1b#
-0c#
-0f#
-0g#
-0j#
-0k#
-0n#
-1o#
-1p#
-1r#
-0t#
-0x#
-0|#
-1J$
-0N$
-0R$
-1S$
-1U$
-0V$
-0W$
-0Y$
-1Z$
-0[$
-0]$
-0_$
-0a$
-1c$
-1e$
-1k$
-1m$
-1=%
-0A%
-1B%
-1D%
-0E%
-0F%
-0H%
-0I%
-0J%
-0L%
-1M%
-0N%
-0P%
-1R%
-1T%
-1Z%
-1\%
-0^%
-0`%
-0b%
-0d%
-0f%
-0h%
-1j%
-1l%
-1(&
-0,&
-00&
-04&
-18&
-1>&
-1B&
-1E&
-1F&
-1G&
-1J&
-1N&
-1Q&
-1R&
-1S&
-1V&
-1Y&
-1Z&
-1[&
+b1001000100000000 :
+b1001000100000000 <
+b1001000100000000 =
+b0100010000000000 >
+b10100100 G
+b0001001010010001 K
+b1000100101001000 L
+b1000100101001000 N
+b10001001 T
+b10001001 V
+b01001000 W
+1Y
+b10001001 [
+b10010001 \
+1]
+b10010001 ^
+b1001 `
+b1001 b
+b100100010000 g
+b000100000000 h
+b100100010000 j
+b10010001000000 s
+b01000100000000 t
+b01000100000000 v
+b10100100 /"
+10"
+b10100100 1"
 #17000000
 b1000000000000001 !
-bUUUU000000001000 "
+bUUUUUUUUUUUUUUU0 "
 b0011 #
 0%
 0&
@@ -5064,602 +1036,186 @@ b0011 *
 0+
 0,
 1-
-bUUUU000000001000 .
+bUUUUUUUUUUUUUUU0 .
 b1000000000000001 3
-bUUUU000000001000 4
-bUUUUUUU000000001 5
-bUUUUUUU000000001 6
-bUUUUUUU000000001 7
-bUUUUU00000000100 8
-bUUUUUUU000000001 9
-bUUUUUUU000000001 :
-bUUUUU00000000100 ;
-bUUUU000000001000 <
-0=
-1@
-b11111111 A
-b1111 B
+b11111111 4
+b1111 5
+b11 6
+bUUUUUUUUUUUUUUU0 7
+b0000000000000001 8
+b0000000000000001 9
+b0000000000000001 :
+b0UUUUUUUUUUUUUUU ;
+b0000000000000001 <
+b0000000000000001 =
+b0000000000000100 >
+0@
+b00 A
+b0000 B
+b00000000 C
 1F
-0G
-1H
-0K
-0O
-0R
-0S
-0T
+b11111111 G
+b1111 H
+b1000000000000001 K
+b1000000000000001 L
+0M
+b1000000000000001 N
+1Q
+b0 R
+b00000000 S
+b10000000 T
 0U
-0W
-0[
-0^
-0_
-0`
+b00000000 V
+b00000001 W
+0Y
+b00000001 Z
+b00000000 [
+b00000001 \
+0]
+b00000000 ^
+b0000 _
+b0000 `
 0a
-0c
-0f
-0g
-0h
-0i
-0k
-0o
-0r
-0s
-0t
-0u
-0w
-0{
-0""
-1$"
-0&"
-1*"
-0+"
+b0000 b
+b0001 c
+b0001 f
+b000000000000 g
+b000000000001 h
+b000000000000 j
+b00 k
+b00 l
+0m
+b00 n
+b01 o
+b00000000000000 s
+b00000000000001 t
+b00000000000001 v
+b0 w
+b0 x
+0y
+b0 z
+b0UUUUUUUUUUUUUU ""
+b1 '"
 0,"
-0-"
-0."
-0/"
+bUUUUUUUUUUUUUUU0 -"
+b11111111 ."
+b00000000 /"
 00"
-02"
-03"
-04"
-06"
-07"
-08"
-09"
-0:"
-0;"
-0<"
-0>"
-0?"
-0@"
-0B"
-0C"
-0D"
-0F"
-0G"
-0H"
-0J"
-0K"
-1L"
-0N"
-1O"
-0R"
-0V"
-0X"
-0Z"
-0["
-0^"
-0b"
-0d"
-0f"
-0g"
-0j"
-0l"
-0n"
-0o"
-0r"
-Us"
-0v"
-Uw"
-0z"
-U{"
-0}"
-0!#
-U"#
-0%#
-U&#
-0)#
-U*#
-0,#
-0-#
-U.#
-0/#
-U0#
-01#
-02#
-03#
-U4#
-05#
-06#
-07#
-U8#
-09#
-0:#
-0;#
-U<#
-0=#
-0>#
-1?#
-1B#
-0K#
-0N#
-1P#
-0W#
-0Z#
-0\#
-0_#
-0b#
-Uc#
-Uf#
-Ug#
-0h#
-Uj#
-Uk#
-Un#
-Uo#
-0p#
-Ur#
-Ut#
-Ux#
-U|#
-0"$
-0$$
-0%$
-0&$
-0($
-0)$
-1*$
-13$
-15$
-06$
-0?$
-0A$
-0B$
-0J$
-0K$
-0M$
-UN$
-UR$
-0S$
-0U$
-UV$
-UW$
-UY$
-UZ$
-U[$
-U]$
-U_$
-Ua$
-Uc$
-Ue$
-0j$
-Uk$
-0l$
-0m$
-0n$
-0p$
-0q$
-1z$
-1"%
-1$%
-0)%
-0.%
-00%
-05%
-0:%
-0<%
-0=%
-UA%
-0B%
-0D%
-UE%
-UF%
-UH%
-UI%
-UJ%
-UL%
-UM%
-UN%
-UP%
-UR%
-UT%
-1V%
-UZ%
-0[%
-0\%
-U^%
-0_%
-Ub%
-0c%
-1e%
-Uf%
-0g%
-1h%
-0j%
-0k%
-0l%
-0o%
-0q%
-0r%
-0s%
-0t%
-0w%
-0{%
-0}%
-0!&
-0"&
-0#&
-0&&
-0(&
-0*&
-0+&
-U,&
-1-&
-0.&
-U/&
-U0&
-02&
-U3&
-U4&
-06&
-U7&
-U8&
-0:&
-U;&
-1<&
-0>&
-1?&
-1@&
-0B&
-1C&
-1D&
-0E&
-0F&
-1G&
-1H&
-0J&
-1K&
-1L&
-0N&
-1O&
-1P&
-0Q&
-0R&
-1S&
-1T&
-0V&
-1W&
-1X&
-0Y&
-0Z&
-1[&
-1\&
-1_&
-1`&
-1c&
-1d&
-0e&
-1g&
-1h&
-1k&
-1l&
-1p&
-1t&
+b11111111 1"
+b1111 2"
+b0000 3"
+b1111 5"
+b11 6"
+b1 :"
 #18000000
 b0000000000000001 !
-b000000000XUUUUUU "
+b0UUUUUUUUUUUUUUU "
 b0001 #
 1%
 b0000000000000001 )
 b0001 *
 1+
-b000000000XUUUUUU .
+b0UUUUUUUUUUUUUUU .
 b1000000000000000 3
-b000000000XUUUUUU 4
-bUUUUUUUX00000000 5
-bUUUUUUUX00000000 6
-bUUUUUUUX00000000 7
-bUUUUUUUX00000000 8
-bUUUUUUUX00000000 9
-bUUUUUUUX00000000 :
-bUUUUUUUX00000000 ;
-bUUUUUUX000000000 <
-1=
-1?
-0@
-b00000000 A
-b0000 B
-b00 C
+b00000000 4
+b0000 5
+b00 6
+b0UUUUUUUUUUUUUUU 7
+b1111111100000000 8
+b1111111100000000 9
+b1111111100000000 :
+b1UUUUUUUUUUUUUUU ;
+b1111111100000000 <
+b1111111100000000 =
+b1111111100000000 >
+1@
+b11 A
+b1111 B
+b11111111 C
+1E
 0F
-1G
-0H
-1K
-1O
-1S
-1W
-1[
-1_
-1c
-1g
-1k
-1o
-1s
-1w
-1{
-1""
-0$"
-1&"
-0*"
-1+"
+b00000000 G
+b0000 H
+b00 I
+b0000000000000001 K
+b1000000000000000 L
+1M
+b1000000000000000 N
+0Q
+b1 R
+b11111111 S
+b11111111 V
+b00000000 W
+b00000000 Z
+b11111111 [
+b11111111 ^
+b1111 _
+b1111 `
+b1111 b
+b0000 c
+b0000 f
+b111111110000 g
+b111100000000 h
+b111111110000 j
+b11 k
+b11 l
+b11 n
+b00 o
+0q
+b00 r
+b11111111000000 s
+b11111100000000 t
+0u
+b11111111000000 v
+b1 w
+b1 x
+b1 z
+b1UUUUUUUUUUUUUU ""
+b0 '"
+1("
 1,"
-1/"
-10"
-13"
-14"
-17"
-18"
-1;"
-1<"
-1?"
-1@"
-1C"
-1D"
-1G"
-1H"
-1K"
-0L"
-0O"
-Xl"
-Xo"
-1/#
-12#
-13#
-16#
-17#
-1:#
-1;#
-1>#
-0?#
-0B#
-0P#
-X_#
-Xb#
-Xp#
-1"$
-1%$
-1&$
-1)$
-0*$
-0,$
-0-$
-00$
-03$
-04$
-05$
-08$
-0<$
-0@$
-0D$
-0H$
-XJ$
-0L$
-XM$
-0P$
-UQ$
-XS$
-0T$
-UU$
-0X$
-0\$
-0`$
-0d$
-0h$
-1j$
-1m$
-1n$
-1q$
-0r$
-0w$
-0y$
-0z$
-0"%
-0$%
-X5%
-U9%
-X:%
-X<%
-U=%
-U>%
-U@%
-UB%
-UD%
-0V%
-1W%
-1[%
-U\%
-0]%
-1_%
-U`%
-1c%
-Ud%
-0e%
-1g%
-Uh%
-Uj%
-1k%
-Ul%
-Un%
-1o%
-Up%
-Xr%
-1s%
-Xt%
-1w%
-1{%
-X}%
-1"&
-U$&
-1&&
-U(&
-1*&
-0-&
-1.&
-0/&
-12&
-03&
-05&
-16&
-07&
-1:&
-0;&
-0<&
-0?&
-0@&
-0C&
-0D&
-0G&
-0H&
-0K&
-0L&
-0O&
-0P&
-0S&
-0T&
-0W&
-0X&
-0[&
-0\&
-0_&
-0`&
-0c&
-0d&
-0g&
-0h&
-0k&
-0l&
-0n&
-0o&
-0p&
-0r&
-0s&
-0t&
+b0UUUUUUUUUUUUUUU -"
+b00000000 ."
+b00000000 1"
+b0000 2"
+b0000 5"
+b00 6"
+08"
+b00 9"
+b0 :"
 #19000000
 b0101010101010101 !
-b001010101XUUUUUU "
 U$
 b0101010101010101 )
-b001010101XUUUUUU .
 U/
 b1010101010101010 3
-b001010101XUUUUUU 4
-bUUUUUUUX10101010 5
-bUUUUUUUX10101010 6
-bUUUUUUUX10101010 7
-bUUUUUUUX10101010 8
-bUUUUUUUX10101010 9
-bUUUUUUUX10101010 :
-bUUUUUUUX10101010 ;
-bUUUUUUX101010100 <
-1D
+b1111111110101010 8
+b1111111110101010 9
+b1111111110101010 :
+b1111111110101010 <
+b1111111110101010 =
+b1111111110101010 >
 1J
-1L
-1M
-1R
-1T
-1U
-1Z
-1\
-1]
-1b
-1d
-1e
-1j
-1l
-1m
-1r
-1t
-1u
-1z
-1|
-1}
-1/"
-11"
-19"
-1A"
-1P"
-1S"
-1X"
-1["
-1`"
-1c"
-1h"
-1k"
-1u"
-1}"
-1(#
-1C#
-1F#
-1K#
-1N#
-1S#
-1T#
-1V#
-1[#
-1\#
-1^#
-1d#
-1l#
-1.$
-11$
-16$
-17$
-19$
-1>$
-1?$
-1A$
-1F$
-1G$
-1I$
-1O$
-1v$
-1{$
-1}$
-1!%
-1&%
-1(%
-1)%
-1.%
-10%
-11%
-16%
-18%
-1a%
-1i%
-1q%
-1v%
-1x%
-1y%
-1!&
-1#&
-1)&
-1+&
-11&
-13&
-1=&
-1E&
-1M&
-1U&
-1]&
-1e&
-1m&
-1u&
-1w&
+b0101010101010101 K
+b1010101010101010 L
+b1010101010101010 N
+b10101010 T
+b10101010 W
+b10101010 Z
+b01010101 \
+b1010 c
+b1010 f
+b111111111010 g
+b111110101010 h
+b111111111010 j
+b10 o
+b10 r
+b11111111101010 s
+b11111110101010 t
+b11111111101010 v
+b01010101 /"
+b0101 3"
+b01 7"
+b1 ;"
+b1 ="
 #20000000
