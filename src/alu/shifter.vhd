@@ -9,17 +9,20 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_misc.all;
 use ieee.numeric_std.all;
 
 -- Utility entity for the barrel shfiter
 entity mux is
+    generic
+    (
+        width : natural := 1
+    );
     port
     (
-    i_sig0 : in std_logic;
-    i_sig1 : in std_logic;
+    i_sig0 : in std_logic_vector(width-1 downto 0);
+    i_sig1 : in std_logic_vector(width-1 downto 0);
     i_sel : in std_logic;
-    o_sig : out std_logic
+    o_sig : out std_logic_vector(width-1 downto 0)
     );
 end entity;
 
@@ -70,6 +73,7 @@ architecture behaviour of shifter is
     signal rot_0: std_logic_vector(15 downto 0);
     signal rot_1: std_logic_vector(15 downto 0);
     signal rot_2: std_logic_vector(15 downto 0);
+    signal rot_3: std_logic_vector(15 downto 0);
 
     -- Shifting signals
     signal s_l0: std_logic_vector(15 downto 0);
@@ -94,19 +98,27 @@ begin
     sr <= not i_dir and i_ar;
 
     -- Generate Multiplexer layers
-    gen_rev0_mux : for i in 0 to 15 generate
-        -- Reverse the bit order for a right shift
-        rev0_mux : mux port map
+    -- Reverse the bit order for a right shift
+    rev0_mux : mux
+    generic map
         (
-        i_sig0 => i_op(i),
-        i_sig1 => i_op(15-i),
+        width => 16
+        )
+    port map
+        (
+        i_sig0 => i_op,
+        i_sig1 => i_op(0 to 15),
         i_sel => i_dir,
-        o_sig => rev_0(i)
+        o_sig => rev_0
         );
-    end generate;
 
-    arith_mux : mux port map
-        -- Arithmetic right shifting
+    -- Arithmetic right shifting
+    arith_mux : mux
+    generic map
+        (
+        width => 1
+        )
+    port map
         (
         i_sig1 => '0',
         i_sig0 => rev_0(15),
@@ -114,117 +126,123 @@ begin
         o_sig => s
         );
 
-    gen_rot_layer0 : for i in 0 to 7 generate
-        -- Zeroth rotation layer
-        ROT : mux port map
+    -- Zeroth rotation layer
+    rot_l0_mux : mux
+    generic map
+        (
+        width => 8
+        )
+    port map
         (
         i_sig0 => s,
-        i_sig1 => rev_0(i+8),
+        i_sig1 => rev_0(15 downto 8),
         i_sel => i_rot,
-        o_sig => rot_0(i+8)
+        o_sig => rot_0(15 downto 8)
         );
-    end generate;
 
-    rot_layer0_proc : process(all)
-    -- Fill the rotation vector
-    begin
-        for i in 0 to 8 loop
-            rot_0(i) <= rev_0(i);
-        end loop;
-    end process;
+    rot_0(7 downto 0) <= rev_0(7 downto 0);
 
-    gen_layer0_mux : for i in 0 to 15 generate
-        -- 8-bit shift
-        mux_lower8 : if i <= 7 generate
-            L8 : mux port map
-            (
-            i_sig0 => rot_0(i),
-            i_sig1 => '0',
-            i_sel  => i_s(3),
-            o_sig  => s_l0(i)
-            );
-        end generate;
-        mux_upper8 : if i > 7 generate
-            U8 : mux port map
-            (
-            i_sig0 => rot_0(i),
-            i_sig1 => i_op(i-8),
-            i_sel  => i_s(3),
-            o_sig  => s_l0(i)
-            );
-        end generate;
-    end generate;
-
-    gen_rot_layer1 : for i in 0 to 3 generate
-        -- First rotation layer
-        ROT : mux port map
+    -- 8-bit shift
+    mux_lower8 : mux
+    generic map
         (
-        i_sig0 => s,
-        i_sig1 => s_l0(i+12),
-        i_sel => i_rot,
-        o_sig => rot_1(i+12)
+        width => 8
+        )
+    port map
+        (
+        i_sig0 => rot_0(7 downto 0),
+        i_sig1 => '0',
+        i_sel  => i_s(3),
+        o_sig  => s_l0(7 downto 0)
         );
-    end generate;
 
-    rot_layer1_proc : process(all)
-    -- Fill the rotation vector
-    begin
-        for i in 0 to 12 loop
-            rot_1(i) <= s_l0(i);
-        end loop;
-    end process;
+    mux_upper8 : mux
+    generic map
+        (
+        width => 8
+        )
+    port map
+        (
+        i_sig0 => rot_0(15 downto 8),
+        i_sig1 => i_op(7 downto 0),
+        i_sel  => i_s(3),
+        o_sig  => s_l0(15 downto 8)
+        );
 
-    gen_layer1_mux : for i in 0 to 15 generate
-        -- 4-bit shift
-        mux_lower4 : if i <= 3 generate
-            L4 : mux port map
-            (
-            i_sig0 => rot_1(i),
-            i_sig1 => '0',
-            i_sel  => i_s(2),
-            o_sig  => s_l1(i)
-            );
-        end generate;
-        mux_upper12 : if i > 3 generate
-            U12 : mux port map
-            (
-            i_sig0 => rot_1(i),
-            i_sig1 => rot_1(i-4),
-            i_sel  => i_s(2),
-            o_sig  => s_l1(i)
-            );
-        end generate;
-    end generate;
+    -- First rotation layer
+    rot_l1_mux : mux
+    generic map
+        (
+        width => 4
+        )
+    port map
+        (
+        i_sig0 => (others => s),
+        i_sig1 => s_l0(15 downto 12),
+        i_sel => i_rot,
+        o_sig => rot_1(15 downto 12)
+        );
 
-    gen_rot_layer2 : for i in 0 to 1 generate
+    rot_1(11 downto 0) <= s_l0(11 downto 0);
+
+    -- 4-bit shift
+    mux_lower4 : mux
+    generic map
+        (
+        width => 4
+        )
+    port map
+        (
+        i_sig0 => rot_1(3 downto 0),
+        i_sig1 => '0',
+        i_sel  => i_s(2),
+        o_sig  => s_l1(3 downto 0)
+        );
+
+    mux_upper12 : mux
+    generic map
+        (
+        width => 12
+        )
+    port map
+        (
+        i_sig0 => rot_1(15 downto 4),
+        i_sig1 => rot_1(11 downto 0),
+        i_sel  => i_s(2),
+        o_sig  => s_l1(15 downto 4)
+        );
+
         -- Second rotation layer
-        ROT : mux port map
+    rot_l2_mux : mux
+    generic map
+        (
+        width => 2
+        )
+    port map
         (
         i_sig0 => s,
-        i_sig1 => s_l1(i+13),
+        i_sig1 => s_l1(15 downto 14),
         i_sel => i_rot,
-        o_sig => rot_2(i+13)
+        o_sig => rot_2(15 downto 14)
         );
-    end generate;
 
-    rot_layer2_proc : process(all)
-    -- Fill the rotation vector
-    begin
-        for i in 0 to 13 loop
-            rot_2(i) <= s_l1(i);
-        end loop;
-    end process;
+    rot_2(13 downto 0) <= s_l1(13 downto 0);
 
     gen_layer2_mux : for i in 0 to 15 generate
         -- 2-bit shift
         mux_lower2 : if i <= 1 generate
-            L2 : mux port map
-            (
-            i_sig0 => rot_2(i),
-            i_sig1 => '0',
-            i_sel  => i_s(1),
-            o_sig  => s_l2(i)
-            );
+            L2 : mux
+            generic map
+                (
+                width => 2
+                )
+            port map
+                (
+                i_sig0 => rot_2(1 downto 0),
+                i_sig1 => '0',
+                i_sel  => i_s(1),
+                o_sig  => s_l2(1 downto 0)
+                );
         end generate;
         mux_upper14 : if i > 1 generate
             U14 : mux port map
@@ -305,7 +323,7 @@ begin
         i_sig0 => rev_0(0),
         i_sig1 => rev_0(i+1),
         i_sel => i_s(3),
-        o_sig => of_mux_out0
+        o_sig => of_mux_out0(i)
         );
     end generate;
 
@@ -315,7 +333,7 @@ begin
         i_sig0 => rev_0(0),
         i_sig1 => s_l0(i+1),
         i_sel => i_s(2),
-        o_sig => of_mux_out1
+        o_sig => of_mux_out1(i)
         );
     end generate;
 
@@ -325,7 +343,7 @@ begin
         i_sig0 => rev_0(0),
         i_sig1 => s_l1(i+1),
         i_sel => i_s(1),
-        o_sig => of_mux_out2
+        o_sig => of_mux_out2(i)
         );
     end generate;
 
@@ -343,21 +361,31 @@ begin
         variable xor_out2 : std_logic_vector(1 downto 0);
         variable xor_out3 : std_logic;
 
-        variable of_tmp0 : std_logic;
-        variable of_tmp1 : std_logic;
-        variable of_tmp2 : std_logic;
-        variable of_tmp3 : std_logic;
+        variable xor_in0 : std_logic_vector(7 downto 0) := (others => rev_0(0));
+        variable xor_in1 : std_logic_vector(3 downto 0) := (others => rev_0(0));
+        variable xor_in2 : std_logic_vector(1 downto 0) := (others => rev_0(0));
+
+        variable of_tmp0 : std_logic := '1';
+        variable of_tmp1 : std_logic := '1';
+        variable of_tmp2 : std_logic := '1';
+        variable of_tmp3 : std_logic := '1';
 
         variable and_red : std_logic;
     begin
-        xor_out0 := of_mux_out0 xor (others => rev_0(0));
-        xor_out1 := of_mux_out1 xor (others => rev_0(0));
-        xor_out2 := of_mux_out2 xor (others => rev_0(0));
+        xor_out0 := of_mux_out0 xor xor_in0;
+        xor_out1 := of_mux_out1 xor xor_in1;
+        xor_out2 := of_mux_out2 xor xor_in2;
         xor_out3 := of_mux_out3 xor rev_0(0);
 
-        of_tmp0 := and_reduce(xor_out0);
-        of_tmp1 := and_reduce(xor_out1);
-        of_tmp2 := and_reduce(xor_out2);
+        for i in xor_out0'range loop
+            of_tmp0 := of_tmp0 and xor_out0(i);
+        end loop;
+        for i in xor_out1'range loop
+            of_tmp1 := of_tmp1 and xor_out1(i);
+        end loop;
+        for i in xor_out2'range loop
+            of_tmp2 := of_tmp2 and xor_out2(i);
+        end loop;
         of_tmp3 := xor_out3;
 
         and_red := of_tmp0 and of_tmp1 and of_tmp2 and of_tmp3;
