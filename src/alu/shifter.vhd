@@ -80,7 +80,6 @@ architecture behaviour of shifter is
     end component;
 
     signal shift: std_logic_vector(15 downto 0);
-    signal carry: std_logic;
 
     -- Reverse signals
     signal rev_0: std_logic_vector(15 downto 0);
@@ -106,7 +105,7 @@ architecture behaviour of shifter is
     signal s_2 : std_logic_vector(1 downto 0);
     signal s_4 : std_logic_vector(3 downto 0);
     signal s_8 : std_logic_vector(7 downto 0);
-    signal sl : std_logic;
+    signal sl : std_logic := '0'; 
     signal sr : std_logic;
 
     -- Overflow detection
