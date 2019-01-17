@@ -44,9 +44,9 @@ entity shifter is
     (
     i_op:  in std_logic_vector(15 downto 0);
     i_s:   in std_logic_vector(3 downto 0);
-    i_dir: in std_logic; -- direction 0 left 1 right
+    i_dir: in std_logic; -- direction 1 left 0 right
     i_rot: in std_logic; -- rotate
-    i_ar:  in std_logic; -- arithmetic shift
+    i_ar:  in std_logic; -- arithmetic shift only for right shift
     o_r:   out std_logic_vector(15 downto 0); -- result
     o_f:   out std_logic; -- overflow flag
     o_z:   out std_logic  -- zero flag
@@ -106,7 +106,6 @@ architecture behaviour of shifter is
     signal s_2 : std_logic_vector(1 downto 0);
     signal s_4 : std_logic_vector(3 downto 0);
     signal s_8 : std_logic_vector(7 downto 0);
-    signal s_tmp : std_logic;
     signal sl : std_logic;
     signal sr : std_logic;
 
@@ -120,8 +119,8 @@ begin
     s_4 <= (others => s);
     s_2 <= (others => s);
 
-    sl <= i_dir and i_ar;
     sr <= not i_dir and i_ar;
+    sl <= i_dir and i_ar;
 
     rev_0_8 <= (others => rev_0(0));
     rev_0_4 <= (others => rev_0(0));
@@ -150,8 +149,8 @@ begin
         )
     port map
         (
-        i_sig1(0) => '0',
-        i_sig0(0) => rev_0(15),
+        i_sig1(0) => rev_0(15),
+        i_sig0(0) => '0',
         i_sel => sr,
         o_sig(0) => s
         );
@@ -165,38 +164,25 @@ begin
     port map
         (
         i_sig0 => s_8,
-        i_sig1 => rev_0(15 downto 8),
+        i_sig1 => rev_0(7 downto 0),
         i_sel => i_rot,
         o_sig => rot_0(15 downto 8)
         );
 
-    rot_0(7 downto 0) <= rev_0(7 downto 0);
+    rot_0(7 downto 0) <= rev_0(15 downto 8);
 
     -- 8-bit shift
-    mux_lower8 : mux
+    mux_8shift : mux
     generic map
         (
-        width => 8
+        width => 16
         )
     port map
         (
-        i_sig0 => rot_0(7 downto 0),
-        i_sig1 => "00000000",
+        i_sig0 => rev_0,
+        i_sig1 => rot_0,
         i_sel  => i_s(3),
-        o_sig  => s_l0(7 downto 0)
-        );
-
-    mux_upper8 : mux
-    generic map
-        (
-        width => 8
-        )
-    port map
-        (
-        i_sig0 => rot_0(15 downto 8),
-        i_sig1 => i_op(7 downto 0),
-        i_sel  => i_s(3),
-        o_sig  => s_l0(15 downto 8)
+        o_sig  => s_l0
         );
 
     -- First rotation layer
@@ -208,38 +194,25 @@ begin
     port map
         (
         i_sig0 => s_4,
-        i_sig1 => s_l0(15 downto 12),
+        i_sig1 => s_l0(3 downto 0),
         i_sel => i_rot,
         o_sig => rot_1(15 downto 12)
         );
 
-    rot_1(11 downto 0) <= s_l0(11 downto 0);
+    rot_1(11 downto 0) <= s_l0(15 downto 4);
 
     -- 4-bit shift
-    mux_lower4 : mux
+    mux_4shift : mux
     generic map
         (
-        width => 4
+        width => 16
         )
     port map
         (
-        i_sig0 => rot_1(3 downto 0),
-        i_sig1 => "0000",
+        i_sig0 => s_l0,
+        i_sig1 => rot_1,
         i_sel  => i_s(2),
-        o_sig  => s_l1(3 downto 0)
-        );
-
-    mux_upper12 : mux
-    generic map
-        (
-        width => 12
-        )
-    port map
-        (
-        i_sig0 => rot_1(15 downto 4),
-        i_sig1 => rot_1(11 downto 0),
-        i_sel  => i_s(2),
-        o_sig  => s_l1(15 downto 4)
+        o_sig  => s_l1
         );
 
         -- Second rotation layer
@@ -251,38 +224,25 @@ begin
     port map
         (
         i_sig0 => s_2,
-        i_sig1 => s_l1(15 downto 14),
+        i_sig1 => s_l1(1 downto 0),
         i_sel => i_rot,
         o_sig => rot_2(15 downto 14)
         );
 
-    rot_2(13 downto 0) <= s_l1(13 downto 0);
+    rot_2(13 downto 0) <= s_l1(15 downto 2);
 
-        -- 2-bit shift
-    mux_lower2 : mux
+    -- 2-bit shift
+    mux_2shift : mux
     generic map
         (
-        width => 2
+        width => 16
         )
     port map
         (
-        i_sig0 => rot_2(1 downto 0),
-        i_sig1 => "00",
+        i_sig0 => s_l1,
+        i_sig1 => rot_2,
         i_sel  => i_s(1),
-        o_sig  => s_l2(1 downto 0)
-        );
-
-    mux_upper14 : mux
-    generic map
-        (
-        width => 14
-        )
-    port map
-        (
-        i_sig0 => rot_2(15 downto 2),
-        i_sig1 => rot_2(13 downto 0),
-        i_sel  => i_s(1),
-        o_sig  => s_l2(15 downto 2)
+        o_sig  => s_l2
         );
 
     -- Third rotation layer
@@ -299,47 +259,20 @@ begin
         o_sig(0) => rot_3(15)
         );
 
-    rot_3(14 downto 0) <= s_l2(14 downto 0);
+    rot_3(14 downto 0) <= s_l2(15 downto 1);
      
-        -- 1-bit shift
-    mux_lower1 : mux
+    -- 1-bit shift
+    mux_1shift : mux
     generic map
         (
-        width => 1
+        width => 16
         )
     port map
         (
-        i_sig0(0) => rot_3(0),
-        i_sig1(0) => '0',
+        i_sig0 => s_l2(15 downto 0),
+        i_sig1 => rot_3(15 downto 0),
         i_sel  => i_s(0),
-        o_sig(0)  => s_tmp
-        );
-
-    mux_upper15 : mux
-    generic map
-        (
-        width => 15
-        )
-    port map
-        (
-        i_sig0 => rot_3(15 downto 1),
-        i_sig1 => rot_3(14 downto 0),
-        i_sel  => i_s(0),
-        o_sig  => s_l3(15 downto 1)
-        );
-
-    sla_mux : mux
-    -- Arithmetic left shifting
-    generic map
-        (
-        width => 1
-        )
-    port map
-        (
-        i_sig0(0) => s_tmp,
-        i_sig1(0) => rev_0(0),
-        i_sel => sl,
-        o_sig(0) => s_l3(0)
+        o_sig  => s_l3(15 downto 0)
         );
 
     -- Reverse the bit order again
