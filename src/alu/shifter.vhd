@@ -46,9 +46,9 @@ entity shifter is
     i_s:   in std_logic_vector(3 downto 0);
     i_dir: in std_logic; -- direction 1 left 0 right
     i_rot: in std_logic; -- rotate
-    i_ar:  in std_logic; -- arithmetic shift only for right shift
+    i_ar:  in std_logic; -- arithmetic shift
     o_r:   out std_logic_vector(15 downto 0); -- result
-    o_f:   out std_logic; -- overflow flag
+    o_f:   out std_logic; -- overflow flag only possible for arithmetic left shift
     o_z:   out std_logic  -- zero flag
     );
 
@@ -79,8 +79,6 @@ architecture behaviour of shifter is
         );
     end component;
 
-    signal shift: std_logic_vector(15 downto 0);
-
     -- Reverse signals
     signal rev_0: std_logic_vector(15 downto 0);
     signal rev_0_8: std_logic_vector(7 downto 0);
@@ -101,18 +99,19 @@ architecture behaviour of shifter is
     signal s_l3: std_logic_vector(15 downto 0);
 
     -- Arithmetic shifting
-    signal s : std_logic;
+    signal s : std_logic := '0';
     signal s_2 : std_logic_vector(1 downto 0);
     signal s_4 : std_logic_vector(3 downto 0);
     signal s_8 : std_logic_vector(7 downto 0);
     signal sl : std_logic := '0'; 
-    signal sr : std_logic;
+    signal sr : std_logic := '0';
 
     -- Overflow detection
     signal of_mux_out0 : std_logic_vector(7 downto 0);
     signal of_mux_out1 : std_logic_vector(3 downto 0);
     signal of_mux_out2 : std_logic_vector(1 downto 0);
     signal of_mux_out3 : std_logic;
+
 begin
     s_8 <= (others => s);
     s_4 <= (others => s);
@@ -253,7 +252,7 @@ begin
     port map
         (
         i_sig0(0) => s,
-        i_sig1(0) => s_l2(15),
+        i_sig1(0) => s_l2(0),
         i_sel => i_rot,
         o_sig(0) => rot_3(15)
         );
@@ -299,7 +298,7 @@ begin
         i_sig0 => rev_0_8,
         i_sig1 => rev_0(8 downto 1),
         i_sel => i_s(3),
-        o_sig => of_mux_out0(7 downto 0)
+        o_sig => of_mux_out0
         );
 
     of1_mux : mux
@@ -312,7 +311,7 @@ begin
         i_sig0 => rev_0_4,
         i_sig1 => s_l0(4 downto 1),
         i_sel => i_s(2),
-        o_sig => of_mux_out1(3 downto 0)
+        o_sig => of_mux_out1
         );
 
     of2_mux : mux
@@ -325,7 +324,7 @@ begin
         i_sig0 => rev_0_2,
         i_sig1 => s_l1(2 downto 1),
         i_sel => i_s(1),
-        o_sig => of_mux_out2(1 downto 0)
+        o_sig => of_mux_out2
         );
 
     of3_mux : mux
@@ -341,41 +340,38 @@ begin
         o_sig(0) => of_mux_out3
         );
 
-    overflow_proc : process(all)
-        variable xor_out0 : std_logic_vector(7 downto 0);
-        variable xor_out1 : std_logic_vector(3 downto 0);
-        variable xor_out2 : std_logic_vector(1 downto 0);
-        variable xor_out3 : std_logic;
+    overflow_detec_proc : process(all)
+        variable xor_out0 : std_logic_vector(7 downto 0) := (others => '0');
+        variable xor_out1 : std_logic_vector(3 downto 0) := (others => '0');
+        variable xor_out2 : std_logic_vector(1 downto 0) := (others => '0');
+        variable xor_out3 : std_logic := '0';
 
-        variable xor_in0 : std_logic_vector(7 downto 0) := (others => rev_0(0));
-        variable xor_in1 : std_logic_vector(3 downto 0) := (others => rev_0(0));
-        variable xor_in2 : std_logic_vector(1 downto 0) := (others => rev_0(0));
-
-        variable of_tmp0 : std_logic := '1';
-        variable of_tmp1 : std_logic := '1';
-        variable of_tmp2 : std_logic := '1';
-        variable of_tmp3 : std_logic := '1';
-
-        variable and_red : std_logic;
+        variable of_tmp0 : std_logic := '0';
+        variable of_tmp1 : std_logic := '0';
+        variable of_tmp2 : std_logic := '0';
+        variable of_tmp3 : std_logic := '0';
     begin
-        xor_out0 := of_mux_out0 xor xor_in0;
-        xor_out1 := of_mux_out1 xor xor_in1;
-        xor_out2 := of_mux_out2 xor xor_in2;
+        xor_0 : for i in 0 to 7 loop
+            xor_out0(i) := of_mux_out0(i) xor rev_0_8(i);
+        end loop;
+
+        xor_1 : for i in 0 to 3 loop
+            xor_out1(i) := of_mux_out1(i) xor rev_0_4(i);
+        end loop;
+
+        xor_2 : for i in 0 to 1 loop
+            xor_out2(i) := of_mux_out2(i) xor rev_0_2(i);
+        end loop;
+
         xor_out3 := of_mux_out3 xor rev_0(0);
 
-        for i in xor_out0'range loop
-            of_tmp0 := of_tmp0 and xor_out0(i);
-        end loop;
-        for i in xor_out1'range loop
-            of_tmp1 := of_tmp1 and xor_out1(i);
-        end loop;
-        for i in xor_out2'range loop
-            of_tmp2 := of_tmp2 and xor_out2(i);
-        end loop;
+        of_tmp0 := xor_out0(0) or xor_out0(1) or xor_out0(2) or xor_out0(3)
+        or xor_out0(4) or xor_out0(5) or xor_out0(6) or xor_out0(7);
+        of_tmp1 := xor_out1(0) or xor_out1(1) or xor_out1(2) or xor_out1(3);
+        of_tmp2 := xor_out2(0) or xor_out2(1);
         of_tmp3 := xor_out3;
 
-        and_red := of_tmp0 and of_tmp1 and of_tmp2 and of_tmp3;
-        o_f <= sl and and_red;
+        o_f <= sl and (of_tmp0 or of_tmp1 or of_tmp2 or of_tmp3);
     end process;
 
     o_r <= rev_1;
