@@ -10,14 +10,14 @@ use ieee.std_logic_1164.all;
 entity lu is
     port
     (
-    i_op1 : std_logic_vector(15 downto 0);
-    i_op2 : std_logic_vector(15 downto 0);
-    i_and : std_logic;
-    i_or : std_logic;
-    i_xor : std_logic;
-    i_not : std_logic;
-    o_res : std_logic_vector(15 downto 0);
-    o_z : std_logic
+    i_op1: in std_logic_vector(15 downto 0);
+    i_op2: in std_logic_vector(15 downto 0);
+    i_and: in std_logic;
+    i_or:  in std_logic;
+    i_xor: in std_logic;
+    i_not: in std_logic;
+    o_res: out std_logic_vector(15 downto 0);
+    o_z:   out std_logic
     );
 end entity;
 
@@ -45,6 +45,6 @@ begin
         end if;
     end process;
 
-    o_z <= '1' when res = "0000000000000000" else '0';
+    o_z   <= '1' when res = "0000000000000000" else '0';
     o_res <= res;
 end architecture;
