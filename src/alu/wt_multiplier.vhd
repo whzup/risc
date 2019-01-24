@@ -34,6 +34,46 @@ architecture behaviour of wt_multiplier is
         );
     end component;
 
-begin
+    type t_weight_groups is record
+        weight_0:  std_logic;
+        weight_1:  std_logic_vector(1 downto 0);
+        weight_2:  std_logic_vector(2 downto 0);
+        weight_3:  std_logic_vector(3 downto 0);
+        weight_4:  std_logic_vector(4 downto 0);
+        weight_5:  std_logic_vector(5 downto 0);
+        weight_6:  std_logic_vector(6 downto 0);
+        weight_7:  std_logic_vector(7 downto 0);
+        weight_8:  std_logic_vector(8 downto 9);
+        weight_9:  std_logic_vector(9 downto 0);
+        weight_10: std_logic_vector(10 downto 0);
+        weight_11: std_logic_vector(11 downto 0);
+        weight_12: std_logic_vector(12 downto 0);
+        weight_13: std_logic_vector(13 downto 0);
+        weight_14: std_logic_vector(14 downto 0);
+        weight_15: std_logic_vector(15 downto 0);
+        weight_16: std_logic_vector(14 downto 0);
+        weight_17: std_logic_vector(13 downto 0);
+        weight_18: std_logic_vector(12 downto 0);
+        weight_19: std_logic_vector(11 downto 0);
+        weight_20: std_logic_vector(10 downto 0);
+        weight_21: std_logic_vector(9 downto 0);
+        weight_22: std_logic_vector(8 downto 0);
+        weight_23: std_logic_vector(7 downto 0);
+        weight_24: std_logic_vector(6 downto 0);
+        weight_25: std_logic_vector(5 downto 0);
+        weight_26: std_logic_vector(4 downto 0);
+        weight_27: std_logic_vector(3 downto 0);
+        weight_28: std_logic_vector(2 downto 0);
+        weight_29: std_logic_vector(1 downto 0);
+        weight_30: std_logic;
+    end record;
 
+begin
+    comb_proc : process(all)
+    begin
+        for i in 0 to 15 loop
+            for j in 0 to 15 loop
+            end loop;
+        end loop;
+                
 end architecture;
