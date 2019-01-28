@@ -105,6 +105,8 @@ architecture behaviour of shifter is
     signal s_8 : std_logic_vector(7 downto 0);
     signal sl : std_logic := '0'; 
     signal sr : std_logic := '0';
+    signal sign_sig : std_logic := '0';
+    signal adj_s_l3: std_logic_vector(15 downto 0);
 
     -- Overflow detection
     signal of_mux_out0 : std_logic_vector(7 downto 0);
@@ -282,6 +284,21 @@ begin
         o_sig  => s_l3(15 downto 0)
         );
 
+    -- Adjust the sign for arithmetic left shifts
+    sign_sl : mux
+    generic map
+        (
+        width => 1
+        )
+    port map
+        (
+        i_sig0(0) => s_l3(0),
+        i_sig1(0) => rev_0(0),
+        i_sel => sl,
+        o_sig(0) => sign_sig
+        );
+    adj_s_l3 <= s_l3(15 downto 1) & sign_sig;
+
     -- Reverse the bit order again
     rev1_mux : mux
     generic map
@@ -290,7 +307,7 @@ begin
         )
     port map
         (
-        i_sig0 => s_l3(15 downto 0),
+        i_sig0 => adj_s_l3(15 downto 0),
         i_sig1 => reverse_vector(s_l3),
         i_sel => i_dir,
         o_sig => rev_1(15 downto 0)
