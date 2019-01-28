@@ -75,5 +75,6 @@ begin
             for j in 0 to 15 loop
             end loop;
         end loop;
+    end process;
                 
 end architecture;
