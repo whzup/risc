@@ -64,50 +64,32 @@ architecture behaviour of wt_multiplier is
         );
     end component;
 
-    type t_red0 is array(30 downto 0, 15 downto 0) of std_logic;
-    type t_red1 is array(30 downto 0, 10 downto 0) of std_logic;
-    type t_red2 is array(30 downto 0, 8 downto 0) of std_logic;
-    type t_red3 is array(30 downto 0, 5 downto 0) of std_logic;
-    type t_red4 is array(30 downto 0, 3 downto 0) of std_logic;
-    type t_red5 is array(30 downto 0, 2 downto 0) of std_logic;
-    type t_red6 is array(30 downto 0, 1 downto 0) of std_logic;
+    type t_tree is array(31 downto 0, 15 downto 0, 6 downto 0) of std_logic;
+    type t_init is array(15 downto 0, 15 downto 0) of std_logic; -- product tree
 
+    signal opa, opb, sum : std_logic_vector(31 downto 0);
 
-    signal layer0 : t_red0;
-    signal layer1 : t_red1;
-    signal layer2 : t_red2;
-    signal layer3 : t_red3;
-    signal layer4 : t_red4;
-    signal layer5 : t_red5;
-    signal layer6 : t_red6;
+    signal init : t_init;
+    signal tree : t_tree;
 
 begin
-    layer0_red_proc : process(all)
+    init_proc : process(all)
     -- Fill the zeroth layer
     begin
         for i in 0 to 15 loop
             for j in 0 to 15 loop
-                layer0(i+j, i) <= i_op1(i) and i_op2(i);
+                init(i,j) <= i_op1(i) and i_op2(i);
             end loop;
         end loop;
     end process;
 
-    layer1_red_proc : process(all)
-    -- Fill the first layer
+    wallace_tree_proc : process(all)
+    -- Fill the tree
     begin
-        layer1(0,0) <= layer0(0,0);
-        layer1(1,0) <= compress_2_2(layer0(1,0), layer0(1,1))(0);
-        layer1(2,1) <= compress_2_2(layer0(1,0), layer0(1,1))(1);
-        for i in 0 to 14 loop
-            layer1(i+2,0) <= compress_3_2(layer0(i+2,0), layer0(i+2,1), layer0(i+2,2))(0);
-            layer1(i+3,1) <= compress_3_2(layer0(i+2,0), layer0(i+2,1), layer0(i+2,2))(1);
-        end loop;
-        layer1(16,0) <= compress_2_2(layer0(16,1), layer0(16,2))(0);
-        layer1(17,3) <= compress_2_2(layer0(16,1), layer0(16,2))(1);
-        layer1(17,2) <= layer0(17,2);
-
-        for i in 15 to 30 loop
-            layer1(i,15) <= layer0(i,15);
+        for i in 30 downto 0 loop
+            for j in i downto 0 loop
+                tree(i,k,0) <= init(j,i-j);
+            end loop;
         end loop;
     end process;
 

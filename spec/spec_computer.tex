@@ -153,10 +153,10 @@ general layout:\par
                                                     \texttt{Rmmm} at the address held by
                                                     the register \texttt{Rnnn}.\\
                                                     \hline
-        &&\\
         \boxchar{0000 00ps xxxx xxxx} & PUSH      & Push the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p} on the stack\\
+        \hline
         \boxchar{0000 10ps xxxx xxxx} & POP       & Pop values from the stack in the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p}.\\
-        &&\\
+        \hline
         \boxchar{1000 001m mmnn nddd} & ADD       & Add the values of the registers
                                                     \texttt{Rmmm} and \texttt{Rnnn} and
                                                     store the result in the register
@@ -206,4 +206,12 @@ The ALU consists of the following components:
     \item logic unit
     \item flag register
 \end{itemize}
+
+\begin{tikzpicture}
+    \node[mux] (mux) {};
+    \node[dff, xshift=2cm] (dff) {};
+    \draw (dff.d) -- ++(0,1cm);
+\end{tikzpicture}
+
 \end{document}
+

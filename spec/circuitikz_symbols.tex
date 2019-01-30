@@ -1,6 +1,8 @@
 \usepackage{tikz}
 \usepackage{circuitikz}
 
+\usetikzlibrary{calc}
+
 % ---------------
 % Example IC
 % ---------------
@@ -63,39 +65,47 @@
 \pgfgetlastxy{\xne}{\yne}
 
 \pgfdeclareshape{dff}{
-\anchor{center}{\pgfpointorigin}
+    \anchor{center}{\pgfpointorigin}
 
-\savedanchor\pind{\pgfpoint{\xd}{\yd}}
-\anchor{d}{\pind}
-\savedanchor\pinc{\pgfpoint{\xc}{\yc}}
-\anchor{c}{\pinc}
-\savedanchor\pinq{\pgfpoint{\xq}{\yq}}
-\anchor{q}{\pinq}
-\savedanchor\pinnq{\pgfpoint{\xqn}{\yqn}}
-\anchor{nq}{\pinnq}
+    \savedanchor\pind{\pgfpoint{\xd - 0.5cm}{\yd}}
+    \anchor{d}{\pind}
+    \savedanchor\pinc{\pgfpoint{\xc - 0.5cm}{\yc}}
+    \anchor{c}{\pinc}
+    \savedanchor\pinq{\pgfpoint{\xq + 0.5cm}{\yq}}
+    \anchor{q}{\pinq}
+    \savedanchor\pinnq{\pgfpoint{\xqn + 0.5cm}{\yqn}}
+    \anchor{nq}{\pinnq}
 
-\foregroundpath{
-\pgfsetlinewidth{0.05cm}
-\pgfpathrectanglecorners{\pgfpoint{-.625cm}{-1cm}}{\pgfpoint{.625cm}{1cm}}
-\pgfusepath{draw}
-\pgftext[left,at={\pgfpoint{-.55cm}{.6cm}}]{\scriptsize $D$}
-\pgftext[left,at={\pgfpoint{-.55cm}{-.6cm}}]{\scriptsize $C$}
-\pgftext[right,at={\pgfpoint{.55cm}{.6cm}}]{\scriptsize $Q$}
-\pgftext[right,at={\pgfpoint{.55cm}{-.6cm}}]{\scriptsize $\overline{Q}$}
-}}
+    \foregroundpath{
+        \pgfsetlinewidth{0.8pt}
+        \pgfpathrectanglecorners{\pgfpoint{-.625cm}{-1cm}}{\pgfpoint{.625cm}{1cm}}
+        \pgfusepath{draw}
+
+        \pgfsetlinewidth{0.4pt}
+        \pgftext[left,at={\pgfpoint{\xd + .1cm}{\yd}}]{\scriptsize $D$}
+        \draw (\xd,\yd) -- ++(-0.5cm,0);
+
+        \pgftext[left,at={\pgfpoint{\xc + .1cm}{\yc}}]{\scriptsize $C$}
+        \draw (\xc,\yc) -- ++(-0.5cm,0);
+
+        \pgftext[right,at={\pgfpoint{\xq - .1cm}{\yq}}]{\scriptsize $Q$}
+        \draw (\xq,\yq) -- ++(0.5cm,0);
+
+        \pgftext[right,at={\pgfpoint{\xqn - .1cm}{\yqn}}]{\scriptsize $\overline{Q}$}
+        \draw (\xqn,\yqn) -- ++(0.5cm,0);
+    }
+}
 
 % ---------------
 % MUX
 % ---------------
-\pgfpoint{-.2cm}{-.625cm}
+\pgfpoint{-.3cm}{-.55cm}
 \pgfgetlastxy{\xl}{\yl}
-\pgfpoint{-.2cm}{.625cm}
+\pgfpoint{-.3cm}{.55cm}
 \pgfgetlastxy{\xu}{\yu}
-\pgfpoint{-.1cm}{.9cm}
-\pgfgetlastxy{\xo}{\yo}
-\pgfpoint{.1cm}{-.9cm}
-\pgfgetlastxy{\xt}{\yt}
-\pgfpoint{.2cm}{0cm}
+\pgfpoint{0cm}{0.85cm}
+\pgfgetlastxy{\xs}{\ys}
+\pgfpoint{.3cm}{0cm}
 \pgfgetlastxy{\xout}{\yout}
 
 \pgfdeclareshape{mux}{
@@ -105,13 +115,28 @@
     \anchor{l}{\pinl}
     \savedanchor\pinu{\pgfpoint{\xu}{\yu}}
     \anchor{u}{\pinu}
-    \savedanchor\pino{\pgfpoint{\xo}{\yo}}
-    \anchor{o}{\pino}
-    \savedanchor\pint{\pgfpoint{\xt}{\yt}}
-    \anchor{t}{\pint}
+    \savedanchor\pins{\pgfpoint{\xs}{\ys}}
+    \anchor{sel}{\pins}
     \savedanchor\pinout{\pgfpoint{\xout}{\yout}}
     \anchor{out}{\pinout}
 
     \foregroundpath{
-        \pgfsetlinewidth{0.05cm}
-    }}
+        \pgfsetlinewidth{0.8pt}
+        \pgfpathmoveto{\pgfpoint{-.3cm}{1cm}}
+        \pgfpathlineto{\pgfpoint{-.3cm}{-1cm}}
+        \pgfpathlineto{\pgfpoint{.3cm}{-.7cm}}
+        \pgfpathlineto{\pgfpoint{.3cm}{.7cm}}
+        \pgfpathlineto{\pgfpoint{-.3cm}{1cm}}
+        \pgfpathclose
+        \pgfusepath{draw}
+
+        \pgfsetlinewidth{0.4pt}
+        \pgftext[left,at={\pgfpoint{\xl + 0.1cm}{\yl}}]{\scriptsize $1$}
+        \draw (\xl,\yl) -- ++(-0.5cm,0);
+        \pgftext[left,at={\pgfpoint{\xu + 0.1cm}{\yu}}]{\scriptsize $0$}
+        \draw (\xu,\yu) -- ++(-0.5cm,0);
+
+        \draw (\xout,\yout) -- ++(0.5cm,0);
+        \draw (\xs,\ys) -- ++(0,0.5cm);
+    }
+}
