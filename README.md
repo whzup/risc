@@ -13,6 +13,7 @@ Here is a quick outline on what the planned milestones for this project are:
 + An ALU with some advanced circuitry (e.g. carry-lookahead adder (CLAA),
   Wallace/Dadda tree multiplier).
 + A CPU with a control unit and 8 registers.
++ Performance analysis on an FPGA.
 + Additional memory, I/O and a stack so that it can be
   programmed.
 + Advanced features, i.e. simple pipelining and maybe even a floating point
