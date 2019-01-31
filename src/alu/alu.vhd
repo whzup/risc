@@ -66,6 +66,17 @@ architecture behaviour of alu is
         o_z:   out std_logic
         );
     end component;
+
+    -- Mulitplier
+    component wt_multiplier
+        port
+        (
+        i_op1: in std_logic_vector(15 downto 0);
+        i_op2: in std_logic_vector(15 downto 0);
+        o_op1: out std_logic_vector(31 downto 0);
+        o_op2: out std_logic_vector(31 downto 0)
+        );
+    end component;
     
     -- Adder signals
     signal inv_vec:  std_logic_vector(15 downto 0);
