@@ -11,8 +11,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package utils is
-    function compress_3_2(a: std_logic; b: std_logic; c: std_logic) return std_logic_vector;
-    function compress_2_2(a: std_logic; b: std_logic) return std_logic_vector;
     function prev_lvl_carry(this_weight: natural; this_lvl: natural) return natural;
     function this_lvl_bits(this_weight: natural; this_lvl: natural) return natural;
     function num_full_adders(this_weight: natural; this_lvl: natural) return natural;
@@ -180,7 +178,7 @@ begin
         -- Fill the stages
         for k in 0 to 5 loop
             for i in 31 downto 0 loop
-                this_carry_bits := prev_lvl_carry(16,i,k+1);
+                this_carry_bits := prev_lvl_carry(i,k+1);
 
                 num_full_adds := num_full_adders(i,k);
                 for j in 0 to num_full_adds-1 loop
@@ -203,7 +201,7 @@ begin
                     if i < 31 then
                         tree(i+1,num_full_adds+j,k+1) <=
                        tree(i,num_full_adds*3+j*2,k) and
-                       tree(i,num_full_adders*3+j*2+1,k);
+                       tree(i,num_full_adds*3+j*2+1,k);
                     end if;
                 end loop;
 
@@ -218,7 +216,7 @@ begin
     end process;
 
     output : for i in 31 downto 0 generate
-        o_op1(i) <= w(i,0,6);
-        o_op2(i) <= w(i,1,6);
+        o_op1(i) <= tree(i,0,6);
+        o_op2(i) <= tree(i,1,6);
     end generate;
 end architecture;
