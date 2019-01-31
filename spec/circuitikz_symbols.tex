@@ -1,7 +1,15 @@
 \usepackage{tikz}
 \usepackage{circuitikz}
 
-\usetikzlibrary{calc}
+\usetikzlibrary{calc,positioning,shapes.misc}
+
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+\makeatother
+
+\tikzstyle{bus} = [rotate=-110, strike out, draw, scale=0.6]
+\def \busx {0.5pt}
+\def \busy {2.5pt}
 
 % ---------------
 % Example IC
@@ -82,17 +90,18 @@
         \pgfusepath{draw}
 
         \pgfsetlinewidth{0.4pt}
-        \pgftext[left,at={\pgfpoint{\xd + .1cm}{\yd}}]{\scriptsize $D$}
+        {\fontfamily{phv}\selectfont
+        \pgftext[left,at={\pgfpoint{\xd + .1cm}{\yd}}]{\scriptsize D}
         \draw (\xd,\yd) -- ++(-0.5cm,0);
 
-        \pgftext[left,at={\pgfpoint{\xc + .1cm}{\yc}}]{\scriptsize $C$}
+        \pgftext[left,at={\pgfpoint{\xc + .1cm}{\yc}}]{\scriptsize C}
         \draw (\xc,\yc) -- ++(-0.5cm,0);
 
-        \pgftext[right,at={\pgfpoint{\xq - .1cm}{\yq}}]{\scriptsize $Q$}
+        \pgftext[right,at={\pgfpoint{\xq - .1cm}{\yq}}]{\scriptsize Q}
         \draw (\xq,\yq) -- ++(0.5cm,0);
 
-        \pgftext[right,at={\pgfpoint{\xqn - .1cm}{\yqn}}]{\scriptsize $\overline{Q}$}
-        \draw (\xqn,\yqn) -- ++(0.5cm,0);
+        \pgftext[right,at={\pgfpoint{\xqn - .1cm}{\yqn}}]{\scriptsize \textoverline{Q}}
+        \draw (\xqn,\yqn) -- ++(0.5cm,0);}
     }
 }
 
@@ -111,13 +120,13 @@
 \pgfdeclareshape{mux}{
     \anchor{center}{\pgfpointorigin}
 
-    \savedanchor\pinl{\pgfpoint{\xl}{\yl}}
+    \savedanchor\pinl{\pgfpoint{\xl - 0.5cm}{\yl}}
     \anchor{l}{\pinl}
-    \savedanchor\pinu{\pgfpoint{\xu}{\yu}}
+    \savedanchor\pinu{\pgfpoint{\xu - 0.5cm}{\yu}}
     \anchor{u}{\pinu}
-    \savedanchor\pins{\pgfpoint{\xs}{\ys}}
+    \savedanchor\pins{\pgfpoint{\xs}{\ys + 0.5cm}}
     \anchor{sel}{\pins}
-    \savedanchor\pinout{\pgfpoint{\xout}{\yout}}
+    \savedanchor\pinout{\pgfpoint{\xout + 0.5cm}{\yout}}
     \anchor{out}{\pinout}
 
     \foregroundpath{
@@ -131,12 +140,208 @@
         \pgfusepath{draw}
 
         \pgfsetlinewidth{0.4pt}
-        \pgftext[left,at={\pgfpoint{\xl + 0.1cm}{\yl}}]{\scriptsize $1$}
+        {\fontfamily{phv}\selectfont
+        \pgftext[left,at={\pgfpoint{\xl + 0.1cm}{\yl}}]{\scriptsize 1}
         \draw (\xl,\yl) -- ++(-0.5cm,0);
-        \pgftext[left,at={\pgfpoint{\xu + 0.1cm}{\yu}}]{\scriptsize $0$}
+        \pgftext[left,at={\pgfpoint{\xu + 0.1cm}{\yu}}]{\scriptsize 0}
         \draw (\xu,\yu) -- ++(-0.5cm,0);
 
         \draw (\xout,\yout) -- ++(0.5cm,0);
-        \draw (\xs,\ys) -- ++(0,0.5cm);
+        \draw (\xs,\ys) -- ++(0,0.5cm);}
+    }
+}
+
+% ---------------
+% Logic Unit
+% ---------------
+\pgfpoint{-1.4cm}{1.0cm}
+\pgfgetlastxy{\xopalu}{\yopalu}
+\pgfpoint{-1.4cm}{0.6cm}
+\pgfgetlastxy{\xopblu}{\yopblu}
+\pgfpoint{-1.4cm}{0.2cm}
+\pgfgetlastxy{\xand}{\yand}
+\pgfpoint{-1.4cm}{-0.2cm}
+\pgfgetlastxy{\xor}{\yor}
+\pgfpoint{-1.4cm}{-0.6cm}
+\pgfgetlastxy{\xxor}{\yxor}
+\pgfpoint{-1.4cm}{-1.0cm}
+\pgfgetlastxy{\xnot}{\ynot}
+
+\pgfpoint{1.4cm}{1.0cm}
+\pgfgetlastxy{\xreslu}{\yreslu}
+\pgfpoint{1.4cm}{-1.0cm}
+\pgfgetlastxy{\xz}{\yz}
+
+\pgfdeclareshape{lu}{
+    \anchor{center}{\pgfpointorigin}
+     
+     \inheritanchor[from=strike out]{north}
+     \savedanchor\pinopa{\pgfpoint{\xopalu - 0.5cm}{\yopalu}}
+     \anchor{opa}{\pinopa}
+     \savedanchor\pinopb{\pgfpoint{\xopblu - 0.5cm}{\yopblu}}
+     \anchor{opb}{\pinopb}
+     \savedanchor\pinand{\pgfpoint{\xand - 0.5cm}{\yand}}
+     \anchor{and}{\pinand}
+     \savedanchor\pinor{\pgfpoint{\xor - 0.5cm}{\yor}}
+     \anchor{or}{\pinor}
+     \savedanchor\pinxor{\pgfpoint{\xxor - 0.5cm}{\yxor}}
+     \anchor{xor}{\pinxor}
+     \savedanchor\pinnot{\pgfpoint{\xnot - 0.5cm}{\ynot}}
+     \anchor{not}{\pinnot}
+
+     \savedanchor\pinres{\pgfpoint{\xreslu + 0.5cm}{\yreslu}}
+     \anchor{res}{\pinres}
+     \savedanchor\pinz{\pgfpoint{\xz + 0.5cm}{\yz}}
+     \anchor{z}{\pinz}
+
+     \foregroundpath{
+        \pgfsetlinewidth{0.8pt}
+        \pgfpathrectanglecorners{\pgfpoint{1.4cm}{1.4cm}}{\pgfpoint{-1.4cm}{-1.4cm}}
+        \pgfusepath{draw}
+
+        \pgfsetlinewidth{0.4pt}
+        {\fontfamily{phv}\selectfont
+        \pgftext[at={\pgfpointorigin}]{\large LU}
+        \pgftext[left,at={\pgfpoint{\xopalu + .1cm}{\yopalu}}]{\scriptsize OP1}
+        \draw[line width=1pt] (\xopalu,\yopalu) -- node[bus] (bus) {} ++(-0.5cm,0);
+        \node[circle] at ($(bus.west)+(\busx,\busy)$) {\tiny 16};
+        \pgftext[left,at={\pgfpoint{\xopblu + .1cm}{\yopblu}}]{\scriptsize OP2}
+        \draw[line width=1pt] (\xopblu,\yopblu) -- node[bus] (bus) {} ++(-0.5cm,0);
+        \node[circle] at ($(bus.west)+(\busx,\busy)$) {\tiny 16};
+        \pgftext[left,at={\pgfpoint{\xand + .1cm}{\yand}}]{\scriptsize AND}
+        \draw (\xand,\yand) -- ++(-0.5cm,0);
+        \pgftext[left,at={\pgfpoint{\xor + .1cm}{\yor}}]{\scriptsize OR}
+        \draw (\xor,\yor) -- ++(-0.5cm,0);
+        \pgftext[left,at={\pgfpoint{\xxor + .1cm}{\yxor}}]{\scriptsize XOR}
+        \draw (\xxor,\yxor) -- ++(-0.5cm,0);
+        \pgftext[left,at={\pgfpoint{\xnot + .1cm}{\ynot}}]{\scriptsize NOT}
+        \draw (\xnot,\ynot) -- ++(-0.5cm,0);
+
+        \pgftext[right,at={\pgfpoint{\xreslu - .1cm}{\yreslu}}]{\scriptsize RES}
+        \draw[line width=1pt] (\xreslu,\yreslu) -- node[bus] (bus) {} ++(0.5cm,0);
+        \node[circle] at ($(bus.west)+(-\busx-5pt,\busy)$) {\tiny 16};
+        \pgftext[right,at={\pgfpoint{\xz - .1cm}{\yz}}]{\scriptsize Z}
+        \draw (\xz,\yz) -- ++(0.5cm,0);
+        }
+    }
+}
+
+
+% ---------------
+% Adder
+% ---------------
+\pgfpoint{-1.4cm}{0.6cm}
+\pgfgetlastxy{\xopaclaa}{\yopaclaa}
+\pgfpoint{-1.4cm}{0.2cm}
+\pgfgetlastxy{\xopbclaa}{\yopbclaa}
+\pgfpoint{-1.4cm}{-0.6cm}
+\pgfgetlastxy{\xc}{\yc}
+
+\pgfpoint{1.4cm}{0.6cm}
+\pgfgetlastxy{\xresclaa}{\yresclaa}
+\pgfpoint{1.4cm}{0.2cm}
+\pgfgetlastxy{\xp}{\yp}
+\pgfpoint{1.4cm}{-0.2cm}
+\pgfgetlastxy{\xg}{\yg}
+\pgfpoint{1.4cm}{-0.6cm}
+\pgfgetlastxy{\xco}{\yco}
+
+\pgfdeclareshape{claa}{
+    \anchor{center}{\pgfpointorigin}
+     
+     \savedanchor\pinopa{\pgfpoint{\xopaclaa - 0.5cm}{\yopaclaa}}
+     \anchor{opa}{\pinopa}
+     \savedanchor\pinopb{\pgfpoint{\xopbclaa - 0.5cm}{\yopbclaa}}
+     \anchor{opb}{\pinopb}
+     \savedanchor\pinc{\pgfpoint{\xc - 0.5cm}{\yc}}
+     \anchor{c}{\pinc}
+
+     \savedanchor\pinres{\pgfpoint{\xresclaa + 0.5cm}{\yresclaa}}
+     \anchor{res}{\pinres}
+     \savedanchor\pinp{\pgfpoint{\xp + 0.5cm}{\yp}}
+     \anchor{p}{\pinp}
+     \savedanchor\ping{\pgfpoint{\xg + 0.5cm}{\yg}}
+     \anchor{g}{\ping}
+     \savedanchor\pinco{\pgfpoint{\xco + 0.5cm}{\yco}}
+     \anchor{co}{\pinco}
+
+     \foregroundpath{
+        \pgfsetlinewidth{0.8pt}
+        \pgfpathrectanglecorners{\pgfpoint{1.4cm}{1.0cm}}{\pgfpoint{-1.4cm}{-1.0cm}}
+        \pgfusepath{draw}
+
+        \pgfsetlinewidth{0.4pt}
+        {\fontfamily{phv}\selectfont
+        \pgftext[at={\pgfpointorigin}]{\large CLAA}
+        \pgftext[left,at={\pgfpoint{\xopaclaa + .1cm}{\yopaclaa}}]{\scriptsize OP1}
+        \draw[line width=1pt] (\xopaclaa,\yopaclaa) -- node[bus] (bus) {} ++(-0.5cm,0);
+        \node[circle] at ($(bus.west)+(\busx,\busy)$) {\tiny 16};
+        \pgftext[left,at={\pgfpoint{\xopbclaa + .1cm}{\yopbclaa}}]{\scriptsize OP2}
+        \draw[line width=1pt] (\xopbclaa,\yopbclaa) -- node[bus] (bus) {} ++(-0.5cm,0);
+        \node[circle] at ($(bus.west)+(\busx,\busy)$) {\tiny 16};
+        \pgftext[left,at={\pgfpoint{\xc + .1cm}{\yc}}]{\scriptsize C}
+        \draw (\xc,\yc) -- ++(-0.5cm,0);
+
+        \pgftext[right,at={\pgfpoint{\xresclaa - .1cm}{\yresclaa}}]{\scriptsize RES}
+        \draw[line width=1pt] (\xresclaa,\yresclaa) -- node[bus] (bus) {} ++(0.5cm,0);
+        \node[circle] at ($(bus.west)+(-\busx-5pt,\busy)$) {\tiny 16};
+        \pgftext[right,at={\pgfpoint{\xp - .1cm}{\yp}}]{\scriptsize P}
+        \draw (\xp,\yp) -- ++(0.5cm,0);
+        \pgftext[right,at={\pgfpoint{\xg - .1cm}{\yg}}]{\scriptsize G}
+        \draw (\xg,\yg) -- ++(0.5cm,0);
+        \pgftext[right,at={\pgfpoint{\xco - .1cm}{\yco}}]{\scriptsize CO}
+        \draw (\xco,\yco) -- ++(0.5cm,0);
+        }
+    }
+}
+
+% ---------------
+% Multiplier
+% ---------------
+\pgfpoint{-1.4cm}{0.2cm}
+\pgfgetlastxy{\xopamul}{\yopamul}
+\pgfpoint{-1.4cm}{-0.2cm}
+\pgfgetlastxy{\xopbmul}{\yopbmul}
+
+\pgfpoint{1.4cm}{0.2cm}
+\pgfgetlastxy{\xoutamul}{\youtamul}
+\pgfpoint{1.4cm}{-0.2cm}
+\pgfgetlastxy{\xoutbmul}{\youtbmul}
+
+\pgfdeclareshape{wtmul}{
+    \anchor{center}{\pgfpointorigin}
+     
+     \savedanchor\pinopa{\pgfpoint{\xopamul - 0.5cm}{\yopamul}}
+     \anchor{opa}{\pinopa}
+     \savedanchor\pinopb{\pgfpoint{\xopbmul - 0.5cm}{\yopbmul}}
+     \anchor{opb}{\pinopb}
+
+     \savedanchor\pinouta{\pgfpoint{\xoutamul + 0.5cm}{\youtamul}}
+     \anchor{outa}{\pinouta}
+     \savedanchor\pinoutb{\pgfpoint{\xoutbmul + 0.5cm}{\youtbmul}}
+     \anchor{outb}{\pinoutb}
+
+     \foregroundpath{
+        \pgfsetlinewidth{0.8pt}
+        \pgfpathrectanglecorners{\pgfpoint{1.4cm}{0.6cm}}{\pgfpoint{-1.4cm}{-0.6cm}}
+        \pgfusepath{draw}
+
+        \pgfsetlinewidth{0.4pt}
+        {\fontfamily{phv}\selectfont
+        \pgftext[at={\pgfpointorigin}]{\large WTM}
+        \pgftext[left,at={\pgfpoint{\xopamul + .1cm}{\yopamul}}]{\scriptsize OP1}
+        \draw[line width=1pt] (\xopamul,\yopamul) -- node[bus] (bus) {} ++(-0.5cm,0);
+        \node[circle] at ($(bus.west)+(\busx,\busy)$) {\tiny 16};
+        \pgftext[left,at={\pgfpoint{\xopbmul + .1cm}{\yopbmul}}]{\scriptsize OP2}
+        \draw[line width=1pt] (\xopbmul,\yopbmul) -- node[bus] (bus) {} ++(-0.5cm,0);
+        \node[circle] at ($(bus.west)+(\busx,\busy)$) {\tiny 16};
+
+        \pgftext[right,at={\pgfpoint{\xoutamul - .1cm}{\youtamul}}]{\scriptsize OUT1}
+        \draw[line width=1pt] (\xoutamul,\youtamul) -- node[bus] (bus) {} ++(0.5cm,0);
+        \node[circle] at ($(bus.west)+(-\busx-5pt,\busy)$) {\tiny 16};
+        \pgftext[right,at={\pgfpoint{\xoutbmul - .1cm}{\youtbmul}}]{\scriptsize OUT2}
+        \draw[line width=1pt] (\xoutbmul,\youtbmul) -- node[bus] (bus) {} ++(0.5cm,0);
+        \node[circle] at ($(bus.west)+(-\busx-5pt,\busy)$) {\tiny 16};
+        }
     }
 }

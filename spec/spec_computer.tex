@@ -207,11 +207,10 @@ The ALU consists of the following components:
     \item flag register
 \end{itemize}
 
-\begin{tikzpicture}
-    \node[mux] (mux) {};
-    \node[dff, xshift=2cm] (dff) {};
-    \draw (dff.d) -- ++(0,1cm);
+\begin{tikzpicture}[]
+    \node[lu] (lu) {};
+    \node[claa, xshift=4cm] (claa) {};
+    \node[wtmul, xshift=8cm] (claa) {};
 \end{tikzpicture}
 
 \end{document}
-
