@@ -223,3 +223,41 @@ begin
     o_ar   <= '1' when i_opc = "11000" else '0';
     o_mult <= '1' when i_opc = "11001" else '0';
 end architecture;
+
+
+-- Shift register
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mul_reg is
+    port
+    (
+    i_par: in std_logic_vector(31 downto 0);
+    i_load: in std_logic;
+    i_clk: in std_logic;
+    o_shift: out std_logic_vector(15 downto 0)
+    );
+end entity;
+
+architecture behaviour of mul_reg is
+    signal shift, next_shift: std_logic_vector(15 downto 0);
+    signal store: std_logic_vector(31 downto 0);
+begin
+
+    comb_proc : process(all)
+    begin
+        if i_load = '1' then
+            store <= i_par;
+        end if;
+        next_shift <= store(15 downto 0);
+        store <= "0000000000000000" & store(31 downto 16);
+    end process;
+
+    sync_proc : process(all)
+    begin
+        if rising_edge(i_clk) then
+            shift <= next_shift;
+        end if;
+    end process;
+    
+end architecture;
