@@ -221,7 +221,7 @@ The ALU consists of the following components:
 \begin{tikzpicture}[]
     \node[decoder] (dec) {};
     \node[lu,xshift=5cm] (lu) {};
-    \node[claa,below=3cm of dec] (claa) {};
+    \node[claa,yshift=-3cm] (claa) {};
     \node[wtmul,below=2cm of claa] (wt) {};
     \node[barrel,below=2cm of wt] (shifter) {};
 \end{tikzpicture}

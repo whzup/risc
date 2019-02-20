@@ -11,6 +11,28 @@
 \def \busx {0.5pt}
 \def \busy {2.5pt}
 
+\newcommand*{\getrectanchors}[0]{
+    \inheritsavedanchors[from=rectangle]
+    \inheritanchorborder[from=rectangle]
+    \inheritanchor[from=rectangle]{center}
+    \inheritanchor[from=rectangle]{north}
+    \inheritanchor[from=rectangle]{south}
+    \inheritanchor[from=rectangle]{west}
+    \inheritanchor[from=rectangle]{east}
+    \inheritanchor[from=rectangle]{north west}
+    \inheritanchor[from=rectangle]{south east}
+    \inheritanchor[from=rectangle]{south west}
+    \inheritanchor[from=rectangle]{north east}
+    \inheritanchor[from=rectangle]{center}
+    \inheritanchor[from=rectangle]{base}
+    \inheritanchor[from=rectangle]{base east}
+    \inheritanchor[from=rectangle]{base west}
+    \inheritanchor[from=rectangle]{mid}
+    \inheritanchor[from=rectangle]{mid east}
+    \inheritanchor[from=rectangle]{mid west}
+    \anchor{center}{\pgfpointorigin}
+}
+
 % ---------------
 % Example IC
 % ---------------
@@ -73,25 +95,6 @@
 \pgfgetlastxy{\xne}{\yne}
 
 \pgfdeclareshape{dff}{
-    \inheritsavedanchors[from=rectangle]
-    \inheritanchorborder[from=rectangle]
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{north}
-    \inheritanchor[from=rectangle]{south}
-    \inheritanchor[from=rectangle]{west}
-    \inheritanchor[from=rectangle]{east}
-    \inheritanchor[from=rectangle]{north west}
-    \inheritanchor[from=rectangle]{south east}
-    \inheritanchor[from=rectangle]{south west}
-    \inheritanchor[from=rectangle]{north east}
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{base}
-    \inheritanchor[from=rectangle]{base east}
-    \inheritanchor[from=rectangle]{base west}
-    \inheritanchor[from=rectangle]{mid}
-    \inheritanchor[from=rectangle]{mid east}
-    \inheritanchor[from=rectangle]{mid west}
-    \anchor{center}{\pgfpointorigin}
 
     \savedanchor\pind{\pgfpoint{\xd - 0.5cm}{\yd}}
     \anchor{d}{\pind}
@@ -136,25 +139,7 @@
 \pgfgetlastxy{\xout}{\yout}
 
 \pgfdeclareshape{mux}{
-    \inheritsavedanchors[from=rectangle]
-    \inheritanchorborder[from=rectangle]
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{north}
-    \inheritanchor[from=rectangle]{south}
-    \inheritanchor[from=rectangle]{west}
-    \inheritanchor[from=rectangle]{east}
-    \inheritanchor[from=rectangle]{north west}
-    \inheritanchor[from=rectangle]{south east}
-    \inheritanchor[from=rectangle]{south west}
-    \inheritanchor[from=rectangle]{north east}
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{base}
-    \inheritanchor[from=rectangle]{base east}
-    \inheritanchor[from=rectangle]{base west}
-    \inheritanchor[from=rectangle]{mid}
-    \inheritanchor[from=rectangle]{mid east}
-    \inheritanchor[from=rectangle]{mid west}
-    \anchor{center}{\pgfpointorigin}
+    \getrectanchors
 
     \savedanchor\pinl{\pgfpoint{\xl - 0.5cm}{\yl}}
     \anchor{l}{\pinl}
@@ -209,25 +194,7 @@
 \pgfgetlastxy{\xz}{\yz}
 
 \pgfdeclareshape{lu}{
-    %\inheritsavedanchors[from=rectangle]
-    %\inheritanchorborder[from=rectangle]
-    %\inheritanchor[from=rectangle]{center}
-    %\inheritanchor[from=rectangle]{north}
-    %\inheritanchor[from=rectangle]{south}
-    %\inheritanchor[from=rectangle]{west}
-    %\inheritanchor[from=rectangle]{east}
-    %\inheritanchor[from=rectangle]{north west}
-    %\inheritanchor[from=rectangle]{south east}
-    %\inheritanchor[from=rectangle]{south west}
-    %\inheritanchor[from=rectangle]{north east}
-    %\inheritanchor[from=rectangle]{center}
-    %\inheritanchor[from=rectangle]{base}
-    %\inheritanchor[from=rectangle]{base east}
-    %\inheritanchor[from=rectangle]{base west}
-    %\inheritanchor[from=rectangle]{mid}
-    %\inheritanchor[from=rectangle]{mid east}
-    %\inheritanchor[from=rectangle]{mid west}
-    \anchor{center}{\pgfpointorigin}
+     \getrectanchors
      
      \inheritanchor[from=strike out]{north}
      \savedanchor\pinopa{\pgfpoint{\xopalu - 0.5cm}{\yopalu}}
@@ -301,25 +268,7 @@
 \pgfgetlastxy{\xco}{\yco}
 
 \pgfdeclareshape{claa}{
-    \inheritsavedanchors[from=rectangle]
-    \inheritanchorborder[from=rectangle]
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{north}
-    \inheritanchor[from=rectangle]{south}
-    \inheritanchor[from=rectangle]{west}
-    \inheritanchor[from=rectangle]{east}
-    \inheritanchor[from=rectangle]{north west}
-    \inheritanchor[from=rectangle]{south east}
-    \inheritanchor[from=rectangle]{south west}
-    \inheritanchor[from=rectangle]{north east}
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{base}
-    \inheritanchor[from=rectangle]{base east}
-    \inheritanchor[from=rectangle]{base west}
-    \inheritanchor[from=rectangle]{mid}
-    \inheritanchor[from=rectangle]{mid east}
-    \inheritanchor[from=rectangle]{mid west}
-    \anchor{center}{\pgfpointorigin}
+     \getrectanchors
      
      \savedanchor\pinopa{\pgfpoint{\xopaclaa - 0.5cm}{\yopaclaa}}
      \anchor{opa}{\pinopa}
@@ -381,26 +330,8 @@
 \pgfgetlastxy{\xoutbmul}{\youtbmul}
 
 \pgfdeclareshape{wtmul}{
-    \inheritsavedanchors[from=rectangle]
-    \inheritanchorborder[from=rectangle]
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{north}
-    \inheritanchor[from=rectangle]{south}
-    \inheritanchor[from=rectangle]{west}
-    \inheritanchor[from=rectangle]{east}
-    \inheritanchor[from=rectangle]{north west}
-    \inheritanchor[from=rectangle]{south east}
-    \inheritanchor[from=rectangle]{south west}
-    \inheritanchor[from=rectangle]{north east}
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{base}
-    \inheritanchor[from=rectangle]{base east}
-    \inheritanchor[from=rectangle]{base west}
-    \inheritanchor[from=rectangle]{mid}
-    \inheritanchor[from=rectangle]{mid east}
-    \inheritanchor[from=rectangle]{mid west}
-    \anchor{center}{\pgfpointorigin}
-     
+     \getrectanchors
+
      \savedanchor\pinopa{\pgfpoint{\xopamul - 0.5cm}{\yopamul}}
      \anchor{opa}{\pinopa}
      \savedanchor\pinopb{\pgfpoint{\xopbmul - 0.5cm}{\yopbmul}}
@@ -458,25 +389,7 @@
 \pgfgetlastxy{\xzsh}{\yzsh}
 
 \pgfdeclareshape{barrel}{
-    \inheritsavedanchors[from=rectangle]
-    \inheritanchorborder[from=rectangle]
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{north}
-    \inheritanchor[from=rectangle]{south}
-    \inheritanchor[from=rectangle]{west}
-    \inheritanchor[from=rectangle]{east}
-    \inheritanchor[from=rectangle]{north west}
-    \inheritanchor[from=rectangle]{south east}
-    \inheritanchor[from=rectangle]{south west}
-    \inheritanchor[from=rectangle]{north east}
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{base}
-    \inheritanchor[from=rectangle]{base east}
-    \inheritanchor[from=rectangle]{base west}
-    \inheritanchor[from=rectangle]{mid}
-    \inheritanchor[from=rectangle]{mid east}
-    \inheritanchor[from=rectangle]{mid west}
-    \anchor{center}{\pgfpointorigin}
+     \getrectanchors
      
      \savedanchor\pinop{\pgfpoint{\xops - 0.5cm}{\yops}}
      \anchor{op}{\pinop}
@@ -565,25 +478,7 @@
 \pgfgetlastxy{\xinop}{\yinop}
 
 \pgfdeclareshape{decoder}{
-    \inheritsavedanchors[from=rectangle]
-    \inheritanchorborder[from=rectangle]
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{north}
-    \inheritanchor[from=rectangle]{south}
-    \inheritanchor[from=rectangle]{west}
-    \inheritanchor[from=rectangle]{east}
-    \inheritanchor[from=rectangle]{north west}
-    \inheritanchor[from=rectangle]{south east}
-    \inheritanchor[from=rectangle]{south west}
-    \inheritanchor[from=rectangle]{north east}
-    \inheritanchor[from=rectangle]{center}
-    \inheritanchor[from=rectangle]{base}
-    \inheritanchor[from=rectangle]{base east}
-    \inheritanchor[from=rectangle]{base west}
-    \inheritanchor[from=rectangle]{mid}
-    \inheritanchor[from=rectangle]{mid east}
-    \inheritanchor[from=rectangle]{mid west}
-    \anchor{center}{\pgfpointorigin}
+    \getrectanchors
      
     \savedanchor\pindcsub{\pgfpoint{\xdcsub}{\ydcsub - 0.5cm}}
     \anchor{sub}{\pindcsub}
