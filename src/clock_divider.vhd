@@ -11,40 +11,40 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity clock_divider is
-    generic
+  generic
     (
-        div: natural := 2048
-    );
-    port
+      div : natural := 2048
+      );
+  port
     (
-        i_clk:   in std_logic;
-        i_n_rst: in std_logic;
-        o_clk:   out std_logic
-    );
+      i_clk   : in  std_logic;
+      i_n_rst : in  std_logic;
+      o_clk   : out std_logic
+      );
 end entity clock_divider;
 
 architecture behaviour of clock_divider is
-signal next_count, count : natural := 0; 
+  signal next_count, count : natural := 0;
 begin
 
-divide_proc : process(all)
-begin
+  divide_proc : process(all)
+  begin
     if (count = div) then
-        o_clk <= '1';
-        count <= 0;
+      o_clk <= '1';
+      count <= 0;
     else
-        o_clk <= '0';
-        next_count <= count + 1;
+      o_clk      <= '0';
+      next_count <= count + 1;
     end if;
-end process;
+  end process;
 
-sync_proc : process(all)
-begin
+  sync_proc : process(all)
+  begin
     if (i_n_rst = '0') then
-        next_count <= 0;
+      next_count <= 0;
     elsif rising_edge(i_clk) then
-        next_count <= count;
+      next_count <= count;
     end if;
-end process;
+  end process;
 
 end architecture behaviour;
