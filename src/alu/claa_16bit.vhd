@@ -18,7 +18,10 @@ entity claa_16bit is
     o_e:   out std_logic_vector(15 downto 0);
     o_p:   out std_logic;
     o_g:   out std_logic;
-    o_c:   out std_logic
+    o_z:   out std_logic;
+    o_f:   out std_logic;
+    o_c:   out std_logic;
+    o_n:   out std_logic
     );
 end entity;
 
@@ -88,5 +91,9 @@ begin
     );
 
     o_e <= e_vec;
+    o_z <= '1' when e_vec="0000000000000000" else '0';
+    o_f <= '1' when (i_opa(15) and i_opb(15) and not e_vec(15)) or
+           (not i_opa(15) and not i_opb(15) and e_vec(15));
+    o_n <= '1' when e_vec(15)='1' else '0';
     o_c <= c_vec(3);
 end architecture behaviour;

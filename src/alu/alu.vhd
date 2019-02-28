@@ -16,10 +16,7 @@ entity alu is
     i_opc:   in std_logic_vector(4 downto 0);
     i_clk:   in std_logic;
     o_res:   out std_logic_vector(15 downto 0);
-    o_z:     out std_logic;
-    o_f:     out std_logic;
-    o_c:     out std_logic;
-    o_n:     out std_logic
+    o_flags: out std_logic_vector(3 downto 0); -- Z F C N
     ); 
 end entity;
 
@@ -34,7 +31,10 @@ architecture behaviour of alu is
         o_e:   out std_logic_vector(15 downto 0);
         o_p:   out std_logic;
         o_g:   out std_logic;
-        o_c:   out std_logic
+        o_z:   out std_logic;
+        o_f:   out std_logic;
+        o_c:   out std_logic;
+        o_n:   out std_logic
         );
     end component;
 
@@ -97,10 +97,10 @@ architecture behaviour of alu is
     end component;
 
     -- Adder signals
-    signal inv_vec:  std_logic_vector(15 downto 0);
-    signal sub_flag: std_logic;
-    signal add_res:  std_logic_vector(15 downto 0);
-    signal add_c:    std_logic;
+    signal inv_vec:   std_logic_vector(15 downto 0);
+    signal sub_flag:  std_logic;
+    signal add_res:   std_logic_vector(15 downto 0);
+    signal add_flags: std_logic;
 
     -- LU signals
     signal lu_res: std_logic_vector(15 downto 0);
@@ -133,7 +133,10 @@ begin
     o_e   => add_res,
     o_p   => open,
     o_g   => open,
-    o_c   => add_c
+    o_z   => add_z,
+    o_f   => add_f,
+    o_c   => add_c,
+    o_n   => add_n,
     );
 
     lu_int : lu port map
@@ -181,6 +184,17 @@ begin
     o_ar   => sh_ar,
     o_mult => mul_flag
     );
+
+    sub_proc : process(all)
+    begin
+      if sub_flag='0' then
+        inv_vec <= i_op2;
+      else
+        for i in 0 to 15 loop
+          inv_vec(i) <= not i_op2(i);
+        end loop;
+    end process;
+      
     
     sync_proc : process(all)
     begin
