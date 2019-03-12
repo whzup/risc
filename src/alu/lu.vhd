@@ -17,7 +17,8 @@ entity lu is
       i_xor : in  std_logic;
       i_not : in  std_logic;
       o_res : out std_logic_vector(15 downto 0);
-      o_z   : out std_logic
+      o_z   : out std_logic;
+      o_n   : out std_logic
       );
 end entity;
 
@@ -46,5 +47,6 @@ begin
   end process;
 
   o_z   <= '1' when res = "0000000000000000" else '0';
+  o_n   <= '1' when res(15) = '1'            else '0';
   o_res <= res;
 end architecture;

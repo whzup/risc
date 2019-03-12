@@ -49,7 +49,8 @@ architecture behaviour of alu is
         i_xor : in  std_logic;
         i_not : in  std_logic;
         o_res : out std_logic_vector(15 downto 0);
-        o_z   : out std_logic
+        o_z   : out std_logic;
+        o_n   : out std_logic
         );
   end component;
 
@@ -105,6 +106,7 @@ architecture behaviour of alu is
   -- LU signals
   signal lu_res : std_logic_vector(15 downto 0);
   signal lu_z   : std_logic;
+  signal lu_n   : std_logic;
   signal lu_and : std_logic;
   signal lu_or  : std_logic;
   signal lu_xor : std_logic;
@@ -148,7 +150,8 @@ begin
       i_xor => lu_xor,
       i_not => lu_not,
       o_res => lu_res,
-      o_z   => lu_z
+      o_z   => lu_z,
+      o_n   => lu_n
       );
 
   shifter_inst : shifter port map
