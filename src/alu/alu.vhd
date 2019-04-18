@@ -16,7 +16,7 @@ entity alu is
       i_opc   : in  std_logic_vector(4 downto 0);
       i_clk   : in  std_logic;
       o_res   : out std_logic_vector(15 downto 0);
-      o_flags : out std_logic_vector(3 downto 0);  -- Z F C N
+      o_flags : out std_logic_vector(3 downto 0) -- Z F C N
       );
 end entity;
 
@@ -102,6 +102,10 @@ architecture behaviour of alu is
   signal sub_flag  : std_logic;
   signal add_res   : std_logic_vector(15 downto 0);
   signal add_flags : std_logic;
+  signal add_z : std_logic;
+  signal add_f : std_logic;
+  signal add_c : std_logic;
+  signal add_n : std_logic;
 
   -- LU signals
   signal lu_res : std_logic_vector(15 downto 0);
@@ -124,7 +128,9 @@ architecture behaviour of alu is
   -- Multiplier signal
   signal mul_op1 : std_logic_vector(31 downto 0);
   signal mul_op2 : std_logic_vector(31 downto 0);
+  signal mul_flag : std_logic;
 
+  signal res : std_logic_vector(31 downto 0);
 begin
   -- Instantiate the components
   claa_inst : claa_16bit port map
@@ -138,7 +144,7 @@ begin
       o_z   => add_z,
       o_f   => add_f,
       o_c   => add_c,
-      o_n   => add_n,
+      o_n   => add_n
       );
 
   lu_int : lu port map
@@ -196,7 +202,8 @@ begin
       for i in 0 to 15 loop
         inv_vec(i) <= not i_op2(i);
       end loop;
-    end process;
+  end if;
+  end process;
 
 
     sync_proc : process(all)
