@@ -205,6 +205,18 @@ begin
   end if;
   end process;
 
+  flag_proc : process(all)
+  begin
+      if o_sub = '1' or o_add = '1' or mul_flag = '1' then
+          o_flags <= add_z & add_f & add_c & add_n;
+      elsif o_or = '1' or o_and = '1' or o_xor = '1' or o_not = '1' then
+          o_flags <= lu_z & lu_f & lu_c & lu_n;
+      elsif o_dir = '1' or o_rot = '1' or o_ar = '1' then
+          o_flags <= sh_z & sh_f & sh_c & sh_n;
+      else
+          o_flags <= "0000";
+      end if;
+  end process;
 
     sync_proc : process(all)
     begin
@@ -223,6 +235,7 @@ begin
     port
       (
         i_opc  : in  std_logic_vector(4 downto 0);
+        o_add  : out std_logic;
         o_sub  : out std_logic;
         o_and  : out std_logic;
         o_or   : out std_logic;
@@ -238,12 +251,13 @@ begin
   architecture behaviour of op_decoder is
   begin
     o_sub  <= '1' when i_opc = "10000" else '0';
-    o_and  <= '1' when i_opc = "10001" else '0';
-    o_or   <= '1' when i_opc = "10010" else '0';
-    o_xor  <= '1' when i_opc = "10011" else '0';
-    o_not  <= '1' when i_opc = "10100" else '0';
-    o_dir  <= '1' when i_opc = "10101" else '0';
-    o_rot  <= '1' when i_opc = "10110" else '0';
-    o_ar   <= '1' when i_opc = "11000" else '0';
-    o_mult <= '1' when i_opc = "11001" else '0';
+    o_add  <= '1' when i_opc = "10001" else '0';
+    o_and  <= '1' when i_opc = "10010" else '0';
+    o_or   <= '1' when i_opc = "10011" else '0';
+    o_xor  <= '1' when i_opc = "10100" else '0';
+    o_not  <= '1' when i_opc = "10101" else '0';
+    o_dir  <= '1' when i_opc = "10110" else '0';
+    o_rot  <= '1' when i_opc = "11000" else '0';
+    o_ar   <= '1' when i_opc = "11001" else '0';
+    o_mult <= '1' when i_opc = "11010" else '0';
   end architecture;
