@@ -18,10 +18,7 @@ entity claa_16bit is
       o_e   : out std_logic_vector(15 downto 0);
       o_p   : out std_logic;
       o_g   : out std_logic;
-      o_z   : out std_logic;
-      o_f   : out std_logic;
-      o_c   : out std_logic;
-      o_n   : out std_logic
+      o_flags : out std_logic_vector(3 downto 0)
       );
 end entity;
 
@@ -53,6 +50,10 @@ architecture behaviour of claa_16bit is
   signal g_vec : std_logic_vector(3 downto 0);
   signal c_vec : std_logic_vector(3 downto 0);
 
+  signal add_z : std_logic := '0';
+  signal add_f : std_logic := '0';
+  signal add_c : std_logic := '0';
+  signal add_n : std_logic := '0';
 begin
   gen_claa : for i in 0 to 3 generate
     lsb_claa : if i = 0 generate
@@ -91,9 +92,10 @@ begin
       );
 
   o_e <= e_vec;
-  o_z <= '1' when e_vec = "0000000000000000" else '0';
-  o_f <= '1' when (i_opa(15) and i_opb(15) and not e_vec(15)) or
-         (not i_opa(15) and not i_opb(15) and e_vec(15));
-  o_n <= '1' when e_vec(15) = '1' else '0';
-  o_c <= c_vec(3);
+  add_z <= '1' when e_vec = "0000000000000000" else '0';
+  add_f <= '1' when (i_opa(15) and i_opb(15) and not e_vec(15)) or
+           (not i_opa(15) and not i_opb(15) and e_vec(15));
+  add_n <= '1' when e_vec(15) = '1' else '0';
+  add_c <= c_vec(3);
+  o_flags <= add_z & add_f & add_c & add_n;
 end architecture behaviour;

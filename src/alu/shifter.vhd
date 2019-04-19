@@ -12,7 +12,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Utility entity for the barrel shfiter
+-- Utility entity for the barrel shifter
 entity mux is
   generic
     (
@@ -48,8 +48,7 @@ entity shifter is
       i_rot : in  std_logic;            -- rotate
       i_ar  : in  std_logic;            -- arithmetic shift
       o_r   : out std_logic_vector(15 downto 0);  -- result
-      o_f   : out std_logic;  -- overflow flag only possible for arithmetic left shift
-      o_z   : out std_logic             -- zero flag
+      o_flags : out std_logic_vector(3 downto 0)
       );
 
   function reverse_vector(a : in std_logic_vector)
@@ -123,6 +122,12 @@ architecture behaviour of shifter is
   signal of_tmp1 : std_logic := '0';
   signal of_tmp2 : std_logic := '0';
   signal of_tmp3 : std_logic := '0';
+
+  -- Flags
+  signal sh_z : std_logic := '0';
+  signal sh_f : std_logic := '0';
+  signal sh_c : std_logic := '0';
+  signal sh_n : std_logic := '0';
 begin
   s_8 <= (others => s);
   s_4 <= (others => s);
@@ -386,8 +391,9 @@ begin
   of_tmp2 <= xor_out2(0) or xor_out2(1);
   of_tmp3 <= xor_out3;
 
-  o_f <= sl and (of_tmp0 or of_tmp1 or of_tmp2 or of_tmp3);
+  sh_f <= sl and (of_tmp0 or of_tmp1 or of_tmp2 or of_tmp3);
+  sh_z <= '1' when rev_1 = "0000000000000000" else '0';
 
+  o_flags <= sh_z & sh_f & sh_z & sh_n;
   o_r <= rev_1;
-  o_z <= '1' when rev_1 = "0000000000000000" else '0';
 end architecture;

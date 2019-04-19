@@ -10,20 +10,23 @@ use ieee.std_logic_1164.all;
 entity lu is
   port
     (
-      i_op1 : in  std_logic_vector(15 downto 0);
-      i_op2 : in  std_logic_vector(15 downto 0);
-      i_and : in  std_logic;
-      i_or  : in  std_logic;
-      i_xor : in  std_logic;
-      i_not : in  std_logic;
-      o_res : out std_logic_vector(15 downto 0);
-      o_z   : out std_logic;
-      o_n   : out std_logic
+      i_op1   : in  std_logic_vector(15 downto 0);
+      i_op2   : in  std_logic_vector(15 downto 0);
+      i_and   : in  std_logic;
+      i_or    : in  std_logic;
+      i_xor   : in  std_logic;
+      i_not   : in  std_logic;
+      o_res   : out std_logic_vector(15 downto 0);
+      o_flags : out std_logic_vector(3 downto 0) -- Z F C N
       );
 end entity;
 
 architecture behaviour of lu is
   signal res : std_logic_vector(15 downto 0);
+  signal lu_z : std_logic := '0';
+  signal lu_f : std_logic := '0';
+  signal lu_c : std_logic := '0';
+  signal lu_n : std_logic := '0';
 begin
   logic_proc : process(all)
   begin
@@ -46,7 +49,8 @@ begin
     end if;
   end process;
 
-  o_z   <= '1' when res = "0000000000000000" else '0';
-  o_n   <= '1' when res(15) = '1'            else '0';
-  o_res <= res;
+  lu_z     <= '1' when res = "0000000000000000" else '0';
+  lu_n     <= '1' when res(15) = '1'            else '0';
+  o_flags <= lu_z & lu_f & lu_c & lu_n;
+  o_res   <= res;
 end architecture;
