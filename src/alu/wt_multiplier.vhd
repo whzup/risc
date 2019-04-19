@@ -88,8 +88,9 @@ package body utils is
   end function;
 
   function num_full_adders(this_weight : natural; this_lvl : natural) return natural is
+      variable this_num_bits : integer := this_lvl_bits(this_weight, this_lvl);
   begin
-    return (this_lvl_bits(this_weight, this_lvl)/3);
+    return (this_num_bits/3);
   end function;
 
   function num_half_adders(this_weight : natural; this_lvl : natural) return natural is
@@ -116,56 +117,51 @@ entity wt_multiplier is
 end entity;
 
 architecture behaviour of wt_multiplier is
-  component claa_16bit
-    port
-      (
-        i_opa : in  std_logic_vector(15 downto 0);
-        i_opb : in  std_logic_vector(15 downto 0);
-        i_c   : in  std_logic;
-        o_e   : out std_logic_vector(15 downto 0);
-        o_p   : out std_logic;
-        o_g   : out std_logic;
-        o_c   : out std_logic
-        );
-  end component;
-
   type t_tree is array(31 downto 0, 15 downto 0, 6 downto 0) of std_logic;
   type t_init is array(15 downto 0, 15 downto 0) of std_logic;  -- product tree
 
   signal init : t_init;
   signal tree : t_tree;
+  signal op1, op2 : std_logic_vector(31 downto 0);
+
+  signal test_num1 : natural := 0;
+  signal test_num2 : natural := 0;
+  signal test_num3 : natural := 0;
+  signal test_num4 : natural := 0;
 
 begin
   init_proc : process(all)
   -- Fill the zeroth layer
   begin
-    for i in 0 to 15 loop
-      for j in 0 to 15 loop
-        init(i, j) <= i_op1(i) and i_op2(i);
+    for i in 15 downto 0 loop
+      for j in 15 downto 0 loop
+        init(i, j) <= i_op1(i) and i_op2(j);
       end loop;
     end loop;
   end process;
 
-  wallace_tree_proc : process(all)
+  wallace_tree_proc : process(tree, init)
     variable this_carry_bits : natural := 0;
     variable num_full_adds   : natural := 0;
     variable num_half_adds   : natural := 0;
     variable num_wires       : natural := 0;
   -- Fill the tree
   begin
+    tree(31,0,0) <= '1';
+    tree(16,15,0) <= '1';
     for i in 30 downto 0 loop
       if i <= 15 then
         -- Fill first half
         for j in i downto 0 loop
           if (j = 15) xor (i-j = 15) then
-            tree(i, j, 0) <= not init(j, i-j);
+            tree(i, j, 0) <= not(init(j, i-j));
           else
             tree(i, j, 0) <= init(j, i-j);
           end if;
         end loop;
       else
         -- Fill second half
-        for j in 15 downto i-16 loop
+        for j in 15 downto i-14 loop
           if (j = 15) xor (i-j = 15) then
             tree(i, j-i+15, 0) <= not init(j, i-j);
           else
@@ -179,8 +175,11 @@ begin
     for k in 0 to 5 loop
       for i in 31 downto 0 loop
         this_carry_bits := prev_lvl_carry(i, k+1);
+        test_num1 <= this_carry_bits;
 
+        -- 3:2 compressors
         num_full_adds := num_full_adders(i, k);
+        test_num2 <= num_full_adds;
         for j in 0 to num_full_adds-1 loop
           tree(i, this_carry_bits+j, k+1) <= tree(i, j*3, k) xor
                                              tree(i, j*3+1, k) xor
@@ -193,7 +192,9 @@ begin
           end if;
         end loop;
 
+        -- 2:2 compressors
         num_half_adds := num_half_adders(i, k);
+        test_num3 <= num_half_adds;
         for j in 0 to num_half_adds-1 loop
           tree(i, this_carry_bits+num_full_adds+j, k+1) <=
             tree(i, num_full_adds*3+j*2, k) xor
@@ -205,8 +206,10 @@ begin
           end if;
         end loop;
 
+        -- Wires
         num_wires := this_lvl_bits(i, k) - num_full_adds*3 -
                      num_half_adds*2;
+        test_num4 <= num_wires;
         for j in 0 to num_wires-1 loop
           tree(i, this_carry_bits + num_full_adds + num_half_adds +
                j, k+1) <= tree(i, num_full_adds*3+num_half_adds*2+j, k);
@@ -215,8 +218,14 @@ begin
     end loop;
   end process;
 
-  output : for i in 31 downto 0 generate
-    o_op1(i) <= tree(i, 0, 6);
-    o_op2(i) <= tree(i, 1, 6);
-  end generate;
+  output_proc : process(all)
+  begin
+    for i in 31 downto 0 loop
+      op1(i) <= tree(i, 0, 6);
+      op2(i) <= tree(i, 1, 6);
+    end loop;
+  end process;
+
+  o_op1 <= op1;
+  o_op2 <= op2;
 end architecture;
