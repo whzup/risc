@@ -1,0 +1,32 @@
+$date
+  Tue Apr 30 07:13:11 2019
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module dadda_mult_tb $end
+$var reg 16 ! iop1_tb[15:0] $end
+$var reg 16 " iop2_tb[15:0] $end
+$var reg 32 # oop1_tb[31:0] $end
+$var reg 32 $ oop2_tb[31:0] $end
+$scope module dut $end
+$var reg 16 % i_op1[15:0] $end
+$var reg 16 & i_op2[15:0] $end
+$var reg 32 ' o_op1[31:0] $end
+$var reg 32 ( o_op2[31:0] $end
+$comment tree is not handled $end
+$comment height is not handled $end
+$upscope $end
+$upscope $end
+$enddefinitions $end

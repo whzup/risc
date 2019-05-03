@@ -1,11 +1,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity wt_multiplier_tb is
+entity dadda_mult_tb is
 end entity;
 
-architecture behaviour of wt_multiplier_tb is
-  component wt_multiplier is
+architecture behaviour of dadda_mult_tb is
+  component dadda_mult is
   port
       (
       i_op1 : in  std_logic_vector(15 downto 0);
@@ -29,7 +29,7 @@ architecture behaviour of wt_multiplier_tb is
   signal oop1_tb, oop2_tb : std_logic_vector(31 downto 0);
 
 begin
-  dut : wt_multiplier port map
+  dut : dadda_mult port map
     (
       i_op1 => iop1_tb,
       i_op2 => iop2_tb,
@@ -59,7 +59,7 @@ begin
       assert oop2_tb = patterns(i).oop2 report "bad output operand 2 value" severity error;
     end loop;
 
-    assert false report "Wallace Tree Multiplier testbench finished" severity note;
+    assert false report "Dadda Tree Multiplier testbench finished" severity note;
     wait;
   end process;
 end;
