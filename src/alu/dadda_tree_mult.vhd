@@ -41,7 +41,8 @@ begin
     op2 <= i_op2;
     dadda_proc : process(all)
         variable prod : std_logic;
-        variable comp_count : natural := 0;
+        variable comp_count : natural;
+        variable ha_flag : natural;
         variable a : std_logic;
         variable b : std_logic;
         variable c : std_logic;
@@ -49,9 +50,6 @@ begin
         variable my_line : line;
     begin
         -- Initialize
-        write(my_line, op1);
-        write(my_line, op2);
-        writeline(output, my_line);
         for i in 15 downto 0 loop
             for j in 15 downto 0 loop
                 prod := op1(i) and op2(j);
@@ -66,9 +64,8 @@ begin
         height := const_height;
 
         for k in 0 to stages-2 loop
-            write(my_line, string'("loop nr. "));
+            write(my_line, string'("loop "));
             write(my_line, k);
-            writeline(output, my_line);
             writeline(output, my_line);
             for i in 0 to 30 loop
                 -- The height is already less than the maximal stage height
@@ -79,57 +76,68 @@ begin
                 -- The height is max_height+1 -> apply a half adder
                 elsif height(i) = max_height(k) + 1 then
                     -- Halfadder
-                    tree(i+1,height(i+1),k+1) <= tree(i,0,k) and tree(i,1,k); -- carry
-                    tree(i,1,k+1) <= tree(i,0,k) xor tree(i,1,k); -- result
+                    tree(i+1,height(i+1),k) <= tree(i,0,k) and tree(i,1,k); -- carry
+                    tree(i,0,k+1) <= tree(i,0,k) xor tree(i,1,k); -- result
                     -- Adjust heights
                     height(i) := height(i) - 1;
                     height(i+1) := height(i+1) + 1;
                     -- Shift the rest down
                     for j in 0 to height(i)-1 loop
-                        tree(i,j,k+1) <= tree(i,j+1,k);
+                        tree(i,j+1,k+1) <= tree(i,j+2,k);
                     end loop;
                 else
                     comp_count := 0;
+                    ha_flag := 0;
                     while (height(i) > max_height(k)) loop
                         if height(i) = max_height(k) + 1 then
                             -- Half adder
-                            tree(i+1,height(i+1),k+1) <= tree(i,3*comp_count,k) and tree(i,3*comp_count+1,k); -- carry
-                            tree(i,1,k+1)             <= tree(i,0,k) xor tree(i,1,k); -- result
-                            -- Shift the rest down
-                            for j in 0 to height(i)-1 loop
-                                tree(i,j,k+1) <= tree(i,j+1,k);
-                            end loop;
+                            tree(i+1,height(i+1),k)  <= tree(i,3*comp_count,k) and tree(i,3*comp_count+1,k); -- carry
+                            tree(i,comp_count+1,k+1) <= tree(i,0,k) xor tree(i,1,k); -- result
                             -- Adjust heights
                             height(i)   := height(i) - 1;
                             height(i+1) := height(i+1) + 1;
+                            ha_flag := 1;
                         else
                             a := tree(i,3*comp_count,k);
                             b := tree(i,3*comp_count+1,k);
                             c := tree(i,3*comp_count+2,k);
                             -- Full adder
-                            tree(i+1,height(i+1),k+1) <= (a and b) or (c or (a xor b)); -- carry
+                            tree(i+1,height(i+1),k) <= (a and b) or (c or (a xor b)); -- carry
                             tree(i,comp_count,k+1)    <= a xor b xor c; --result
+                            write(my_line, string'("x "));
+                            write(my_line, i);
+                            write(my_line, string'(" abc "));
+                            write(my_line, a);
+                            write(my_line, b);
+                            write(my_line, c);
+                            write(my_line, string'(" tree "));
+                            write(my_line, tree(i+1,height(i+1),k));
+                            write(my_line, tree(i,comp_count,k+1));
+                            write(my_line, string'(" comp "));
+                            write(my_line, comp_count+1);
+                            write(my_line, string'(" height "));
+                            write(my_line, height(i)-2);
+                            writeline(output, my_line);
                             -- Adjust heights and counter
                             height(i)   := height(i) - 2;
                             height(i+1) := height(i+1) + 1;
                             comp_count  := comp_count + 1;
                         end if;
-                        if comp_count > 0 then
-                            -- Shift the rest down
-                            for j in 0 to 17-comp_count loop
-                                tree(i,j,k+1) <= tree(i,j+comp_count,k);
+                        -- Shift the rest down
+                        if ha_flag = 1 then
+                            for j in 0 to height(i)-(3*comp_count+2) loop
+                                tree(i,j+comp_count+2,k+1) <= tree(i,j+(3*comp_count+2),k);
+                            end loop;
+                        else
+                            for j in 0 to height(i)-(3*comp_count) loop
+                                tree(i,j+comp_count,k+1) <= tree(i,j+(3*comp_count),k);
                             end loop;
                         end if;
                     end loop;
                 end if;
             end loop;
-            for i in 30 downto 0 loop
-                write(my_line, height(i));
-                write(my_line, string'(" "));
-            end loop;
         end loop;
-        tree(0,1,0) <= '0';
-        tree(30,1,6) <= '0';
+        tree(0,1,6) <= '0';
     end process;
 
     output_proc : process(tree)
@@ -141,8 +149,5 @@ begin
         end loop;
         o_op1(31) <= '0';
         o_op2(31) <= '0';
-        write(my_line, o_op1);
-        write(my_line, o_op2);
-        writeline(output, my_line);
     end process;
 end architecture;
