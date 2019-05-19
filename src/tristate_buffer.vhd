@@ -8,7 +8,7 @@ port(
 	reset_n  : in std_logic;
 	enable_n : in std_logic;
 	d_in  : in std_logic;
-	d_out : out std_logic;
+	d_out : out std_logic
 	);
 end tristate_buf;
 
@@ -36,6 +36,7 @@ begin
 			d_out <= data;
 		else 
 			d_out <= 'Z';
+		end if;
 	end process buffer_logic;
 
 	
