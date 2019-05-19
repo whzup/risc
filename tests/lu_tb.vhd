@@ -20,7 +20,7 @@ architecture behaviour of lu_tb is
   end component;
 
   signal op1_tb, op2_tb, res_tb        : std_logic_vector(15 downto 0);
-  signal s_tb, flags_tb                : std_logic_vector(3 downto 0);
+  signal flags_tb                : std_logic_vector(3 downto 0);
   signal and_tb, or_tb, xor_tb, not_tb : std_logic;
 
 begin
