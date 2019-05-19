@@ -8,9 +8,9 @@ architecture behaviour of claa_4bit_tb is
   component claa_4bit is
     port
       (
-        i_opa, i_opb  : in  std_logic_vector(3 downto 0);
+        i_op1, i_op2  : in  std_logic_vector(3 downto 0);
         i_c           : in  std_logic;
-        o_e           : out std_logic_vector(3 downto 0);
+        o_res         : out std_logic_vector(3 downto 0);
         o_p, o_g, o_c : out std_logic
         );
   end component;
@@ -21,10 +21,10 @@ architecture behaviour of claa_4bit_tb is
 begin
   dut : claa_4bit port map
     (
-      i_opa => opa_tb,
-      i_opb => opb_tb,
+      i_op1 => opa_tb,
+      i_op2 => opb_tb,
       i_c   => ci_tb,
-      o_e   => eo_tb,
+      o_res => eo_tb,
       o_p   => po_tb,
       o_g   => go_tb,
       o_c   => co_tb

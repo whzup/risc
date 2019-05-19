@@ -1,5 +1,5 @@
 $date
-  Sat Jan 12 14:03:06 2019
+  Sun May 19 20:32:17 2019
 $end
 $version
   GHDL v0
@@ -7,6 +7,13 @@ $end
 $timescale
   1 fs
 $end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module cl_full_adder_tb $end
 $var reg 1 ! opa_tb $end
 $var reg 1 " opb_tb $end
 $var reg 1 # c_tb $end
@@ -14,12 +21,13 @@ $var reg 1 $ e_tb $end
 $var reg 1 % g_tb $end
 $var reg 1 & p_tb $end
 $scope module dut $end
-$var reg 1 ' i_opa $end
-$var reg 1 ( i_opb $end
+$var reg 1 ' i_op1 $end
+$var reg 1 ( i_op2 $end
 $var reg 1 ) i_c $end
-$var reg 1 * o_e $end
+$var reg 1 * o_res $end
 $var reg 1 + o_g $end
 $var reg 1 , o_p $end
+$upscope $end
 $upscope $end
 $enddefinitions $end
 #0

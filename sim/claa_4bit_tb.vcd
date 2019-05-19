@@ -1,5 +1,5 @@
 $date
-  Sat Jan 12 13:38:09 2019
+  Sun May 19 20:30:45 2019
 $end
 $version
   GHDL v0
@@ -7,6 +7,13 @@ $end
 $timescale
   1 fs
 $end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module claa_4bit_tb $end
 $var reg 4 ! opa_tb[3:0] $end
 $var reg 4 " opb_tb[3:0] $end
 $var reg 4 # eo_tb[3:0] $end
@@ -15,24 +22,24 @@ $var reg 1 % po_tb $end
 $var reg 1 & go_tb $end
 $var reg 1 ' co_tb $end
 $scope module dut $end
-$var reg 4 ( i_opa[3:0] $end
-$var reg 4 ) i_opb[3:0] $end
+$var reg 4 ( i_op1[3:0] $end
+$var reg 4 ) i_op2[3:0] $end
 $var reg 1 * i_c $end
-$var reg 4 + o_e[3:0] $end
+$var reg 4 + o_res[3:0] $end
 $var reg 1 , o_p $end
 $var reg 1 - o_g $end
 $var reg 1 . o_c $end
-$var reg 4 / e_vec[3:0] $end
+$var reg 4 / res_vec[3:0] $end
 $var reg 4 0 p_vec[3:0] $end
 $var reg 4 1 g_vec[3:0] $end
 $var reg 4 2 c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 3 i_opa $end
-$var reg 1 4 i_opb $end
+$var reg 1 3 i_op1 $end
+$var reg 1 4 i_op2 $end
 $var reg 1 5 i_c $end
-$var reg 1 6 o_e $end
+$var reg 1 6 o_res $end
 $var reg 1 7 o_g $end
 $var reg 1 8 o_p $end
 $upscope $end
@@ -41,10 +48,10 @@ $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 9 i_opa $end
-$var reg 1 : i_opb $end
+$var reg 1 9 i_op1 $end
+$var reg 1 : i_op2 $end
 $var reg 1 ; i_c $end
-$var reg 1 < o_e $end
+$var reg 1 < o_res $end
 $var reg 1 = o_g $end
 $var reg 1 > o_p $end
 $upscope $end
@@ -53,10 +60,10 @@ $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 ? i_opa $end
-$var reg 1 @ i_opb $end
+$var reg 1 ? i_op1 $end
+$var reg 1 @ i_op2 $end
 $var reg 1 A i_c $end
-$var reg 1 B o_e $end
+$var reg 1 B o_res $end
 $var reg 1 C o_g $end
 $var reg 1 D o_p $end
 $upscope $end
@@ -65,10 +72,10 @@ $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 E i_opa $end
-$var reg 1 F i_opb $end
+$var reg 1 E i_op1 $end
+$var reg 1 F i_op2 $end
 $var reg 1 G i_c $end
-$var reg 1 H o_e $end
+$var reg 1 H o_res $end
 $var reg 1 I o_g $end
 $var reg 1 J o_p $end
 $upscope $end
@@ -84,6 +91,7 @@ $var reg 1 P o_gg $end
 $var reg 1 Q pg $end
 $var reg 1 R gg $end
 $var reg 4 S c_vec[3:0] $end
+$upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end

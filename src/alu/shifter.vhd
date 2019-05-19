@@ -42,12 +42,12 @@ use ieee.numeric_std.all;
 entity shifter is
   port
     (
-      i_op  : in  std_logic_vector(15 downto 0);
-      i_s   : in  std_logic_vector(3 downto 0);
-      i_dir : in  std_logic;            -- direction 1 left 0 right
-      i_rot : in  std_logic;            -- rotate
-      i_ar  : in  std_logic;            -- arithmetic shift
-      o_r   : out std_logic_vector(15 downto 0);  -- result
+      i_op    : in  std_logic_vector(15 downto 0);
+      i_s     : in  std_logic_vector(3 downto 0);
+      i_dir   : in  std_logic;            -- direction 1 left 0 right
+      i_rot   : in  std_logic;            -- rotate
+      i_ar    : in  std_logic;            -- arithmetic shift
+      o_res   : out std_logic_vector(15 downto 0);  -- result
       o_flags : out std_logic_vector(3 downto 0)
       );
 
@@ -393,7 +393,8 @@ begin
 
   sh_f <= sl and (of_tmp0 or of_tmp1 or of_tmp2 or of_tmp3);
   sh_z <= '1' when rev_1 = "0000000000000000" else '0';
+  sh_n <= '1' when rev_1(15) = '1' else '0';
 
   o_flags <= sh_z & sh_f & sh_z & sh_n;
-  o_r <= rev_1;
+  o_res <= rev_1;
 end architecture;

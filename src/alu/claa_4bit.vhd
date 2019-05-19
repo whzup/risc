@@ -12,10 +12,10 @@ use ieee.std_logic_1164.all;
 entity claa_4bit is
   port
     (
-      i_opa : in  std_logic_vector(3 downto 0);
-      i_opb : in  std_logic_vector(3 downto 0);
+      i_op1 : in  std_logic_vector(3 downto 0);
+      i_op2 : in  std_logic_vector(3 downto 0);
       i_c   : in  std_logic;
-      o_e   : out std_logic_vector(3 downto 0);
+      o_res : out std_logic_vector(3 downto 0);
       o_p   : out std_logic;
       o_g   : out std_logic;
       o_c   : out std_logic
@@ -27,8 +27,8 @@ architecture behaviour of claa_4bit is
   component cl_full_adder
     port
       (
-        i_opa, i_opb, i_c : in  std_logic;
-        o_e, o_g, o_p     : out std_logic
+        i_op1, i_op2, i_c : in  std_logic;
+        o_res, o_g, o_p     : out std_logic
         );
   end component;
 
@@ -43,7 +43,7 @@ architecture behaviour of claa_4bit is
   end component;
 
   -- Signals
-  signal e_vec : std_logic_vector(3 downto 0);
+  signal res_vec : std_logic_vector(3 downto 0);
   signal p_vec : std_logic_vector(3 downto 0);
   signal g_vec : std_logic_vector(3 downto 0);
   signal c_vec : std_logic_vector(3 downto 0);
@@ -53,10 +53,10 @@ begin
     lsb_adder : if i = 0 generate
       A0 : cl_full_adder port map
         (
-          i_opa => i_opa(i),
-          i_opb => i_opb(i),
+          i_op1 => i_op1(i),
+          i_op2 => i_op2(i),
           i_c   => i_c,
-          o_e   => e_vec(i),
+          o_res => res_vec(i),
           o_g   => g_vec(i),
           o_p   => p_vec(i)
           );
@@ -65,10 +65,10 @@ begin
     adder : if i > 0 generate
       AX : cl_full_adder port map
         (
-          i_opa => i_opa(i),
-          i_opb => i_opb(i),
+          i_op1 => i_op1(i),
+          i_op2 => i_op2(i),
           i_c   => c_vec(i-1),
-          o_e   => e_vec(i),
+          o_res => res_vec(i),
           o_g   => g_vec(i),
           o_p   => p_vec(i)
           );
@@ -85,6 +85,6 @@ begin
       o_gg => o_g
       );
 
-  o_e <= e_vec;
-  o_c <= c_vec(3);
+  o_res <= res_vec;
+  o_c   <= c_vec(3);
 end architecture behaviour;
