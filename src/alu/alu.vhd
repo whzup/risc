@@ -25,12 +25,12 @@ architecture behaviour of alu is
   component claa_16bit
     port
       (
-        i_opa   : in  std_logic_vector(15 downto 0);
-        i_opb   : in  std_logic_vector(15 downto 0);
+        i_op1   : in  std_logic_vector(15 downto 0);
+        i_op2   : in  std_logic_vector(15 downto 0);
         i_c     : in  std_logic;
-        o_e     : out std_logic_vector(15 downto 0);
         o_p     : out std_logic;
         o_g     : out std_logic;
+        o_res   : out std_logic_vector(15 downto 0);
         o_flags : out std_logic_vector(3 downto 0)
         );
   end component;
@@ -54,18 +54,18 @@ architecture behaviour of alu is
   component shifter
     port
       (
-        i_op  : in  std_logic_vector(15 downto 0);
-        i_s   : in  std_logic_vector(3 downto 0);
-        i_dir : in  std_logic;
-        i_rot : in  std_logic;
-        i_ar  : in  std_logic;
-        o_r   : out std_logic_vector(15 downto 0);
+        i_op    : in  std_logic_vector(15 downto 0);
+        i_s     : in  std_logic_vector(3 downto 0);
+        i_dir   : in  std_logic;
+        i_rot   : in  std_logic;
+        i_ar    : in  std_logic;
+        o_res   : out std_logic_vector(15 downto 0);
         o_flags : out std_logic_vector(3 downto 0)
         );
   end component;
 
   -- Mulitplier
-  component wt_multiplier
+  component dadda_mult
     port
       (
         i_op1 : in  std_logic_vector(15 downto 0);
@@ -143,10 +143,10 @@ begin
   -- Instantiate the components
   claa_inst : claa_16bit port map
     (
-      i_opa => i_op1,
-      i_opb => inv_vec,
+      i_op1 => i_op1,
+      i_op2 => inv_vec,
       i_c   => sub_flag,
-      o_e   => add_res,
+      o_res => add_res,
       o_p   => open,
       o_g   => open,
       o_flags => add_flags
@@ -171,11 +171,11 @@ begin
       i_dir => sh_dir,
       i_rot => sh_rot,
       i_ar  => sh_ar,
-      o_r   => sh_res,
+      o_res => sh_res,
       o_flags => sh_flags
       );
 
-  mult_inst : wt_multiplier port map
+  mult_inst : dadda_mult port map
     (
       i_op1 => i_op1,
       i_op2 => i_op2,
