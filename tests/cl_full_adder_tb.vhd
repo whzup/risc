@@ -8,10 +8,10 @@ architecture behaviour of cl_full_adder_tb is
   component cl_full_adder is
     port
       (
-        i_opa : in  std_logic;
-        i_opb : in  std_logic;
+        i_op1 : in  std_logic;
+        i_op2 : in  std_logic;
         i_c   : in  std_logic;
-        o_e   : out std_logic;
+        o_res : out std_logic;
         o_g   : out std_logic;
         o_p   : out std_logic
         );
@@ -22,10 +22,10 @@ architecture behaviour of cl_full_adder_tb is
 begin
   dut : cl_full_adder port map
     (
-      i_opa => opa_tb,
-      i_opb => opb_tb,
+      i_op1 => opa_tb,
+      i_op2 => opb_tb,
       i_c   => c_tb,
-      o_e   => e_tb,
+      o_res => e_tb,
       o_g   => g_tb,
       o_p   => p_tb
       );
