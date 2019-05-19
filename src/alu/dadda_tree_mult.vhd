@@ -47,7 +47,6 @@ begin
         variable b : std_logic;
         variable c : std_logic;
         variable height : nat_arr(30 downto 0);
-        variable my_line : line;
     begin
         -- Initialize
         for i in 15 downto 0 loop
@@ -64,9 +63,6 @@ begin
         height := const_height;
 
         for k in 0 to stages-2 loop
-            write(my_line, string'("loop "));
-            write(my_line, k);
-            writeline(output, my_line);
             for i in 0 to 30 loop
                 -- The height is already less than the maximal stage height
                 if height(i) <= max_height(k) then
@@ -78,13 +74,13 @@ begin
                     -- Halfadder
                     tree(i+1,height(i+1),k) <= tree(i,0,k) and tree(i,1,k); -- carry
                     tree(i,0,k+1) <= tree(i,0,k) xor tree(i,1,k); -- result
-                    -- Adjust heights
-                    height(i) := height(i) - 1;
-                    height(i+1) := height(i+1) + 1;
                     -- Shift the rest down
                     for j in 0 to height(i)-1 loop
                         tree(i,j+1,k+1) <= tree(i,j+2,k);
                     end loop;
+                    -- Adjust heights
+                    height(i) := height(i) - 1;
+                    height(i+1) := height(i+1) + 1;
                 else
                     comp_count := 0;
                     ha_flag := 0;
@@ -92,32 +88,18 @@ begin
                         if height(i) = max_height(k) + 1 then
                             -- Half adder
                             tree(i+1,height(i+1),k)  <= tree(i,3*comp_count,k) and tree(i,3*comp_count+1,k); -- carry
-                            tree(i,comp_count+1,k+1) <= tree(i,0,k) xor tree(i,1,k); -- result
+                            tree(i,comp_count,k+1) <= tree(i,3*comp_count,k) xor tree(i,3*comp_count+1,k); -- result
                             -- Adjust heights
                             height(i)   := height(i) - 1;
                             height(i+1) := height(i+1) + 1;
-                            ha_flag := 1;
+                            ha_flag     := 1;
                         else
                             a := tree(i,3*comp_count,k);
                             b := tree(i,3*comp_count+1,k);
                             c := tree(i,3*comp_count+2,k);
                             -- Full adder
-                            tree(i+1,height(i+1),k) <= (a and b) or (c or (a xor b)); -- carry
+                            tree(i+1,height(i+1),k) <= (a and b) or (c and (a xor b)); -- carry
                             tree(i,comp_count,k+1)    <= a xor b xor c; --result
-                            write(my_line, string'("x "));
-                            write(my_line, i);
-                            write(my_line, string'(" abc "));
-                            write(my_line, a);
-                            write(my_line, b);
-                            write(my_line, c);
-                            write(my_line, string'(" tree "));
-                            write(my_line, tree(i+1,height(i+1),k));
-                            write(my_line, tree(i,comp_count,k+1));
-                            write(my_line, string'(" comp "));
-                            write(my_line, comp_count+1);
-                            write(my_line, string'(" height "));
-                            write(my_line, height(i)-2);
-                            writeline(output, my_line);
                             -- Adjust heights and counter
                             height(i)   := height(i) - 2;
                             height(i+1) := height(i+1) + 1;
@@ -125,11 +107,11 @@ begin
                         end if;
                         -- Shift the rest down
                         if ha_flag = 1 then
-                            for j in 0 to height(i)-(3*comp_count+2) loop
-                                tree(i,j+comp_count+2,k+1) <= tree(i,j+(3*comp_count+2),k);
+                            for j in 0 to 17-(3*comp_count+2) loop
+                                tree(i,j+comp_count+1,k+1) <= tree(i,j+(3*comp_count+2),k);
                             end loop;
                         else
-                            for j in 0 to height(i)-(3*comp_count) loop
+                            for j in 0 to 17-(3*comp_count) loop
                                 tree(i,j+comp_count,k+1) <= tree(i,j+(3*comp_count),k);
                             end loop;
                         end if;
@@ -141,7 +123,6 @@ begin
     end process;
 
     output_proc : process(tree)
-        variable my_line : line;
     begin
         for i in 0 to 30 loop
             o_op1(i) <= tree(i,0,stages-1);
