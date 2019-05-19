@@ -95,7 +95,7 @@ begin
   o_res <= res_vec;
   add_z <= '1' when res_vec = "0000000000000000" else '0';
   add_f <= '1' when (i_op1(15) and i_op2(15) and not res_vec(15)) or
-           (not i_op1(15) and not i_op2(15) and res_vec(15));
+           (not i_op1(15) and not i_op2(15) and res_vec(15)) else '0';
   add_n <= '1' when res_vec(15) = '1' else '0';
   add_c <= c_vec(3);
   o_flags <= add_z & add_f & add_c & add_n;

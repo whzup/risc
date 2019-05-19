@@ -1,5 +1,5 @@
 $date
-  Sat Jan 12 09:51:12 2019
+  Sun May 19 20:28:03 2019
 $end
 $version
   GHDL v0
@@ -7,97 +7,108 @@ $end
 $timescale
   1 fs
 $end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module claa_16bit_tb $end
 $var reg 16 ! opa_tb[15:0] $end
 $var reg 16 " opb_tb[15:0] $end
 $var reg 16 # eo_tb[15:0] $end
 $var reg 1 $ ci_tb $end
 $var reg 1 % po_tb $end
 $var reg 1 & go_tb $end
-$var reg 1 ' co_tb $end
+$var reg 4 ' flags_tb[3:0] $end
 $scope module dut $end
-$var reg 16 ( i_opa[15:0] $end
-$var reg 16 ) i_opb[15:0] $end
+$var reg 16 ( i_op1[15:0] $end
+$var reg 16 ) i_op2[15:0] $end
 $var reg 1 * i_c $end
-$var reg 16 + o_e[15:0] $end
-$var reg 1 , o_p $end
-$var reg 1 - o_g $end
-$var reg 1 . o_c $end
-$var reg 16 / e_vec[15:0] $end
+$var reg 1 + o_p $end
+$var reg 1 , o_g $end
+$var reg 16 - o_res[15:0] $end
+$var reg 4 . o_flags[3:0] $end
+$var reg 16 / res_vec[15:0] $end
 $var reg 4 0 p_vec[3:0] $end
 $var reg 4 1 g_vec[3:0] $end
 $var reg 4 2 c_vec[3:0] $end
+$var reg 1 3 add_z $end
+$var reg 1 4 add_f $end
+$var reg 1 5 add_c $end
+$var reg 1 6 add_n $end
 $scope module gen_claa(0) $end
 $scope module lsb_claa $end
 $scope module a0 $end
-$var reg 4 3 i_opa[3:0] $end
-$var reg 4 4 i_opb[3:0] $end
-$var reg 1 5 i_c $end
-$var reg 4 6 o_e[3:0] $end
-$var reg 1 7 o_p $end
-$var reg 1 8 o_g $end
-$var reg 1 9 o_c $end
-$var reg 4 : e_vec[3:0] $end
-$var reg 4 ; p_vec[3:0] $end
-$var reg 4 < g_vec[3:0] $end
-$var reg 4 = c_vec[3:0] $end
+$var reg 4 7 i_op1[3:0] $end
+$var reg 4 8 i_op2[3:0] $end
+$var reg 1 9 i_c $end
+$var reg 4 : o_res[3:0] $end
+$var reg 1 ; o_p $end
+$var reg 1 < o_g $end
+$var reg 1 = o_c $end
+$var reg 4 > res_vec[3:0] $end
+$var reg 4 ? p_vec[3:0] $end
+$var reg 4 @ g_vec[3:0] $end
+$var reg 4 A c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 > i_opa $end
-$var reg 1 ? i_opb $end
-$var reg 1 @ i_c $end
-$var reg 1 A o_e $end
-$var reg 1 B o_g $end
-$var reg 1 C o_p $end
+$var reg 1 B i_op1 $end
+$var reg 1 C i_op2 $end
+$var reg 1 D i_c $end
+$var reg 1 E o_res $end
+$var reg 1 F o_g $end
+$var reg 1 G o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 D i_opa $end
-$var reg 1 E i_opb $end
-$var reg 1 F i_c $end
-$var reg 1 G o_e $end
-$var reg 1 H o_g $end
-$var reg 1 I o_p $end
+$var reg 1 H i_op1 $end
+$var reg 1 I i_op2 $end
+$var reg 1 J i_c $end
+$var reg 1 K o_res $end
+$var reg 1 L o_g $end
+$var reg 1 M o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 J i_opa $end
-$var reg 1 K i_opb $end
-$var reg 1 L i_c $end
-$var reg 1 M o_e $end
-$var reg 1 N o_g $end
-$var reg 1 O o_p $end
+$var reg 1 N i_op1 $end
+$var reg 1 O i_op2 $end
+$var reg 1 P i_c $end
+$var reg 1 Q o_res $end
+$var reg 1 R o_g $end
+$var reg 1 S o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 P i_opa $end
-$var reg 1 Q i_opb $end
-$var reg 1 R i_c $end
-$var reg 1 S o_e $end
-$var reg 1 T o_g $end
-$var reg 1 U o_p $end
+$var reg 1 T i_op1 $end
+$var reg 1 U i_op2 $end
+$var reg 1 V i_c $end
+$var reg 1 W o_res $end
+$var reg 1 X o_g $end
+$var reg 1 Y o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 V i_c $end
-$var reg 4 W i_p[3:0] $end
-$var reg 4 X i_g[3:0] $end
-$var reg 4 Y o_c[3:0] $end
-$var reg 1 Z o_pg $end
-$var reg 1 [ o_gg $end
-$var reg 1 \ pg $end
-$var reg 1 ] gg $end
-$var reg 4 ^ c_vec[3:0] $end
+$var reg 1 Z i_c $end
+$var reg 4 [ i_p[3:0] $end
+$var reg 4 \ i_g[3:0] $end
+$var reg 4 ] o_c[3:0] $end
+$var reg 1 ^ o_pg $end
+$var reg 1 _ o_gg $end
+$var reg 1 ` pg $end
+$var reg 1 a gg $end
+$var reg 4 b c_vec[3:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -105,75 +116,75 @@ $upscope $end
 $scope module gen_claa(1) $end
 $scope module claa $end
 $scope module ax $end
-$var reg 4 _ i_opa[3:0] $end
-$var reg 4 ` i_opb[3:0] $end
-$var reg 1 a i_c $end
-$var reg 4 b o_e[3:0] $end
-$var reg 1 c o_p $end
-$var reg 1 d o_g $end
-$var reg 1 e o_c $end
-$var reg 4 f e_vec[3:0] $end
-$var reg 4 g p_vec[3:0] $end
-$var reg 4 h g_vec[3:0] $end
-$var reg 4 i c_vec[3:0] $end
+$var reg 4 c i_op1[3:0] $end
+$var reg 4 d i_op2[3:0] $end
+$var reg 1 e i_c $end
+$var reg 4 f o_res[3:0] $end
+$var reg 1 g o_p $end
+$var reg 1 h o_g $end
+$var reg 1 i o_c $end
+$var reg 4 j res_vec[3:0] $end
+$var reg 4 k p_vec[3:0] $end
+$var reg 4 l g_vec[3:0] $end
+$var reg 4 m c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 j i_opa $end
-$var reg 1 k i_opb $end
-$var reg 1 l i_c $end
-$var reg 1 m o_e $end
-$var reg 1 n o_g $end
-$var reg 1 o o_p $end
+$var reg 1 n i_op1 $end
+$var reg 1 o i_op2 $end
+$var reg 1 p i_c $end
+$var reg 1 q o_res $end
+$var reg 1 r o_g $end
+$var reg 1 s o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 p i_opa $end
-$var reg 1 q i_opb $end
-$var reg 1 r i_c $end
-$var reg 1 s o_e $end
-$var reg 1 t o_g $end
-$var reg 1 u o_p $end
+$var reg 1 t i_op1 $end
+$var reg 1 u i_op2 $end
+$var reg 1 v i_c $end
+$var reg 1 w o_res $end
+$var reg 1 x o_g $end
+$var reg 1 y o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 v i_opa $end
-$var reg 1 w i_opb $end
-$var reg 1 x i_c $end
-$var reg 1 y o_e $end
-$var reg 1 z o_g $end
-$var reg 1 { o_p $end
+$var reg 1 z i_op1 $end
+$var reg 1 { i_op2 $end
+$var reg 1 | i_c $end
+$var reg 1 } o_res $end
+$var reg 1 !" o_g $end
+$var reg 1 "" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 | i_opa $end
-$var reg 1 } i_opb $end
-$var reg 1 !" i_c $end
-$var reg 1 "" o_e $end
-$var reg 1 #" o_g $end
-$var reg 1 $" o_p $end
+$var reg 1 #" i_op1 $end
+$var reg 1 $" i_op2 $end
+$var reg 1 %" i_c $end
+$var reg 1 &" o_res $end
+$var reg 1 '" o_g $end
+$var reg 1 (" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 %" i_c $end
-$var reg 4 &" i_p[3:0] $end
-$var reg 4 '" i_g[3:0] $end
-$var reg 4 (" o_c[3:0] $end
-$var reg 1 )" o_pg $end
-$var reg 1 *" o_gg $end
-$var reg 1 +" pg $end
-$var reg 1 ," gg $end
-$var reg 4 -" c_vec[3:0] $end
+$var reg 1 )" i_c $end
+$var reg 4 *" i_p[3:0] $end
+$var reg 4 +" i_g[3:0] $end
+$var reg 4 ," o_c[3:0] $end
+$var reg 1 -" o_pg $end
+$var reg 1 ." o_gg $end
+$var reg 1 /" pg $end
+$var reg 1 0" gg $end
+$var reg 4 1" c_vec[3:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -181,75 +192,75 @@ $upscope $end
 $scope module gen_claa(2) $end
 $scope module claa $end
 $scope module ax $end
-$var reg 4 ." i_opa[3:0] $end
-$var reg 4 /" i_opb[3:0] $end
-$var reg 1 0" i_c $end
-$var reg 4 1" o_e[3:0] $end
-$var reg 1 2" o_p $end
-$var reg 1 3" o_g $end
-$var reg 1 4" o_c $end
-$var reg 4 5" e_vec[3:0] $end
-$var reg 4 6" p_vec[3:0] $end
-$var reg 4 7" g_vec[3:0] $end
-$var reg 4 8" c_vec[3:0] $end
+$var reg 4 2" i_op1[3:0] $end
+$var reg 4 3" i_op2[3:0] $end
+$var reg 1 4" i_c $end
+$var reg 4 5" o_res[3:0] $end
+$var reg 1 6" o_p $end
+$var reg 1 7" o_g $end
+$var reg 1 8" o_c $end
+$var reg 4 9" res_vec[3:0] $end
+$var reg 4 :" p_vec[3:0] $end
+$var reg 4 ;" g_vec[3:0] $end
+$var reg 4 <" c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 9" i_opa $end
-$var reg 1 :" i_opb $end
-$var reg 1 ;" i_c $end
-$var reg 1 <" o_e $end
-$var reg 1 =" o_g $end
-$var reg 1 >" o_p $end
+$var reg 1 =" i_op1 $end
+$var reg 1 >" i_op2 $end
+$var reg 1 ?" i_c $end
+$var reg 1 @" o_res $end
+$var reg 1 A" o_g $end
+$var reg 1 B" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 ?" i_opa $end
-$var reg 1 @" i_opb $end
-$var reg 1 A" i_c $end
-$var reg 1 B" o_e $end
-$var reg 1 C" o_g $end
-$var reg 1 D" o_p $end
+$var reg 1 C" i_op1 $end
+$var reg 1 D" i_op2 $end
+$var reg 1 E" i_c $end
+$var reg 1 F" o_res $end
+$var reg 1 G" o_g $end
+$var reg 1 H" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 E" i_opa $end
-$var reg 1 F" i_opb $end
-$var reg 1 G" i_c $end
-$var reg 1 H" o_e $end
-$var reg 1 I" o_g $end
-$var reg 1 J" o_p $end
+$var reg 1 I" i_op1 $end
+$var reg 1 J" i_op2 $end
+$var reg 1 K" i_c $end
+$var reg 1 L" o_res $end
+$var reg 1 M" o_g $end
+$var reg 1 N" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 K" i_opa $end
-$var reg 1 L" i_opb $end
-$var reg 1 M" i_c $end
-$var reg 1 N" o_e $end
-$var reg 1 O" o_g $end
-$var reg 1 P" o_p $end
+$var reg 1 O" i_op1 $end
+$var reg 1 P" i_op2 $end
+$var reg 1 Q" i_c $end
+$var reg 1 R" o_res $end
+$var reg 1 S" o_g $end
+$var reg 1 T" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 Q" i_c $end
-$var reg 4 R" i_p[3:0] $end
-$var reg 4 S" i_g[3:0] $end
-$var reg 4 T" o_c[3:0] $end
-$var reg 1 U" o_pg $end
-$var reg 1 V" o_gg $end
-$var reg 1 W" pg $end
-$var reg 1 X" gg $end
-$var reg 4 Y" c_vec[3:0] $end
+$var reg 1 U" i_c $end
+$var reg 4 V" i_p[3:0] $end
+$var reg 4 W" i_g[3:0] $end
+$var reg 4 X" o_c[3:0] $end
+$var reg 1 Y" o_pg $end
+$var reg 1 Z" o_gg $end
+$var reg 1 [" pg $end
+$var reg 1 \" gg $end
+$var reg 4 ]" c_vec[3:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
@@ -257,89 +268,90 @@ $upscope $end
 $scope module gen_claa(3) $end
 $scope module claa $end
 $scope module ax $end
-$var reg 4 Z" i_opa[3:0] $end
-$var reg 4 [" i_opb[3:0] $end
-$var reg 1 \" i_c $end
-$var reg 4 ]" o_e[3:0] $end
-$var reg 1 ^" o_p $end
-$var reg 1 _" o_g $end
-$var reg 1 `" o_c $end
-$var reg 4 a" e_vec[3:0] $end
-$var reg 4 b" p_vec[3:0] $end
-$var reg 4 c" g_vec[3:0] $end
-$var reg 4 d" c_vec[3:0] $end
+$var reg 4 ^" i_op1[3:0] $end
+$var reg 4 _" i_op2[3:0] $end
+$var reg 1 `" i_c $end
+$var reg 4 a" o_res[3:0] $end
+$var reg 1 b" o_p $end
+$var reg 1 c" o_g $end
+$var reg 1 d" o_c $end
+$var reg 4 e" res_vec[3:0] $end
+$var reg 4 f" p_vec[3:0] $end
+$var reg 4 g" g_vec[3:0] $end
+$var reg 4 h" c_vec[3:0] $end
 $scope module gen_adder(0) $end
 $scope module lsb_adder $end
 $scope module a0 $end
-$var reg 1 e" i_opa $end
-$var reg 1 f" i_opb $end
-$var reg 1 g" i_c $end
-$var reg 1 h" o_e $end
-$var reg 1 i" o_g $end
-$var reg 1 j" o_p $end
+$var reg 1 i" i_op1 $end
+$var reg 1 j" i_op2 $end
+$var reg 1 k" i_c $end
+$var reg 1 l" o_res $end
+$var reg 1 m" o_g $end
+$var reg 1 n" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(1) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 k" i_opa $end
-$var reg 1 l" i_opb $end
-$var reg 1 m" i_c $end
-$var reg 1 n" o_e $end
-$var reg 1 o" o_g $end
-$var reg 1 p" o_p $end
+$var reg 1 o" i_op1 $end
+$var reg 1 p" i_op2 $end
+$var reg 1 q" i_c $end
+$var reg 1 r" o_res $end
+$var reg 1 s" o_g $end
+$var reg 1 t" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(2) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 q" i_opa $end
-$var reg 1 r" i_opb $end
-$var reg 1 s" i_c $end
-$var reg 1 t" o_e $end
-$var reg 1 u" o_g $end
-$var reg 1 v" o_p $end
+$var reg 1 u" i_op1 $end
+$var reg 1 v" i_op2 $end
+$var reg 1 w" i_c $end
+$var reg 1 x" o_res $end
+$var reg 1 y" o_g $end
+$var reg 1 z" o_p $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module gen_adder(3) $end
 $scope module adder $end
 $scope module ax $end
-$var reg 1 w" i_opa $end
-$var reg 1 x" i_opb $end
-$var reg 1 y" i_c $end
-$var reg 1 z" o_e $end
-$var reg 1 {" o_g $end
-$var reg 1 |" o_p $end
-$upscope $end
-$upscope $end
-$upscope $end
-$scope module lcu_inst $end
+$var reg 1 {" i_op1 $end
+$var reg 1 |" i_op2 $end
 $var reg 1 }" i_c $end
-$var reg 4 !# i_p[3:0] $end
-$var reg 4 "# i_g[3:0] $end
-$var reg 4 ## o_c[3:0] $end
-$var reg 1 $# o_pg $end
-$var reg 1 %# o_gg $end
-$var reg 1 &# pg $end
-$var reg 1 '# gg $end
-$var reg 4 (# c_vec[3:0] $end
+$var reg 1 !# o_res $end
+$var reg 1 "# o_g $end
+$var reg 1 ## o_p $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module lcu_inst $end
+$var reg 1 $# i_c $end
+$var reg 4 %# i_p[3:0] $end
+$var reg 4 &# i_g[3:0] $end
+$var reg 4 '# o_c[3:0] $end
+$var reg 1 (# o_pg $end
+$var reg 1 )# o_gg $end
+$var reg 1 *# pg $end
+$var reg 1 +# gg $end
+$var reg 4 ,# c_vec[3:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module lcu_inst $end
-$var reg 1 )# i_c $end
-$var reg 4 *# i_p[3:0] $end
-$var reg 4 +# i_g[3:0] $end
-$var reg 4 ,# o_c[3:0] $end
-$var reg 1 -# o_pg $end
-$var reg 1 .# o_gg $end
-$var reg 1 /# pg $end
-$var reg 1 0# gg $end
-$var reg 4 1# c_vec[3:0] $end
+$var reg 1 -# i_c $end
+$var reg 4 .# i_p[3:0] $end
+$var reg 4 /# i_g[3:0] $end
+$var reg 4 0# o_c[3:0] $end
+$var reg 1 1# o_pg $end
+$var reg 1 2# o_gg $end
+$var reg 1 3# pg $end
+$var reg 1 4# gg $end
+$var reg 4 5# c_vec[3:0] $end
+$upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -350,33 +362,33 @@ b0000000000000000 #
 0$
 0%
 0&
-0'
+b1000 '
 b0000000000000000 (
 b0000000000000000 )
 0*
-b0000000000000000 +
+0+
 0,
-0-
-0.
+b0000000000000000 -
+b1000 .
 b0000000000000000 /
 b0000 0
 b0000 1
 b0000 2
-b0000 3
-b0000 4
+13
+04
 05
-b0000 6
-07
-08
+06
+b0000 7
+b0000 8
 09
 b0000 :
-b0000 ;
-b0000 <
-b0000 =
-0>
-0?
-0@
-0A
+0;
+0<
+0=
+b0000 >
+b0000 ?
+b0000 @
+b0000 A
 0B
 0C
 0D
@@ -398,29 +410,29 @@ b0000 =
 0T
 0U
 0V
-b0000 W
-b0000 X
-b0000 Y
+0W
+0X
+0Y
 0Z
-0[
-0\
-0]
-b0000 ^
-b0000 _
-b0000 `
+b0000 [
+b0000 \
+b0000 ]
+0^
+0_
+0`
 0a
 b0000 b
-0c
-0d
+b0000 c
+b0000 d
 0e
 b0000 f
-b0000 g
-b0000 h
-b0000 i
-0j
-0k
-0l
-0m
+0g
+0h
+0i
+b0000 j
+b0000 k
+b0000 l
+b0000 m
 0n
 0o
 0p
@@ -442,29 +454,29 @@ b0000 i
 0#"
 0$"
 0%"
-b0000 &"
-b0000 '"
-b0000 ("
+0&"
+0'"
+0("
 0)"
-0*"
-0+"
-0,"
-b0000 -"
-b0000 ."
-b0000 /"
+b0000 *"
+b0000 +"
+b0000 ,"
+0-"
+0."
+0/"
 00"
 b0000 1"
-02"
-03"
+b0000 2"
+b0000 3"
 04"
 b0000 5"
-b0000 6"
-b0000 7"
-b0000 8"
-09"
-0:"
-0;"
-0<"
+06"
+07"
+08"
+b0000 9"
+b0000 :"
+b0000 ;"
+b0000 <"
 0="
 0>"
 0?"
@@ -486,29 +498,29 @@ b0000 8"
 0O"
 0P"
 0Q"
-b0000 R"
-b0000 S"
-b0000 T"
+0R"
+0S"
+0T"
 0U"
-0V"
-0W"
-0X"
-b0000 Y"
-b0000 Z"
-b0000 ["
+b0000 V"
+b0000 W"
+b0000 X"
+0Y"
+0Z"
+0["
 0\"
 b0000 ]"
-0^"
-0_"
+b0000 ^"
+b0000 _"
 0`"
 b0000 a"
-b0000 b"
-b0000 c"
-b0000 d"
-0e"
-0f"
-0g"
-0h"
+0b"
+0c"
+0d"
+b0000 e"
+b0000 f"
+b0000 g"
+b0000 h"
 0i"
 0j"
 0k"
@@ -530,511 +542,532 @@ b0000 d"
 0{"
 0|"
 0}"
-b0000 !#
-b0000 "#
-b0000 ##
+0!#
+0"#
+0##
 0$#
-0%#
-0&#
-0'#
-b0000 (#
+b0000 %#
+b0000 &#
+b0000 '#
+0(#
 0)#
-b0000 *#
-b0000 +#
+0*#
+0+#
 b0000 ,#
 0-#
-0.#
-0/#
-00#
-b0000 1#
+b0000 .#
+b0000 /#
+b0000 0#
+01#
+02#
+03#
+04#
+b0000 5#
 #5000000
 b0000000000000001 !
 b0000000000000001 "
 b0000000000000010 #
+b0000 '
 b0000000000000001 (
 b0000000000000001 )
-b0000000000000010 +
+b0000000000000010 -
+b0000 .
 b0000000000000010 /
-b0001 3
-b0001 4
-b0010 6
+03
+b0001 7
+b0001 8
 b0010 :
-b0001 ;
-b0001 <
-b0001 =
-1>
-1?
+b0010 >
+b0001 ?
+b0001 @
+b0001 A
 1B
 1C
 1F
 1G
-b0001 W
-b0001 X
-b0001 Y
-b0001 ^
+1J
+1K
+b0001 [
+b0001 \
+b0001 ]
+b0001 b
 #10000000
 b0000000000000011 #
 1$
 1*
-b0000000000000011 +
+b0000000000000011 -
 b0000000000000011 /
-15
-b0011 6
+19
 b0011 :
-1@
-1A
-1V
-1)#
+b0011 >
+1D
+1E
+1Z
+1-#
 #15000000
 b1111111111111100 !
 b0000000000000011 "
 b1111111111111111 #
 0$
 1%
+b0001 '
 b1111111111111100 (
 b0000000000000011 )
 0*
-b1111111111111111 +
-1,
+1+
+b1111111111111111 -
+b0001 .
 b1111111111111111 /
 b1111 0
-b1100 3
-b0011 4
-05
-b1111 6
-17
+16
+b1100 7
+b0011 8
 09
 b1111 :
-b1111 ;
-b0000 <
-b0000 =
-0>
-0@
+1;
+0=
+b1111 >
+b1111 ?
+b0000 @
+b0000 A
 0B
-1E
+0D
 0F
-1G
 1I
-1J
-0L
+0J
+1K
 1M
-1O
-1P
-0R
+1N
+0P
+1Q
 1S
-1U
+1T
 0V
-b1111 W
-b0000 X
-b0000 Y
-1Z
-1\
-b0000 ^
-b1111 _
-b1111 b
-1c
+1W
+1Y
+0Z
+b1111 [
+b0000 \
+b0000 ]
+1^
+1`
+b0000 b
+b1111 c
 b1111 f
-b1111 g
-1j
-1m
-1o
-1p
+1g
+b1111 j
+b1111 k
+1n
+1q
 1s
-1u
-1v
+1t
+1w
 1y
-1{
-1|
+1z
+1}
 1""
-1$"
-b1111 &"
-1)"
-1+"
-b1111 ."
-b1111 1"
-12"
+1#"
+1&"
+1("
+b1111 *"
+1-"
+1/"
+b1111 2"
 b1111 5"
-b1111 6"
-19"
-1<"
-1>"
-1?"
+16"
+b1111 9"
+b1111 :"
+1="
+1@"
 1B"
-1D"
-1E"
+1C"
+1F"
 1H"
-1J"
-1K"
+1I"
+1L"
 1N"
-1P"
-b1111 R"
-1U"
-1W"
-b1111 Z"
-b1111 ]"
-1^"
+1O"
+1R"
+1T"
+b1111 V"
+1Y"
+1["
+b1111 ^"
 b1111 a"
-b1111 b"
-1e"
-1h"
-1j"
-1k"
+1b"
+b1111 e"
+b1111 f"
+1i"
+1l"
 1n"
-1p"
-1q"
+1o"
+1r"
 1t"
-1v"
-1w"
+1u"
+1x"
 1z"
-1|"
-b1111 !#
-1$#
-1&#
-0)#
-b1111 *#
-1-#
-1/#
+1{"
+1!#
+1##
+b1111 %#
+1(#
+1*#
+0-#
+b1111 .#
+11#
+13#
 #20000000
 b1010101010101010 !
 b0101010101010101 "
 b0000000000000000 #
 1$
-1'
+b1010 '
 b1010101010101010 (
 b0101010101010101 )
 1*
-b0000000000000000 +
-1.
+b0000000000000000 -
+b1010 .
 b0000000000000000 /
 b1111 2
-b1010 3
-b0101 4
+13
 15
-b0000 6
+06
+b1010 7
+b0101 8
 19
 b0000 :
-b1111 =
-1@
-0A
+1=
+b0000 >
+b1111 A
 1D
 0E
-1F
-0G
-0J
-1K
-1L
-0M
-1R
-0S
+1H
+0I
+1J
+0K
+0N
+1O
+1P
+0Q
 1V
-b1111 Y
-b1111 ^
-b1010 _
-b0101 `
-1a
-b0000 b
+0W
+1Z
+b1111 ]
+b1111 b
+b1010 c
+b0101 d
 1e
 b0000 f
-b1111 i
-0j
-1k
-1l
-0m
-1r
-0s
-0v
-1w
-1x
-0y
-1!"
-0""
+1i
+b0000 j
+b1111 m
+0n
+1o
+1p
+0q
+1v
+0w
+0z
+1{
+1|
+0}
 1%"
-b1111 ("
-b1111 -"
-b1010 ."
-b0101 /"
-10"
-b0000 1"
+0&"
+1)"
+b1111 ,"
+b1111 1"
+b1010 2"
+b0101 3"
 14"
 b0000 5"
-b1111 8"
-09"
-1:"
-1;"
-0<"
-1A"
-0B"
-0E"
-1F"
-1G"
-0H"
-1M"
-0N"
+18"
+b0000 9"
+b1111 <"
+0="
+1>"
+1?"
+0@"
+1E"
+0F"
+0I"
+1J"
+1K"
+0L"
 1Q"
-b1111 T"
-b1111 Y"
-b1010 Z"
-b0101 ["
-1\"
-b0000 ]"
+0R"
+1U"
+b1111 X"
+b1111 ]"
+b1010 ^"
+b0101 _"
 1`"
 b0000 a"
-b1111 d"
-0e"
-1f"
-1g"
-0h"
-1m"
-0n"
-0q"
-1r"
-1s"
-0t"
-1y"
-0z"
+1d"
+b0000 e"
+b1111 h"
+0i"
+1j"
+1k"
+0l"
+1q"
+0r"
+0u"
+1v"
+1w"
+0x"
 1}"
-b1111 ##
-b1111 (#
-1)#
+0!#
+1$#
+b1111 '#
 b1111 ,#
-b1111 1#
+1-#
+b1111 0#
+b1111 5#
 #25000000
 b0001000010001011 !
 b0100001000000100 "
 b0101001010010000 #
 0%
-0'
+b0000 '
 b0001000010001011 (
 b0100001000000100 )
-b0101001010010000 +
-0,
-0.
+0+
+b0101001010010000 -
+b0000 .
 b0101001010010000 /
 b0001 0
 b0001 2
-b1011 3
-b0100 4
-1>
-0?
-b1000 _
-b0000 `
-b1001 b
-0c
-0e
+03
+04
+05
+06
+b1011 7
+b0100 8
+1B
+0C
+b1000 c
+b0000 d
 b1001 f
-b1000 g
-b0000 i
-0k
-1m
+0g
+0i
+b1001 j
+b1000 k
+b0000 m
 0o
-0p
-0r
+1q
 0s
-0u
+0t
+0v
 0w
-0x
 0y
 0{
-0!"
-1""
-b1000 &"
-b0000 ("
-0)"
-0+"
-b0000 -"
-b0000 ."
-b0010 /"
-00"
-b0010 1"
-02"
+0|
+0}
+0""
+0%"
+1&"
+b1000 *"
+b0000 ,"
+0-"
+0/"
+b0000 1"
+b0000 2"
+b0010 3"
 04"
 b0010 5"
-b0010 6"
-b0000 8"
-0:"
-0;"
-0<"
+06"
+08"
+b0010 9"
+b0010 :"
+b0000 <"
 0>"
 0?"
-1@"
-0A"
-1B"
-0F"
-0G"
-0H"
+0@"
+0B"
+0C"
+1D"
+0E"
+1F"
 0J"
 0K"
-0M"
+0L"
 0N"
-0P"
+0O"
 0Q"
-b0010 R"
-b0000 T"
+0R"
+0T"
 0U"
-0W"
-b0000 Y"
-b0001 Z"
-b0100 ["
-0\"
-b0101 ]"
-0^"
+b0010 V"
+b0000 X"
+0Y"
+0["
+b0000 ]"
+b0001 ^"
+b0100 _"
 0`"
 b0101 a"
-b0101 b"
-b0000 d"
-1e"
-0f"
-0g"
-1h"
+0b"
+0d"
+b0101 e"
+b0101 f"
+b0000 h"
+1i"
+0j"
 0k"
-0m"
-0n"
-0p"
-0s"
-1t"
+1l"
+0o"
+0q"
+0r"
+0t"
 0w"
-0y"
-0z"
-0|"
+1x"
+0{"
 0}"
-b0101 !#
-b0000 ##
+0!#
+0##
 0$#
-0&#
-b0000 (#
-b0001 *#
-b0001 ,#
-0-#
-0/#
-b0001 1#
+b0101 %#
+b0000 '#
+0(#
+0*#
+b0000 ,#
+b0001 .#
+b0001 0#
+01#
+03#
+b0001 5#
 #30000000
 b0101001010001111 #
 0$
 0*
-b0101001010001111 +
+b0101001010001111 -
 b0101001010001111 /
 b0000 2
-05
-b1111 6
 09
 b1111 :
-b0000 =
-0@
-1A
-0F
-1G
-0L
-1M
-0R
-1S
+0=
+b1111 >
+b0000 A
+0D
+1E
+0J
+1K
+0P
+1Q
 0V
-b0000 Y
-b0000 ^
-0a
-b1000 b
+1W
+0Z
+b0000 ]
+b0000 b
+0e
 b1000 f
-0l
-0m
-0%"
-0)#
-b0000 ,#
-b0000 1#
+b1000 j
+0p
+0q
+0)"
+0-#
+b0000 0#
+b0000 5#
 #35000000
 b0000100110010000 !
 b1100000000000011 "
 b1100100110010011 #
+b0001 '
 b0000100110010000 (
 b1100000000000011 )
-b1100100110010011 +
+b1100100110010011 -
+b0001 .
 b1100100110010011 /
 b0000 0
-b0000 3
-b0011 4
-b0011 6
-07
+16
+b0000 7
+b0011 8
 b0011 :
-b0011 ;
-0>
-1?
-0D
-1E
-0K
-0M
+0;
+b0011 >
+b0011 ?
+0B
+1C
+0H
+1I
 0O
-0P
+0Q
 0S
-0U
-b0011 W
-0Z
-0\
-b1001 _
-b1001 b
+0T
+0W
+0Y
+b0011 [
+0^
+0`
+b1001 c
 b1001 f
-b1001 g
-1j
-1m
-1o
-b1001 &"
-b1001 ."
-b0000 /"
-b1001 1"
+b1001 j
+b1001 k
+1n
+1q
+1s
+b1001 *"
+b1001 2"
+b0000 3"
 b1001 5"
-b1001 6"
-19"
-1<"
-1>"
-0@"
-0B"
+b1001 9"
+b1001 :"
+1="
+1@"
+1B"
 0D"
-1K"
-1N"
-1P"
-b1001 R"
-b0000 Z"
-b1100 ["
-b1100 ]"
+0F"
+0H"
+1O"
+1R"
+1T"
+b1001 V"
+b0000 ^"
+b1100 _"
 b1100 a"
-b1100 b"
-0e"
-0h"
-0j"
-1x"
-1z"
+b1100 e"
+b1100 f"
+0i"
+0l"
+0n"
 1|"
-b1100 !#
-b0000 *#
+1!#
+1##
+b1100 %#
+b0000 .#
 #40000000
 b0000000000001111 !
 b0000000000001111 "
 b0000000000011110 #
+b0000 '
 b0000000000001111 (
 b0000000000001111 )
-b0000000000011110 +
+b0000000000011110 -
+b0000 .
 b0000000000011110 /
 b0001 0
 b0001 1
 b0001 2
-b1111 3
-b1111 4
-b1110 6
-17
-18
-19
+03
+04
+06
+b1111 7
+b1111 8
 b1110 :
-b1111 ;
-b1111 <
-b1111 =
-1>
-0A
+1;
+1<
+1=
+b1110 >
+b1111 ?
+b1111 @
+b1111 A
 1B
-1D
+0E
 1F
-1G
 1H
 1J
 1K
 1L
-1M
 1N
 1O
 1P
@@ -1043,54 +1076,58 @@ b1111 =
 1S
 1T
 1U
-b1111 W
-b1111 X
-b1111 Y
-1Z
-1[
-1\
-1]
-b1111 ^
-b0000 _
+1V
+1W
+1X
+1Y
+b1111 [
+b1111 \
+b1111 ]
+1^
+1_
+1`
 1a
-b0001 b
+b1111 b
+b0000 c
+1e
 b0001 f
-b0000 g
-0j
-1l
-1m
-0o
-0|
-0""
-0$"
-1%"
-b0000 &"
-b0000 ."
-b0000 1"
+b0001 j
+b0000 k
+0n
+1p
+1q
+0s
+0#"
+0&"
+0("
+1)"
+b0000 *"
+b0000 2"
 b0000 5"
-b0000 6"
-09"
-0<"
-0>"
-0K"
-0N"
-0P"
-b0000 R"
-b0000 ["
-b0000 ]"
+b0000 9"
+b0000 :"
+0="
+0@"
+0B"
+0O"
+0R"
+0T"
+b0000 V"
+b0000 _"
 b0000 a"
-b0000 b"
-0r"
-0t"
+b0000 e"
+b0000 f"
 0v"
 0x"
 0z"
 0|"
-b0000 !#
-b0001 *#
-b0001 +#
-b0001 ,#
-b0001 1#
+0!#
+0##
+b0000 %#
+b0001 .#
+b0001 /#
+b0001 0#
+b0001 5#
 #45000000
 b0000000011111111 !
 b0000000011111111 "
@@ -1099,33 +1136,29 @@ b0000000111111111 #
 b0000000011111111 (
 b0000000011111111 )
 1*
-b0000000111111111 +
+b0000000111111111 -
 b0000000111111111 /
 b0011 0
 b0011 1
 b0011 2
-15
-b1111 6
+19
 b1111 :
-1@
-1A
-1V
-b1111 _
-b1111 `
-b1111 b
-1c
-1d
-1e
+b1111 >
+1D
+1E
+1Z
+b1111 c
+b1111 d
 b1111 f
-b1111 g
-b1111 h
-b1111 i
-1j
-1k
+1g
+1h
+1i
+b1111 j
+b1111 k
+b1111 l
+b1111 m
 1n
 1o
-1p
-1q
 1r
 1s
 1t
@@ -1142,23 +1175,27 @@ b1111 i
 1""
 1#"
 1$"
-b1111 &"
-b1111 '"
-b1111 ("
-1)"
-1*"
-1+"
-1,"
-b1111 -"
+1%"
+1&"
+1'"
+1("
+b1111 *"
+b1111 +"
+b1111 ,"
+1-"
+1."
+1/"
 10"
-b0001 1"
+b1111 1"
+14"
 b0001 5"
-1;"
-1<"
-1Q"
-1)#
-b0011 *#
-b0011 +#
-b0011 ,#
-b0011 1#
+b0001 9"
+1?"
+1@"
+1U"
+1-#
+b0011 .#
+b0011 /#
+b0011 0#
+b0011 5#
 #50000000
