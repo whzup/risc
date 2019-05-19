@@ -393,6 +393,7 @@ begin
 
   sh_f <= sl and (of_tmp0 or of_tmp1 or of_tmp2 or of_tmp3);
   sh_z <= '1' when rev_1 = "0000000000000000" else '0';
+  sh_n <= '1' when rev_1(15) = '1' else '0';
 
   o_flags <= sh_z & sh_f & sh_z & sh_n;
   o_res <= rev_1;
