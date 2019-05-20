@@ -1,12 +1,10 @@
---library ieee;
---use ieee.std_logic_1164.all;
---use ieee.numeric_std.all;
-
---package dadda_utils is
---end package;
---
---package body dadda_utils is
---end package body;
+------------------------------------------------------------
+-- Title:       Dadda Tree Multiplier
+-- Description: A multiplier which uses a Dadda Tree as a
+--              multiplication scheme.
+-- Author:      Aaron Moser
+-- Date:        20.05.2019
+------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
