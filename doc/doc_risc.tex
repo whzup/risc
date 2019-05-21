@@ -1,23 +1,127 @@
-\documentclass{report}
-\usepackage[top=3cm, bottom=3cm, left=3.5cm, right=3cm]{geometry}
-\usepackage{tabularx}
+\documentclass[twoside]{article}
+
+\usepackage[top=2.5cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+\usepackage{graphicx}
+\usepackage{fouriernc}
+\usepackage{amssymb}
 \usepackage{float}
-\usepackage{tikz}
-\usepackage{longtable}
 \usepackage{environ}
-\usepackage{boldline}
+\usepackage[export]{adjustbox} % Left align graphics
+\usepackage{tikz}
 \usepackage{circuitikz}
+\usepackage{siunitx}
+\usepackage{montserrat}
+\usepackage[sfdefault]{plex-sans}
+\usepackage{plex-mono}
+\usepackage{caption,footmisc}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{longtable}
+\usepackage{boldline}
+\usepackage{bigstrut}
+\usepackage{enumitem}
+\usepackage{wrapfig,booktabs}
+\usepackage{multirow,array,slashbox}
+\usepackage{url}
+\usepackage{gensymb}
+\usetikzlibrary{shapes, shapes.geometric,arrows,arrows.meta,shapes.arrows,fit,backgrounds}
 \frenchspacing
 
-\usetikzlibrary{positioning, calc}
+% --------------
+% Commands
+% --------------
+%\renewcommand{\familydefault}{phv}
+
+\newcommand\customrule[1]{
+  \color{accent}\vspace{-14pt}{\makebox[\linewidth][l]{\rule{#1\textwidth}{1.5pt}}}
+\vspace{-23pt}}
+
+%\renewcommand\labelitemi{--}
+\renewcommand{\labelitemi}{\color{accent}\scriptsize$\blacksquare$}
+
+\setlength{\parindent}{0pt}
+
+\newcommand\tss[1]{
+  \textsubscript{#1}
+}
+% --------------
+% Definitions
+% --------------
+%\setlist[itemize]{leftmargin=*,itemsep=0pt}
+\newcolumntype{?}{!{\vrule width 1pt}}
+\captionsetup{labelfont=bf,size=small}
+\newcommand{\component}[1]{\emph{#1}}
+\newcommand{\reffigure}[1]{\textit{Figure \ref{#1}}}
+\newcommand{\reftable}[1]{\textit{Table \ref{#1}}}
+\newcommand{\refapp}[1]{\textit{Appendix \ref{#1}}}
+\newcommand{\refsection}[1]{\textit{Section \ref{#1}}}
+\newlength{\Oldarrayrulewidth}
+\newcommand{\Cline}[2]{%
+  \noalign{\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}}%
+  \noalign{\global\setlength{\arrayrulewidth}{#1}}\cline{#2}%
+  \noalign{\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}}}
+
+\definecolor{accent}{HTML}{1967B7}
+\definecolor{desat}{HTML}{C2C2C2}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\makeatletter 
+\def\WFfill{\par 
+    \ifx\parshape\WF@fudgeparshape 
+    \nobreak 
+    \ifnum\c@WF@wrappedlines>\@ne 
+    \advance\c@WF@wrappedlines\m@ne 
+    \vskip\c@WF@wrappedlines\baselineskip 
+    \global\c@WF@wrappedlines\z@ 
+    \fi 
+    \allowbreak 
+    \WF@finale 
+    \fi 
+} 
+\makeatother 
+% --------------
+% Fancy stuff
+% --------------
+\titleformat{\section}
+            {\Huge\fontfamily{Montserrat-LF}\fontseries{eb}\selectfont}
+            {\color{desat}\thesection}
+            {0.5em}
+            {}
+            [\customrule{0.1}]
+
+\titleformat{\subsection}
+            {\Large\fontfamily{Montserrat-LF}\fontseries{b}\selectfont}
+            {\color{desat}\thesubsection}
+            {0.5em}
+            {}
+            %[\customrule{0.07}]
+
+\titleformat{\subsubsection}
+            {\large\fontfamily{Montserrat-LF}\fontseries{b}\selectfont}
+            {\thesubsubsection}
+            {0.5em}
+            {}
+
+\fancyhead[L,C]{}
+    \fancyhf{}
+    %\fancyfoot[R]{\footnotesize\bfseries\color{accent}Documentation RISC}
+    %\fancyhead[LE]{\color{accent}\bfseries\thepage\hskip\linepagesep\vfootline}
+    \fancyfoot[R]{\color{desat}\bfseries RISC\hspace{5pt}\vfootline\hskip\linepagesep\color{accent}\bfseries\thepage}
+    \renewcommand\headrulewidth{0pt}
+    \newskip\linepagesep \linepagesep 5pt\relax
+    \def\vfootline{%
+    \begingroup\color{desat}\rule[-2pt]{1.5pt}{11pt}\endgroup}
+
+\pagestyle{fancy}
+
+
 
 \newcounter{magicrownumbers}
 \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
-
-% ---------------
-% Circuitikz symbols
-% ---------------
-\input{circuitikz_symbols}
 
 % ---------------
 % Boxed numbers
@@ -39,66 +143,19 @@
 % Document
 % ---------------
 \begin{document}
-\section*{Specification}
-This document specifies the specifications for the design of a 16 bit computer.
-
-
-\subsection*{Requirement Definitions}
-The following requirements are imposed on the design of the computer:
-\begin{table}[H]
-	\centering
-	\renewcommand{\arraystretch}{1.2}
-	\begin{longtable}{p{0.25\textwidth}p{0.75\textwidth}}
-		\hline
-		\textbf{Clock} & Variable from 0-1000 Hz\\
-		\hline
-		\textbf{Stack Memory} & Seperate stack memory to prevent stack overflows. \\
-		\hline
-		\textbf{Registers} & 8 registers including a Stack Pointer Register and a Program Counter, additionally one general purpose shift register and 5 general purpose registers. The flag register has flags for negative, zero, overflow and carry\\
-		\hline
-		\textbf{ALU} & Addition, subtraction, AND, OR, NOT, left shifting, sign extension of bytes, flag register\\
-		\hline
-		\textbf{Instruction Register} & The first 5 bits define the instruction.\\
-		\hline
-	\end{longtable}
-\end{table}
-
-
-\subsection*{Architecture}
-The basic architecture is a Von-Neumann architecture where the memory and the CPU are
-connected by one single system bus.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-		[comp/.style = {thick, draw, rectangle, fill=blue!20!white, minimum width=2cm, minimum height=1cm},
-		 int/.style = {fill=black, circle, inner sep=2pt}]
-		\node[comp] (clock) {\textbf{Clock}};
-		\node[comp, below=of clock] (pc) {\textbf{PC}};
-		\node[comp, below=of pc] (ir) {\textbf{IR}};
-		\node[comp, below=of ir] (reg) {\textbf{Registers}};
-		\node[comp, right=3cm of clock] (mem) {\textbf{Memory}};
-		\node[comp, below=of mem] (stack) {\textbf{Stack}};
-		\node[comp, below=of stack] (alu) {\textbf{ALU}};
-		\node[comp, below=of alu] (freg) {\textbf{FR}};
-		\node[above right=0.8cm and 1.5cm of clock, label={\textbf{System-Bus}}] (busstart) {};
-		\node[below right=0.8cm and 1.5cm of reg] (busend) {};
-
-		\draw[ultra thick] (busstart) -- (busend);
-		\draw[ultra thick] (clock) -- (busstart |- clock) node[int] {} -- (mem);
-		\draw[ultra thick] (pc) -- (busstart |- pc) node[int] {} -- (stack);
-		\draw[ultra thick] (ir) -- (busstart |- ir) node[int] {} -- (alu);
-		\draw[ultra thick] (reg) -- (busstart |- reg) node[int] {} -- (freg);
-	\end{tikzpicture}
-	\caption{System architecture}
-\end{figure}
-
-
+\section*{Documentation}
+\subsection*{Introduction}
+The final purpose of this document is not necessary to be a technical
+documentation of the RISC built, but should also be instructional for
+other students interested in computer architecture.
 \subsection*{Instruction Set}
-\subsubsection*{General Overview}
-The instruction set consists of 32 different instructions. The first 5 bit of the operation code are interpreted as the instruction. The instructions that have to implemented are the following:
+\subsubsection*{Instructions}
+The instruction set consists of 32 different instructions. The first 5 bit of
+the operation code are interpreted as the instruction. The following
+instructions are implemented:
 \begin{table}[H]
 	\centering
-	\begin{longtable}{p{0.16\textwidth}p{0.02\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
+	\begin{longtable}{p{0.16\textwidth}p{0.05\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
         \textbf{Data transfer} & \rownumber & \texttt{LDW} & Load a value of a memory address into a register\\
                                & \rownumber & \texttt{LDB} & Load the LSB of a memory address into a register\\
                                & \rownumber & \texttt{MOV} & Move a value from one register to another\\
@@ -106,11 +163,11 @@ The instruction set consists of 32 different instructions. The first 5 bit of th
                                & \rownumber & \texttt{STW} & Store the value of a register in a memory adress\\
                                & \rownumber & \texttt{STB} & Store the LSB of a register value in a memory address\\
 	\end{longtable}
-	\begin{longtable}{p{0.16\textwidth}p{0.02\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
+	\begin{longtable}{p{0.16\textwidth}p{0.05\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
         \textbf{Stack} & \rownumber & \texttt{PSH} & Push register values onto the stack\\
                        & \rownumber & \texttt{POP} & Pop values from the stack\
 	\end{longtable}
-	\begin{longtable}{p{0.16\textwidth}p{0.02\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
+	\begin{longtable}{p{0.16\textwidth}p{0.05\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
         \textbf{ALU} & \rownumber & \texttt{ADD} & Add the values of two registers\\
                      & \rownumber & \texttt{ADD} & Add an immediate value to a register\\
                      & \rownumber & \texttt{SUB} & Subtract the values of two registers\\
@@ -128,102 +185,119 @@ The instruction set consists of 32 different instructions. The first 5 bit of th
                      & \rownumber & \texttt{RRS} & Rotate the value in a register right by a variable amount\\
                      & \rownumber & \texttt{SXT} & Sign extension of the LSB\\
 	\end{longtable}
-	\begin{longtable}{p{0.16\textwidth}p{0.02\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
+	\begin{longtable}{p{0.16\textwidth}p{0.05\textwidth}p{0.04\textwidth}p{0.79\textwidth}}
         \textbf{Branching} & \rownumber & \texttt{BRX} & Branch to the address stored in a register\\
                            & \rownumber & \texttt{BIF} & Branch if a certain flag is set in the flag register\\
     \end{longtable}
 \end{table}\noindent
 The operation codes have the following general layout:\par
 
-\subsubsection*{Instruction Set Architecture}
+\subsubsection*{Architecture}
 \renewcommand{\arraystretch}{1.2}
-\begin{center}
-    \begin{longtable}{m{0.45\textwidth}m{0.12\textwidth}m{0.38\textwidth}}
+\begin{table}[H]
+    \centering
+    \begin{longtable}{m{0.30\textwidth}m{0.12\textwidth}m{0.55\textwidth}}
         \textbf{Operation Code} & \textbf{Mnemonic} & \textbf{Description}\\
         \hlineB{2.2}
-        \boxchar{0100 0001 0mmm 1nnn} & LDW       & Load the word that is stored at the
+                                                    \bigstrut
+        \texttt{0100 0001 0mmm 1nnn} & LDW       & Load the word that is stored at the
                                                     address held by the register
                                                     \texttt{Rmmm} into the register
                                                     \texttt{Rnnn}.\\
                                                     \hline
-        \boxchar{0100 1001 0mmm 1nnn} & LDB       & Load the least significant byte of
+                                                    \bigstrut
+        \texttt{0100 1001 0mmm 1nnn} & LDB       & Load the least significant byte of
                                                     the word at the address held by the
                                                     register \texttt{Rmmm} into the
                                                     register \texttt{Rnnn}.\\
                                                     \hline
-        \boxchar{0101 0nnn bbbb bbbb} & MOVE      & Move the value
+                                                    \bigstrut
+        \texttt{0101 0nnn bbbb bbbb} & MOVE      & Move the value
                                                     \texttt{bbbb'bbbb} into the register
                                                     \texttt{Rnnn}.\\
                                                     \hline
-        \boxchar{0110 0001 0mmm 1nnn} & STRW      & Store the value of the register
+                                                    \bigstrut
+        \texttt{0110 0001 0mmm 1nnn} & STRW      & Store the value of the register
                                                     \texttt{Rmmm} at the address held by
                                                     the register \texttt{Rnnn}.\\
                                                     \hline
-        \boxchar{0110 1001 0mmm 1nnn} & STRB      & Store the least significant byte of
+                                                    \bigstrut
+        \texttt{0110 1001 0mmm 1nnn} & STRB      & Store the least significant byte of
                                                     the value in register
                                                     \texttt{Rmmm} at the address held by
                                                     the register \texttt{Rnnn}.\\
                                                     \hline
-        \boxchar{0000 00ps xxxx xxxx} & PUSH      & Push the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p} on the stack\\
+                                                    \bigstrut
+        \texttt{0000 00ps xxxx xxxx} & PUSH      & Push the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p} on the stack\\
         \hline
-        \boxchar{0000 10ps xxxx xxxx} & POP       & Pop values from the stack in the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p}.\\
+        \texttt{0000 10ps xxxx xxxx} & POP       & Pop values from the stack in the declared registers \texttt{x}, the stack pointer \texttt{s} or the program counter \texttt{p}.\\
         \hline
-        \boxchar{1000 001m mmnn nddd} & ADD       & Add the values of the registers
+        \texttt{1000 001m mmnn nddd} & ADD       & Add the values of the registers
                                                     \texttt{Rmmm} and \texttt{Rnnn} and
                                                     store the result in the register
                                                     \texttt{Rddd}.\\
                                                     \hline
-        \boxchar{1000 101m mmnn nddd} & SUB       & Subtract the value in the register
+                                                    \bigstrut
+        \texttt{1000 101m mmnn nddd} & SUB       & Subtract the value in the register
                                                     \texttt{Rnnn} from the value in
                                                     the register \texttt{Rmmm} and store
                                                     the result in the register
                                                     \texttt{Rddd}.\\
                                                     \hline
-        \boxchar{1001 001m mmnn nddd} & AND       & Calculate a bitwise AND of the values in
+                                                    \bigstrut
+        \texttt{1001 001m mmnn nddd} & AND       & Calculate a bitwise AND of the values in
                                                     the registers \texttt{Rmmm}
                                                     and \texttt{Rnnn}. Store the result
                                                     in the register \texttt{Rddd}.\\
                                                     \hline
-        \boxchar{1001 101m mmnn nddd} & OR        & Calculate a bitwise OR of the values
+                                                    \bigstrut
+        \texttt{1001 101m mmnn nddd} & OR        & Calculate a bitwise OR of the values
                                                     in the registers \texttt{Rmmm} and
                                                     \texttt{Rnnn}. Store the result in
                                                     the register \texttt{Rddd}.\\
                                                     \hline
-        \boxchar{1010 0001 0mmm 1ddd} & NOT       & Bitwise inversion of the value in
+                                                    \bigstrut
+        \texttt{1010 0001 0mmm 1ddd} & NOT       & Bitwise inversion of the value in
                                                     the register \texttt{Rmmm}. Store
                                                     the result in the register
                                                     \texttt{Rddd}.\\
                                                     \hline
-        \boxchar{1010 1001 0mmm bbbb} & LSHIFT    & Shift the value in the register
+                                                    \bigstrut
+        \texttt{1010 1001 0mmm bbbb} & LSHIFT    & Shift the value in the register
                                                     \texttt{Rmmm} by \texttt{bbbb} to
                                                     the left.\\
                                                     \hline
-        \boxchar{1011 0001 0mmm bbbb} & RSHIFT    & Shift the value in the register
+                                                    \bigstrut
+        \texttt{1011 0001 0mmm bbbb} & RSHIFT    & Shift the value in the register
                                                     \texttt{Rmmm} by \texttt{bbbb} to
                                                     the right.\\
                                                     \hline
-        \boxchar{1011 1000 0000 1nnn} & SIXT      & Signextend the least significant
+                                                    \bigstrut
+        \texttt{1011 1000 0000 1nnn} & SIXT      & Signextend the least significant
                                                     byte of the value that is stored
                                                     in the register \texttt{Rnnn}.\\
                                                     \hline
     \end{longtable}
-\end{center}
+\end{table}
+
 \subsection*{ALU}
 The ALU consists of the following components:
 \begin{itemize}
-    \item carry lookahead adder (CLAA)
-    \item barrel shifter
-    \item wallace tree multiplier
-    \item logic unit
-    \item flag register
+    \item Brent-Kung Adder (BKA)
+    \item Barrel Shifter
+    \item Dadda Tree Multiplier (DTM)
+    \item Logic Unit (LU)
 \end{itemize}
 
-\begin{tikzpicture}[]
-    \node[decoder] (dec) {};
-    \node[lu,xshift=5cm] (lu) {};
-    \node[claa,yshift=-3cm] (claa) {};
-    \node[wtmul,below=2cm of claa] (wt) {};
-    \node[barrel,below=2cm of wt] (shifter) {};
-\end{tikzpicture}
+\subsubsection*{Brent-Kung Adder}
+A Brent-Kung adder is a parallel prefix adder.
+
+\subsubsection*{Barrel Shifter}
+% TODO: Add citation for the paper used
+The barrel shifter is able to (arithetically) shift and rotate all the bits
+to the left or to the right.
+
+\subsubsection*{Dadda Tree Mulitplier}
+A Dadda Tree Multiplier uses a Dadda Tree to multiply two numbers.
 
 \end{document}
