@@ -2,8 +2,9 @@
 
 \usepackage[top=2.5cm,bottom=3cm,left=3cm,right=3cm]{geometry}
 \usepackage{graphicx}
-\usepackage{fouriernc}
+%\usepackage{fouriernc}
 \usepackage{amssymb}
+\usepackage{cite}
 \usepackage{float}
 \usepackage{environ}
 \usepackage[export]{adjustbox} % Left align graphics
@@ -143,11 +144,12 @@
 % Document
 % ---------------
 \begin{document}
-\section*{Documentation}
+\section*{RISC}
 \subsection*{Introduction}
 The final purpose of this document is not necessarily to be a technical
 documentation of the RISC built, but should also be instructional for
-other students interested in computer architecture.
+other students interested in computer architecture. The goal is to design an
+efficient CPU with some intersting and modern features to learn their workings.
 \subsection*{Instruction Set}
 \subsubsection*{Instructions}
 The instruction set consists of 32 different instructions. The first 5 bit of
@@ -290,14 +292,19 @@ The ALU consists of the following components:
 \end{itemize}
 
 \subsubsection*{Brent-Kung Adder}
-A Brent-Kung adder is a parallel prefix adder.
+A Brent-Kung adder is a parallel prefix adder. It has a layer depth of
+$\mathcal{O}(\log_2(n))$ for an input size of $n$.
 
 \subsubsection*{Barrel Shifter}
-% TODO: Add citation for the paper used
-The barrel shifter is able to (arithetically) shift and rotate all the bits
-to the left or to the right.
+The barrel shifter is able to (arithmetically) shift and rotate all the bits
+to the left or to the right. The design was taken from Pillmeier et
+al.\cite{pillmeier02}. They found, that the delay of the shifter increases
+with $\mathcal{O}(\log(n))$ and the area with $\mathcal{O}(n\log(n))$ as the
+operand's size $n$ grows.
 
 \subsubsection*{Dadda Tree Mulitplier}
 A Dadda Tree Multiplier uses a Dadda Tree to multiply two numbers.
 
+\bibliography{refs}
+\bibliographystyle{plain}
 \end{document}
