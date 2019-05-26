@@ -38,14 +38,14 @@ architecture behaviour of brent_kung_adder is
   signal add_c : std_logic;
   signal add_n : std_logic;
 
-  function circ_op(g : in std_logic_vector(1 downto 0);
-                   p : in std_logic_vector(1 downto 0)) return std_logic_vector is
+  function circ_op(op1 : in std_logic_vector(1 downto 0);
+                   op2 : in std_logic_vector(1 downto 0)) return std_logic_vector is
     variable tmp1 : std_logic;
     variable tmp2 : std_logic;
     variable res : std_logic_vector(1 downto 0);
   begin
-    tmp1 := g(0) or (p(0) and g(1));
-    tmp2 := p(0) and p(1);
+    tmp1 := op1(1) or (op1(0) and op2(1));
+    tmp2 := op1(0) and op2(0);
     res := tmp1 & tmp2;
     return res;
   end function;
@@ -54,7 +54,6 @@ begin
 
   carry_proc : process(all)
   begin
-
     g_vec(0) <= (i_op1(0) and i_op2(0)) or (i_c and (i_op1(0) xor i_op2(0)));
     p_vec(0) <= i_op1(0) xor i_op2(0) xor i_c;
     for i in 1 to 15 loop
@@ -85,9 +84,9 @@ begin
     -- Inverse Carry Tree
     for k in ct_stages to stages-1 loop
       for i in 0 to 15 loop
-        if (i-2**(stages-k) mod 2**(stages-k+1) = 2**(stages-k+1)-1) then
-          if i-2**(stages-k) >= 0 then
-            carry_tree(i,k) <= circ_op(carry_tree(i,k-1), carry_tree(i-2**(stages-k),k-1));
+        if ((i-2**(stages-k-1)) mod 2**(stages-k) = 2**(stages-k)-1) then
+          if i >= 2**(stages-k-1) then
+            carry_tree(i,k) <= circ_op(carry_tree(i,k-1), carry_tree(i-2**(stages-k-1),k-1));
           else
             carry_tree(i,k) <= carry_tree(i,k-1);
           end if;
@@ -101,9 +100,9 @@ begin
 
   sum_proc : process(all)
   begin
-    sum(0) <= carry_tree(0,0)(1);
+    sum(0) <= p_vec(0);
     for i in 1 to 15 loop
-      sum(i) <= carry_tree(i,0)(1) xor carry_tree(i-1,stages-1)(0);
+      sum(i) <= p_vec(i) xor carry_tree(i-1,stages-1)(1);
     end loop;
   end process;
 
