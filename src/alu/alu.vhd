@@ -22,14 +22,12 @@ end entity;
 
 architecture behaviour of alu is
   -- Adder
-  component claa_16bit
+  component brent_kung_adder
     port
       (
         i_op1   : in  std_logic_vector(15 downto 0);
         i_op2   : in  std_logic_vector(15 downto 0);
         i_c     : in  std_logic;
-        o_p     : out std_logic;
-        o_g     : out std_logic;
         o_res   : out std_logic_vector(15 downto 0);
         o_flags : out std_logic_vector(3 downto 0)
         );
@@ -129,14 +127,12 @@ architecture behaviour of alu is
   signal res : std_logic_vector(15 downto 0);
 begin
   -- Instantiate the components
-  claa_inst : claa_16bit port map
+  bk_inst : brent_kung_adder port map
     (
       i_op1 => add_vec,
       i_op2 => inv_vec,
       i_c   => sub_flag,
       o_res => add_res,
-      o_p   => open,
-      o_g   => open,
       o_flags => add_flags
       );
 
