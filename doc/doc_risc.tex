@@ -292,15 +292,12 @@ The ALU consists of the following components:
 \end{itemize}
 
 \subsubsection*{Brent-Kung Adder}
-A Brent-Kung adder is a parallel prefix adder. It has a layer depth of
-$\mathcal{O}(\log_2(n))$ for an input size of $n$.
+A Brent-Kung adder is a parallel prefix adder.\cite{brent82}
 
 \subsubsection*{Barrel Shifter}
 The barrel shifter is able to (arithmetically) shift and rotate all the bits
 to the left or to the right. The design was taken from Pillmeier et
-al.\cite{pillmeier02}. They found, that the delay of the shifter increases
-with $\mathcal{O}(\log(n))$ and the area with $\mathcal{O}(n\log(n))$ as the
-operand's size $n$ grows.
+al.\cite{pillmeier02}.
 
 \subsubsection*{Dadda Tree Mulitplier}
 A Dadda Tree Multiplier uses a Dadda Tree to multiply two numbers.
