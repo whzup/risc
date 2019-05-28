@@ -1,44 +1,27 @@
+------------------------------------------------------------
+-- Title:       Tristate Buffer
+-- Description: 
+-- Author:      Aaron Moser
+-- Date:        28.05.2019
+------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
 entity tristate_buf is
---port definition
-port(
-	clk		 : in std_logic;
-	reset_n  : in std_logic;
-	enable_n : in std_logic;
-	d_in  : in std_logic;
-	d_out : out std_logic
-	);
+port
+  (
+    i_d     : in std_logic;
+    i_n_en  : in std_logic;
+    o_d     : out std_logic
+  );
 end tristate_buf;
 
 architecture behaviour of tristate_buf is
---signale
-signal data, next_data	: std_logic;
-
 begin
 
-	flip_flops: process(all)
-	begin
-		if reset_n = '0' then
-			data <= '0';
-		elsif rising_edge(clk) then
-			data <= next_data;
-		end if;
-	
-	end process flip_flops;
-	
-	buffer_logic: process(all)
-	begin
-		next_data <= d_in;
-	
-		if enable_n = '0' then
-			d_out <= data;
-		else 
-			d_out <= 'Z';
-		end if;
-	end process buffer_logic;
-
-	
+with i_n_en select o_d <=
+  "Z" when '0',
+  i_d when '1';
 
 end behaviour;
